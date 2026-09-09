@@ -163,6 +163,73 @@ se la rottura di pendenza si mantiene lungo di essa, se prosegue oltre il bordo
 del tile alla stessa quota. E' un test per-oggetto, non per-scena, e richiede un
 estrattore di lineamenti — che oggi non c'e'.
 
+### Tentativo 7 — dimensione frattale della curva (PREVISIONE NON CONFERMATA)
+
+Prima direzione *fuori* dalla famiglia dei sei: la dimensione frattale e'
+adimensionale e invariante di scala. Non misura quanta roba c'e', misura come
+cambia la lunghezza al cambiare del righello (Richardson). Raddoppiare l'area
+non la cambia. Ed e' motivata fisicamente: una sponda e' levigata dal moto
+ondoso a una scala caratteristica, mentre un'isolinea su pianura incisa dal
+drenaggio serpeggia a *tutte* le scale seguendo ogni forra.
+
+Ed e' per-oggetto: si misura la singola curva piu' lunga, non un aggregato di
+scena. Risponde alla diagnosi strutturale.
+
+**Previsione registrata prima di guardare:** sul Bama la curva dominante alla
+quota della sponda ha D piu' bassa che alle altre quote; sul controllo questo
+avvallamento non c'e'.
+
+| | D minima | dove | mediana | escursione |
+|---|---|---|---|---|
+| Bama | 1.1062 | 328 m | 1.2439 | 0.1822 |
+| Controllo | **1.0407** | 328 m | 1.1696 | 0.1783 |
+
+**Non confermata.** Il controllo ha il minimo piu' profondo e la stessa
+escursione.
+
+Osservazione post-hoc, registrata come tale e **non valida come prova**: la
+curva del Bama scende in modo monotono e regolare su 11 livelli consecutivi
+(1.288 -> 1.106) e risale su 6, mentre quella del controllo vagola e il suo
+minimo e' un picco stretto su 3 punti. Per contare, andrebbe registrata come
+previsione e testata su tile nuovi.
+
+**Confondente metodologico identificato:** D stimata su un intervallo di
+righelli fisso dipende dalla *lunghezza* della curva. Nel controllo il minimo di
+D coincide con il crollo della curva piu' lunga (6.245 px contro 14-35k alle
+altre quote): quella "levigatezza" e' un artefatto di lunghezza. Qualunque uso
+futuro di D deve normalizzare per la lunghezza della curva.
+
+**Errore mio, da non ripetere:** la prima esecuzione richiedeva almeno 3 curve
+lunghe per quota, e ha scartato in silenzio proprio le quote 310-326 del Bama —
+dove le curve lunghe sono 1 o 2, che e' *esattamente* il caso "una sponda
+dominante". La guardia aveva buttato via il segnale.
+
+## Le due direzioni ancora non provate
+
+Vengono dalla stessa domanda ("frattale o integrale?") e non appartengono alla
+famiglia dei sette.
+
+**1. Integrale di bacino — la piu' motivata.** V(z) = integrale dell'acqua a
+quota z sul bacino, con dV/dz = area del lago. Per una conca vera, la curva
+area-quota A(z) ha una rottura netta alla quota di sponda, perche' sopra di essa
+l'acqua si versa su una superficie diversa. Due ragioni per cui e' diversa dalle
+sette:
+  - **l'integrazione sopprime il rumore** che ha ucciso tutte le altre: le mie
+    statistiche contavano oggetti piccoli, dove il rumore domina; un integrale
+    sul bacino e' dominato dalla forma grande della conca;
+  - **e' alla scala giusta**. Un tile e' 110 km, il Mega-Chad e' ~1.000 km. Ho
+    passato sette tentativi a cercare un oggetto di bacino dentro una finestra
+    troppo piccola per contenerlo.
+  Ha inoltre un riscontro esterno: area pubblicata ~350.000 km2 al highstand, e
+  uno sfioro noto verso il Benue via Mayo Kebbi.
+
+**2. Funzionali di Minkowski / caratteristica di Eulero degli insiemi di
+livello** — si chiama letteralmente geometria integrale. Il pregio unico: la
+teoria dei campi aleatori da' un'**attesa analitica** per chi(z) sotto ipotesi
+nulla, cioe' un null teorico invece di un confronto ad hoc con un tile di
+controllo. Il rischio: il terreno reale non e' un campo gaussiano, quindi il
+null potrebbe essere sbagliato in partenza.
+
 ## La cosa piu' importante di tutto questo file
 
 **L'occhio lo trova in un secondo.** Guarda `calibrazione-bama-ridge.png`: il

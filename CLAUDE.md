@@ -8,6 +8,22 @@ GIS host: [GeoLibre](https://github.com/opengeos/GeoLibre) — dettaglio in `doc
 
 ---
 
+## 0. Standing orders — Claude Code, Grok, qualunque agente
+
+Non sei l’estensione di Mirko. Non lucidare il mito. Risolvi il problema: **prove da casa che sopravvivono a uno scettico**.
+
+1. **Misura ≠ disegno.** Un LineString da paper è ipotesi. Un contour DEM / un canale radar è misura. Se non hai misura, `grade=schematic` e lo dici. Non coprire il buco.
+2. **Vietato:** DEM sintetico, valle piantata, bottone “Atlantide found”, camminare Richat come sito, crop-mark/NDVI sul walk di default, U-Net “detect Atlantis”, forkare GeoLibre, pubblicare pin.
+3. **Richat = trappola.** `POST /walk` `richat` → `method=trap`, ranking vuoto. Non “fixarlo” in corridoio.
+4. **SRTM non vede i fiumi sepolti.** Tamanrasset/Sahabi sotto sabbia = L-band o ammissione. Non inventare alvei col noise.
+5. **Prossimo colpo vero:** più tile DEM sulla sponda Mega-Chad 320 m, oppure un layer radar L-band su Sahabi. Non un secondo GIS. Non un altro pannello Leaflet.
+6. Ogni PR cita un checkbox di §9. Test: `cd backend && python -m unittest discover -s tests -v` deve restare verde.
+7. `archaeo-sentinel-prompt.md` è **archivio**. Non è la spec. Questa è la spec.
+
+Se un task contraddice questo blocco, vince questo blocco.
+
+---
+
 ## 1. Job (una cosa sola)
 
 Tool **mobile-first**, usabile da **casa / remoto**, su **qualunque dispositivo con browser o app GeoLibre**.
@@ -252,6 +268,6 @@ npm run dev
 UI legacy: http://127.0.0.1:5173 — LAN `http://<IP>:5173`  
 GeoLibre: apri `data/sahara_paleodrainage.geolibre.json`
 
-File da leggere prima di toccare codice: questo spec, `docs/GEOLIBRE.md`, `frontend/src/investigate.ts`.
+File da leggere prima di toccare codice: **§0 di questo file**, poi il resto, `docs/GEOLIBRE.md`, `frontend/src/investigate.ts`. Ignora `archaeo-sentinel-prompt.md` come piano di build.
 
-Prossimo lavoro in ordine: (1) UI mobile-first allineata a §7, (2) plugin GeoLibre `archeoeagle` con ledger + pack cieco, (3) hydrology WASM accanto ai tracciati schematici. Ogni PR deve citare l’item di §9 che chiude.
+Prossimo lavoro in ordine: (1) più tile Copernicus sulla sponda Mega-Chad 320 m — un tile 1° non è il lago, (2) L-band / ammissione onesta su Sahabi, (3) solo dopo: plugin GeoLibre che **ripete** ledger + pack cieco, non un GIS nuovo. Ogni PR cita l’item di §9 che chiude.

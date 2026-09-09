@@ -4,7 +4,7 @@ Motore forense sui **paleofiumi del Sahara**. Da un PC di casa. Open source.
 
 Repo: https://github.com/mtornani/ArcheoEagle
 
-**Spec di prodotto:** `CLAUDE.md` (source of truth). Codice è derivato.
+**Spec di prodotto:** `CLAUDE.md` (source of truth, **§0 standing orders**). Codice è derivato. Claude Code e qualunque agente: leggi §0 prima di toccare file. `archaeo-sentinel-prompt.md` è archivio, non il piano.
 
 GIS host da qui in poi: **[GeoLibre](https://github.com/opengeos/GeoLibre)** (browser, desktop, iOS, Android). ArcheoEagle resta il dominio forense (ledger, pack cieco, Platone). Non un secondo GIS. Vedi `docs/GEOLIBRE.md`.
 

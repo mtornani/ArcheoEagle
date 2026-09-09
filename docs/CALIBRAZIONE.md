@@ -127,7 +127,61 @@ unimodale pulito: 1.886 curve e 53% a 326 m, contro 12-14.000 curve e 23-27% a
 **Ma il controllo fa lo stesso picco:** 0.615 a 310 m (rapporto 1.52) contro
 0.535 a 326 m del Bama (rapporto 1.66). Non separa.
 
-## Il pattern, che e' il vero risultato
+### Tentativo 6 — continuita' cross-tile (NON SEPARA)
+
+L'idea, dopo il pattern dei primi cinque: una sponda non e' una proprieta' di un
+tile, deve valere **attraverso** i tile. Statistica: quanto si allunga la curva
+piu' lunga passando da un tile singolo a un mosaico 2x2. Una sponda continua e
+cresce; un artefatto locale si ferma al bordo.
+
+| | crescita mediana | max | dove |
+|---|---|---|---|
+| Bama 2x2 (sponda vera) | 1.87 | 2.15 | 305 m |
+| Controllo 2x2 | **2.00** | 2.30 | 325 m |
+
+Identiche, con il controllo leggermente **piu' alto**. Il confondente e' banale:
+quadruplicare l'area raddoppia la lunghezza dei contorni qualunque cosa ci sia
+dentro (una curva che riempie lo spazio cresce come la radice dell'area). La
+statistica misurava l'area, non la continuita'.
+
+## Perche' falliscono tutte e sei — la diagnosi strutturale
+
+Non e' sfortuna, ed e' inutile provarne una settima della stessa famiglia.
+
+**Tutte e sei aggregano sull'intera scena.** A una data quota, un tile da 1°
+produce fra 2.000 e 14.000 frammenti di contorno separati. Il Bama Ridge e'
+**uno** di quei frammenti. Il suo contributo a qualunque statistica calcolata su
+tutta la scena vale pochi punti percentuali, annegato in migliaia di ghirigori
+di rumore sulle pianure piatte.
+
+Nessuna statistica globale puo' vedere un oggetto che pesa l'1% del proprio
+input, per quanto sia costruita bene.
+
+La correzione non e' un settimo aggregato. E': **isolare prima, misurare dopo.**
+Estrarre la singola curva candidata, e poi interrogare *quella*: quanto e' lunga,
+se la rottura di pendenza si mantiene lungo di essa, se prosegue oltre il bordo
+del tile alla stessa quota. E' un test per-oggetto, non per-scena, e richiede un
+estrattore di lineamenti — che oggi non c'e'.
+
+## La cosa piu' importante di tutto questo file
+
+**L'occhio lo trova in un secondo.** Guarda `calibrazione-bama-ridge.png`: il
+Bama Ridge e' la cosa piu' evidente della scena, e per vederlo non serve nessuna
+delle sei statistiche — serve un'ombreggiatura.
+
+Vale la pena prendere la conseguenza sul serio. Il lavoro dichiarato del tool e'
+**restringere dove cercare**, con l'umano che decide e il pack cieco che lo tiene
+onesto. Per quel lavoro, una resa del terreno ben fatta piu' l'isolinea
+sovrapposta e' oggi piu' efficace di qualunque rilevatore automatico che io
+sappia costruire — e non finge una certezza che non ha.
+
+Non e' una sconfitta: e' la filosofia della spec applicata a se stessa. Misura
+invece di disegno, forma dopo l'acqua, e nessun bottone "trovato".
+
+Se un rilevatore automatico servira' davvero, il primo passo e' l'estrattore di
+lineamenti, non la settima statistica.
+
+## Il pattern (dopo i primi cinque tentativi)
 
 Cinque statistiche, cinque confondenti diversi. La ragione e' sempre la stessa:
 
@@ -150,8 +204,7 @@ E ha un null naturale e severo: un lineamento qualunque (cresta di duna,
 faglia, pista, spartiacque) non ha ragione di mantenere la quota su piu' tile
 contigui, ne' di congiungersi al bordo.
 
-E' il test da fare, e usa la griglia multi-tile gia' costruita. Non e' stato
-ancora eseguito.
+**Eseguito: non separa.** Vedi Tentativo 6 sopra.
 
 ## Immagini
 

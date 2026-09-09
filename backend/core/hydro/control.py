@@ -20,10 +20,16 @@ Cosa NON dice: "qui c'e' una sponda". Uno scarpato di faglia, un fronte
 montuoso o un bordo di duna danno la stessa firma. Il salto da gradino a
 sponda lo fa la letteratura o il campo, non questa funzione.
 
-STATO: il controllo positivo FALLISCE (9 set 2026). Lo strumento non ha ancora
-dimostrato di riconoscere la sponda documentata. Finche' e' cosi', nessuna
-schermata e nessun export puo' dire "sponda individuata" — solo "isolinea
-disegnata". Il registro completo dei tentativi sta in docs/CALIBRAZIONE.md.
+STATO: il controllo positivo FALLISCE (9 set 2026), dopo sei statistiche
+diverse. Lo strumento non ha dimostrato di riconoscere la sponda documentata.
+Finche' e' cosi', nessuna schermata e nessun export puo' dire "sponda
+individuata" — solo "isolinea disegnata".
+
+Diagnosi strutturale: tutte e sei aggregano sull'intera scena, ma a una data
+quota un tile produce 2.000-14.000 frammenti di contorno e la sponda e' UNO di
+quelli. Nessuna statistica globale vede un oggetto che pesa l'1% del proprio
+input. Serve isolare il lineamento e poi misurarlo, non un settimo aggregato.
+Registro completo dei sei tentativi in docs/CALIBRAZIONE.md.
 """
 from __future__ import annotations
 

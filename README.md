@@ -4,6 +4,8 @@ Motore forense sui **paleofiumi del Sahara**. Da un PC di casa. Open source.
 
 Repo: https://github.com/mtornani/ArcheoEagle
 
+**Spec di prodotto:** `CLAUDE.md` (source of truth). Codice è derivato.
+
 GIS host da qui in poi: **[GeoLibre](https://github.com/opengeos/GeoLibre)** (browser, desktop, iOS, Android). ArcheoEagle resta il dominio forense (ledger, pack cieco, Platone). Non un secondo GIS. Vedi `docs/GEOLIBRE.md`.
 
 Non è un bottone “Atlantide found”. Non cerca anelli. Cammina la rete idrica fossile, misura dopo la forma, e tiene Platone come colonna a due facce (`+` / `−` / `N/A`). L’assenza di anelli **non contraddice**.

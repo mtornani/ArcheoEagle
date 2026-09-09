@@ -33,6 +33,9 @@ Registro completo dei sei tentativi in docs/CALIBRAZIONE.md.
 """
 from __future__ import annotations
 
+import math
+
+import math
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
@@ -68,7 +71,7 @@ class LevelStats:
     n_band: int
 
 
-def _elongation(mask: np.ndarray) -> float:
+def _elongation(mask: np.ndarray, bbox: Optional[BBox] = None) -> float:
     """Quanto la banda a questa quota e' una linea invece che una macchia.
 
     ATTENZIONE: statistica confondibile, vedi docs/CALIBRAZIONE.md. Una macchia
@@ -97,19 +100,64 @@ def _elongation(mask: np.ndarray) -> float:
     area = ys.size
     if area < 4:
         return 0.0
-    span = float(np.hypot(ys.max() - ys.min(), xs.max() - xs.min()))
-    return span * span / area
+    px = pixel_metres(bbox, mask.shape)
+    if px is None:
+        span = float(np.hypot(ys.max() - ys.min(), xs.max() - xs.min()))
+        return span * span / area
+    dx, dy = px
+    dxm = float(np.mean(dx[ys.min():ys.max() + 1])) if ys.max() >= ys.min() else float(dx[0])
+    span = float(np.hypot((ys.max() - ys.min()) * dy, (xs.max() - xs.min()) * dxm))
+    area_m2 = area * dxm * dy
+    return span * span / area_m2
 
 
-def _slope_map(dem: np.ndarray) -> np.ndarray:
-    """Pendenza in m/pixel. I buchi si riempiono con la mediana solo per
-    derivare: non inventiamo quota, e la banda viene comunque mascherata
-    sui pixel originali validi."""
+# Raggio terrestre come nel resto del repo (paleorivers.haversine_km).
+EARTH_R_M = 6371000.0
+
+
+def pixel_metres(bbox: Optional[BBox], shape: Tuple[int, int]) -> Optional[Tuple[np.ndarray, float]]:
+    """Larghezza (per riga) e altezza di un pixel, in metri.
+
+    Il DEM sta in EPSG:4326, cioe' in *gradi*: un pixel in longitudine e uno in
+    latitudine non misurano lo stesso. Trattare la griglia come euclidea usa un
+    righello che si accorcia andando verso i poli — 1.4% a lat 11, 14% a lat 32.
+    Piccolo dentro un tile, ma rende NON confrontabili corridoi a latitudini
+    diverse, che e' esattamente cio' che il tool fa. Il resto del repo usa gia'
+    la metrica sferica (haversine_km); questo modulo no, fino al 9 set 2026.
+
+    None se manca la bbox: i test sintetici lavorano su array senza georeferenza
+    e li' il pixel e' l'unita', dichiarata.
+    """
+    if bbox is None:
+        return None
+    h, w = shape
+    lon0, lat0, lon1, lat1 = (float(v) for v in bbox)
+    dlat = abs(lat1 - lat0) / max(h, 1)
+    dlon = abs(lon1 - lon0) / max(w, 1)
+    rad = math.radians(1.0)
+    # latitudine al centro di ogni riga (lat1 = bordo nord)
+    rows = lat1 - (np.arange(h) + 0.5) * dlat
+    dx = EARTH_R_M * rad * dlon * np.cos(np.radians(rows))
+    dy = EARTH_R_M * rad * dlat
+    return dx, float(dy)
+
+
+def _slope_map(dem: np.ndarray, bbox: Optional[BBox] = None) -> np.ndarray:
+    """Pendenza adimensionale (m/m) se c'e' la bbox, in m/pixel senza.
+
+    I buchi si riempiono con la mediana solo per derivare: non inventiamo quota,
+    e la banda viene comunque mascherata sui pixel originali validi.
+    """
     finite = np.isfinite(dem)
     if not finite.any():
         return np.full(dem.shape, np.nan)
     filled = np.where(finite, dem, np.nanmedian(dem))
     gy, gx = np.gradient(filled)
+    px = pixel_metres(bbox, dem.shape)
+    if px is not None:
+        dx, dy = px
+        gx = gx / dx[:, None]
+        gy = gy / dy
     return np.sqrt(gy * gy + gx * gx)
 
 
@@ -120,6 +168,7 @@ def level_stats(
     band_m: float = 0.5,
     window_m: float = 25.0,
     slope: Optional[np.ndarray] = None,
+    bbox: Optional[BBox] = None,
 ) -> Optional[LevelStats]:
     """Statistiche a una quota. None se il terreno a quella quota non c'e':
     zero pixel non e' un gradino, e' assenza di dato."""
@@ -136,12 +185,12 @@ def level_stats(
     if n_window == 0:
         return None
     if slope is None:
-        slope = _slope_map(dem)
+        slope = _slope_map(dem, bbox)
     return LevelStats(
         level_m=float(level_m),
         occupancy=n_band / n_window,
         mean_slope=float(np.nanmean(slope[band])),
-        elongation=_elongation(band),
+        elongation=_elongation(band, bbox),
         n_band=n_band,
     )
 
@@ -152,12 +201,13 @@ def step_profile(
     *,
     band_m: float = 0.5,
     window_m: float = 25.0,
+    bbox: Optional[BBox] = None,
 ) -> List[LevelStats]:
     """Profilo su piu' quote. La pendenza si calcola una volta sola."""
-    slope = _slope_map(dem)
+    slope = _slope_map(dem, bbox)
     out: List[LevelStats] = []
     for lvl in levels:
-        st = level_stats(dem, lvl, band_m=band_m, window_m=window_m, slope=slope)
+        st = level_stats(dem, lvl, band_m=band_m, window_m=window_m, slope=slope, bbox=bbox)
         if st is not None:
             out.append(st)
     return out
@@ -177,6 +227,7 @@ def step_score(
     sweep_step_m: float = 2.0,
     band_m: float = 0.5,
     window_m: float = 25.0,
+    bbox: Optional[BBox] = None,
 ) -> Dict[str, Any]:
     """Quanto la quota si comporta da gradino rispetto alle quote vicine.
 
@@ -202,7 +253,7 @@ def step_score(
     riferimento, quindi il punteggio sottostima. L'errore va in quella
     direzione apposta.
     """
-    target = level_stats(dem, level_m, band_m=band_m, window_m=window_m)
+    target = level_stats(dem, level_m, band_m=band_m, window_m=window_m, bbox=bbox)
     if target is None:
         return {
             "level_m": float(level_m),
@@ -210,14 +261,14 @@ def step_score(
             "reason": "nessun terreno a questa quota nel tile",
         }
 
-    slope = _slope_map(dem)
+    slope = _slope_map(dem, bbox)
     ref: List[LevelStats] = []
     n = int(sweep_m / sweep_step_m)
     for k in range(-n, n + 1):
         if k == 0:
             continue  # il bersaglio non fa parte del proprio riferimento
         lvl = level_m + k * sweep_step_m
-        st = level_stats(dem, lvl, band_m=band_m, window_m=window_m, slope=slope)
+        st = level_stats(dem, lvl, band_m=band_m, window_m=window_m, slope=slope, bbox=bbox)
         if st is not None:
             ref.append(st)
 
@@ -285,13 +336,13 @@ def run_positive_control(level_m: float = 320.0) -> Dict[str, Any]:
     if got is None:
         out["positive"] = {"error": "tile Bama non scaricabile"}
     else:
-        out["positive"] = step_score(got[0], level_m)
+        out["positive"] = step_score(got[0], level_m, bbox=got[1])
 
     got_ctrl = fetch_copernicus_tile(*CONTROL_TILE)
     if got_ctrl is None:
         out["negative"] = {"error": "tile di controllo non scaricabile"}
     else:
-        out["negative"] = step_score(got_ctrl[0], level_m)
+        out["negative"] = step_score(got_ctrl[0], level_m, bbox=got_ctrl[1])
 
     pos = (out.get("positive") or {}).get("step_score")
     neg = (out.get("negative") or {}).get("step_score")

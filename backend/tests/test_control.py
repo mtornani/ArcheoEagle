@@ -121,3 +121,44 @@ class PositiveControlFixtureTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class MetricTest(unittest.TestCase):
+    """Il DEM sta in gradi, non in metri. Trattare la griglia come euclidea usa
+    un righello che si accorcia verso i poli: piccolo dentro un tile, ma rende
+    non confrontabili corridoi a latitudini diverse — che e' cio' che il tool fa."""
+
+    def test_pixel_width_shrinks_with_latitude(self):
+        from core.hydro.control import pixel_metres
+        shape = (100, 100)
+        dx_eq, dy = pixel_metres([0.0, 0.0, 1.0, 1.0], shape)
+        dx_31, _ = pixel_metres([0.0, 31.0, 1.0, 32.0], shape)
+        self.assertAlmostEqual(float(dx_eq.mean()) / dy, 1.0, places=2)
+        self.assertLess(float(dx_31.mean()) / dy, 0.87)
+
+    def test_no_bbox_means_pixel_units_declared_not_guessed(self):
+        from core.hydro.control import pixel_metres
+        self.assertIsNone(pixel_metres(None, (10, 10)))
+
+    def test_slope_is_dimensionless_when_georeferenced(self):
+        """Rampa di 40 m su 1 grado all'equatore: la pendenza vera e' ~40/111km."""
+        from core.hydro.control import _slope_map
+        n = 200
+        dem = np.tile(np.linspace(300.0, 340.0, n), (n, 1))
+        bbox = [0.0, 0.0, 1.0, 1.0]
+        s_geo = float(np.median(_slope_map(dem, bbox)))
+        s_px = float(np.median(_slope_map(dem, None)))
+        # 40 m distribuiti su n-1 intervalli, pixel largo 1 grado / n
+        atteso = (40.0 / (n - 1)) / (111194.9 / n)
+        self.assertAlmostEqual(s_geo / atteso, 1.0, places=3)
+        self.assertGreater(s_px, s_geo * 100)  # m/pixel: tutt'altra scala
+
+    def test_same_terrain_at_two_latitudes_scores_differently_in_pixels(self):
+        """La correzione non e' cosmetica: senza, lo stesso terreno a latitudini
+        diverse da' pendenze diverse solo per via del reticolo."""
+        from core.hydro.control import _slope_map
+        n = 200
+        dem = np.tile(np.linspace(300.0, 340.0, n), (n, 1))
+        s_low = float(np.median(_slope_map(dem, [0.0, 11.0, 1.0, 12.0])))
+        s_high = float(np.median(_slope_map(dem, [0.0, 31.0, 1.0, 32.0])))
+        self.assertGreater(s_high / s_low, 1.1)  # ~14% di differenza reale

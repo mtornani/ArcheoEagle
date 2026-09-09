@@ -1,0 +1,156 @@
+{
+  "type": "FeatureCollection",
+  "name": "sahara_paleodrainage",
+  "metadata": {
+    "grade": "schematic",
+    "warning": "Centerlines are literature-derived schematics for home-PC search, not survey-grade hydrography. Do not treat a vertex as a site.",
+    "sources": [
+      "Skonieczny et al. 2015 Nat Commun — Tamanrasset paleoriver",
+      "Paillou et al. / SIR-A-C — Sahabi buried channels",
+      "Drake et al. 2011 PNAS — Sahara green corridors",
+      "Ghoneim & El-Baz — radar paleodrainage Eastern Sahara",
+      "Mega-Chad shoreline reconstructions (AHP highstand ~320 m)"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tamanrasset",
+        "name": "Tamanrasset",
+        "kind": "paleoriver",
+        "basin": "atlantic_west",
+        "note": "Hoggar toward Atlantic. Primary west-Sahara corridor."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [6.6, 23.1], [5.2, 22.8], [3.4, 22.4], [1.6, 22.0],
+          [0.0, 21.6], [-2.2, 21.2], [-4.6, 20.8], [-7.0, 20.5],
+          [-9.4, 20.2], [-11.8, 20.0], [-14.0, 19.7], [-16.2, 19.4]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "irharhar",
+        "name": "Irharhar",
+        "kind": "paleoriver",
+        "basin": "mediterranean_north",
+        "note": "Hoggar north toward Chotts / Mediterranean."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [6.4, 23.2], [6.2, 24.6], [6.3, 26.0], [6.8, 27.4],
+          [7.4, 28.8], [8.0, 30.2], [8.4, 31.6], [8.6, 32.8]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "sahabi",
+        "name": "Sahabi",
+        "kind": "paleoriver",
+        "basin": "sirt_libya",
+        "note": "Buried Libyan system. Classic SIR-A under-sand channel."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [17.4, 23.6], [18.0, 24.8], [18.6, 26.0], [19.2, 27.2],
+          [19.8, 28.4], [20.0, 29.4], [19.6, 30.4], [19.2, 31.0]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "taffassasset",
+        "name": "Taffassasset",
+        "kind": "paleoriver",
+        "basin": "mega_chad",
+        "note": "Hoggar / Djado toward Mega-Chad."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [8.2, 21.4], [10.0, 20.0], [11.6, 18.6], [13.2, 17.2],
+          [14.6, 15.8], [15.6, 14.6], [16.2, 13.8]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tilemsi",
+        "name": "Tilemsi",
+        "kind": "paleoriver",
+        "basin": "niger",
+        "note": "Adrar des Ifoghas toward Niger inland delta."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [1.2, 19.4], [0.6, 18.4], [0.2, 17.4], [-0.2, 16.4],
+          [-0.8, 15.6], [-1.4, 14.8]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "azawagh",
+        "name": "Azawagh",
+        "kind": "paleoriver",
+        "basin": "niger",
+        "note": "Aïr / Iullemmeden toward Niger."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [8.0, 18.6], [7.2, 17.4], [6.4, 16.4], [5.4, 15.4],
+          [4.2, 14.6], [3.0, 14.0]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "wadi_howar",
+        "name": "Wadi Howar",
+        "kind": "paleoriver",
+        "basin": "nile",
+        "note": "Yellow Nile. Eastern Sahara corridor into the Nile."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [23.2, 16.8], [24.8, 17.0], [26.4, 17.2], [28.0, 17.4],
+          [29.6, 17.6], [31.2, 17.9]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mega_chad_shore",
+        "name": "Mega-Chad highstand",
+        "kind": "paleolake",
+        "basin": "mega_chad",
+        "note": "Schematic AHP highstand. Shore = settlement/island prior, not a city shape."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [12.0, 16.2], [14.4, 16.6], [16.6, 16.2], [18.0, 15.2],
+          [18.6, 13.8], [18.2, 12.4], [16.8, 11.4], [14.8, 11.0],
+          [12.8, 11.2], [11.4, 12.2], [11.0, 13.6], [11.4, 15.0],
+          [12.0, 16.2]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: archaeo_sentinel
+      POSTGRES_USER: archeo
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+  
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql://archeo:${DB_PASSWORD}@db:5432/archaeo_sentinel
+      REDIS_URL: redis://redis:6379
+      COPERNICUS_USER: ${COPERNICUS_USER}
+      COPERNICUS_PASSWORD: ${COPERNICUS_PASSWORD}
+      USGS_USER: ${USGS_USER}
+      USGS_PASSWORD: ${USGS_PASSWORD}
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+  
+  worker:
+    build: ./backend
+    command: celery -A tasks.celery_app worker -l info
+    environment:
+      DATABASE_URL: postgresql://archeo:${DB_PASSWORD}@db:5432/archaeo_sentinel
+      REDIS_URL: redis://redis:6379
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - db
+      - redis
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

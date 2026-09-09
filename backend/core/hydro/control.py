@@ -62,20 +62,28 @@ class LevelStats:
     n_band: int
 
 
-def _elongation(mask: np.ndarray, stride: int = 2) -> float:
+def _elongation(mask: np.ndarray) -> float:
     """Quanto la banda a questa quota e' una linea invece che una macchia.
 
-    Una sponda e' lunga e sottile; uno scarpato qualunque e' un chiazzo.
-    Su una linea di lunghezza L e spessore 1 il valore vale ~L; su un quadrato
-    vale ~2, indipendentemente dal lato. Si guarda la componente connessa piu'
-    grande: una banda spezzata in mille frammenti non e' una sponda.
+    ATTENZIONE: statistica confondibile, vedi docs/CALIBRAZIONE.md. Una macchia
+    estesa che attraversa il tile prende un punteggio alto quanto una linea
+    sottile. Resta nel punteggio solo perche' l'alternativa e' un test a
+    statistica singola, e il verdetto e' comunque "fallito".
+
+    Due bug corretti il 9 set 2026, entrambi distruggevano *esattamente* le
+    linee sottili diagonali, cioe' la forma del Bama Ridge:
+    - la decimazione `mask[::2, ::2]` spezzava in puntini una linea larga 1-3 px;
+    - `ndimage.label` di default usa la connettivita' a 4, e una linea diagonale
+      sottile si tocca solo negli angoli: veniva letta come mille frammenti.
+    Correggerli non ha fatto passare il controllo (la 320 m resta bassa): erano
+    bug veri, ma non erano la causa del fallimento.
     """
     from scipy import ndimage
 
-    small = mask[::stride, ::stride]
+    small = mask
     if small.sum() < 4:
         return 0.0
-    lab, n = ndimage.label(small)
+    lab, n = ndimage.label(small, structure=np.ones((3, 3), bool))
     if n == 0:
         return 0.0
     sizes = ndimage.sum(small, lab, range(1, n + 1))

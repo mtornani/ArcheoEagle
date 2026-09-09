@@ -204,12 +204,74 @@ lunghe per quota, e ha scartato in silenzio proprio le quote 310-326 del Bama �
 dove le curve lunghe sono 1 o 2, che e' *esattamente* il caso "una sponda
 dominante". La guardia aveva buttato via il segnale.
 
-## Le due direzioni ancora non provate
+### Tentativo 8 — sponda deformata (equipotenziale) (FALSIFICATO, due volte)
+
+Ipotesi, la piu' promettente di tutte: l'acqua si dispone su una superficie
+**equipotenziale**, non su un piano. Una paleosponda era livellata quando si e'
+formata, ma il rimbalzo idro-isostatico (il Mega-Chad reggeva ~350.000 km2
+d'acqua) l'ha poi deformata — come le sponde del lago Bonneville, deformate di
+~70 m. Se e' cosi', cercare un'isolinea a quota costante e' garantito fallire, e
+le creste pubblicate a 320/335/338 m potrebbero essere UNA sponda deformata
+invece di tre stazionamenti.
+
+Misura: quota del punto di **massima pendenza** sul transetto perpendicolare
+(l'inflessione della scarpata; il massimo di quota era l'artefatto del
+tentativo 4), a 16 stazioni lungo la traccia.
+
+**Previsione registrata:** la quota della rottura segue un andamento liscio di
+basso ordine (R2 alto); i lineamenti casuali no.
+
+**Falsificata, e invertita:** Bama R2 lineare 0.003, corde casuali mediana
+0.906 — il 99.6% delle corde e' piu' "liscio" del ridge. Motivo: le corde
+casuali seguono il pendio regionale, quindi hanno varianza grande spiegata da
+una pendenza. Il ridge ha R2 nullo perche' non c'e' *niente* da spiegare: le
+quote sono costanti entro 2.4 m su 110 km. R2 era la statistica sbagliata;
+quella giusta e' lo scarto assoluto.
+
+**Secondo giro, previsione riscritta e registrata:** scarto del ridge nella coda
+bassa del null; parallele nella pianura con scarto basso ma offset incoerente.
+
+Primo esito, con transetto +-3.9 km: ridge 2.4 m, **0 corde su 250** migliori su
+entrambe le condizioni. Sembrava un trionfo.
+
+**Era un difetto del disegno.** Le parallele "di controllo" a 6.6 km avevano un
+transetto da +-3.9 km che **arrivava ancora sul ridge** (offset agganciato a
+1.1 km, identico al ridge). Controllo non indipendente dall'oggetto.
+
+Rifatto con transetto +-1.7 km, offset da 3.3 km in su:
+
+| | scarto | offset |
+|---|---|---|
+| Bama Ridge | 4.1 m | 0.9 km |
+| +0.08 (fondo lago, 8.8 km) | **1.3 m** | 0.9 km |
+| +0.03 (fondo lago) | 1.7 m | 0.7 km |
+| -0.08 (SW alto) | 2.3 m | 0.9 km |
+| null 250 corde | p05 3.6, mediana 23.0 | mediana **0.9** |
+
+Quasi tutte le parallele sono piu' piatte del ridge; il 6.4% delle corde
+casuali pure. E l'offset non discrimina affatto: la mediana del null e' 0.9 km,
+identica al ridge — misurava una proprieta' del *procedimento*, non del terreno.
+
+**La lezione piu' importante del file:** il primo giro dava 0/250 e sembrava
+una scoperta. Un controllo non indipendente dall'oggetto produce un falso
+positivo spettacolare. Se lo avessi committato senza il controllo stretto,
+avrei messo a verbale una scoperta inesistente.
+
+**Nota onesta sull'ipotesi:** questo falsifica il *proxy* (planarita' della
+rottura lungo una traccia disegnata a mano), non la deformazione in se'.
+Testare davvero la deformazione richiede la quota della sponda **su tutto il
+bacino**, confrontata con un modello di rimbalzo — cioe' richiede una mappa
+indipendente della sponda. Che e' esattamente la cosa che il tool non sa ancora
+produrre. **E' circolare:** non si puo' testare la deformazione senza saper
+rilevare le sponde, e non si possono rilevare le sponde a quota costante se
+sono deformate. Vale la pena averlo scritto.
+
+## Le direzioni ancora non provate
 
 Vengono dalla stessa domanda ("frattale o integrale?") e non appartengono alla
 famiglia dei sette.
 
-**1. Integrale di bacino — la piu' motivata.** V(z) = integrale dell'acqua a
+**1. Integrale di bacino — la piu' motivata, e ora anche l'unica via d'uscita dalla circolarita' del tentativo 8.** V(z) = integrale dell'acqua a
 quota z sul bacino, con dV/dz = area del lago. Per una conca vera, la curva
 area-quota A(z) ha una rottura netta alla quota di sponda, perche' sopra di essa
 l'acqua si versa su una superficie diversa. Due ragioni per cui e' diversa dalle

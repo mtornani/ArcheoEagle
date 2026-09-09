@@ -19,6 +19,10 @@ LngLat = Tuple[float, float]
 
 MEGA_CHAD_HIGHSTAND_M = 320.0
 MEGA_CHAD_IDS = {"megachad", "mega_chad"}
+# One request-response cycle, not a batch job. More tiles = more honest coverage
+# but each is a network fetch; cap so /walk still answers. Truncation is reported,
+# never hidden.
+MAX_TILES_PER_REQUEST = 12
 
 
 def copernicus_cog_url(lat_s: int, lon_s: int) -> str:
@@ -142,10 +146,19 @@ def vs_schematic_km(nodes: List[Dict[str, Any]], schematic_id: str = "mega_chad_
         node["vs_schematic_km"] = round(d, 1)
 
 
-def _ne_tile(bbox: BBox) -> Tuple[int, int]:
-    lat = int(math.floor(min(float(bbox[3]) - 1e-6, 89.0)))
-    lon = int(math.floor(min(float(bbox[2]) - 1e-6, 179.0)))
-    return lat, lon
+def tiles_covering_bbox(bbox: BBox) -> List[Tuple[int, int]]:
+    """Every 1° Copernicus GLO-30 tile (SW-corner lat, lon) whose footprint
+    touches bbox. A single tile is a corner of the lake, not the shore."""
+    lon0, lat0, lon1, lat1 = (float(v) for v in bbox)
+    lat_start = int(math.floor(lat0))
+    lat_end = int(math.floor(min(lat1 - 1e-9, 89.0)))
+    lon_start = int(math.floor(lon0))
+    lon_end = int(math.floor(min(lon1 - 1e-9, 179.0)))
+    return [
+        (lat_s, lon_s)
+        for lat_s in range(lat_start, lat_end + 1)
+        for lon_s in range(lon_start, lon_end + 1)
+    ]
 
 
 def fetch_copernicus_tile(lat_s: int, lon_s: int, timeout: int = 90) -> Optional[Tuple[np.ndarray, List[float], str]]:
@@ -179,18 +192,48 @@ def fetch_copernicus_tile(lat_s: int, lon_s: int, timeout: int = 90) -> Optional
         return None
 
 
-def measure_highstand(bbox: BBox, level_m: float = MEGA_CHAD_HIGHSTAND_M) -> Dict[str, Any]:
-    """Attempt a real 320 m shoreline on the NE 1° tile of bbox. Honest empty if DEM missing."""
-    lat_s, lon_s = _ne_tile(bbox)
-    fetched = fetch_copernicus_tile(lat_s, lon_s)
-    if fetched is None:
+def measure_highstand(
+    bbox: BBox,
+    level_m: float = MEGA_CHAD_HIGHSTAND_M,
+    max_tiles: int = MAX_TILES_PER_REQUEST,
+) -> Dict[str, Any]:
+    """Real 320 m shoreline over every Copernicus GLO-30 tile touching bbox,
+    up to max_tiles. One tile is a corner, not the lake — this walks the grid
+    and says plainly how much of it it covered. A tile that fails to fetch is
+    dropped, not filled in."""
+    wanted = tiles_covering_bbox(bbox)
+    tiles = wanted[:max_tiles]
+    truncated = len(wanted) > max_tiles
+
+    lines: List[List[LngLat]] = []
+    fetched_tiles: List[Dict[str, Any]] = []
+    failed_tiles: List[List[int]] = []
+    for lat_s, lon_s in tiles:
+        fetched = fetch_copernicus_tile(lat_s, lon_s)
+        if fetched is None:
+            failed_tiles.append([lat_s, lon_s])
+            continue
+        dem, tile_bbox, url = fetched
+        lines.extend(shoreline_from_dem(dem, tile_bbox, level_m))
+        fetched_tiles.append({
+            "tile": [lat_s, lon_s],
+            "url": url,
+            "zmin": float(np.nanmin(dem)),
+            "zmax": float(np.nanmax(dem)),
+        })
+
+    if not fetched_tiles:
         return {
             "nodes": [],
             "contour": {"type": "FeatureCollection", "features": []},
-            "dem": {"real": False, "reason": "copernicus-dem-unavailable", "tile": [lat_s, lon_s]},
+            "dem": {
+                "real": False,
+                "reason": "copernicus-dem-unavailable",
+                "tiles_attempted": [list(t) for t in tiles],
+                "tiles_total": len(wanted),
+            },
         }
-    dem, tile_bbox, url = fetched
-    lines = shoreline_from_dem(dem, tile_bbox, level_m)
+
     nodes = nodes_from_contour(
         lines,
         level_m=level_m,
@@ -218,11 +261,13 @@ def measure_highstand(bbox: BBox, level_m: float = MEGA_CHAD_HIGHSTAND_M) -> Dic
         "dem": {
             "real": True,
             "source": "copernicus-glo30",
-            "url": url,
-            "tile": [lat_s, lon_s],
-            "bbox": tile_bbox,
-            "zmin": float(np.nanmin(dem)),
-            "zmax": float(np.nanmax(dem)),
+            "tiles_used": [t["tile"] for t in fetched_tiles],
+            "tiles_failed": failed_tiles,
+            "tiles_total": len(wanted),
+            "truncated": truncated,
+            "urls": [t["url"] for t in fetched_tiles],
+            "zmin": min(t["zmin"] for t in fetched_tiles),
+            "zmax": max(t["zmax"] for t in fetched_tiles),
             "level_m": level_m,
         },
     }

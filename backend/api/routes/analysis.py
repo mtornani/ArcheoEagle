@@ -8,7 +8,7 @@ from core.detection.rule_based import detect_anomalies
 from core.layers import array_to_colormap_png_fast
 from core.hydro.paleorivers import (
     bbox_from_geojson, bbox_to_aoi, corridor_bbox,
-    nodes_in_aoi, rivers_in_aoi,
+    load_network, nodes_in_aoi, rivers_in_aoi,
 )
 from core.hydro.measure import MEGA_CHAD_IDS, measure_highstand, trap_richat
 from core.ledger.hypotheses import build_ledger

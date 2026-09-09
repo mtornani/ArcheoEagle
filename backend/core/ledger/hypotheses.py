@@ -223,7 +223,10 @@ def build_ledger(
             "pro": pro,
             "contro": contro,
             "kill_shot": _kill_shot(node["hydro_score"], node.get("node_type"), plato),
-            "source": "hydro+spectral" if matched else "hydro",
+            "source": node.get("source") or ("hydro+spectral" if matched else "hydro"),
+            "grade": node.get("grade") or "schematic",
+            "vs_schematic_km": node.get("vs_schematic_km"),
+            "level_m": node.get("level_m"),
             "spectral_label": props.get("label"),
         })
 
@@ -276,7 +279,13 @@ def _split_reasons(node: Dict[str, Any], props: Dict[str, Any], plato: List[Dict
     if nt == "confluence":
         pro.append("Nodo di confluenza sulla rete fossile.")
     elif nt == "paleolake_shore":
-        pro.append("Sponda di paleolago. Prior idrico, non di forma.")
+        if node.get("grade") == "dem-contour":
+            pro.append(
+                f"Sponda misurata sul DEM alla quota {node.get('level_m', 320):.0f} m. "
+                "Non è il LineString disegnato."
+            )
+        else:
+            pro.append("Sponda di paleolago schematico. Disegno da letteratura, non misura.")
     elif nt in ("channel", "head_or_mouth"):
         pro.append("Sul tracciato di un paleofiume schematico.")
     else:

@@ -25,6 +25,8 @@ def strip_row(row: Dict[str, Any]) -> Dict[str, Any]:
         "node_type": row.get("node_type"),
         "basin": row.get("basin"),
         "source": row.get("source"),
+        "grade": row.get("grade"),
+        "vs_schematic_km": row.get("vs_schematic_km"),
         "pro": row.get("pro") or [],
         "contro": row.get("contro") or [],
         "kill_shot": row.get("kill_shot"),

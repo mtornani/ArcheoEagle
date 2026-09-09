@@ -9,6 +9,10 @@ export const BASINS: Basin[] = [
   { id: 'howar', name: 'Wadi Howar', hint: 'Nilo giallo', center: [17.4, 27.0], zoom: 6 },
 ]
 
+export const TRAPS: Basin[] = [
+  { id: 'richat', name: 'Richat', hint: 'trappola — anello fotografabile', center: [21.12, -11.4], zoom: 8 },
+]
+
 export const CORRIDOR_FEATURE_IDS: Record<string, string[]> = {
   tamanrasset: ['tamanrasset'],
   megachad: ['mega_chad_shore', 'taffassasset'],

@@ -4,7 +4,7 @@ import {
   ChevronDown, EyeOff, Hash, Download, BookOpen,
   Columns3, Footprints, RotateCcw, Loader2,
 } from 'lucide-react'
-import { BASINS } from '../basins'
+import { BASINS, TRAPS } from '../basins'
 import { walkCorridor, runAnalysis, dossierLocal, blindLocal } from '../api'
 import { BRIEFS, METHOD, nextQuestions, plainSpeak, walkSummary } from '../investigate'
 import type { AnalysisResult, PlatoVerdict, RankRow, ViewTarget } from '../types'
@@ -59,7 +59,7 @@ export default function ControlPanel({
   }
 
   const walk = async (id: string) => {
-    const basin = BASINS.find((b) => b.id === id)
+    const basin = BASINS.find((b) => b.id === id) || TRAPS.find((b) => b.id === id)
     if (basin) onFly({ center: basin.center, zoom: basin.zoom })
     setWalkingId(id)
     setError('')
@@ -115,9 +115,9 @@ export default function ControlPanel({
         {!result && (
           <section className="space-y-1.5">
             <div className="border border-bone/10 px-3 py-2 space-y-1.5">
-              <p className="serif text-xs text-bone">Come indaghi</p>
+              <p className="serif text-xs text-bone">Una cosa sola</p>
               <p className="text-[11px] text-mute leading-relaxed">
-                Non sei archeologo. Non serve. Scegli un fiume, non un’immagine. Il sistema ti posa sulle tappe d’acqua. Poi leggi, in ordine: perché questo corridoio, la tappa in parole povere, le domande, il confronto. Platone è una colonna, non la mappa.
+                Da casa: prove oggettive su paleoidrologia sahariana. Il cartone (anelli, isola atlantica, “Atlantide found”) è telefono senza fili. Mega-Chad tenta una misura DEM 320 m. Gli altri corridoi restano disegni da paper finché non c’è radar. Platone è colonna, non stampo.
               </p>
             </div>
             {BASINS.map((b) => (
@@ -132,15 +132,53 @@ export default function ControlPanel({
                   : <Footprints size={14} className="text-ochre shrink-0" />}
                 <span className="min-w-0">
                   <span className="block text-xs text-bone">{b.name}</span>
-                  <span className="block text-[10px] text-mute">{b.hint} · cammina il corridoio</span>
+                  <span className="block text-[10px] text-mute">
+                    {b.id === 'megachad' ? 'misura DEM se c’è · senno disegno' : `${b.hint} · schematico`}
+                  </span>
+                </span>
+              </button>
+            ))}
+            {TRAPS.map((b) => (
+              <button
+                key={b.id}
+                onClick={() => walk(b.id)}
+                disabled={!!walkingId}
+                className={`w-full text-left px-3 py-2.5 border border-danger/40 bg-ink/50 flex items-center gap-3 ${tap}`}
+              >
+                {walkingId === b.id
+                  ? <Loader2 size={14} className="animate-spin text-danger shrink-0" />
+                  : <EyeOff size={14} className="text-danger shrink-0" />}
+                <span className="min-w-0">
+                  <span className="block text-xs text-danger">{b.name}</span>
+                  <span className="block text-[10px] text-mute">{b.hint}</span>
                 </span>
               </button>
             ))}
           </section>
         )}
 
-        {result && (
+        {result && result.method === 'trap' && (
+          <section className="border border-danger/40 px-3 py-3 space-y-2">
+            <p className="serif text-sm text-danger">Trappola · {result.trap_id}</p>
+            <p className="text-[12px] text-bone leading-relaxed">{result.message}</p>
+            <p className="text-[11px] text-mute">{String(result.stats?.warning || '')}</p>
+          </section>
+        )}
+
+        {result && result.method !== 'trap' && (
           <>
+            {typeof result.stats?.grade === 'string' && (
+              <div className={`px-3 py-2 border text-[11px] leading-relaxed ${
+                result.stats.grade === 'dem-contour'
+                  ? 'border-sage/40 text-bone'
+                  : 'border-ochre/30 text-mute'
+              }`}>
+                <span className="uppercase tracking-[0.12em] text-[10px] text-ochre">
+                  grado {String(result.stats.grade)}
+                </span>
+                <p className="mt-1">{String(result.stats.warning || '')}</p>
+              </div>
+            )}
             <HashBar pack={result.blind} />
 
             <Briefing rows={ranking} corridorId={result.corridor_id} />
@@ -181,6 +219,8 @@ export default function ControlPanel({
                           {blindMode
                             ? (NODE_IT[row.node_type || ''] || 'nodo')
                             : (row.river_name || NODE_IT[row.node_type || ''] || 'fuori rete')}
+                          {row.grade === 'dem-contour' ? ' · DEM' : ''}
+                          {row.vs_schematic_km != null ? ` · Δ ${row.vs_schematic_km} km` : ''}
                         </span>
                         <span className="mono text-[11px] text-bone">ρ {row.residual.toFixed(2)}</span>
                       </button>

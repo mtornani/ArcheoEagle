@@ -22,6 +22,8 @@ export interface RankRow {
   river_id?: string | null
   river_name?: string | null
   source: string
+  grade?: string
+  vs_schematic_km?: number | null
   pro: string[]
   contro: string[]
   kill_shot: string
@@ -39,6 +41,7 @@ export interface BlindPack {
 export interface AnalysisResult {
   message: string
   method: string
+  trap_id?: string
   corridor_id?: string | null
   candidates: { type: string, features: unknown[] }
   ranking: RankRow[]

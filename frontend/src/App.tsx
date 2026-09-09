@@ -88,7 +88,7 @@ export default function App() {
             ARCHEO<span className="text-ochre">EAGLE</span>
           </h1>
           <p className="text-[10px] text-mute leading-none mt-0.5 truncate">
-            Sepolta sulla rete. Non l’icona. Platone = colonna.
+            Prove, non il cartone. Sahara = ipotesi. Anelli = trappola.
           </p>
         </div>
         <div className="flex items-center gap-1.5">

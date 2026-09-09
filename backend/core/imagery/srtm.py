@@ -15,20 +15,18 @@ class SRTMClient:
         self.api_key = os.getenv("OPENTOPOGRAPHY_API_KEY", "")
         self.base_url = "https://portal.opentopography.org/API/globaldem"
 
-    def fetch_dem(self, bbox: List[float], target_shape: Tuple[int, int] = (512, 512)) -> np.ndarray:
+    def fetch_dem(self, bbox: List[float], target_shape: Tuple[int, int] = (512, 512)) -> Optional[np.ndarray]:
         """
         Fetch real SRTM 30m DEM for bbox [lon_min, lat_min, lon_max, lat_max].
-        Falls back to realistic synthetic DEM if API unavailable.
+        Returns None if the API key is missing or the request fails.
+        Does not invent terrain. A fake valley is not evidence.
         """
-        real = self._fetch_real(bbox, target_shape)
-        if real is not None:
-            return real
-        return self._generate_synthetic(bbox, target_shape)
+        return self._fetch_real(bbox, target_shape)
 
     def _fetch_real(self, bbox: List[float], target_shape: Tuple[int, int]) -> Optional[np.ndarray]:
         """Try OpenTopography SRTM GL1 (30m) API."""
         if not self.api_key:
-            print("[WARN] OPENTOPOGRAPHY_API_KEY non impostata -> DEM sintetico")
+            print("[WARN] OPENTOPOGRAPHY_API_KEY assente -> nessun DEM. Non inventiamo il terreno.")
             return None
 
         try:
@@ -112,15 +110,6 @@ class SRTMClient:
         terrain += rng.normal(0, 8, shape)
 
         dem = base_elevation + terrain
-
-        # Add a valley/depression where archaeological sites typically are
-        # (ancient settlements near water, flatter terrain)
-        cx, cy = w // 2, h // 2
-        r = min(w, h) // 4
-        yy_idx, xx_idx = np.ogrid[:h, :w]
-        dist = np.sqrt((xx_idx - cx) ** 2 + (yy_idx - cy) ** 2)
-        valley_mask = dist < r
-        dem[valley_mask] -= 30 + rng.normal(0, 3, np.sum(valley_mask))
 
         dem = np.clip(dem, 0, 4000).astype(np.float64)
         print(f"[DEM] Sintetico generato: {shape}, range [{dem.min():.0f} - {dem.max():.0f}]m")

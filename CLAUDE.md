@@ -31,6 +31,21 @@ Se un giorno i dati uccidono la tesi Sahara, la tesi muore. Il tool resta.
 
 ---
 
+## 2b. Fisica — misura vs disegno (non negoziabile)
+
+Camminare un LineString copiato da un paper **non è una prova**. È un’ipotesi disegnata. Il vecchio DEM sintetico con valle piantata “dove stanno i siti” è frode. Vietato.
+
+| Cosa | Da casa, oggi | Non fare |
+|---|---|---|
+| Mega-Chad ~320 m | Isolinea sul DEM Copernicus GLO-30 (AWS, no key). Sponda = misura. `vs_schematic_km` = quanto il disegno sbaglia. | Trattare l’anello schematico come costa vera |
+| Tamanrasset / Sahabi sepolti | SRTM vede la pelle del deserto, non l’AHP sotto sabbia. Serve L-band. Assente → `grade=schematic` + warning | Inventare canali col noise |
+| Crop mark / NDVI blob | Prior da archeologia inglese su campo. Nel Sahara è un altro stampo. Default **off** | `detect_anomalies` sul walk |
+| Richat | Trappola. Struttura circolare reale. Il telefono senza fili ci porta. Il tool **rifiuta** la classifica | Camminarla come corridoio |
+
+Prima misura vera: **sponda Mega-Chad a 320 m su un tile 1°**. Un segmento misurato batte un continente disegnato.
+
+---
+
 ## 3. Diagnosi del mito (spec intellettuale)
 
 | Strato | Cos’è | Come il tool lo tratta |
@@ -184,6 +199,10 @@ Skill agent GeoLibre: `.claude/skills/geolibre/`
 
 - [ ] Ogni nodo in classifica ha fonte + grado + kill-shot (o “aperto”).
 - [ ] Layer mock ha badge `mock`. Layer schematico ha badge `schematic`.
+- [ ] Walk default **non** chiama crop-mark / NDVI come caccia siti.
+- [ ] Senza DEM reale, `fetch_dem` ritorna `None`. Nessuna valle sintetica.
+- [ ] Mega-Chad: se il contour 320 m esiste, `grade=dem-contour` e i nodi non sono i vertici del geojson.
+- [ ] `POST /walk` `richat` → `method=trap`, ranking vuoto.
 - [ ] Pack cieco: zero `lon`/`lat`/`river_name`; SHA-256 verificabile (`backend/tests/test_blind.py`).
 - [ ] Assenza anelli → Platone `concentric_rings` = `N/A`, mai `contradict` (`test_ledger.py`).
 

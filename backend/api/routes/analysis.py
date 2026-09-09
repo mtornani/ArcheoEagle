@@ -7,9 +7,10 @@ from core.imagery.srtm import srtm_client
 from core.detection.rule_based import detect_anomalies
 from core.layers import array_to_colormap_png_fast
 from core.hydro.paleorivers import (
-    bbox_from_geojson, bbox_to_aoi, corridor_bbox, load_network,
+    bbox_from_geojson, bbox_to_aoi, corridor_bbox,
     nodes_in_aoi, rivers_in_aoi,
 )
+from core.hydro.measure import MEGA_CHAD_IDS, measure_highstand, trap_richat
 from core.ledger.hypotheses import build_ledger
 from core.ledger.blind import make_blind_pack
 
@@ -42,7 +43,10 @@ def walk_corridor(request: WalkRequest):
     """
     Default path. Human picks a river, not a shape.
     Spectral off: crop-marks are a 2026 prior.
+    Richat is a trap, not a corridor.
     """
+    if request.corridor_id == "richat":
+        return trap_richat()
     try:
         bbox = corridor_bbox(request.corridor_id)
     except ValueError as e:
@@ -72,48 +76,73 @@ def run_analysis(request: AnalysisRequest):
 
 
 def _execute(*, aoi, bbox, include_dem, include_spectral, method, corridor_id):
-    hydro_nodes = nodes_in_aoi(bbox)
+    schematic_nodes = nodes_in_aoi(bbox)
     rivers = rivers_in_aoi(bbox)
 
-    bands, _bbox_img = copernicus_client.acquire_and_download(aoi, 20)
-    if _bbox_img and method == "aoi-restrict":
-        bbox = _bbox_img
+    measured = None
+    if corridor_id in MEGA_CHAD_IDS:
+        measured = measure_highstand(bbox)
 
+    if measured and measured["nodes"]:
+        hydro_nodes = measured["nodes"]
+        grade = "dem-contour"
+        warning = (
+            "Sponda dal DEM Copernicus GLO-30 (quota 320 m) su UN tile 1°. "
+            "Non è il lago intero. vs_schematic_km = distanza dal disegno in letteratura."
+        )
+        if measured["contour"]["features"]:
+            rivers = {
+                "type": "FeatureCollection",
+                "features": list(rivers.get("features") or []) + measured["contour"]["features"],
+                "metadata": {**(rivers.get("metadata") or {}), "measured": True},
+            }
+    else:
+        hydro_nodes = schematic_nodes
+        grade = "schematic"
+        if corridor_id in MEGA_CHAD_IDS and measured:
+            reason = (measured.get("dem") or {}).get("reason") or "no-contour"
+            warning = (
+                f"DEM: {reason}. Nessuna isolinea 320 m su quel tile. "
+                "Stai camminando un LineString da paper. Non è una misura."
+            )
+        else:
+            warning = (
+                "Tracciato schematico da letteratura. Un vertice non è un sito. "
+                "SRTM non vede i canali sepolti (serve L-band). Non inventiamo il DEM."
+            )
+
+    spectral_features: list = []
+    layers = {}
+    stats: Dict[str, Any] = {}
     dem = None
-    if include_dem:
-        dem = srtm_client.fetch_dem(bbox, target_shape=bands["B04"].shape)
 
-    results = detect_anomalies(bands, dem=dem)
-    if not results.get("success", False):
-        return {"message": "Errore nell'analisi", "error": results.get("error", "Unknown")}
-
-    spectral_features = _spectral_features(bands, results, bbox) if include_spectral else []
+    if include_spectral:
+        bands, _bbox_img = copernicus_client.acquire_and_download(aoi, 20)
+        if _bbox_img and method == "aoi-restrict":
+            bbox = _bbox_img
+        if include_dem:
+            dem = srtm_client.fetch_dem(bbox, target_shape=bands["B04"].shape)
+        results = detect_anomalies(bands, dem=dem)
+        if results.get("success", False):
+            spectral_features = _spectral_features(bands, results, bbox)
+            ndvi_map = results.get("ndvi_map")
+            bsi_map = results.get("bsi_map")
+            if ndvi_map is not None:
+                layers["ndvi"] = array_to_colormap_png_fast(ndvi_map, cmap="ndvi", vmin=-0.5, vmax=0.9, alpha=0.6)
+            if bsi_map is not None:
+                layers["bsi"] = array_to_colormap_png_fast(bsi_map, cmap="bsi", vmin=-0.5, vmax=0.6, alpha=0.6)
+            stats = {
+                k: v for k, v in results.items()
+                if k not in ("ndvi_map", "bsi_map", "slope_map", "tpi_map", "dem")
+            }
 
     ranking = build_ledger(hydro_nodes, spectral_features)
     blind = make_blind_pack(ranking)
     features = [_feature_from_row(row) for row in ranking]
 
-    layers = {}
-    if include_spectral:
-        ndvi_map = results.get("ndvi_map")
-        bsi_map = results.get("bsi_map")
-        if ndvi_map is not None:
-            layers["ndvi"] = array_to_colormap_png_fast(ndvi_map, cmap="ndvi", vmin=-0.5, vmax=0.9, alpha=0.6)
-        if bsi_map is not None:
-            layers["bsi"] = array_to_colormap_png_fast(bsi_map, cmap="bsi", vmin=-0.5, vmax=0.6, alpha=0.6)
-    if dem is not None:
-        layers["dem"] = array_to_colormap_png_fast(dem, cmap="dem", alpha=0.5)
-        slope_map = results.get("slope_map")
-        if slope_map is not None:
-            layers["slope"] = array_to_colormap_png_fast(slope_map, cmap="slope", vmin=0, vmax=30, alpha=0.5)
-
-    stats = {
-        k: v for k, v in results.items()
-        if k not in ("ndvi_map", "bsi_map", "slope_map", "tpi_map", "dem")
-    }
-
     return {
-        "message": "Tappe sul fiume. Non è una prova.",
+        "message": "Tappe sul fiume. Non è una prova." if grade != "dem-contour"
+        else "Sponda misurata sul DEM. Ancora non è una città.",
         "method": method,
         "corridor_id": corridor_id,
         "candidates": {"type": "FeatureCollection", "features": features},
@@ -122,10 +151,14 @@ def _execute(*, aoi, bbox, include_dem, include_spectral, method, corridor_id):
         "rivers": rivers,
         "stats": {
             **stats,
+            "grade": grade,
+            "warning": warning,
             "candidates_found": len(features),
             "hydro_nodes": len(hydro_nodes),
-            "dem_enabled": dem is not None,
-            "spectral_enabled": include_spectral,
+            "schematic_nodes": len(schematic_nodes),
+            "dem_enabled": bool(measured and (measured.get("dem") or {}).get("real")),
+            "dem": (measured or {}).get("dem"),
+            "spectral_enabled": bool(spectral_features),
             "off_network": len(hydro_nodes) == 0,
         },
         "layers": layers,
@@ -205,5 +238,7 @@ def _feature_from_row(row: Dict[str, Any]) -> Dict[str, Any]:
             "contro": row.get("contro"),
             "kill_shot": row.get("kill_shot"),
             "plato": row.get("plato"),
+            "grade": row.get("grade"),
+            "vs_schematic_km": row.get("vs_schematic_km"),
         },
     }

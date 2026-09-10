@@ -7,9 +7,10 @@ modo tipico in cui queste ricerche si perdono.
 
 ## Lo stato in una riga
 
-Un innalzamento robusto del carbone per unita' di biomassa vegetale nella
-finestra **5.5-8.8 ka**, in **una sola carota**, con **una** spiegazione
-climatica ancora non testata. **Non concluso.**
+**CHIUSA (10 set 2026).** L'ultima spiegazione alternativa — il cambio di
+sorgente della polvere — e' stata testata e **confermata**, con isotopi misurati
+a poche centinaia di metri dalla nostra carota. L'anomalia e' con ogni
+probabilita' un artefatto di provenienza. Vedi in fondo.
 
 ## Il dato
 
@@ -121,3 +122,76 @@ Una correzione tafonomica formale (Surovell et al. 2009) e una scatola
 geografica piu' stretta sul deserto vero, invece del margine saheliano,
 potrebbero affinare il conto. Ma servirebbero a rifinire un esito gia' negativo,
 non a ribaltarlo.
+
+
+---
+
+# CHIUSURA — il cambio di sorgente, misurato
+
+**Previsione registrata:** se il trasporto spiega l'anomalia, la firma
+isotopica della polvere deve **cambiare** attraverso i confini della finestra.
+
+**Confermata.**
+
+Dataset: **ODP Hole 658C**, Sr e Nd isotopici (Cole, Goldstein, deMenocal et
+al. 2009), 57 campioni fra 0.2 e 11.9 ka. Posizione: **20.749 N, 18.581 W**.
+La nostra carota del carbone, GeoB7920-2, sta a **20.752 N, 18.582 W** —
+**poche centinaia di metri**. E' la firma della polvere nel nostro stesso punto.
+
+## Il dato
+
+Non e' rumore: e' una **rampa monotona**.
+
+| periodo | 87Sr/86Sr |
+|---|---|
+| 11.9-8.9 ka | 0.7138-0.7145 — basso, stabile |
+| **8.7-5.5 ka** | **sale 0.7144 -> 0.7208** — *la nostra finestra* |
+| 5.5-0.2 ka | 0.7215-0.7233 — alto, stabile |
+
+| finestra | n | 87Sr/86Sr mediano | eps-Nd |
+|---|---|---|---|
+| prima, >8.8 ka | 9 | 0.714046 | -14.5 |
+| **anomalia, 5.5-8.8 ka** | 19 | **0.716908** | -14.2 |
+| dopo, <5.5 ka | 29 | 0.722368 | -14.8 |
+
+**p < 0.001 su entrambi i confini.** Escursione totale 0.0095 — enorme per
+sedimento detritico.
+
+## Perche' questo chiude la pista
+
+La sorgente della polvere che arriva in quel punto **cambia in modo continuo e
+massiccio proprio attraverso la finestra 5.5-8.8 ka**, e si stabilizza a ~5.5 ka.
+
+Conseguenza diretta: carbone e cere fogliari in quella finestra vengono da un
+**bacino di provenienza diverso** rispetto a prima e dopo. Il loro rapporto
+confronta mele di frutteti diversi. Non c'e' ragione perche' resti comparabile
+attraverso un cambio di sorgente di quella scala.
+
+E c'e' di peggio, ed e' un difetto della mia selezione: **la finestra
+dell'anomalia coincide con la finestra della transizione.** Avevo scelto
+5.5-8.8 ka perche' li' il rapporto era alto, e si scopre che li' — e solo li' —
+la sorgente stava cambiando. I periodi di confronto sono i due altopiani. Un
+rapporto fra due componenti eoliche si comporta diversamente durante una
+transizione di sorgente: e' quasi una tautologia.
+
+## Bilancio finale delle sei alternative
+
+| # | alternativa | esito |
+|---|---|---|
+| 1 | fuoco a umidita' intermedia | falsificata |
+| 2 | produzione pollinica | valida — polline scartato come normalizzatore |
+| 3 | diagenesi | non regge |
+| 4 | diluizione / sedimentazione | falsificata al contrario |
+| 5 | granulometria | non testabile (dati fuori finestra) |
+| 6 | **cambio di sorgente della polvere** | **CONFERMATA, con misura nello stesso punto** |
+
+## Cosa resta vero
+
+L'anomalia **esiste** come misura: carbone per unita' di biomassa 3x piu' alto
+in quella finestra, p < 0.001. Quello che non regge e' l'interpretazione: non
+serve nessun fuoco in piu', ne' nessuna persona, per produrla. Basta che il
+vento portasse materiale da un'altra parte del Sahara.
+
+**Non e' un fallimento del metodo: e' il metodo che funziona.** Sei spiegazioni
+alternative, tutte inseguite fino in fondo, l'ultima chiusa da un dataset
+raccolto da altri per un'altra domanda, a trecento metri dalla nostra carota.

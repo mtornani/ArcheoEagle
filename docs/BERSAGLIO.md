@@ -92,6 +92,50 @@ E' un criterio nuovo, **non ancora nel modulo**, e cambia la classifica:
 4. **Mare del Nord (Doggerland)** — serve da **controllo**, non da bersaglio:
    sappiamo gia' che c'e'.
 
+## CORREZIONE — tre meccanismi, non uno (10 set 2026)
+
+L'ipotesi qui sopra diceva: bacino con una soglia, scavalcata, che si riempie.
+Mirko ha obiettato con due casi reali, e l'obiezione regge.
+
+**Vajont 1963:** la diga **tenne**. A uccidere fu una frana caduta *dentro* il
+lago, che sposto' l'acqua. Il killer e' una massa solida; l'onda e' l'effetto.
+
+**Nepal, 26 agosto 2026:** non un lago glaciale che esonda, ma il **crollo di un
+ghiacciaio** sul Langtang Lirung. 1.357 morti, 5.326 dispersi, 72 km di
+insediamenti lungo il Trishuli, corpi trasportati per 240 km.
+
+In entrambi la catastrofe e' **lineare e a valle**, non una conca che si riempie.
+
+E il colpo all'ipotesi e' piu' duro di cosi': **un bacino che si riempie non
+uccide.** Anche il Mar Nero nella versione catastrofica sale ~15 cm al giorno —
+una cosa da cui ci si allontana camminando. Sposta la gente, non la seppellisce.
+Niente corpi, niente livello di abbandono improvviso: **ne' memoria traumatica
+ne' giacimento in posto**.
+
+Al contrario, una catastrofe da massa in movimento seppellisce un luogo abitato
+in minuti, con tutto al suo posto. E' conservazione di livello pompeiano — ed e'
+quella che lascia *insieme* il ricordo e il reperto.
+
+| | meccanismo | uccide? | conserva? | firma |
+|---|---|---|---|---|
+| 1 | riempimento per sfioro | no, sposta | male | geometria: conca + soglia |
+| 2 | massa che sposta l'acqua (Vajont, Storegga ~8.150 anni fa, che colpi' proprio Doggerland) | si', in minuti | benissimo | **stratigrafia**: strato di tsunami |
+| 3 | rilascio a valle (Nepal 2026, GLOF, Missoula) | si', in minuti | bene | deposito di detrito, scavo di valle |
+
+**Conseguenza:** l'ipotesi originale copriva il meccanismo meno interessante dei
+tre. Il bersaglio va spostato verso 2 e 3 — cioe' verso **terra abitata adiacente
+a un versante che puo' crollare**, non verso conche che si allagano piano.
+
+E il meccanismo 2, il piu' promettente, **non ha firma geometrica**: sta nella
+stratigrafia. Nessun DEM lo vedra' mai. Va detto adesso, non dopo aver
+costruito il rilevatore sbagliato.
+
+Il modulo `core/marine/basin.py` implementa quel che della geometria si puo'
+fare: punto di sfioro (serve 1 e 3, e' lo stesso punto — cambia da che parte sta
+l'acqua), percorso dello sfioratore (la zona di distruzione del meccanismo 3),
+ipsometria del bacino, e potenziale di sorgente di frana per il 2 — solo la
+sorgente, mai l'onda.
+
 ## Cosa penso davvero del mito, detto chiaro
 
 La spiegazione piu' probabile del testo di Platone e' che sia una

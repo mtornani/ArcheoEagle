@@ -161,3 +161,114 @@ il registratore e' gia' carotato, gia' datato, gia' pubblico.
 E' lo stesso motivo per cui l'integrale batteva le statistiche locali: non
 perche' l'integrale sia furbo, ma perche' concentra un segnale che localmente
 e' sotto il rumore.
+
+## Il test di disaccoppiamento: eseguito
+
+Stessa carota GeoB7920-2, carbone (877696) diviso polline totale (877704),
+entrambi calibrati col metodo del marcatore esotico. **Previsione registrata
+prima di guardare:** se il carbone e' solo clima, carbone e polline vanno
+insieme e il rapporto resta piatto.
+
+| periodo | n | carbone | polline | **carbone/polline** |
+|---|---|---|---|---|
+| periodo umido 14.5-5.5 ka | 15 | 5.295 | 510 | **9.80** |
+| dopo il disseccamento | 11 | 2.406 | 591 | **3.26** |
+
+**Il disaccoppiamento c'e', ed e' netto: 3x.** Il carbone e' massimo (10.188 a
+6.3 ka) proprio quando il polline e' minimo. E il polline e' 4 volte piu'
+abbondante a 10.5-11 ka — la fase piu' umida — che nella fase 8-6 ka.
+
+**E quasi certamente non e' presenza umana.** Il picco del rapporto cade a
+6-8 ka, cioe' nella fase **terminale e in via di disseccamento** del periodo
+umido. Ed e' esattamente cio' che l'ecologia del fuoco prevede: **il fuoco e'
+massimo a umidita' intermedia** — abbastanza biomassa da bruciare, abbastanza
+secca da prendere fuoco. Un paesaggio che si sta seccando ma e' ancora vegetato
+brucia piu' sia di uno umido sia di un deserto.
+
+Altre alternative da escludere prima di qualunque affermazione:
+- **trasporto, non produzione.** A 200+ km dalla costa carbone e polline
+  arrivano col vento, e hanno proprieta' aerodinamiche diverse. Un cambio di
+  circolazione (monsone contro alisei) cambia il rapporto senza che cambino ne'
+  il fuoco ne' le persone. E' l'obiezione piu' seria.
+- **spostamento dell'area sorgente.** Durante il periodo umido la fascia
+  vegetata si sposta a nord: il polline a 20.75 N nel 10 ka viene da un'altra
+  regione che nel 5 ka.
+- diluizione e conservazione differenziale.
+
+## La predizione quantitativa che chiude o apre il caso
+
+Se il picco del rapporto e' l'effetto di umidita' intermedia, allora **il
+rapporto deve essere prevedibile dalla curva di umidita'**. Il proxy idrologico
+sta nella stessa collezione: i **lipidi** (doi:10.1594/PANGAEA.877702), dove il
+deuterio delle cere fogliari e' una misura diretta di umidita'.
+
+- rapporto che segue l'umidita' -> clima, caso chiuso, e lo si dice.
+- rapporto che se ne discosta -> resta qualcosa da spiegare.
+
+Non e' stato fatto. E' il criterio 5 (predizione quantitativa) applicato per
+davvero, ed e' l'unica cosa che distingue questo da un racconto a posteriori.
+
+---
+
+# Proxy culturali: esistono, e sono rigorosi
+
+L'esempio dell'ambra baltica non e' inventato: e' metodo reale. L'ambra baltica
+si riconosce chimicamente (succinite, spettroscopia infrarossa) e la sua
+comparsa e scomparsa nei corredi mediterranei traccia una rete di scambio.
+
+Famiglie mature, tutte basate sulla **provenienza**:
+
+| proxy | cosa traccia | come |
+|---|---|---|
+| **ossidiana** | la rete di scambio, sorgente per sorgente | ogni vulcano ha un'impronta di elementi in traccia (XRF, attivazione neutronica) |
+| **isotopi del piombo** | rame, argento, lingotti | firma della miniera |
+| **stagno** | il problema classico dell'eta' del bronzo | isotopi su lingotti da relitti |
+| **petrografia ceramica** | zone di produzione | impasti e inclusi |
+| **stronzio/ossigeno nei denti** | mobilita' del singolo individuo | dove e' cresciuto contro dove e' sepolto |
+| **DNA antico** | movimento e sostituzione di popolazioni | |
+| **date al radiocarbonio sommate** | **demografia** | densita' di date come proxy di popolazione |
+
+## La trappola, che e' la stessa di sempre
+
+"L'ambra smette di arrivare, quindi la popolazione che la esportava e'
+sparita" fallisce la **specificita'**. Alternative, tutte da escludere:
+
+- sono crollati gli **intermediari**, non la sorgente
+- e' cambiata la **rotta**
+- e' crollata la **domanda**, non l'offerta
+- e' comparso un **sostituto**
+- e' cambiato l'**uso rituale**: l'ambra non smette di arrivare, smette di
+  essere sepolta
+- **bias di scavo**: abbiamo scavato meno siti di quel periodo
+- la "lacuna" e' un artefatto della **risoluzione cronologica**
+
+Il discriminante e' spaziale e testabile: **un crollo della sorgente uccide la
+rete tutta insieme; un'interruzione di rotta la spegne progressivamente
+dall'estremita' piu' lontana verso l'interno.** Gradiente contro simultaneita'.
+E' il criterio 5 applicato alle reti di scambio.
+
+## Quello utilizzabile qui e ora
+
+**Le date al radiocarbonio come proxy demografico** ("dates as data"): la somma
+delle probabilita' delle date archeologiche di una regione approssima
+l'andamento della popolazione. Per il Sahara del periodo umido esiste materiale
+vero — Gobero, Takarkori, Nabta Playa, e alcune fra le ceramiche piu' antiche
+del mondo.
+
+**E fa una previsione verificabile per il nostro problema:** se una popolazione
+costiera si e' ritirata verso l'interno mentre il mare avanzava, la densita' di
+date **nell'entroterra deve salire** proprio in quella finestra.
+
+Stato delle banche dati, verificato: **XRONOS** (xronos.ch) risponde, ma
+l'endpoint API non e' stato identificato in questa sessione — segnato come
+raggiungibile, non come funzionante. **p3k14c** e' un dataset globale aperto
+distribuito su GitHub. Da verificare entrambi prima di usarli.
+
+## Il limite duro
+
+I proxy culturali richiedono **cultura materiale**: siti scavati e reperti
+databili. Per una piattaforma annegata e non scavata **non sono disponibili**.
+Restano utilizzabili in due modi indiretti:
+1. sulla terra **sopravvissuta**, per leggere cosa e' successo a quella perduta;
+2. nel **deposito** dove il sedimento converge, che e' il riorientamento gia'
+   registrato qui sopra.

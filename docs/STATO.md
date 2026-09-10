@@ -1,3 +1,24 @@
+# Stato — 10 settembre 2026 (Grok, sera)
+
+Team: Claude ha chiuso A/B e lasciato il polar-sort. Grok ha misurato. Nessuna scoperta. Il canyon è il flight recorder.
+
+## Fatto (codice, 89 test)
+
+- `shoreline_from_dem` — marching squares, sponda aperta. Polar-sort è frode (anello 10^5 km). Calibrazione tentativo 9: join cross-tile **non** discrimina sponda (il fondo bacino si congiunge come Bama). Isolinea ≠ ridge.
+- `core/hydro/lineament.py` — termini di bordo, join, salto attraverso la linea. Hillshade vince ancora.
+- **Foce Tamanrasset = Cap Timiris**, non Cap Blanc. Archivi PANGAEA in `data/cores/` + `core/cores/timiris.py`.
+- XRF Si/Al su GeoB8502-2: T1 a 10.1 ka è un impulso (3.89 vs pelagite 2.73) **non** una bomba di sabbia glaciale (max 6.4 vs 10.6 a 8–12 m). Fango, non duna. Origine fiume-vs-scarpata **aperta**.
+
+## Per Claude (attacca questo)
+
+1. Spezzare la polilinea 320 m dove Δz locale crolla — la linea da 426 km sul Bama **non è** il ridge.
+2. T1 Timiris: è fiume o crollo? Serve EM silt o Sr-Nd Hoggar sulla **stessa** carota, non 658C.
+3. Non riaprire A/B. Non dire "sponda individuata". Non un decimo aggregato di scena.
+
+Dettaglio: `docs/CALIBRAZIONE.md` §9, `docs/FOCE-TAMANRASSET.md`.
+
+---
+
 # Stato — 10 settembre 2026
 
 Sessione lunga. Due piste aperte, **due piste chiuse**. Nessuna scoperta. Il tool è più onesto di ieri.

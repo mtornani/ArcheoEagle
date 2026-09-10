@@ -7,6 +7,7 @@ highstand is a topographic bench. That is the first from-home measurement.
 from __future__ import annotations
 
 import math
+from collections import defaultdict
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
@@ -16,6 +17,7 @@ from core.hydro.paleorivers import haversine_km, load_network
 
 BBox = Sequence[float]
 LngLat = Tuple[float, float]
+RC = Tuple[float, float]
 
 MEGA_CHAD_HIGHSTAND_M = 320.0
 MEGA_CHAD_IDS = {"megachad", "mega_chad"}
@@ -23,6 +25,8 @@ MEGA_CHAD_IDS = {"megachad", "mega_chad"}
 # but each is a network fetch; cap so /walk still answers. Truncation is reported,
 # never hidden.
 MAX_TILES_PER_REQUEST = 12
+# Local 320 m wiggles on a flat basin are not a shoreline.
+MIN_CONTOUR_KM = 10.0
 
 
 def copernicus_cog_url(lat_s: int, lon_s: int) -> str:
@@ -44,39 +48,137 @@ def _rowcol_to_ll(row: float, col: float, bbox: BBox, shape: Tuple[int, int]) ->
     return float(lon), float(lat)
 
 
+def _interp_rc(r0: float, c0: float, r1: float, c1: float, z0: float, z1: float, level: float) -> RC:
+    if z1 == z0:
+        t = 0.5
+    else:
+        t = (level - z0) / (z1 - z0)
+    t = min(1.0, max(0.0, float(t)))
+    return (r0 + t * (r1 - r0), c0 + t * (c1 - c0))
+
+
+def _length_km(line: List[LngLat]) -> float:
+    return sum(haversine_km(line[i - 1], line[i]) for i in range(1, len(line)))
+
+
+def _stitch_polylines(segments: List[Tuple[LngLat, LngLat]]) -> List[List[LngLat]]:
+    """Join marching-squares segments. Open shore stays open. No polar-sort ring."""
+    if not segments:
+        return []
+
+    def key(p: LngLat) -> Tuple[int, int]:
+        return (round(p[0] * 1e5), round(p[1] * 1e5))
+
+    adj: Dict[Tuple[int, int], List[Tuple[int, int]]] = defaultdict(list)
+    coord: Dict[Tuple[int, int], LngLat] = {}
+    for a, b in segments:
+        ka, kb = key(a), key(b)
+        if ka == kb:
+            continue
+        coord[ka] = a
+        coord[kb] = b
+        adj[ka].append(kb)
+        adj[kb].append(ka)
+
+    def pop_nb(u: Tuple[int, int], v: Tuple[int, int]) -> None:
+        if v in adj[u]:
+            adj[u].remove(v)
+        if u in adj[v]:
+            adj[v].remove(u)
+
+    def walk(start: Tuple[int, int], first: Optional[Tuple[int, int]] = None) -> List[Tuple[int, int]]:
+        path = [start]
+        cur = start
+        if first is not None:
+            pop_nb(cur, first)
+            path.append(first)
+            cur = first
+        while adj[cur]:
+            nxt = adj[cur][0]
+            pop_nb(cur, nxt)
+            path.append(nxt)
+            cur = nxt
+            if cur == start:
+                break
+        return path
+
+    lines: List[List[LngLat]] = []
+    for start in [n for n, nbs in list(adj.items()) if len(nbs) == 1]:
+        if not adj[start]:
+            continue
+        path = walk(start)
+        if len(path) >= 4:
+            lines.append([coord[p] for p in path])
+    for node in list(adj.keys()):
+        while adj[node]:
+            path = walk(node, first=adj[node][0])
+            if len(path) >= 4:
+                lines.append([coord[p] for p in path])
+    return lines
+
+
 def shoreline_from_dem(dem: np.ndarray, bbox: BBox, level_m: float) -> List[List[LngLat]]:
-    """Contour polylines at level_m. Numpy only — no skimage, no invented terrain."""
+    """Marching-squares polylines at level_m. Open contours stay open.
+
+    Polar-sort around the centroid is forbidden: that closes a shore fragment
+    into a fake ring. CALIBRAZIONE.md left this as the next honest step.
+    """
     if dem.size == 0 or not np.isfinite(dem).any():
         return []
     filled = np.where(np.isfinite(dem), dem, np.nanmedian(dem))
     lo, hi = float(np.nanmin(filled)), float(np.nanmax(filled))
-    if not (lo < level_m < hi):
+    if lo == hi or not (lo <= level_m <= hi):
         return []
-    left, right = filled[:, :-1], filled[:, 1:]
-    mask_h = np.isfinite(left) & np.isfinite(right) & (left != right)
-    mask_h &= ((left - level_m) * (right - level_m) <= 0)
-    rh, ch = np.nonzero(mask_h)
-    th = (level_m - left[mask_h]) / (right[mask_h] - left[mask_h])
 
-    top, bot = filled[:-1, :], filled[1:, :]
-    mask_v = np.isfinite(top) & np.isfinite(bot) & (top != bot)
-    mask_v &= ((top - level_m) * (bot - level_m) <= 0)
-    rv, cv = np.nonzero(mask_v)
-    tv = (level_m - top[mask_v]) / (bot[mask_v] - top[mask_v])
+    tl, tr = filled[:-1, :-1], filled[:-1, 1:]
+    bl, br = filled[1:, :-1], filled[1:, 1:]
+    zmin = np.minimum.reduce([tl, tr, bl, br])
+    zmax = np.maximum.reduce([tl, tr, bl, br])
+    crosses = (zmin <= level_m) & (zmax >= level_m) & (zmin != zmax)
+    rows, cols = np.nonzero(crosses)
+    if rows.size == 0:
+        return []
 
-    pts: List[LngLat] = []
     shape = filled.shape
-    for r, c, t in zip(rh, ch, th):
-        pts.append(_rowcol_to_ll(float(r), float(c) + float(t), bbox, shape))
-    for r, c, t in zip(rv, cv, tv):
-        pts.append(_rowcol_to_ll(float(r) + float(t), float(c), bbox, shape))
-    if len(pts) < 8:
-        return []
-    cx = sum(p[0] for p in pts) / len(pts)
-    cy = sum(p[1] for p in pts) / len(pts)
-    ordered = sorted(pts, key=lambda p: math.atan2(p[1] - cy, p[0] - cx))
-    ordered.append(ordered[0])
-    return [ordered]
+    segments: List[Tuple[LngLat, LngLat]] = []
+    pairs_of = {
+        1: [("left", "top")],
+        2: [("top", "right")],
+        3: [("left", "right")],
+        4: [("right", "bot")],
+        5: [("left", "top"), ("right", "bot")],
+        6: [("top", "bot")],
+        7: [("left", "bot")],
+        8: [("left", "bot")],
+        9: [("top", "bot")],
+        10: [("top", "right"), ("left", "bot")],
+        11: [("right", "bot")],
+        12: [("left", "right")],
+        13: [("top", "right")],
+        14: [("left", "top")],
+    }
+    for r, c in zip(rows.tolist(), cols.tolist()):
+        ztl, ztr, zbl, zbr = float(tl[r, c]), float(tr[r, c]), float(bl[r, c]), float(br[r, c])
+        case = (
+            (1 if ztl >= level_m else 0)
+            | (2 if ztr >= level_m else 0)
+            | (4 if zbr >= level_m else 0)
+            | (8 if zbl >= level_m else 0)
+        )
+        if case in (0, 15):
+            continue
+        edges = {
+            "top": _interp_rc(r, c, r, c + 1, ztl, ztr, level_m),
+            "right": _interp_rc(r, c + 1, r + 1, c + 1, ztr, zbr, level_m),
+            "bot": _interp_rc(r + 1, c, r + 1, c + 1, zbl, zbr, level_m),
+            "left": _interp_rc(r, c, r + 1, c, ztl, zbl, level_m),
+        }
+        for e0, e1 in pairs_of.get(case, []):
+            p0 = _rowcol_to_ll(edges[e0][0], edges[e0][1], bbox, shape)
+            p1 = _rowcol_to_ll(edges[e1][0], edges[e1][1], bbox, shape)
+            segments.append((p0, p1))
+    lines = _stitch_polylines(segments)
+    return [ln for ln in lines if _length_km(ln) >= MIN_CONTOUR_KM]
 
 
 def _sample_along(pts: List[LngLat], step_km: float) -> List[LngLat]:
@@ -161,8 +263,36 @@ def tiles_covering_bbox(bbox: BBox) -> List[Tuple[int, int]]:
     ]
 
 
+def _read_dem(path: Path, lat_s: int, lon_s: int) -> Optional[Tuple[np.ndarray, List[float]]]:
+    try:
+        import rasterio
+        with rasterio.open(path) as src:
+            dem = src.read(1).astype(np.float64)
+            nodata = src.nodata
+            if nodata is not None:
+                dem[dem == nodata] = np.nan
+            b = src.bounds
+            bbox = [float(b.left), float(b.bottom), float(b.right), float(b.top)]
+        dem[dem < -500] = np.nan
+        return dem, bbox
+    except Exception:
+        pass
+    try:
+        import tifffile
+        dem = np.asarray(tifffile.imread(path), dtype=np.float64)
+        if dem.ndim > 2:
+            dem = np.squeeze(dem)
+        if dem.ndim > 2:
+            dem = dem[0]
+        dem[dem < -500] = np.nan
+        bbox = [float(lon_s), float(lat_s), float(lon_s + 1), float(lat_s + 1)]
+        return dem, bbox
+    except Exception:
+        return None
+
+
 def fetch_copernicus_tile(lat_s: int, lon_s: int, timeout: int = 90) -> Optional[Tuple[np.ndarray, List[float], str]]:
-    """One 1° GLO-30 COG. None if the network or rasterio fails. Never invents terrain."""
+    """One 1° GLO-30 COG. None if network or reader fails. Never invents terrain."""
     import requests
 
     url = copernicus_cog_url(lat_s, lon_s)
@@ -179,14 +309,10 @@ def fetch_copernicus_tile(lat_s: int, lon_s: int, timeout: int = 90) -> Optional
                 for chunk in resp.iter_content(1 << 16):
                     f.write(chunk)
             tmp.replace(dest)
-        import rasterio
-        with rasterio.open(dest) as src:
-            dem = src.read(1).astype(np.float64)
-            nodata = src.nodata
-            if nodata is not None:
-                dem[dem == nodata] = np.nan
-            b = src.bounds
-            bbox = [float(b.left), float(b.bottom), float(b.right), float(b.top)]
+        read = _read_dem(dest, lat_s, lon_s)
+        if read is None:
+            return None
+        dem, bbox = read
         return dem, bbox, url
     except Exception:
         return None
@@ -249,7 +375,12 @@ def measure_highstand(
         "features": [
             {
                 "type": "Feature",
-                "properties": {"id": "mega_chad_dem_contour", "grade": "dem-contour", "level_m": level_m},
+                "properties": {
+                    "id": "mega_chad_dem_contour",
+                    "grade": "dem-contour",
+                    "level_m": level_m,
+                    "length_km": round(_length_km(line), 1),
+                },
                 "geometry": {"type": "LineString", "coordinates": [[p[0], p[1]] for p in line]},
             }
             for line in lines
@@ -269,6 +400,8 @@ def measure_highstand(
             "zmin": min(t["zmin"] for t in fetched_tiles),
             "zmax": max(t["zmax"] for t in fetched_tiles),
             "level_m": level_m,
+            "n_contours": len(lines),
+            "note": "Isolinea disegnata, non sponda individuata. Calibrazione Bama Ridge: fallita.",
         },
     }
 

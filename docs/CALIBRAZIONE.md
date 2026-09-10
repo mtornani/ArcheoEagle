@@ -366,14 +366,69 @@ descritto sopra.
    montuoso e bordo di duna danno la stessa firma. Il salto lo fa la
    letteratura o il campo.
 
+## Tentativo 9 — 10 settembre 2026. Polilinea vera, poi join e salto.
+
+Eseguito il passo che questo file lasciava aperto: marching squares, sponda
+aperta, frammenti < 10 km scartati. Confronto col polar-sort (l'algoritmo
+precedente) e col join cross-tile (ipotesi Claude). DEM Copernicus GLO-30,
+stessi tile del controllo positivo/negativo, piu' il fondo bacino N13 E014.
+
+### Polar-sort e' frode (confermato)
+
+A 320 m, un tile 1° produce un anello chiuso da 10^4–10^5 km. Impossibile come
+sponda: e' il baricentro che cucine tutti i pixel di crossing. La polilinea
+tracciata e' aperta, centinaia di km, tocca il bordo.
+
+| tile | z | polar km (chiuso) | traced km (aperto) | n linee |
+|---|---|---|---|---|
+| Bama N11 E013 | 290–1337 | 295094 si | 426 no | 1 |
+| Bama est N11 E014 | 286–946 | 131099 si | 250 no | 1 |
+| Controllo N15 E018 | 243–356 | 773041 si | 612 no | 5 |
+| Controllo est N15 E019 | 324–405 | — (niente 320 m) | 0 | 0 |
+| Bacino N13 E014 | 270–330 | 28248 si | 90 no | 1 |
+| Bacino est N13 E015 | 271–338 | 169399 si | 304 no | 3 |
+
+### Join cross-tile: non discrimina la sponda (falsificato come test sufficiente)
+
+Ipotesi Claude: una sponda continua a 320 m sul bordo condiviso; il rumore no.
+
+| coppia | joins |
+|---|---|
+| Bama ↔ Bama est | 1 |
+| Controllo ↔ controllo est | 0 (il secondo tile e' tutto >320 m) |
+| Bacino ↔ bacino est | 1 |
+
+Il fondo del lago moderno si congiunge come il Bama. Un'isolinea di un campo
+continuo **deve** continuare nel tile accanto se quel tile ha la stessa quota.
+Non e' la firma di una spiaggia: e' l'idrostatica.
+
+La lunghezza nemmeno: il controllo (612 km) batte il Bama (426 km).
+
+### Salto attraverso la linea piu' lunga: non isola il ridge
+
+Media |Δz| a 1 km dai due lati della polilinea piu' lunga, 320 m:
+
+Bama 4.9 m · controllo 3.7 m · bacino 1.3 m.
+
+Direzione giusta, non un kill-shot. Motivo: 426 km in un tile da ~110 km non
+e' il Bama Ridge (la linea rossa nell'hillshade). E' la **componente connessa**
+di tutta l'isolinea 320 m, ridge + meandri. Media su 40 campioni = 99% rumore.
+
+### Verdetto
+
+- Polar-sort: morto. Non si rimette.
+- Isolinea tracciata: si, e si puo' dire. Non e' "sponda individuata".
+- Join cross-tile e lunghezza: non sostituiscono l'occhio sull'hillshade.
+- Diagnosi Claude resta: serve isolare **quel** lineamento (il ridge), non la
+  linea 320 m piu' lunga. La componente connessa e' ancora un aggregato di scena.
+
+Soglia `STEP_SCORE_THRESHOLD` non toccata. Nessuna UI dice "sponda individuata".
+
 ## Prossimo passo onesto
 
-Le statistiche su maschera raster sono il problema: lavorano su un'area, mentre
-una sponda e' una **linea**. Serve tracciare davvero l'isolinea come polilinea
-(non l'ordinamento per angolo attorno al centroide che usa oggi
-`shoreline_from_dem`, che presuppone un anello chiuso) e misurarne lunghezza,
-curvatura e coerenza di quota. E' un pezzo di lavoro a se', da decidere prima
-di farlo.
+Spezzare la polilinea dove il salto locale crolla, tenere i segmenti con Δz
+alto, e **solo quelli** chiedere se si congiungono al tile accanto. Non una
+decima statistica sul tile intero.
 
 ## Come rieseguirlo
 

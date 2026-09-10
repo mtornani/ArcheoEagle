@@ -1,0 +1,6 @@
+CC-BY 3.0. Do not treat a vertex as a site.
+
+Wien, Holz, Koelling, Schulz (2006) PANGAEA.738191 turbidites; PANGAEA.134703 XRF GeoB8502-2.
+Zuehlsdorff (2008) PANGAEA.665705 grain size GeoB8509-2; PANGAEA.710992 14C.
+Supplement to Wien et al. 2006 Mar Pet Geol 23:337-352 and Zuehlsdorff et al. 2007 Mar Geol 240:217-234.
+Cap Timiris Canyon = Tamanrasset mouth (Skonieczny et al. 2015 Nat Commun).

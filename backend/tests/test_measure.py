@@ -50,6 +50,28 @@ class ShorelineMeasureTest(unittest.TestCase):
             self.assertGreaterEqual(node["lon"], 10.0)
             self.assertLessEqual(node["lon"], 11.0)
 
+    def test_linear_ramp_stays_open_not_a_polar_ring(self):
+        """Polar-sort around centroid would close a N-S shore into a fake loop."""
+        n = 41
+        dem = np.tile(np.linspace(200.0, 400.0, n), (n, 1))
+        bbox = [14.0, 13.0, 15.0, 14.0]
+        lines = shoreline_from_dem(dem, bbox, level_m=320.0)
+        self.assertTrue(lines, "expected an open 320 m contour")
+        line = max(lines, key=len)
+        self.assertNotEqual(line[0], line[-1])
+        lons = [p[0] for p in line]
+        lats = [p[1] for p in line]
+        self.assertLess(max(lons) - min(lons), 0.15)
+        self.assertGreater(max(lats) - min(lats), 0.7)
+
+    def test_tiny_closed_blob_is_not_a_shore(self):
+        n = 41
+        yy, xx = np.mgrid[0:n, 0:n]
+        dem = 200.0 + ((xx - 20.0) ** 2 + (yy - 20.0) ** 2) * 0.8
+        bbox = [14.0, 13.0, 14.02, 13.02]
+        lines = shoreline_from_dem(dem, bbox, level_m=320.0)
+        self.assertEqual(lines, [])
+
     def test_flat_dem_yields_no_shore(self):
         dem = np.full((20, 20), 280.0)
         lines = shoreline_from_dem(dem, [0, 0, 1, 1], level_m=320.0)

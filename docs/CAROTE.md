@@ -272,3 +272,81 @@ Restano utilizzabili in due modi indiretti:
 1. sulla terra **sopravvissuta**, per leggere cosa e' successo a quella perduta;
 2. nel **deposito** dove il sedimento converge, che e' il riorientamento gia'
    registrato qui sopra.
+
+## Il test dei lipidi: previsione falsificata, e cosa resta in piedi
+
+**Previsione registrata:** se il rapporto carbone/polline e' l'effetto di
+umidita' intermedia, deve avere un massimo a umidita' media e scendere ai due
+estremi. Una gobba.
+
+**Falsificata.** Nessuna gobba: piu' umido = piu' alto, monotono
+(r = -0.54 con il deuterio delle cere fogliari).
+
+| terzile di umidita' | rapporto mediano |
+|---|---|
+| piu' umido | 12.2 |
+| intermedio | 9.5 |
+| piu' secco | 3.6 |
+
+**Ma il denominatore era rotto**, e lo dice una misura indipendente nella stessa
+carota: il d13C passa da -22.4 a 11 ka (erba C4) a -26 dopo (legnose C3). Le
+erbe producono molto piu' polline delle legnose, quindi il rapporto puo' salire
+solo perche' cambia il *tipo* di vegetazione, senza che il fuoco cambi.
+Spiegazione noiosa che non avevo previsto.
+
+### Normalizzatore corretto: le cere fogliari
+
+Carbone diviso **n-alcani C29+C31 per grammo di sedimento** — biomassa vegetale
+misurata chimicamente, senza il filtro della produzione pollinica.
+
+| periodo | n | mediana |
+|---|---|---|
+| 12-5.5 ka | 15 | **29** |
+| < 5.5 ka | 11 | **9** |
+
+Valori ordinati — periodo umido: 10 14 14 14 23 27 28 29 36 40 55 58 58 104 117
+dopo: 2 6 9 9 9 9 10 13 16 16 19. **Mann-Whitney p < 0.001**, e la separazione
+non dipende dai tre valori estremi: togliendoli resta.
+
+### Le alternative noiose, una per una
+
+| alternativa | esito |
+|---|---|
+| fuoco massimo a umidita' intermedia | **falsificata** (nessuna gobba) |
+| produzione pollinica che cambia col tipo di vegetazione | **valida, ed e' perche' il polline e' stato scartato** come normalizzatore |
+| diagenesi: le cere si degradano, il carbone e' inerte, quindi il rapporto cresce con l'eta' | **non regge**: i campioni piu' vecchi (10.5-11 ka) hanno rapporto 14, piu' basso di molti campioni a 6 ka. Non e' monotono con l'eta' |
+| **trasporto: vento diverso porta carbone e cere in proporzione diversa** | **NON TESTATA. E' la spiegazione residua piu' probabile.** |
+
+### Cosa sopravvive, detto con precisione
+
+C'e' un innalzamento statisticamente robusto del carbone per unita' di biomassa
+vegetale, **circoscritto alla finestra 5.5-8.8 ka** — la seconda meta' del
+periodo umido — basso sia prima (10-11 ka) sia dopo. Nessuna delle tre
+spiegazioni climatiche testate lo rende conto.
+
+**E questo NON e' prova di presenza umana.** Non lo e' per due ragioni
+indipendenti:
+
+1. Il confondente del **trasporto** e' intatto. A 200+ km dalla costa, carbone
+   e cere arrivano col vento e hanno aerodinamica diversa; il regime era
+   monsonico durante il periodo umido e ad alisei dopo. Un cambio di
+   circolazione muove il rapporto senza toccare il fuoco. **E' la spiegazione
+   piu' probabile di quel che resta.**
+2. Anche se il trasporto fosse escluso, "piu' fuoco per biomassa" ha altre
+   cause prima dell'uomo: regime dei fulmini, struttura del combustibile,
+   stagionalita' delle piogge.
+
+### Il test che chiude o apre
+
+Se e' trasporto, il rapporto deve seguire l'**apporto terrigeno** (forza del
+vento). Il proxy sta nella stessa collezione: il **carbonato di calcio**
+(doi:10.1594/PANGAEA.877688) e' un indicatore inverso di diluizione terrigena.
+Piu' a fondo: i record di polvere di deMenocal su ODP 658C.
+
+Segue la polvere -> trasporto, caso chiuso, e lo si dice.
+Non la segue -> resta qualcosa da spiegare, e allora vale la pena chiamare
+qualcuno che ne sa piu' di noi.
+
+**Non e' stato fatto.** Ed e' il quarto tentativo di spiegazione noiosa: le
+prime tre sono cadute, il che aumenta l'interesse ma non cambia lo stato, che
+resta **non concluso**.

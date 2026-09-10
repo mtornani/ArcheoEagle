@@ -350,3 +350,63 @@ qualcuno che ne sa piu' di noi.
 **Non e' stato fatto.** Ed e' il quarto tentativo di spiegazione noiosa: le
 prime tre sono cadute, il che aumenta l'interesse ma non cambia lo stato, che
 resta **non concluso**.
+
+---
+
+# Isotopi dell'ossigeno: e una correzione a quel che avevo detto
+
+## Perche' il d18O da solo NON serve come secondo parere
+
+Il d18O e il dD dell'acqua **non sono indipendenti**: stanno sulla stessa retta
+delle acque meteoriche. Usare il d18O per verificare il dD sarebbe circolare.
+
+**Ma insieme danno l'eccesso di deuterio** (d = dD - 8·d18O), che porta
+informazione diversa: non *quanta* pioggia, ma **da dove viene l'umidita'** e in
+che condizioni e' evaporata. Cioe' la **circolazione** — che e' esattamente il
+confondente rimasto intatto sul carbone.
+
+Un secondo canale: in foraminiferi a un sito di risalita come questo margine, il
+d18O risente della **forza degli alisei** (piu' vento -> piu' upwelling -> acqua
+piu' fredda -> d18O piu' alto). Quindi e' un proxy indiretto proprio del vento.
+Esiste per una delle nostre carote: **d18O su GeoB8507-3** (Kohn et al. 2009),
+una di quelle del Canyon di Capo Timiris.
+
+## E la correzione: NON e' vero che non ci sono prove di gente
+
+Avevo scritto "nessun indizio che qualcuno vivesse li'". **Era sbagliato.**
+
+Hopker, Wu, Muller et al. (2018), doi:10.1594/PANGAEA.889705 — dati aperti:
+
+> Otoliti di pesce gatto (*Carlarius* spp.) e conchiglie di bivalve
+> (*Senilia senilis*) **moderni e archeologici (3.0-5.3 ka)** da un **grande
+> paleo-estuario a est del Banc d'Arguin**, Mauritania.
+
+Tre righe di dati scaricabili: 578 misure sui bivalvi, 431 sugli otoliti, 18
+analisi di eta' e stronzio.
+
+**Cosa dicono, e tocca tutte e tre le cose che cercavamo:**
+
+| misura | cosa dice |
+|---|---|
+| **d18O sub-stagionale** lungo la crescita di otoliti e conchiglie | **in che stagione** la gente era li' |
+| **87Sr/86Sr** | scarico monsonico al Banc d'Arguin **fra 5.0 e 5.3 ka**: il fiume arrivava ancora |
+| **isotopi clumped (D47)** | usati per verificare se le conchiglie erano state **alterate dalla cottura preistorica** |
+
+L'ultima e' notevole: un test isotopico per capire **se qualcuno ha messo quella
+conchiglia sul fuoco**. E' una firma fisica di un comportamento umano.
+
+## Cosa cambia e cosa no
+
+**Cambia:** c'e' materiale archeologico pubblicato e datato su quella costa,
+in un paleo-estuario, dove il Tamanrasset sfociava. Il Banc d'Arguin sta subito
+a nord di Capo Timiris. Gente che pescava e raccoglieva molluschi, con un fiume
+che scaricava acqua dolce.
+
+**Non cambia:** la finestra e' **5.3-3.0 ka**, cioe' la fine del periodo umido e
+dopo. L'anomalia del carbone sta a **5.5-8.8 ka**, prima. Si sfiorano al bordo,
+non coincidono. E questo non tocca di un millimetro il confondente del
+trasporto.
+
+Il quadro che ne esce e' coerente — fiume, estuario, gente che ci mangia, alla
+chiusura del periodo umido — ma **coerente non e' dimostrato**, e la coerenza e'
+proprio il modo in cui queste ricerche si perdono.

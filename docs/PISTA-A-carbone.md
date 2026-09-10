@@ -71,3 +71,53 @@ Banc d'Arguin con scarico monsonico fino a 5.0-5.3 ka. Sono riscontri della
 **premessa** (il fiume scorreva, c'era gente su quella costa), non
 dell'anomalia. La finestra archeologica (5.3-3.0 ka) e quella del carbone
 (5.5-8.8 ka) **si sfiorano al bordo, non coincidono**.
+
+## Test demografico (date al radiocarbonio): NON SUPPORTA
+
+Archivio completamente indipendente dalle carote marine: **p3k14c**, 173.946
+date archeologiche globali (Bird et al. 2022, aperto su GitHub). 860 date nel
+Sahara occidentale (lon -20..10, lat 15..30) — Mauritania 280, Niger 227,
+Mali 156, Algeria 104.
+
+**Previsione registrata:** se l'anomalia del carbone (5.5-8.8 ka) fosse
+antropica, la densita' di date li' dev'essere maggiore che a 8.8-12 ka.
+
+**Confermata: 3.29x.** 215 date contro 47, 6.7 per secolo contro 2.0.
+
+**E non vale niente, perche' la previsione era mal costruita.** La densita' di
+date cresce verso il presente **quasi ovunque nel mondo** per ragioni
+tafonomiche: il materiale vecchio si conserva e si trova meno. Una previsione
+soddisfatta anche dall'ipotesi nulla non e' un test.
+
+### Il null, che e' la versione corretta
+
+Stesso rapporto calcolato altrove:
+
+| regione | rapporto |
+|---|---|
+| **Europa** | **4.28** |
+| **Sahara occidentale (il nostro)** | **3.29** |
+| Mondo intero | 2.33 |
+| Africa intera | 2.08 |
+| Nord America | 1.66 |
+| Asia | 1.56 |
+| Vicino Oriente / Arabia | 1.12 |
+| Sud America | 0.80 |
+
+Mediana dei controlli **1.66**. Il Sahara sta a 2x la mediana — ma **l'Europa lo
+supera** (4.28, e il motivo e' noto: l'espansione neolitica).
+
+**Il Sahara non e' un valore anomalo: sta dentro la dispersione regionale
+normale, che va da 0.80 a 4.28.** Non isola il Sahara, e non corrobora la
+lettura antropica del carbone.
+
+### Cosa resta
+
+Il test e' onesto e l'esito e' negativo. E' il **terzo archivio indipendente**
+che non promuove l'anomalia (dopo la replicazione impossibile e la granulometria
+fuori finestra).
+
+Una correzione tafonomica formale (Surovell et al. 2009) e una scatola
+geografica piu' stretta sul deserto vero, invece del margine saheliano,
+potrebbero affinare il conto. Ma servirebbero a rifinire un esito gia' negativo,
+non a ribaltarlo.

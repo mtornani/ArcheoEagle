@@ -479,3 +479,68 @@ Cosa la toccherebbe: **granulometria** della frazione terrigena, e **provenienza
 della polvere** con isotopi di Nd e Sr — c'e' la libreria delle sorgenti dei
 suoli nordafricani (Guinoiseau et al. 2022). E' li' che va la priorita', non sul
 torio.
+
+## Replicazione e granulometria: due tentativi, due muri
+
+### Replicazione: NON POSSIBILE
+
+Il test carbone/cere richiede **carbone e n-alcani sulla stessa carota**. Cercato
+un secondo sito con entrambi:
+
+- `GeoB1023-5` (Dupont 2012) ha il carbone ma sta a **17 S, in Namibia** — altro
+  emisfero, altro sistema monsonico, e senza cere fogliari abbinate.
+- La collezione intitolata `GeoB7929-2` ha come figli solo dataset di
+  **GeoB7920-2**, la carota che gia' usiamo.
+
+**Non esiste, fra i dati aperti che sono riuscito a raggiungere, una carota
+indipendente su cui rifare lo stesso test.**
+
+Il risultato resta quindi **da una sola carota**. Ed e' esattamente la forma che
+ha un errore: un segnale, un sito, nessuna replica. Va scritto in cima a
+qualunque cosa si dica su questa anomalia.
+
+### Granulometria: DATI FUORI FINESTRA
+
+I record di granulometria della frazione terrigena sul margine mauritano
+(Nizou, Hanebuth et al.) sono ottimi — `Mode`, `<2 um`, `Silt`, `Sand`, con
+modello d'eta' — ma coprono **0.6-3.2 ka**. La nostra anomalia sta a
+**5.5-8.8 ka**. Non si sfiorano.
+
+**Il confondente del trasporto resta non testato, e non testabile con quello che
+raggiungo.**
+
+### Conseguenza
+
+Questa linea ha raggiunto il limite di cio' che si puo' fare da casa con dati
+aperti a questo livello di sforzo. Lo stato definitivo di questa sessione:
+
+- un'anomalia robusta in **una** carota, 5.5-8.8 ka
+- **quattro** spiegazioni climatiche testate e cadute, una validata e incorporata
+- **una** spiegazione rimasta (trasporto/granulometria), **non testata**
+- **nessuna replica indipendente**
+
+Chi volesse proseguire ha due strade, ed entrambe escono dal perimetro "da casa":
+misurare la granulometria su GeoB7920-2 stessa (il materiale e' in archivio a
+Brema), oppure trovare una seconda carota con carbone e cere abbinate.
+
+## Sulla sponda opposta dell'oceano
+
+Domanda legittima: ci stiamo fissando sulla Mauritania?
+
+**Come preoccupazione metodologica: si', ed e' fondata** — la prova e' che
+provando a replicare ho scoperto di non poterlo fare.
+
+**Come sorgente di controllo: idea buona.** La polvere sahariana attraversa
+l'Atlantico nel Saharan Air Layer e si deposita ai Caraibi e in Amazzonia. Un
+sito sottovento registra la **frazione fine** che ha viaggiato. Se il nostro
+rapporto e' guidato dal regime dei venti, un sito sottovento deve mostrare un
+cambiamento correlato; se il segnale e' **locale** (fuoco nel bacino del
+Tamanrasset), no. E' un controllo spaziale ben posto.
+Limite: il carbone e' troppo grosso per attraversare l'Atlantico in quantita'
+utili. Quindi ai Caraibi si replica il **flusso di polvere**, non il carbone.
+
+**Come luogo dove cercare Atlantide: no.** La "citta' sommersa" di Cuba (immagini
+sonar del 2001 al largo di Cayo Levisa) sta a circa **700 m di profondita'**:
+per essere stata emersa in epoca umana servirebbe una subsidenza di 700 m in
+meno di diecimila anni, che in quel contesto e' fisicamente impossibile. Non e'
+mai stata confermata da nessun seguito. E' cartone.

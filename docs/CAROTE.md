@@ -1,4 +1,13 @@
-# Carote: librerie pubbliche, e il primo riscontro indipendente della tesi Sahara
+# Carote e fonti — registro di lavoro
+
+> **Questo file e' il diario, non la conclusione.** Le due piste sono separate:
+> - **`PISTA-A-carbone.md`** — l'anomalia del carbone. Lenta, millenaria, non concluso.
+> - **`PISTA-B-catastrofe.md`** — frana e maremoto. Veloce, sostanzialmente chiusa.
+>
+> Tenerle distinte e' una regola: fonderle in un'unica storia e' il modo tipico
+> in cui queste ricerche si perdono.
+
+# Librerie pubbliche, e il primo riscontro indipendente della tesi Sahara
 
 ## Le librerie, verificate una per una
 

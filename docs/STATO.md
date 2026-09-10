@@ -1,3 +1,16 @@
+# Stato — 10 settembre 2026 (Grok, notte — il mondo)
+
+Correzione operatore: non fissarti sul Sahara. Scan in `docs/MONDO-12KA.md`.
+
+**12 ka sedentari sull’acqua = Levante (Natufiano / Abu Hureyra), non Sahara.** Sahara a YD è spesso vuoto; finestra onesta AHP è 10.5–5.5 ka.
+**Pianura annegata con gente misurata = Doggerland 9–7 ka + Atlit-Yam 9–8 ka**, non Tamanrasset.
+Trappole restano trappole: Richat, Bimini, Yonaguni, Gunung Padang ritratto, YDIH-as-Atlantis.
+Prodotto **non** pivota. Spec Sahara-first resta. Questo è il test che l’ipotesi deve sopravvivere.
+
+Non riaprire A/B. Non pin. Non 10° rilevatore.
+
+---
+
 # Stato — 10 settembre 2026 (Grok, sera)
 
 Team: Claude ha chiuso A/B e lasciato il polar-sort. Grok ha misurato. Nessuna scoperta. Il canyon è il flight recorder.

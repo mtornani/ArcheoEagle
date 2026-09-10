@@ -544,3 +544,61 @@ sonar del 2001 al largo di Cayo Levisa) sta a circa **700 m di profondita'**:
 per essere stata emersa in epoca umana servirebbe una subsidenza di 700 m in
 meno di diecimila anni, che in quel contesto e' fisicamente impossibile. Non e'
 mai stata confermata da nessun seguito. E' cartone.
+
+## Teleconnessione: cercare l'onda sulla sponda opposta
+
+**Avevo frainteso l'idea di Mirko.** Non proponeva i Caraibi come luogo di
+Atlantide, ma come **archivio di un evento mauritano**: frana in Mauritania ->
+onda che attraversa l'Atlantico -> deposito a cinquemila chilometri. E' la
+logica di Alvarez applicata allo spazio: non cerchi il cratere, cerchi lo
+strato, e lo strato puo' stare ovunque sia arrivata l'onda.
+
+**Il vantaggio metodologico e' esattamente quello che ci manca:** un deposito
+lontano e' un archivio **indipendente**, misurato da altri gruppi, in un altro
+sistema sedimentario, per altre domande. E' la replica che qui non riesco a
+ottenere.
+
+### E' un programma di ricerca reale
+
+Esiste letteratura dedicata: depositi di tsunami olocenici alle Bahamas (Long
+Island, Eleuthera), depositi marini elevati alle Bermuda interpretati come
+megatsunami tardo-quaternario, e una rassegna dei depositi di tsunami caraibici
+(Engel et al. 2016). Le sorgenti candidate sono i **collassi di fianco delle
+Canarie** e le grandi frane del margine atlantico.
+
+### Ma il collegamento transatlantico e' stato cercato e NON trovato
+
+Due esiti convergenti in letteratura:
+
+1. **Nessun deposito sul bordo del bacino atlantico e' mai stato collegato alle
+   grandi frane delle Canarie.** Non e' che nessuno abbia guardato: hanno
+   guardato, e non c'e'.
+2. I massi giganti delle Bahamas — la prova piu' citata — sono sempre piu'
+   attribuiti a **tempeste**, non a tsunami. E i depositi di tsunami olocenici
+   effettivamente documentati ai Caraibi sono attribuiti a sorgenti **locali**
+   (cedimenti di versante del Great Bahama Bank), non transatlantiche.
+
+E combacia con la fisica prevista: **uno tsunami da frana ha sorgente compatta e
+decade in fretta** (circa come 1/r), al contrario di uno da faglia lunga.
+Storegga devasto' Doggerland a ~700 km; attraverso 5.000 km di Atlantico
+un'onda da frana arriva piccola.
+
+### Perche' questo e' comunque un risultato
+
+L'assenza **e' informativa**, ed e' lo stesso ragionamento dell'iridio mancante
+nel caso del Dryas recente: se l'evento fosse stato grande abbastanza, la
+traccia lontana ci sarebbe. Non c'e' -> **pone un tetto** a quanto grande possa
+essere stato un maremoto da frana olocenico del margine NW africano.
+
+Ed e' la **terza linea indipendente** che punta nella stessa direzione:
+- il Sahara Slide e' ritenuto non tsunamigenico (pendio dolce, rottura lenta)
+- il Mauritania Slide Complex e' retrogressivo, lo stesso stile
+- nessun deposito transatlantico collegato
+
+**Eseguita correttamente, l'idea di Mirko CHIUDE l'ipotesi catastrofe invece di
+aprirla.** E' un esito negativo ottenuto col suo metodo, ed e' piu' solido di
+qualunque forse.
+
+Resta un test futuro ben definito: il catalogo dei depositi di tsunami caraibici
+e' **datato**. Se ne comparisse uno a 10.5-10.9 ka con firma di campo lontano,
+sarebbe il collegamento. Oggi non c'e'.

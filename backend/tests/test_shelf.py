@@ -117,3 +117,39 @@ class KnownSitesFixtureTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class HorizontalRetreatTest(unittest.TestCase):
+    """La domanda di Mirko: quanto era 'piu' in la'' la costa? La risposta non
+    e' in metri ma in decine di chilometri — e il ritmo di arretramento e' il
+    criterio della memoria, distinto da quello della conservazione."""
+
+    def test_never_land_below_the_glacial_lowstand(self):
+        from core.marine.shelf import was_ever_land
+        self.assertTrue(was_ever_land(-120.0))
+        self.assertFalse(was_ever_land(-200.0), "il mare non e' mai sceso a -200 m")
+        self.assertFalse(was_ever_land(-300.0))
+        self.assertFalse(was_ever_land(5.0), "sopra il livello attuale e' terra, non paleocosta")
+
+    def test_meltwater_pulse_is_faster_than_average_deglaciation(self):
+        from core.marine.shelf import MWP1A, vertical_rate_m_per_yr
+        impulso = vertical_rate_m_per_yr(MWP1A["start_kyr"], MWP1A["end_kyr"])
+        medio = vertical_rate_m_per_yr(20.0, 6.0)
+        self.assertGreater(impulso, medio * 3)
+
+    def test_flatter_shelf_loses_coast_faster(self):
+        from core.marine.shelf import horizontal_retreat_m_per_yr
+        piatta = horizontal_retreat_m_per_yr(0.0002, 0.047)
+        ripida = horizontal_retreat_m_per_yr(0.02, 0.047)
+        self.assertGreater(piatta, ripida * 50)
+
+    def test_flat_shelf_loses_kilometres_in_a_lifetime(self):
+        """Su piattaforma 1:5000 con il ritmo dell'impulso si perdono
+        chilometri di costa in una vita: si vede accadere, e si racconta."""
+        from core.marine.shelf import witnessed_loss_km
+        self.assertGreater(witnessed_loss_km(0.0002, 0.047, 60.0), 10.0)
+
+    def test_zero_gradient_refuses_to_answer(self):
+        from core.marine.shelf import horizontal_retreat_m_per_yr, witnessed_loss_km
+        self.assertIsNone(horizontal_retreat_m_per_yr(0.0, 0.047))
+        self.assertIsNone(witnessed_loss_km(0.0, 0.047))

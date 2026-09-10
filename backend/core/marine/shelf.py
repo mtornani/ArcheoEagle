@@ -218,3 +218,61 @@ def gmrt_tile(bbox: Sequence[float], timeout: int = 90):
                 return arr, [float(b.left), float(b.bottom), float(b.right), float(b.top)]
     except Exception:
         return None
+
+
+# Impulso di scioglimento 1A: 14-18 m in <=340 anni dal 14.65 ka, dai coralli
+# di Tahiti e Barbados (Deschamps et al.). Revisione recente da Tahiti: 13.8
+# +- 1.3 m, forse iniziato 300 anni prima. Si usa il valore centrale.
+MWP1A = {
+    "start_kyr": 14.65,
+    "end_kyr": 14.31,
+    "rise_m": 16.0,
+    "source": "coralli Tahiti/Barbados; 14-18 m in <=340 anni",
+}
+
+# Il minimo glaciale: sotto questa quota nulla e' MAI stato terra emersa in
+# questo ciclo. Non e' un limite dello strumento, e' un limite del mondo.
+GLACIAL_LOWSTAND_M = -130.0
+
+
+def was_ever_land(z_m: float) -> bool:
+    """Se questa quota sia mai stata terra emersa nell'ultimo ciclo glaciale.
+
+    Serve a chiudere un errore ricorrente: cercare paleocoste a -200 o -300 m.
+    Il mare non e' mai sceso cosi'. Sotto il ciglio della piattaforma c'e'
+    scarpata continentale, che era fondale anche al massimo glaciale.
+    """
+    return GLACIAL_LOWSTAND_M <= z_m < 0.0
+
+
+def vertical_rate_m_per_yr(kyr_a: float, kyr_b: float) -> Optional[float]:
+    """Ritmo di innalzamento fra due date, in metri all'anno."""
+    if kyr_a == kyr_b:
+        return None
+    dz = sea_level_at(min(kyr_a, kyr_b)) - sea_level_at(max(kyr_a, kyr_b))
+    dt = abs(kyr_a - kyr_b) * 1000.0
+    return float(dz / dt)
+
+
+def horizontal_retreat_m_per_yr(gradient: float, vertical_rate_m_per_yr: float) -> Optional[float]:
+    """Quanti metri di costa si perdono ogni anno.
+
+    E' il criterio della MEMORIA, distinto da quello della conservazione: un
+    innalzamento verticale modesto diventa un arretramento orizzontale
+    spettacolare su una piattaforma piatta. 4.7 cm/anno su pendenza 1:5000
+    fanno 235 m di costa persi ogni anno — chilometri nell'arco di una vita.
+    Quello si vede accadere, e si racconta.
+
+    None se la pendenza e' nulla: li' l'allagamento non e' un arretramento ma
+    un evento istantaneo su tutta la superficie, e questa formula non vale.
+    """
+    if gradient <= 0:
+        return None
+    return float(vertical_rate_m_per_yr / gradient)
+
+
+def witnessed_loss_km(gradient: float, vertical_rate_m_per_yr: float,
+                      years: float = 60.0) -> Optional[float]:
+    """Costa persa nell'arco di una vita umana. La soglia del ricordo."""
+    r = horizontal_retreat_m_per_yr(gradient, vertical_rate_m_per_yr)
+    return None if r is None else float(r * years / 1000.0)

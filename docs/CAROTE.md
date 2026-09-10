@@ -410,3 +410,72 @@ trasporto.
 Il quadro che ne esce e' coerente — fiume, estuario, gente che ci mangia, alla
 chiusura del periodo umido — ma **coerente non e' dimostrato**, e la coerenza e'
 proprio il modo in cui queste ricerche si perdono.
+
+## Concentrazione contro flusso: quinta spiegazione noiosa caduta
+
+Test fondamentale che avrei dovuto fare prima: il carbone e' misurato come
+**concentrazione**, ma se il tasso di sedimentazione cambia, la concentrazione
+cambia da sola. Tasso ricavato dal modello d'eta' della carota stessa
+(profondita' su eta').
+
+**Previsione registrata:** se e' diluizione, il tasso dev'essere BASSO quando il
+carbone e' alto, e il flusso deve appiattirsi.
+
+**Falsificata, e al contrario.**
+
+| | concentrazione | flusso |
+|---|---|---|
+| periodo umido >=5.5 ka | 5.295 | 100.597 |
+| dopo <5.5 ka | 2.406 | 28.726 |
+| **rapporto** | **2.2x** | **3.5x** |
+
+Correlazione concentrazione ~ tasso di sedimentazione: **+0.43** (positiva).
+Convertire in flusso **amplifica** il segnale invece di rimuoverlo. p < 0.001.
+
+Caveat onesti: il tasso viene da un'interpolazione del modello d'eta', non da
+una misura indipendente; e manca la densita' apparente, quindi questo e' un
+flusso lineare, non un flusso di massa vero.
+
+## E il torio non serve: correzione a una mia priorita'
+
+Avevo messo la normalizzazione al 230Th in cima alla lista. **Sbagliato, ed e'
+ridondante.**
+
+Un **rapporto fra due componenti dello stesso campione** e' gia' immune, per
+costruzione, a:
+
+- tasso di sedimentazione
+- focalizzazione laterale del sedimento (che e' proprio cio' che il 230Th corregge)
+- diluizione da qualunque terzo componente
+- densita' apparente
+
+Il carbone diviso le cere fogliari **era gia' la normalizzazione giusta**. Il
+230Th non aggiungerebbe niente, perche' agisce su effetti che si cancellano gia'
+nel rapporto.
+
+A cosa il rapporto **non** e' immune:
+- **trasporto differenziale** (aree sorgente diverse, granulometrie diverse)
+- preservazione differenziale (testata, non regge)
+- **produzione differenziale** — che e' il segnale che cerchiamo
+
+## Bilancio delle spiegazioni noiose
+
+| # | alternativa | esito |
+|---|---|---|
+| 1 | fuoco massimo a umidita' intermedia | falsificata |
+| 2 | produzione pollinica per tipo di vegetazione | **valida** — per questo il polline e' stato scartato |
+| 3 | diagenesi (cere degradate, carbone inerte) | non regge |
+| 4 | diluizione / tasso di sedimentazione | falsificata, al contrario |
+| 5 | **trasporto e granulometria** | **NON TESTATA. E' l'unica rimasta.** |
+
+Il carbone e' fatto di particelle piu' grandi del materiale fine che porta le
+cere. Un vento piu' forte, o di direzione diversa, trasporta una frazione
+granulometrica diversa: il rapporto si muove senza che cambino ne' il fuoco ne'
+le persone. Il regime era monsonico durante il periodo umido e ad alisei dopo.
+
+**Resta la spiegazione piu' probabile**, e il 230Th non la tocca.
+
+Cosa la toccherebbe: **granulometria** della frazione terrigena, e **provenienza
+della polvere** con isotopi di Nd e Sr — c'e' la libreria delle sorgenti dei
+suoli nordafricani (Guinoiseau et al. 2022). E' li' che va la priorita', non sul
+torio.

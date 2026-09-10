@@ -8,7 +8,7 @@ from core.detection.rule_based import detect_anomalies
 from core.layers import array_to_colormap_png_fast
 from core.hydro.paleorivers import (
     bbox_from_geojson, bbox_to_aoi, corridor_bbox,
-    nodes_in_aoi, rivers_in_aoi,
+    load_network, nodes_in_aoi, rivers_in_aoi,
 )
 from core.hydro.measure import MEGA_CHAD_IDS, measure_highstand, trap_richat
 from core.ledger.hypotheses import build_ledger
@@ -86,9 +86,16 @@ def _execute(*, aoi, bbox, include_dem, include_spectral, method, corridor_id):
     if measured and measured["nodes"]:
         hydro_nodes = measured["nodes"]
         grade = "dem-contour"
+        dem_info = measured.get("dem") or {}
+        n_used = len(dem_info.get("tiles_used") or [])
+        n_total = dem_info.get("tiles_total", n_used)
+        coverage = (
+            f"{n_used}/{n_total} tile 1°" if dem_info.get("truncated") else f"{n_used} tile 1°"
+        )
         warning = (
-            "Sponda dal DEM Copernicus GLO-30 (quota 320 m) su UN tile 1°. "
-            "Non è il lago intero. vs_schematic_km = distanza dal disegno in letteratura."
+            f"Sponda dal DEM Copernicus GLO-30 (quota 320 m) su {coverage}. "
+            "Non è detto sia il lago intero — vedi dem.tiles_failed / dem.truncated. "
+            "vs_schematic_km = distanza dal disegno in letteratura."
         )
         if measured["contour"]["features"]:
             rivers = {
@@ -100,9 +107,12 @@ def _execute(*, aoi, bbox, include_dem, include_spectral, method, corridor_id):
         hydro_nodes = schematic_nodes
         grade = "schematic"
         if corridor_id in MEGA_CHAD_IDS and measured:
-            reason = (measured.get("dem") or {}).get("reason") or "no-contour"
+            dem_info = measured.get("dem") or {}
+            reason = dem_info.get("reason") or "no-contour"
+            n_total = dem_info.get("tiles_total")
+            tiles_note = f" ({n_total} tile tentati, nessuna isolinea 320 m)" if n_total else ""
             warning = (
-                f"DEM: {reason}. Nessuna isolinea 320 m su quel tile. "
+                f"DEM: {reason}{tiles_note}. "
                 "Stai camminando un LineString da paper. Non è una misura."
             )
         else:

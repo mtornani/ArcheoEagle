@@ -197,6 +197,18 @@ def collapse_source_potential(dem: np.ndarray, water_mask: np.ndarray,
     Da' solo la SORGENTE. L'onda e il suo deposito non stanno nella geometria:
     stanno nella stratigrafia, e questo modulo non li vede. E' un limite
     dichiarato, non una lacuna da colmare qui.
+
+    PERCHE' LA PENDENZA E NON IL VOLUME. Il Sahara Slide, al largo del Sahara
+    occidentale, ha mobilitato ~600 km3 con runout ~900 km — fra i piu' grandi
+    conosciuti — e i ricercatori lo ritengono **non tsunamigenico**: velocita'
+    basse, accelerazione iniziale scarsa per via del pendio dolce, e rottura
+    retrogressiva (a ritroso, in tanti pezzi) invece che coerente. Storegga, che
+    colpi' Doggerland, era invece rapido e coerente su un pendio ripido.
+
+    Quindi il volume NON e' il criterio: lo sono **pendenza, coerenza e
+    accelerazione**. Una massa enorme che scivola piano non sposta acqua in modo
+    impulsivo. Motivo per cui questa funzione misura la ripidita' dell'orlo e
+    non l'ampiezza del versante.
     """
     h, w = dem.shape
     gy, gx = np.gradient(dem)

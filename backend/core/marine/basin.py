@@ -190,7 +190,9 @@ def hypsometry(dem: np.ndarray, mask: np.ndarray, levels: Sequence[float]) -> Li
 
 
 def collapse_source_potential(dem: np.ndarray, water_mask: np.ndarray,
-                              steep: float = 0.30) -> float:
+                              steep: float = 0.30,
+                              px_m: Optional[float] = None,
+                              py_m: Optional[float] = None) -> float:
     """Frazione di orlo del corpo d'acqua che e' ripida: potenziale sorgente di
     frana che sposta l'acqua (meccanismo 2, Vajont/Storegga).
 
@@ -208,10 +210,23 @@ def collapse_source_potential(dem: np.ndarray, water_mask: np.ndarray,
     Quindi il volume NON e' il criterio: lo sono **pendenza, coerenza e
     accelerazione**. Una massa enorme che scivola piano non sposta acqua in modo
     impulsivo. Motivo per cui questa funzione misura la ripidita' dell'orlo e
-    non l'ampiezza del versante.
+    non l'ampiezza del versante. Dickson Fjord 2023 lo conferma di brutto: 25
+    milioni di m3 (24.000 volte meno del Sahara Slide) e run-up 200 m.
+
+    UNITA' — CORRETTO IL 13 SET 2026. Senza px_m/py_m, np.gradient restituisce
+    **metri per indice di pixel**, non m/m: confrontarlo con steep=0.30 e'
+    confrontare unita' diverse. Su un DEM decimato (pixel ~240 m) qualunque
+    terreno reale supera la soglia e la funzione ritorna ~1.0 ovunque — che e'
+    esattamente il modo in cui il primo screening dei bacini si e' rotto.
+    Passare px_m/py_m rende la pendenza adimensionale e la soglia sensata.
+    Senza, si resta in unita' pixel: legale solo sui test sintetici, dove il
+    pixel *e'* l'unita' ed e' dichiarato (stessa convenzione di control.py).
     """
     h, w = dem.shape
     gy, gx = np.gradient(dem)
+    if px_m and py_m:
+        gx = gx / float(px_m)      # m per metro, non m per pixel
+        gy = gy / float(py_m)
     slope = np.sqrt(gy * gy + gx * gx)
     rim = np.zeros((h, w), bool)
     rs, cs = np.nonzero(water_mask)
@@ -223,3 +238,58 @@ def collapse_source_potential(dem: np.ndarray, water_mask: np.ndarray,
     if not rim.any():
         return 0.0
     return float((slope[rim] > steep).mean())
+
+
+def largest_depression(dem: np.ndarray, min_depth_m: float = 5.0) -> Optional[Dict[str, Any]]:
+    """La conca chiusa piu' estesa del riquadro, come maschera singola.
+
+    NATA DA UN ERRORE. Il primo screening prendeva `filled - dem > 1 m` come
+    "corpo d'acqua": migliaia di micro-depressioni sparse su tutto il tile.
+    Nessuna tocca il bordo della griglia, quindi `confinement()` le dichiarava
+    tutte perfettamente chiuse e restituiva 1.0 ovunque. Misurava la
+    granulosita' del DEM, non un bacino.
+
+    Un bacino e' **una** cosa connessa. Questa funzione ne restituisce una sola:
+    la componente connessa piu' grande fra le celle con riempimento sopra
+    soglia. Se il risultato ha poche celle, il riquadro non contiene una conca —
+    e la risposta giusta e' None, non un punteggio.
+    """
+    filled = priority_flood(dem)
+    depth = filled - dem
+    deep = depth > float(min_depth_m)
+    if not deep.any():
+        return None
+
+    # etichettatura a 4 vicini, iterativa (niente scipy: stessa dipendenza
+    # minima del resto del modulo, e le griglie qui sono piccole)
+    h, w = dem.shape
+    labels = np.zeros((h, w), np.int32)
+    current = 0
+    best_size, best_label = 0, 0
+    for r0 in range(h):
+        for c0 in range(w):
+            if not deep[r0, c0] or labels[r0, c0]:
+                continue
+            current += 1
+            size = 0
+            stack = [(r0, c0)]
+            labels[r0, c0] = current
+            while stack:
+                r, c = stack.pop()
+                size += 1
+                for dr, dc in NEIGH:
+                    rr, cc = r + dr, c + dc
+                    if 0 <= rr < h and 0 <= cc < w and deep[rr, cc] and not labels[rr, cc]:
+                        labels[rr, cc] = current
+                        stack.append((rr, cc))
+            if size > best_size:
+                best_size, best_label = size, current
+
+    mask = labels == best_label
+    return {
+        "mask": mask,
+        "cells": int(best_size),
+        "components": int(current),
+        "max_depth_m": float(depth[mask].max()),
+        "fill_level_m": float(filled[mask].max()),
+    }

@@ -8,6 +8,7 @@ import numpy as np
 
 from core.marine.basin import (
     collapse_source_potential,
+    largest_depression,
     depression_at,
     hypsometry,
     pour_point,
@@ -147,3 +148,65 @@ class PriorityFloodTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SlopeUnitsTest(unittest.TestCase):
+    """Regressione del 13 set 2026: np.gradient da' metri per PIXEL, non m/m.
+    Su DEM decimato (pixel ~240 m) qualunque terreno superava steep=0.30 e la
+    funzione tornava ~1.0 ovunque. Ha rotto il primo screening dei bacini."""
+
+    def _ramp(self, rise_per_pixel=20.0, n=24):
+        # rampa attorno a una conca: 20 m di dislivello per pixel.
+        dem = np.zeros((n, n))
+        for c in range(n):
+            dem[:, c] = abs(c - n // 2) * rise_per_pixel
+        acqua = np.zeros((n, n), bool)
+        acqua[8:16, 10:14] = True
+        return dem, acqua
+
+    def test_metric_pixels_change_the_answer(self):
+        dem, acqua = self._ramp()
+        # 20 m per pixel: in unita' pixel e' 20 >> 0.30 -> tutto ripido.
+        senza = collapse_source_potential(dem, acqua)
+        # con pixel da 240 m la pendenza vera e' 20/240 = 0.083 < 0.30.
+        con = collapse_source_potential(dem, acqua, px_m=240.0, py_m=240.0)
+        self.assertGreater(senza, 0.9)
+        self.assertEqual(con, 0.0)
+
+    def test_the_same_terrain_at_finer_pixels_is_steeper(self):
+        # Stesso dislivello per pixel, pixel piu' piccolo = pendenza maggiore.
+        dem, acqua = self._ramp()
+        grosso = collapse_source_potential(dem, acqua, px_m=240.0, py_m=240.0)
+        fine = collapse_source_potential(dem, acqua, px_m=30.0, py_m=30.0)
+        self.assertGreaterEqual(fine, grosso)
+        self.assertGreater(fine, 0.9)   # 20/30 = 0.67 > 0.30
+
+
+class LargestDepressionTest(unittest.TestCase):
+    """Regressione: `filled - dem > 1 m` prendeva migliaia di pozzanghere
+    sparse, nessuna a contatto col bordo -> enclosure 1.0 ovunque."""
+
+    def test_picks_one_connected_basin_not_confetti(self):
+        dem = np.full((30, 30), 100.0)
+        dem[5:9, 5:9] = 60.0        # conca grande
+        dem[20:22, 20:22] = 80.0    # conca piccola
+        got = largest_depression(dem, min_depth_m=5.0)
+        self.assertEqual(got["components"], 2)
+        self.assertEqual(got["cells"], 16)          # solo la grande
+        self.assertTrue(got["mask"][6, 6])
+        self.assertFalse(got["mask"][20, 20])       # la piccola e' esclusa
+
+    def test_flat_terrain_returns_none_not_a_score(self):
+        self.assertIsNone(largest_depression(np.full((20, 20), 50.0), 5.0))
+
+    def test_shallow_dips_below_threshold_are_not_basins(self):
+        dem = np.full((20, 20), 100.0)
+        dem[8:12, 8:12] = 98.0      # solo 2 m
+        self.assertIsNone(largest_depression(dem, min_depth_m=5.0))
+
+    def test_reports_depth_and_fill_level(self):
+        dem = np.full((20, 20), 100.0)
+        dem[8:12, 8:12] = 70.0
+        got = largest_depression(dem, 5.0)
+        self.assertAlmostEqual(got["max_depth_m"], 30.0)
+        self.assertAlmostEqual(got["fill_level_m"], 100.0)

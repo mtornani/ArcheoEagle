@@ -1,3 +1,82 @@
+# Stato — 13 settembre 2026
+
+Tre giorni dopo la consegna. **Una pista nuova aperta (C), una tesi grossa valutata e messa nel ledger (Younger Dryas), due bug miei trovati e corretti.** Nessuna scoperta. Suite **111/111**.
+
+## Pista C — confinamento (APERTA, come strumento)
+
+Innesco: Dickson Fjord, Groenlandia, 16 set 2023. 25 milioni di m3 di roccia e ghiaccio, run-up 200 m, e poi l'acqua chiusa fra due pareti che oscilla ogni ~92 s **per nove giorni** (Svennevig et al., Science 2024).
+
+Il confronto che vale tutto il resto:
+
+| | volume | esito |
+|---|---|---|
+| Sahara Slide | ~600.000 milioni di m3 | **non** tsunamigenico |
+| Dickson Fjord | ~25 milioni di m3 (**24.000x meno**) | run-up 200 m |
+
+`collapse_source_potential()` diceva gia' pendenza-non-volume. Dickson lo conferma. La variabile che mancava e' **dove finisce l'energia**: su pendio aperto l'onda irradia, in un catino torna.
+
+Scritto `backend/core/marine/seiche.py` — Merian, Green, confinamento, `displacement_hazard` (il volume **non** e' nella firma, c'e' un test che lo verifica).
+
+**PRIMO CONTROLLO POSITIVO DEL PROGETTO CHE PASSA: 86,2 s previsti vs 92 s osservati, scarto 6%.** Non sono diventato bravo: il bersaglio qui e' un **numero** (un periodo), la Bama Ridge era una **forma dentro una scena**. Le statistiche d'insieme sanno fare la prima cosa, non la seconda. E' la diagnosi piu' utile uscita da `CALIBRAZIONE.md`.
+
+**Limite definitivo:** il segnale sismico di una seiche antica non e' debole, e' **assente** — esiste solo grazie alla rete broadband post-1990. L'unico test falsificabile e' il **deposito di run-up sopra il piano d'acqua**.
+
+Dettaglio: `docs/PISTA-C-confinamento.md`.
+
+## Screening bacini — previsione registrata prima, e sbagliata al primo giro
+
+Previsione committata **prima** di correre (`8e173a6`): no su tutta la linea. Primo giro: hazard 0,9–1,0 su tutti e dieci. Non una scoperta — un **metro rotto**, che era la seconda possibilita' scritta nella previsione stessa.
+
+**Due bug, uno vecchio e mio.** `collapse_source_potential` usava `np.gradient` grezzo = metri per **indice di pixel**, confrontato con una soglia adimensionale: su DEM decimato tornava ~1,0 ovunque. `control.py` aveva la correzione dal 9 set, `basin.py` no — **due moduli miei con due unita' diverse per quattro giorni.** E `filled - dem > 1 m` prendeva fino a 1674 componenti sparse per tile, nessuna a contatto col bordo: `enclosure` 1,0 sempre. Misuravo la granulosita' del DEM.
+
+Corretto (`px_m`/`py_m`, `largest_depression()`), 6 test di regressione. Secondo giro, con controllo positivo:
+
+| | pixel | rilievo | orlo ripido |
+|---|---|---|---|
+| **Sognefjord (controllo +)** | 118 m | 1913 m | **0,356** |
+| Hoggar (montagne vere) | 113 m | 1955 m | 0,0 |
+| Qattara, **27 m/pixel** | 27 m | 73 m | 0,0 |
+| tutti i corridoi sahariani | ~115 m | — | **0,0** |
+
+**Il Sahara ha montagne. Non ha catini a pareti ripide.** Qattara a piena risoluzione da' zero, quindi non e' la decimazione. Nessun bacino sahariano ha la geometria di Dickson.
+
+Dettaglio: `docs/SCREENING-BACINI.md`.
+
+## Gravità — verificata, non scaricata, e la scelta e' motivata
+
+Grado massimo pubblico (ICGEM, verificato 13/9): **2190 -> 9,1 km**. Serve il doppio per vedere un oggetto. Insediamento 0,1 km e nicchia di frana 2 km: **invisibili**. Bacino sedimentario 20 km: visibile.
+
+**GGMplus da' 200 m ma le lunghezze corte sono modellate in avanti dalla topografia.** Usarlo per trovare massa sepolta e' **circolare** — stesso peccato del DEM sintetico vietato da §0, con una citazione accademica addosso. GRACE misura la derivata nel tempo e parte dal 2002.
+
+Uso legittimo: **pesare il riempimento di un bacino** gia' selezionato (informazione che il DEM non ha), correggere la profondita' antica in Merian, kill-shot su strutture >=18 km. **Mai come ricerca**: sarebbe anomalia-prima. Non scaricata perche' lo screening ha azzerato i candidati.
+
+Dettaglio: `docs/GRAVITA.md`.
+
+## Younger Dryas — tesi valutata, anello del diluvio ROTTO
+
+Trattata come CLAUDE.md §2.3 impone: lente non oracolo, con fonte, puo' prendere un `−`. Catena spezzata in tre anelli.
+
+- **Anello 1, impatto ~12,9 ka: APERTO.** L'anomalia di **platino** GISP2 (Petaev 2013; Moore 2017) e' misura vera e replicata, prende `+`. Nanodiamanti e sferule non hanno superato la replica. **Hiawatha, l'unico cratere artico grande, ridatato nel 2022 a ~58 Ma**: Paleocene. Non nostro da chiudere.
+- **Anello 2, impulso d'acqua: `−`, MISURATO.** Younger Dryas intero = 7,5 m in 1200 anni = **6,2 mm/anno**, il tratto **piu' lento** della deglaciazione fra 18 e 7 ka (e' un raffreddamento: il ghiaccio riavanza). MWP1A = 16 m in 340 anni = **47 mm/anno**, 7,5x piu' rapido, e comincia **1750 anni PRIMA**. Un effetto non precede la causa di diciassette secoli. 4 test lo bloccano.
+- **Anello 3, localizza: N/A.** Un evento emisferico non ha indirizzo. Il platino e' un **cronometro, non una bussola**.
+
+Dettaglio: `docs/YOUNGER-DRYAS.md`, obiezione MWP1B inclusa.
+
+## Kill-shot aperti (chi li chiude, chiude qualcosa)
+
+1. **YD anello 2:** un record di livello del mare con salto metrico rapido **dentro** 12,9–12,5 ka. Se esiste, il mio `−` cade.
+2. **Pista C:** un deposito di run-up sopra il piano d'acqua in un bacino confinato, 15–5 ka.
+3. **Pista A:** una seconda carota con carbone **e** cere fogliari appaiati (fuori portata da casa, materiale a Brema).
+
+## Cosa NON fare
+
+- Non riaprire A o B raccontandole meglio.
+- **Non riformulare il YD spostando la finestra finche' un diluvio ci cade dentro** — e' l'errore gia' commesso col carbone.
+- Non costruire il nono rilevatore di sponda prima che il controllo positivo della Bama Ridge passi.
+- Non usare la gravita' come ricerca, e non usare GGMplus per massa sepolta.
+
+---
+
 # Stato — 10 settembre 2026
 
 Sessione lunga. Due piste aperte, **due piste chiuse**. Nessuna scoperta. Il tool è più onesto di ieri.

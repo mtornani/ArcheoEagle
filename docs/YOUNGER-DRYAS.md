@@ -41,7 +41,17 @@ Tre cose, tutte contro la catena:
 
 Bloccato in 4 test (`test_shelf.py::YoungerDryasTest`) perche' la conclusione non si possa spostare cambiando la curva in silenzio.
 
+#### L'obiezione piu' forte contro questa conclusione, che va scritta
+
+Esiste un **MWP1B** proposto attorno a 11,3 ka, cioe' alla **fine** del Younger Dryas, di ampiezza discussa e di esistenza non unanime (visibile nei coralli di Barbados, molto meno a Tahiti). E' la cosa piu' vicina a un salvataggio della catena, e la scrivo io perche' omettere l'obiezione migliore e' truccare il tavolo.
+
+Non salva la catena, per un motivo di direzione: **sta alla fine del YD, non all'inizio.** Un impatto a 12,9 ka che produce un impulso a 11,3 ka richiede 1600 anni di ritardo fra causa ed effetto, con in mezzo il periodo piu' freddo. E la nostra curva semplificata non lo risolve comunque: il segmento 12-11 ka da' 10 mm/anno, sopra la media del YD ma un quinto di MWP1A.
+
+**Se qualcuno dimostra un MWP1B grande e rapido, cambia l'anello 3 (piu' coste perse in fretta), non l'anello 1-2**: resterebbe un impulso senza impatto e un impatto senza impulso.
+
 **Verdetto anello 2: `−`.** Il collasso-diluvio al Younger Dryas non c'e' nel livello del mare.
+
+*Limite del dato:* `SEA_LEVEL_KYR_M` e' una curva **semplificata da letteratura**, non dato primario. Il rallentamento al YD non e' controverso, quindi la conclusione regge; ma i tassi qui sopra hanno la precisione di una curva schematica, grado `schematic` come tutto il resto in questo repo.
 
 ### Anello 3 — localizza qualcosa? NO, ed e' il problema peggiore
 

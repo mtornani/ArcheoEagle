@@ -6,6 +6,7 @@ import unittest
 import numpy as np
 
 from core.marine.shelf import (
+    MWP1A,
     KNOWN_SUBMERGED_SITES,
     SLOPE_MAX,
     coastal_residence_kyr,
@@ -153,3 +154,38 @@ class HorizontalRetreatTest(unittest.TestCase):
         from core.marine.shelf import horizontal_retreat_m_per_yr, witnessed_loss_km
         self.assertIsNone(horizontal_retreat_m_per_yr(0.0, 0.047))
         self.assertIsNone(witnessed_loss_km(0.0, 0.047))
+
+
+class YoungerDryasTest(unittest.TestCase):
+    """La catena 'impatto -> collasso della calotta -> diluvio' fa una
+    previsione quantitativa: al Younger Dryas (12,9 ka) il livello del mare
+    deve accelerare. Questi test bloccano cio' che la curva dice davvero, cosi'
+    la conclusione non puo' essere spostata cambiando i dati in silenzio."""
+
+    def _rate_mm_yr(self, kyr_from, kyr_to):
+        gain = sea_level_at(kyr_to) - sea_level_at(kyr_from)
+        return gain / ((kyr_from - kyr_to) * 1000.0) * 1000.0
+
+    def test_younger_dryas_is_a_pause_not_a_flood(self):
+        # 12,9 -> 11,7 ka: ~7,5 m in 1200 anni.
+        yd = self._rate_mm_yr(12.9, 11.7)
+        self.assertLess(yd, 8.0)
+
+    def test_mwp1a_is_an_order_of_magnitude_faster_than_the_whole_yd(self):
+        yd = self._rate_mm_yr(12.9, 11.7)
+        mwp = MWP1A["rise_m"] / ((MWP1A["start_kyr"] - MWP1A["end_kyr"]) * 1000.0) * 1000.0
+        self.assertGreater(mwp / yd, 5.0)
+
+    def test_the_pulse_comes_before_the_impact_window_not_after(self):
+        # MWP1A parte 1750 anni PRIMA dell'inizio del Younger Dryas: non puo'
+        # esserne la conseguenza. L'ordine temporale da solo rompe la catena.
+        self.assertGreater(MWP1A["start_kyr"], 12.9)
+        self.assertGreater((MWP1A["start_kyr"] - 12.9) * 1000.0, 1000.0)
+
+    def test_yd_is_the_slowest_stretch_of_the_deglaciation(self):
+        # Fra 18 e 7 ka (deglaciazione vera), nessun intervallo di pari durata
+        # sale piu' piano di quello che contiene l'inizio del YD.
+        yd = self._rate_mm_yr(13.0, 12.0)
+        others = [self._rate_mm_yr(a, a - 1.0) for a in
+                  (18.0, 17.0, 16.0, 15.0, 14.0, 12.0, 11.0, 10.0, 9.0, 8.0)]
+        self.assertLessEqual(yd, min(others))

@@ -165,19 +165,56 @@ def nodes_from_contour(
     return nodes
 
 
+def _point_segment_km(pt: LngLat, a: LngLat, b: LngLat) -> float:
+    """Distanza da un punto al SEGMENTO a-b, non ai suoi estremi.
+
+    Proiezione equirettangolare locale: alle scale in gioco (decine-centinaia
+    di km) l'errore e' sotto il decimetro percentuale, e il costo e' nullo
+    rispetto a una formula sferica completa.
+    """
+    lat0 = math.radians((a[1] + b[1] + pt[1]) / 3.0)
+    k = math.cos(lat0)
+    ax, ay = a[0] * k, a[1]
+    bx, by = b[0] * k, b[1]
+    px, py = pt[0] * k, pt[1]
+    dx, dy = bx - ax, by - ay
+    den = dx * dx + dy * dy
+    if den <= 0:
+        return haversine_km(pt, a)
+    t = ((px - ax) * dx + (py - ay) * dy) / den
+    t = max(0.0, min(1.0, t))                      # clamp: resta dentro il segmento
+    qx, qy = ax + t * dx, ay + t * dy
+    return haversine_km(pt, (qx / k if k else qx, qy))
+
+
 def vs_schematic_km(nodes: List[Dict[str, Any]], schematic_id: str = "mega_chad_shore") -> None:
+    """Di quanto la misura si discosta dal disegno di letteratura.
+
+    RISCRITTA IL 14 SET 2026, E IL VECCHIO NUMERO ERA NULLO. La versione
+    precedente prendeva la distanza minima dai **vertici** della polilinea
+    schematica. Ma quel tracciato ha **13 vertici per 2306 km**: passo mediano
+    187,6 km, quindi un errore di campionamento fino a ~94 km. Il numero che
+    produceva — mediana 82,8 km sul Mega-Chad — era **piu' piccolo
+    dell'errore del righello**: misurava la spaziatura dei vertici, non lo
+    scarto dal disegno.
+
+    E' il paradosso della costa in forma elementare: misurare la distanza da
+    un poligono a 13 lati e chiamarla distanza dalla curva. Archimede aumentava
+    i lati; qui basta misurare dal **segmento** invece che dal vertice, che e'
+    la stessa mossa al limite.
+    """
     net = load_network()
     shore: List[LngLat] = []
     for feat in net.get("features") or []:
         if (feat.get("properties") or {}).get("id") == schematic_id:
-            geom = feat.get("geometry") or {}
-            for c in geom.get("coordinates") or []:
+            for c in (feat.get("geometry") or {}).get("coordinates") or []:
                 shore.append((float(c[0]), float(c[1])))
-    if not shore:
+    if len(shore) < 2:
         return
+    segs = list(zip(shore[:-1], shore[1:]))
     for node in nodes:
-        d = min(haversine_km((node["lon"], node["lat"]), p) for p in shore)
-        node["vs_schematic_km"] = round(d, 1)
+        pt = (node["lon"], node["lat"])
+        node["vs_schematic_km"] = round(min(_point_segment_km(pt, a, b) for a, b in segs), 1)
 
 
 def tiles_by_distance_to_schematic(tiles: List[Tuple[int, int]],

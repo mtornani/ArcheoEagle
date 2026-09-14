@@ -3,7 +3,17 @@
 **Giornata di consolidamento, non di espansione.** Zero piste nuove. Suite **117/117**.
 Da oggi il punto d'ingresso è `docs/README.md`, non questo file.
 
-## Il controllo positivo passa — era un errore di scala
+## CORREZIONE del 14/9 sera: il controllo positivo NON generalizza
+
+Quanto scritto qui sotto resta vero **come fatto** (a 30 m il cordone è invisibile, a 120 m compare) ma la conclusione che ne avevo tratto — *"il fallimento centrale del progetto è risolto"* — **era troppo**.
+
+Il banco di taratura su **11 paleosponde datate** (`BANCO-FRATTALE.md`) dà: **2 tile su 12 sopra soglia, e uno solo alla quota dichiarata — quello su cui il rilevatore è stato costruito.** Bonneville, la paleosponda più studiata del pianeta, dà +0,89 a qualunque quota entro ±60 m.
+
+È **sovradattamento a un esempio**. Trovare il bersaglio su cui hai tarato non è generalizzare. `step_score` vale per un tile finché non passa su sponde che non ha mai visto.
+
+Sopravvive invece, al pelo, il **discriminante di forma**: D della sponda più bassa delle quote di controllo in 7 casi su 10, t appaiato −2,30. E discrimina **dove `step_score` fallisce**. Ipotesi che ha superato il primo test, non una scoperta.
+
+## Il fatto (non la conclusione): la scala contava
 
 `CALIBRAZIONE.md` diceva: otto rilevatori falliti, bersaglio invisibile alle statistiche d'insieme. **Sbagliato.** `run_positive_control` girava a 30 m nativi, e la Bama Ridge è un gradino di ~8 m su ~1 km.
 

@@ -17,10 +17,20 @@ from core.imagery.srtm import srtm_client
 
 
 def _bowl_tile(bbox, cx=40.0, cy=40.0, base=200.0, n=81):
-    """A synthetic bowl DEM standing in for one fetched Copernicus tile —
-    used only to test tiling/merging logic, never shipped to the app."""
+    """Conca sintetica CON UN GRADINO al livello di prova, al posto di un tile
+    Copernicus. Solo per la logica di tiling e fusione, mai spedita all'app.
+
+    Il gradino non e' un ornamento. Dal 14 set 2026 measure_highstand chiede al
+    rilevatore se a quella quota il terreno si comporta da cordone, e una conca
+    perfettamente liscia — giustamente — non passa: attraversa la quota, non ci
+    fa un gradino. Un fixture senza gradino testerebbe che il filtro non
+    funziona. E' il quarto fixture degenere del progetto: corretto il fixture,
+    non il codice."""
     yy, xx = np.mgrid[0:n, 0:n]
-    dem = base + ((xx - cx) ** 2 + (yy - cy) ** 2) * 0.12
+    r = np.sqrt((xx - cx) ** 2 + (yy - cy) ** 2)
+    dem = base + (r ** 2) * 0.12
+    # scalino di 12 m dove la conca passa per ~320 m: un cordone litorale
+    dem += np.clip((r - 31.6) / 2.0, 0.0, 1.0) * 12.0
     return dem, list(bbox), f"mock://{bbox}"
 
 

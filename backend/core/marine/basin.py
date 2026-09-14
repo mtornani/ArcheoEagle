@@ -221,6 +221,20 @@ def collapse_source_potential(dem: np.ndarray, water_mask: np.ndarray,
     Passare px_m/py_m rende la pendenza adimensionale e la soglia sensata.
     Senza, si resta in unita' pixel: legale solo sui test sintetici, dove il
     pixel *e'* l'unita' ed e' dichiarato (stessa convenzione di control.py).
+
+    DIPENDENZA DALLA SCALA — dichiarata dall'audit del 14 set 2026. Anche con
+    px_m/py_m corretti, questa funzione misura la pendenza **alla risoluzione
+    che le dai**: un versante dolce e lungo sembra piu' ripido a 30 m che a
+    240 m, e la soglia 0.30 non lo sa. E' la stessa specie di difetto che in
+    control.py rendeva invisibile la Bama Ridge. Qui NON e' stato corretto nel
+    codice perche' la conclusione che ne dipende e' stata verificata ai due
+    estremi invece che assunta:
+
+        Qattara     27 m/pixel -> 0.0      240 m/pixel -> 0.0
+        Sognefjord 118 m/pixel -> 0.356    (controllo positivo)
+
+    Chi cambia la risoluzione di ingresso deve rifare quella verifica, non
+    fidarsi del numero.
     """
     h, w = dem.shape
     gy, gx = np.gradient(dem)

@@ -67,3 +67,35 @@ Se il concetto nasce da questa classe, i miti di *terra persa per sempre in un g
 ## Stato
 
 Aperta come **strumento**, non come caccia. Nessun bacino candidato e' stato ancora valutato. Il punteggio geometrico e' una predisposizione, mai un evento: dice dove andare a cercare uno strato.
+
+---
+
+# PARCHEGGIATA — 14 settembre 2026
+
+**Non chiusa: parcheggiata, e con una ragione precisa.** Il meccanismo regge. Il controllo positivo (Merian, 86,2 s previsti contro 92 osservati) passa ancora. Ma **il test che le avevo assegnato non è eseguibile nel contesto che mi serve**, e una pista senza test è uno strumento, non un'indagine.
+
+## Cosa l'ha fermata
+
+Sopra, in questo stesso file, avevo scritto che il deposito di run-up sopra il piano d'acqua è **l'unico test falsificabile** del meccanismo. La ricerca bibliografica del 14/9 (`GEMINI-ROUND-1.md`, domanda 2) riporta:
+
+> Nei bacini lacustri confinati perialpini i depositi di run-up sopra la linea di riva **non sono stati trovati o sono privi di continuità stratigrafica**. Il riflusso d'onda e l'erosione meteorica rimuovono la sabbia oltre riva **entro pochi decenni**, preservando solo la torbidite sul fondo.
+
+E, esplicitamente: **nessun caso al mondo** di deposito da run-up subaereo in un bacino lacustre chiuso ed endoreico, 15–5 ka, conservato sopra riva.
+
+Il mio kill-shot non è difficile. In un bacino chiuso **non esiste**.
+
+## Perché non lo sostituisco e basta
+
+Il sostituto naturale c'è ed è la **torbidite sul fondo del bacino**, che invece si conserva bene. Ma è **stratigrafia da carota**, non geometria da DEM: esce dalla capacità "da casa" che è il vincolo fondante del progetto (CLAUDE.md §1). Tenerla aperta fingendo che sia testabile da qui sarebbe coprire un buco, cioè la prima cosa vietata da §0.
+
+## Il verdetto dello screening, che resta valido
+
+`SCREENING-BACINI.md`: **nessun bacino sahariano ha la geometria di Dickson.** Qattara a 27 m/pixel dà orlo zero; l'Hoggar ha 1955 m di rilievo e comunque orlo zero. Il Sahara ha montagne, non catini a pareti ripide. Questo risultato non dipende dal kill-shot mancante ed è un restringimento vero.
+
+## Cosa resta utile, e cosa serve per riaprirla
+
+Restano in repo e funzionano: `seiche.py` (Merian, Green, confinamento, `displacement_hazard`) e i 22 test. Servono se un giorno arriva un bacino candidato.
+
+**Condizione di riapertura, una sola:** accesso a dati di carotaggio — proprio o pubblicato — di un bacino confinato con riva abitabile 15–5 ka, in cui cercare una **torbidite da spostamento di massa** databile. Finché non c'è, questa pista non si tocca.
+
+I quattro candidati che la ricerca ha portato (Mar Morto, Bonneville, Turkana, Storfjorden) sono il posto da cui ripartire — non per camminarli col DEM, ma per cercare se qualcuno li ha già carotati.

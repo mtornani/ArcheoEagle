@@ -1,3 +1,48 @@
+# Stato — 14 settembre 2026
+
+**Giornata di consolidamento, non di espansione.** Zero piste nuove. Suite **117/117**.
+Da oggi il punto d'ingresso è `docs/README.md`, non questo file.
+
+## Il controllo positivo passa — era un errore di scala
+
+`CALIBRAZIONE.md` diceva: otto rilevatori falliti, bersaglio invisibile alle statistiche d'insieme. **Sbagliato.** `run_positive_control` girava a 30 m nativi, e la Bama Ridge è un gradino di ~8 m su ~1 km.
+
+| scala | Bama | controllo |
+|---|---|---|
+| 90 m | +1,80 | −0,82 |
+| **120 m** | **+4,42** | −0,71 |
+| 150 m | +0,49 | −0,63 |
+
+Picco unimodale con media d'area; col sottocampionamento era una lama isolata fra due valli, cioè aliasing. Aggiunte `coarsen()` e `multiscale_step_score()` con flag `isolated_spike`. **Verdetto: passato.**
+
+Spiega l'hillshade che trovava il cordone a occhio: guardare un'immagine la rimpicciolisce — l'occhio faceva la media che il codice non faceva.
+
+## Casella §9 Mega-Chad chiusa — tre difetti che si coprivano a vicenda
+
+1. `shoreline_from_dem` ordinava i punti **per angolo attorno al centroide**: non un tracciatore di contorni, un disegno. → marching squares.
+2. 156 tile richiesti, tetto 12, presi in ordine di griglia → tutti nell'angolo sud-ovest. → ordinati per vicinanza alla sponda attesa.
+3. Un'isolinea non è una sponda: 1136 polilinee a 320 m. → filtro a gradino col rilevatore validato.
+
+**Risultato: 1 tile su 12 ha un gradino a 320 m. `vs_schematic_km` mediana 82,8 km.** E il tile della Bama Ridge è **23° su 156** per vicinanza al tracciato schematico: *il solo posto dove sappiamo che c'è una sponda non è dove il disegno dice di cercare.*
+
+Ipotesi registrata e **non testata**: un livello unico per 500 km di sponda può essere il modello sbagliato — nel Great Basin l'isostasia deforma la stessa riva fino a 71 m.
+
+## Audit dei parametri — per metodo, non per fortuna
+
+Due bug della stessa specie trovati per caso in quattro giorni. `AUDIT-PARAMETRI.md` è la tabella: metrica sferica, scala d'analisi, soglie adimensionali, modulo per modulo. Ha trovato subito la dipendenza dalla scala non dichiarata in `basin.py` — non corretta nel codice ma **dichiarata**, perché la conclusione che ne dipende è verificata ai due estremi (Qattara 27 m e 240 m → 0; Sognefjord 118 m → 0,356).
+
+**Regola nuova:** un modulo che tocca un DEM dichiara in testata se converte i pixel in metri, a che scala analizza, se le soglie sono adimensionali.
+
+## Pista C parcheggiata, con ragione scritta
+
+Il suo unico kill-shot — deposito di run-up sopra il piano d'acqua — **non esiste nei bacini chiusi**: riflusso ed erosione lo rimuovono entro decenni, e in letteratura non c'è un solo caso endoreico 15–5 ka. Il sostituto (torbidite di fondo) è stratigrafia da carota: esce dalla capacità "da casa". Riapre solo con accesso a dati di carotaggio.
+
+## Round Gemini valutato
+
+2 affermazioni su 8 non hanno retto. La Bama a 329 m è **contraddetta** dalla mia misura (320 resta). Accettata invece la correzione su GeoB7920-2: la granulometria **è** pubblicata, la mia dichiarazione di impossibilità era sbagliata. Da usare come indice bibliografico, mai come fonte.
+
+---
+
 # Stato — 13 settembre 2026
 
 Tre giorni dopo la consegna. **Una pista nuova aperta (C), una tesi grossa valutata e messa nel ledger (Younger Dryas), due bug miei trovati e corretti.** Nessuna scoperta. Suite **111/111**.

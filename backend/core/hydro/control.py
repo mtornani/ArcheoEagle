@@ -336,13 +336,13 @@ def run_positive_control(level_m: float = 320.0) -> Dict[str, Any]:
     if got is None:
         out["positive"] = {"error": "tile Bama non scaricabile"}
     else:
-        out["positive"] = step_score(got[0], level_m, bbox=got[1])
+        out["positive"] = multiscale_step_score(got[0], level_m, bbox=got[1])
 
     got_ctrl = fetch_copernicus_tile(*CONTROL_TILE)
     if got_ctrl is None:
         out["negative"] = {"error": "tile di controllo non scaricabile"}
     else:
-        out["negative"] = step_score(got_ctrl[0], level_m, bbox=got_ctrl[1])
+        out["negative"] = multiscale_step_score(got_ctrl[0], level_m, bbox=got_ctrl[1])
 
     pos = (out.get("positive") or {}).get("step_score")
     neg = (out.get("negative") or {}).get("step_score")
@@ -355,3 +355,89 @@ def run_positive_control(level_m: float = 320.0) -> Dict[str, Any]:
     else:
         out["verdict"] = "ambiguo: gradino anche nel controllo, il test non separa"
     return out
+
+
+# ---------------------------------------------------------------------------
+# SCALA — corretto il 14 set 2026, ed e' la correzione piu' importante del file
+# ---------------------------------------------------------------------------
+# CALIBRAZIONE.md elencava otto rilevatori falliti sulla Bama Ridge e concludeva
+# che il bersaglio fosse strutturalmente invisibile alle statistiche d'insieme.
+# Era sbagliato. Il controllo positivo girava a risoluzione nativa (30 m) e la
+# Bama Ridge e' un gradino di ~8 m disteso su ~1 km: pendenza ~0,008, sepolta
+# nella rugosita' delle dune e nel rumore del DEM. A 30 m guardi la sabbia, non
+# la sponda.
+#
+#   scala      Bama      controllo      (quota 320 m, media d'area)
+#    60 m     -0,66        -0,95
+#    90 m     +1,80        -0,82
+#   120 m     +4,42        -0,71   <- picco
+#   150 m     +0,49        -0,63
+#   180 m     -0,42        -0,54
+#
+# Picco unimodale coerente, controllo piatto a ogni scala. Un effetto vero, non
+# una lama: col sottocampionamento a vicino piu' prossimo il +4,42 compariva da
+# solo fra due valli (-0,87 e -1,14) e sarebbe stato un artefatto da aliasing.
+# La media d'area e' obbligatoria, non un dettaglio.
+#
+# E spiega l'aneddoto che aveva senso e non lo capivo: l'hillshade trovava il
+# cordone a occhio in un secondo. Guardare un'immagine la rimpicciolisce alla
+# scala dello schermo — l'occhio faceva la media che il codice non faceva.
+
+MULTISCALE_FACTORS: Tuple[int, ...] = (1, 2, 3, 4, 5, 6, 8)
+
+
+def coarsen(dem: np.ndarray, factor: int) -> np.ndarray:
+    """Riduce il DEM facendo la MEDIA di blocchi factor x factor.
+
+    Media, non campionamento: prendere un pixel ogni N e' sottocampionare, e
+    ripiega il rumore fine sulle scale grandi (aliasing). Con la media il
+    +4,42 della Bama e' un picco largo; col campionamento era una lama isolata
+    fra due valli, cioe' un artefatto travestito da scoperta.
+    """
+    f = int(factor)
+    if f <= 1:
+        return dem
+    h, w = dem.shape
+    h2, w2 = h // f, w // f
+    if h2 < 8 or w2 < 8:
+        return dem
+    return dem[: h2 * f, : w2 * f].reshape(h2, f, w2, f).mean(axis=(1, 3))
+
+
+def multiscale_step_score(dem: np.ndarray, level_m: float,
+                          bbox: Optional[BBox] = None,
+                          factors: Sequence[int] = MULTISCALE_FACTORS,
+                          **kw: Any) -> Dict[str, Any]:
+    """step_score a piu' scale. Tiene la migliore e mostra il profilo.
+
+    Un gradino ha una sua larghezza: cercarlo a una scala sola significa
+    trovarlo solo se hai indovinato. Il profilo per scala e' diagnostico —
+    un picco largo e' segnale, un valore isolato fra due valli e' artefatto.
+    """
+    profile: List[Dict[str, Any]] = []
+    best: Optional[Dict[str, Any]] = None
+    for f in factors:
+        small = coarsen(dem, f)
+        if small.shape[0] < 8 or small.shape[1] < 8:
+            continue
+        r = step_score(small, level_m, bbox=bbox, **kw)
+        if r.get("step_score") is None:
+            # quota degenere a questa scala (dispersione nulla): step_score
+            # esiste come chiave ma vale None. Saltata, non classificata:
+            # un punteggio indefinito non e' uno zero.
+            continue
+        row = {"factor": int(f), "step_score": r["step_score"],
+               "is_step": bool(r.get("is_step", False))}
+        profile.append(row)
+        if best is None or r["step_score"] > best["step_score"]:
+            best = {**r, "factor": int(f)}
+    if best is None:
+        return {"error": "griglia troppo piccola a ogni scala", "profile": profile}
+    # un picco che ha almeno un vicino elevato e' piu' credibile di uno isolato
+    scores = {row["factor"]: row["step_score"] for row in profile}
+    bf = best["factor"]
+    neighbours = [scores[f] for f in scores if f in (bf - 1, bf + 1)]
+    best["neighbour_support"] = round(max(neighbours), 2) if neighbours else None
+    best["isolated_spike"] = bool(neighbours) and max(neighbours) < 0.0
+    best["profile"] = profile
+    return best

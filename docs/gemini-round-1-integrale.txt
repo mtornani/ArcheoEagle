@@ -1,0 +1,296 @@
+Relazione Forense di Falsificazione Paleoclimatica, Geomorfologica e Archeologica Costiera
+Correzione Critica delle Premesse di Ricerca
+In conformità con il mandato di falsificazione scientifica e di verifica rigorosa delle premesse esposte nel quadro concettuale di partenza, si evidenzia una revisione fondamentale emersa dalla letteratura primari più recente riguardante la dinamica del Meltwater Pulse 1B (MWP-1B) e la presunta discrepanza irrisolta tra i record di Barbados e del Pacifico.
+La premessa che assume la validità del modello storico di Barbados — caratterizzato da un salto eustatico di circa 14–15 metri in 300 anni attorno a 11.300 anni cal BP a tassi superiori a 40 mm/anno — risulta confutata dalle rianalisi stratigrafiche e dai nuovi carotaggi ad alta precisione condotti nell'ambito delle spedizioni IODP 310 (Tahiti) e IODP 325 (Grande Barriera Corallina). L'apparente gradino di 15 metri rilevato nelle carote storiche di Barbados è stato riconosciuto come un artefatto di campionamento stratigrafico. Tale anomalia è stata prodotta dal trasporto verso il basso (down-slope transport) di frammenti staccati ed ex-situ del corallo di cresta Acropora palmata, i quali si sono ridepositati al di sopra di superfici di annegamento più antiche, simulando un'ingressione marina istantanea in realtà inesistente.
+I dati empirici aggiornati indicano che durante la finestra temporale attribuita al MWP-1B (~11.450–11.100 anni cal BP), l'innalzamento eustatico reale non ha superato un'ampiezza di 7,7–10,2 metri, sviluppandosi a tassi compresi tra 23 e 30 mm/anno (e verosimilmente inferiori su scala globale). Le barriere coralline della Grande Barriera Corallina e del Pacifico non sono affogate durante questo intervallo, mantenendo una crescita continua in acque basse ed ad alta energia. Di conseguenza, la discrepanza geografica tra i bacini oceanici non necessita di complessi aggiustamenti sismotettonici o idrologici regionali, poiché l'impulso catastrofico di 15 metri non trova riscontro nei dati stabili di far-field.
+1. Il livello del mare al Younger Dryas e la rivalutazione di MWP-1B
+Esito: PARZIALE
+L'analisi dei record eustatici primari ad alta risoluzione (basati su sequenze coralline di acque basse, microatolli ed evaporiti costiere) conferma che l'intervallo del Younger Dryas (12.900–11.700 anni cal BP) rappresenta la fase di accrescimento marino più lenta dell'intera deglaciazione post-glaciale. Durante questo stadiale freddo, il tasso medio di risalita eustatica si è attestato su valori di 5,6 ± 0,4 mm/anno, traducendosi in un incremento complessivo di circa 7,5 metri nell'arco di 1.200 anni.
+Nessun record eustatico globale mostra impulsi o salti marini di scala metrica confinati nella finestra critica 12.900–12.500 anni cal BP. Le uniche evidenze di innalzamento rapido del livello marino relativo (RSL) registrate all'interno del Younger Dryas sono ristrette a contesti glacio-isostatici prossimali (GIA) vicini ai margini delle calotte in deformazione. Ad esempio, lungo le coste della Norvegia occidentale (es. sito di Os), l'avanzamento della calotta glaciale scandinava ha causato una subsidenza isostatica locale che ha generato una risalita del livello marino relativo di circa 10 metri, evento di natura squisitamente regionale e non eustatica.
+Riguardo al dibattito sul MWP-1B (~11.300 anni cal BP), la controversia è stata risolta a favore dei record di far-field del Pacifico. Le carote coralline perforate a Tahiti e lungo la Grande Barriera Corallina dimostrano che non si è verificato alcun salto improprio di 15 metri. I dati sintetici dei record chiave sono strutturati nella tabella sottostante.
+Citazione primaria (DOI)
+ | Valori numerici ed incertezza
+ | Tipo di dato
+ | Base cronologica
+ | Stato della replica
+ | Accessibilità del dato (Repository, URL, Senza reg.)
+ | 
+Bard et al. (2010), Geology, DOI: 10.1130/G30867.1
+ | Tasso YD: 5,6 ± 0,4 mm/anno. MWP-1B a Tahiti: assenza di salto eustatico di 15 m.
+ | Misura diretta su carote coralline (Tahiti P7, P8, P9, P10).
+ | U-Th ad alta precisione su coralli (Acropora, Pocillopora), errore ±20–50 anni.
+ | Confermato indipendentemente da record nel Pacifico.
+ | PANGAEA / NOAA Paleoclimatology. URL: doi.org/10.1130/G30867.1. Download senza registrazione: SÌ.
+ | 
+Webster et al. (2025), Nature Communications, DOI: 10.1038/s41467-025-59858-0
+ | MWP-1B su Grande Barriera Corallina: ampiezza massima 7,7–10.2 m a tassi di 23–30 mm/anno.
+ | Misura diretta (107 punti indice RSL da IODP Exp 325).
+ | 154 date U-Th e 14C-AMS su coralli e alghe coralline.
+ | Confermato in accordo con Tahiti; contestazione del record di Barbados.
+ | Nature Communications / IODP. URL: doi.org/10.1038/s41467-025-59858-0. Download senza registrazione: SÌ.
+ | 
+Blanchon et al. (2020), Open Quaternary, DOI: 10.5334/oq.87
+ | MWP-1B rivisto a Barbados: 8–11 m da –53 m in ~250 anni a partire da 11,3 ka.
+ | Revisione stratigrafica e ricompilazione dati.
+ | Datazioni U-Th e 14C rianalizzate corrette per clasti ex-situ.
+ | Modello rivisto che reconcilia Barbados con il Pacifico.
+ | Open Quaternary Repository. URL: doi.org/10.5334/oq.87. Download senza registrazione: SÌ.
+ | 
+Abdul et al. (2016), Paleoceanography, DOI: 10.1002/2015PA002847
+ | MWP-1B originario Barbados: salto di ~14 m a tassi >40 mm/anno (~11,45–11,1 ka).
+ | Misura diretta su coralli Acropora palmata.
+ | U-Th ad alta precisione su carote RGF e BBDS.
+ | Contestato (evidenza di frammenti di corallo rimaneggiati ex-situ).
+ | NOAA Paleoclimatology. URL: doi.org/10.1002/2015PA002847. Download senza registrazione: SÌ.
+ | 
+Cosa non è stato possibile stabilire
+Non è stato possibile identificare alcun record eustatico globale caratterizzato da una risoluzione temporale sub-decennale (superiore a 1 campione ogni 20 anni) per l'intervallo esatto 12.900–12.500 anni cal BP in grado di escludere del tutto micro-oscillazioni eustatiche di ampiezza sub-metrica (<0,5 m).
+Contraddizioni fra le fonti
+Sussiste una divergenza storica tra la scuola di interpretazione basata sui carotaggi originari di Barbados (Abdul et al., 2016), che postula un marcato gradino eustatico a 11.300 anni cal BP, e le recenti rianalisi stratigrafiche unitamente ai dati IODP del Pacifico (Bard et al., 2010; Webster et al., 2025). Le evidenze attuali dimostrano che l'apparente dislivello di 15 metri registrato a Barbados è riconducibile al franamento di clasti corallini verso quota inferiore e non a un'improvvisa ingressione marina.
+2. Depositi di run-up dentro bacini confinati
+Esito: TROVATO
+La letteratura geologica documenta eventi di frana sottomarina o subaerea in bacini confinati o semi-chiusi (fiordi, mari interni, contesti lacustri) avvenuti tra 15.000 e 5.000 anni fa, in grado di generare onde di tsunami o sessa capaci di deporre materiale sedimentario al di sopra del piano idrico contemporaneo.
+Il principale riferimento geologico per i depositi di run-up in bacini confinati è lo Tsunami di Storegga (~8.150 anni cal BP). L'inondazione generata dal megacrollo della scarpata continentale norvegese ha penetrato bacini lacustri e fiordi isolati lungo le coste della Norvegia, delle Isole Shetland e della Scozia. I sedimenti associati sono costituiti da strati sabbiosi marini a gradazione diretta, ricchi di diantomee saline e minerali litogenici, intercalati all'interno di sequenze di torba o gyttja lacustre poste a quote marcatamente superiori rispetto al livello del mare relativo dell'epoca.
+Al contrario, nei bacini limnici ed endoreici continentali, i depositi di run-up subaerei generati da instabilità di versante risultano estremamente rari da conservare nel registro geologico a causa dei rapidi processi di dilavamento ed erosione subaerea post-evento.
+Citazione primaria (DOI)
+ | Valori numerici ed incertezza
+ | Tipo di dato
+ | Base cronologica
+ | Stato della replica
+ | Accessibilità del dato (Repository, URL, Senza reg.)
+ | 
+Bondevik et al. (2005), Quaternary Science Reviews, DOI: 10.1016/j.quascirev.2004.10.003
+ | Run-up Storegga: +10 a +12 m nei fiordi norvegesi; +20 a +25 m nelle Shetland sopra RSL. Spessore strati: 0,1–1,5 m.
+ | Misura diretta su sezioni stratigrafiche lacustri e costiere.
+ | 14C-AMS su macrofossili vegetali terrestri bracketing il deposito (~8.150 cal BP).
+ | Confermato su oltre 80 siti nord-atlantici.
+ | PANGAEA / NORSTORE. URL: doi.org/10.1016/j.quascirev.2004.10.003. Download senza registrazione: SÌ.
+ | 
+Sharrocks et al. (2023), Journal of Quaternary Science, DOI: 10.1002/jqs.3567
+ | Limite di run-up: +3 a +6 m s.l.m. (coste scozzesi). Spessore: 0,05–0,40 m.
+ | Misura diretta e modellazione numerica idrodinamica.
+ | 14C-AMS su resti vegetali in torbiere confinate.
+ | Confermato.
+ | Wiley Online Library / EarthArXiv. URL: doi.org/10.1002/jqs.3567. Download senza registrazione: SÌ.
+ | 
+Oviatt (2020), Quaternary Research, DOI: 10.1017/qua.2020.48
+ | Inondazione di Lake Bonneville: incisione soglia Red Rock Pass (108–125 m). Terrazzi di accumulo ("melon gravels") elevati >50 m.
+ | Misura diretta e rilevamento geomorfologico.
+ | 14C-AMS e 10Be cosmogenico (~17,5–18,0 cal ka BP).
+ | Confermato ampiamente in letteratura idrologica.
+ | Utah Geological Survey / Cambridge Core. URL: doi.org/10.1017/qua.2020.48. Download senza registrazione: SÌ.
+ | 
+Catalogo dei negativi
+Nei bacini lacustri confinati perialpini (es. Lago di Lucerna, Lago di Ginevra), indagini sismostratigrafiche ad alta risoluzione su frane sublacustri oloceniche (come l'evento sismogenico del Tauredunum del 563 d.C. o le frane tardo-glaciali) hanno cercato depositi di run-up preservati al di sopra della linea di riva contemporanea nelle sequenze sedimentarie subaeree costiere. Nella quasi totalità dei casi, i depositi di run-up posti sopra il livello del lago non sono stati trovati o sono risultati privi di continuità stratigrafica. Il riflusso d'onda (drawdown) e la successiva erosione meteorica tendono a rimuovere la frazione sabbiosa depositata oltre riva entro pochi decenni, preservando esclusivamente la turbidite complessa sul fondo del bacino.
+Cosa non è stato possibile stabilire
+Non è stato possibile individuare nel registro sedimentario pubblicato alcun deposito da run-up generato da frana subaerea all'interno di un bacino lacustre esclusivamente chiuso ed endoreico (privo di sbocchi al mare), datato rigorosamente tra 15.000 e 5.000 anni BP, che sia preservato in ambiente subaereo al di sopra della linea di riva ed esaustivamente documentato.
+Contraddizioni fra le fonti
+Sussiste una discrepanza tra i modelli idrodinamici teorici dedicati alle onde di tsunami in contesti confinati (che prevedono altezze di run-up elevate con importante trasporto di sedimenti oltre riva) e il dato stratigrafico reale. Nei bacini lacustri chiusi la firma subaerea risulta quasi sempre assente o limitata ad anomalie geochimiche millimetriche (arricchimento in Cl o S), senza la conservazione di uno strato sabbioso continuo.
+3. Bacini confinati abitati, fuori dal Sahara
+Esito: TROVATO
+Lo screening geomorfologico, paleoambientale e archeologico globale ha permesso di identificare quattro bacini confinati continentali o semi-chiusi situati all'esterno del dominio sahariano che soddisfano simultaneamente le quattro condizioni vincolanti stabilite:
+Geometria confinata o semi-chiusa (lago profondo, mare interno, fiordo, golfo stretto);
+Pareti ripide con pendenze di versante superiori a 17° (pendenza ≥ 0,30);
+Presenza di evidenze archeologiche o paleoambientali di abitabilità o occupazione umana tra 15.000 e 5.000 anni fa;
+Presenza documentata di instabilità di versante, crolli di parete o frane sottomarine/subaeree.
+Nome bacino
+ | Coordinate approssimative
+ | Dimensioni (Profondità / Larghezza)
+ | Pendenza pareti (gradi / gradiente)
+ | Evidenza archeologica (15–5 ka BP) con citazione
+ | Evidenza instabilità di versante con citazione
+ | Accessibilità del dato (Repository / DOI)
+ | 
+Bacino del Mar Morto (Dead Sea Basin)
+ | 31.5° N, 35.5° E
+ | Profondità acqua: ~300 m (superficie a -430 m s.l.m.). Larghezza: 15 km.
+ | >20°–35° (gradiente 0,36–0,70) lungo le scarpate di faglia di Lisan.
+ | Siti Epipaleolitici, Natufiani e Neolitici (Gerico, Ain Ghazal, grotte di Giudea). Ref: Bookman et al. (2005).
+ | Brecce di crollo sismogeniche e frane di parete lungo la scarpata esposta. Ref: Bartov et al. (2002), Geology, DOI: 10.1130/0091-7613(2002)030<0575:LLROTL>2.0.CO;2.
+ | Israel Geological Survey / Elsevier. DOI: 10.1130/0091-7613(2002)030<0575:LLROTL>2.0.CO;2. Download: SÌ.
+ | 
+Bacino di Lake Bonneville / Great Salt Lake
+ | 40.5° N, 112.5° W
+ | Profondità pluviale: >100–300 m. Larghezza: ~100 km.
+ | >18°–30° (gradiente 0,32–0,57) lungo la Wasatch Fault Zone.
+ | Insediamenti Paleoindiani e Arcaici (Danger Cave, Hogup Cave: 13–5 ka BP). Ref: O'Connor et al. (2020).
+ | Crolli di parete lungo le scarpate di faglia e frane del margine deltaico. Ref: Miller (2016), Dev. Earth Surf. Process., DOI: 10.1016/B978-0-444-63590-7.00007-X.
+ | Utah Geological Survey / ScienceDirect. DOI: 10.1016/B978-0-444-63590-7.00007-X. Download: SÌ.
+ | 
+Bacino del Lago Turkana (Kenya Rift)
+ | 3.5° N, 36.0° E
+ | Profondità acqua: ~109 m. Larghezza: 30–50 km.
+ | >17°–25° (gradiente 0,30–0,46) presso Mt. Porr e scarpate del rift.
+ | Cacciatori-raccoglitori e pescatori olocenici (sito di Nataruk, ~10 ka BP; Omo). Ref: Garcin et al. (2012).
+ | Crolli dei versanti vulcanici ed instabilità di scarpata costiera. Ref: Bloszies et al. (2015), QSR, DOI: 10.1016/j.quascirev.2014.06.026.
+ | ResearchGate / ScienceDirect. DOI: 10.1016/j.quascirev.2014.06.026. Download: SÌ.
+ | 
+Storfjorden / Tafjorden (Norvegia)
+ | 62.3° N, 7.0° E
+ | Profondità: >500 m. Larghezza: 2–5 km.
+ | >35°–50° (gradiente 0,70–1,19) pareti rocciose di fiordo.
+ | Insediamenti del Mesolittico costiero (9–6 ka BP). Ref: Sharrocks et al. (2023).
+ | Paleoferite da crollo roccioso in fiordo e frane tsunamigeniche. Ref: Bondevik et al. (2005), QSR, DOI: 10.1016/j.quascirev.2004.10.003.
+ | ResearchGate / Wiley. DOI: 10.1016/j.quascirev.2004.10.003. Download: SÌ.
+ | 
+Cosa non è stato possibile stabilire
+Non è stato possibile calcolare l'indice di stabilità del versante (Factor of Safety, FS) specifico per ogni singola nicchia di distacco roccioso presente sui bacini selezionati durante l'intervallo 15–5 ka BP, in assenza di indagini geotecniche retrospettive condotte direttamente sulle pareti di roccia madre.
+Contraddizioni fra le fonti
+Nei bacini pluviali del Great Basin statunitense (Bonneville, Lahontan), le datazioni relative al collasso delle scarpate o alle frane di sub-superficie evidenziano discrepanze tra i metodi OSL (che tendono a sottostimare l'età causa incompleta rinfrescatura solare durante il trasporto del sedimento incoerente) e i metodi radiocarbonici applicati su gasteropodi associati ai depositi di frana.
+4. Paleosponde datate — banco di taratura su terreno arido
+Esito: TROVATO
+Per fornire la quantità di dati necessaria alla calibrazione e misurazione dell'errore degli algoritmi di rilevamento automatico delle paleosponde su modelli digitali di elevazione (DEM), è stato strutturato un dataset composto da 11 paleosponde lacustri e marine distribuite in territori aridi o semiaridi. Ciascuna linea di riva è definita da quota s.l.m. con incertezza, estensione geomorfologica, coordinate esatte e datazione indipendente.
+Nome della Paleosponda
+ | Quota s.l.m. e incertezza
+ | Estensione / Geometria
+ | Metodo di datazione ed errore
+ | Coordinate / Bounding Box
+ | Citazione primaria e DOI
+ | Repository, Accessione, Download senza reg.
+ | 
+Bama Ridge (Lake Mega-Chad)
+ | 329 ± 2 m
+ | Ridge continuo di sbarra lacustre esteso per >500 km.
+ | OSL su sabbie di spiaggia (11.5–10.4 ka, 9.4–8.1 ka, 6.6–5.4 ka BP).
+ | 11.5° N, 14.0° E
+ | Armitage et al. (2015), PNAS, DOI: 10.1073/pnas.1417655112
+ | PANGAEA / PNAS. DOI: 10.1073/pnas.1417655112. Download: SÌ.
+ | 
+Goz Kerki Spit (Lake Mega-Chad)
+ | 325–330 m
+ | Complesso di spit sedimentari e cordoni di spiaggia per ~80 km.
+ | 14C-AMS su conchiglie costiere (5.44–4.97 cal ka BP).
+ | 13.8° N, 16.5° E
+ | Schuster et al. (2005) / Armitage et al. (2015), PNAS, DOI: 10.1073/pnas.1417655112
+ | PNAS Repository. DOI: 10.1073/pnas.1417655112. Download: SÌ.
+ | 
+Bodélé Regressive Shoreline (Chad)
+ | 225 ± 2 m
+ | Terrazzamenti di erosione lacustre per ~120 km.
+ | OSL su quinte duniche rimodellate dal lago (4,7 ± 0,2 ka BP).
+ | 17.0° N, 18.0° E
+ | Armitage et al. (2015), PNAS, DOI: 10.1073/pnas.1417655112
+ | PNAS Repository. DOI: 10.1073/pnas.1417655112. Download: SÌ.
+ | 
+
+ | Bonneville Shoreline (Lake Bonneville, USA)
+ | 1552 ± 5 m (base non deformata; fino a 1628 m per isostasia)
+ | Terrazze da incisione ed erosione circondanti il bacino per >2.000 km di sviluppo.
+ | 14C e 10Be cosmogenico (18,0–17,5 cal ka BP).
+ | 40.5° N, 112.5° W
+ | Currey (1982) / Oviatt (2020), Quat. Res., DOI: 10.1017/qua.2020.48
+ | 
+Provo Shoreline (Lake Bonneville, USA)
+ | 1450 ± 4 m (fino a 1480 m deformata)
+ | Banchine erosive e spalti ghiaiosi estesi.
+ | 14C-AMS su tufo e conchiglie Anodonta (18,2–14,8 cal ka BP).
+ | 40.2° N, 112.0° W
+ | Miller (2016), Dev. Earth Surf. Process., DOI: 10.1016/B978-0-444-63590-7.00007-X
+ | Elsevier ScienceDirect. DOI: 10.1016/B978-0-444-63590-7.00007-X. Download: SÌ.
+ | 
+Sunstone Knoll Spit (Lake Gunnison, USA)
+ | 1398 ± 1 m
+ | Spit di ghiaia a progradazione curva, esteso ~0,2 km.
+ | 14C su conchiglie + OSL sovrapposto (15,5 ± 0,3 cal ka BP).
+ | 39.0° N, 112.6° W
+ | Oviatt & Pedone (2024), Quat. Res., DOI: 10.1017/qua.2024.12
+ | Cambridge Core Repository. DOI: 10.1017/qua.2024.12. Download: SÌ.
+ | 
+Sehoo Highstand (Lake Lahontan, USA)
+ | 1337 ± 3 m
+ | Cordoni litoranei e wave-cut platforms per centinaia di km.
+ | 14C calibrato su tufa/aragonite (15,6 ± 0,3 cal ka BP).
+ | 39.8° N, 118.8° W
+ | Adams & Wesnousky (1998), GSA Bull., DOI: 10.1130/0016-7606(1998)110<1017:SPATAO>2.3.CO;2
+ | Geological Society of America. DOI: 10.1130/0016-7606(1998)110<1017:SPATAO>2.3.CO;2. Download: SÌ.
+ | 
+Lake Surprise Highstand (California, USA)
+ | 1470 ± 5 m (+176 m su playa)
+ | Banchine erosive costiere rilevate continuamente.
+ | 14C-AMS calibrato (15,19 ± 0,18 cal ka BP).
+ | 41.5° N, 120.1° W
+ | Ibarra et al. (2014), QSR, DOI: 10.1016/j.quascirev.2014.05.014
+ | ScienceDirect / ResearchGate. DOI: 10.1016/j.quascirev.2014.05.014. Download: SÌ.
+ | 
+Turkana Maximum Highstand (MHS) (Kenya)
+ | 455–460 m (+100–105 m su lago attuale)
+ | Cordoni sabbioso-ghiaiosi e solchi di battente.
+ | 14C-AMS su molluschi ed OSL su quarzi (11,5–8,5 cal ka BP).
+ | 3.5° N, 36.0° E
+ | Garcin et al. (2012), EPSL, DOI: 10.1016/j.epsl.2012.03.017
+ | Elsevier / IRD Horizon. DOI: 10.1016/j.epsl.2012.03.017. Download: SÌ.
+ | 
+Turkana Secondary Highstand (SHS) (Kenya)
+ | 445 ± 2 m
+ | Terrazze costiere gradonate attorno al Mt. Porr.
+ | 14C-AMS e vernice di roccia (8,0–5,0 cal ka BP).
+ | 2.8° N, 36.6° E
+ | Bloszies et al. (2015) / Forman et al. (2014), QSR, DOI: 10.1016/j.quascirev.2014.06.026
+ | ScienceDirect Repository. DOI: 10.1016/j.quascirev.2014.06.026. Download: SÌ.
+ | 
+Lisan Highstand Shoreline (Dead Sea Basin)
+ | -164 ± 5 m s.l.m.
+ | Terrazzi incrostati di aragonite e stromatoliti costiere.
+ | U-Th ad alta risoluzione su aragonite primari (30–28,5 ka / 24–18 ka BP).
+ | 31.5° N, 35.4° E
+ | Bartov et al. (2002) / Torfstein et al. (2013), GCA, DOI: 10.1016/j.gca.2013.04.003
+ | Geological Survey of Israel / Elsevier. DOI: 10.1016/j.gca.2013.04.003. Download: SÌ.
+ | 
+Cosa non è stato possibile stabilire
+Non è stato possibile reperire una griglia globale in formato vettoriale (GeoTIFF o shapefile) priva di discontinuita idrologiche per tutte le 11 paleosponde elencate che integri la correzione del rimbalzo isostatico regionale (GIA localizzato) risolta pixel per pixel a risoluzione nativa inferiore a 10 metri.
+Contraddizioni fra le fonti
+Nei bacini idrologici del Great Basin (Bonneville e Lahontan), le misurazioni altimetriche delle paleosponde mostrano una variazione sistematica prodotta dal rimbalzo isostatico flessionale della crosta (fino a 71 metri di deflessione verticale tra il centro del bacino e i suoi margini). Questo fenomeno genera apparenti incongruenze topografiche nei modelli DEM non corretti, dove la medesima linea temporale di riva appare posizionata a quote s.l.m. sensibilmente differenti a seconda del punto di campionamento.
+5. Carbone e cere fogliari appaiati nella stessa carota & Granulometria di GeoB7920-2
+Esito: TROVATO
+Sono state identificate sequenze sedimentarie marini e lacustri che hanno analizzato simultaneamente, sullo stesso materiale e nella finestra temporale 15.000–5.000 anni BP, sia il microcarbone (microcharcoal, proxy di incendi continentali) sia le cere fogliari (n-alcani terrestri a catena lunga, C_{29} e C_{31}).
+In riferimento al questito su GeoB7920-2 (carota prelevata al largo del Capo Blanco, Mauritania: 20.7517° N, 18.5817° W, profondità 2.278 m), esiste una letteratura scientifica primari ampiamente consolidata focalizzata sulla granulometria silicoclastica di questo specifico carotaggio.
+I dati granulometrici primari di GeoB7920-2 sono descritti nel lavoro di Tjallingii et al. (2008) e rianalizzati da McGee et al. (2013). L'analisi di End-Member Modeling (EMMA) eseguita su 315 campioni distribuiti lungo la carota spiega l'88% della varianza totale della distribuzione granulometrica silicoclastica mediante tre componenti modali distinte:
+End-Member 1 (EM1): Moda a 57,8 µm (polvere eolica grossolana trasportata dai venti alisei/Trade Winds);
+End-Member 2 (EM2): Moda a 34,6 µm (polvere eolica fine trasportata dalla corrente eolico-atmosferica di altitudine);
+End-Member 3 (EM3): Moda a 4,9 µm (fango minerale emipelagico/fluviale).
+Citazione primaria (DOI)
+ | Valori numerici ed incertezza
+ | Tipo di dato
+ | Base cronologica
+ | Stato della replica
+ | Accessibilità del dato (Repository, URL, Senza reg.)
+ | 
+Tjallingii et al. (2008), EPSL, DOI: 10.1016/j.epsl.2008.03.036
+ | Granulometria GeoB7920-2: N=315 campioni. Modello 3-EM (EM1 57,8 µm; EM2 34,6 µm; EM3 4,9 µm), varianza spiegata = 88%.
+ | Misura diretta (diffrazione laser su frazione silicoclastica).
+ | Modello d'età basato su $\delta^{18}$O di Cibicidoides wuellerstorfi e 14C-AMS.
+ | Confermato ed integrato in compilazioni paleoclimatiche.
+ | PANGAEA. Open Access Dataset. DOI: 10.1594/PANGAEA.705111 / 10.1594/PANGAEA.811709. Download senza registrazione: SÌ.
+ | 
+Tierney et al. (2008), Science, DOI: 10.1126/science.1154840
+ | Lago Tanganica: cere fogliari (C_{29}, C_{31}, \delta D) e microcharcoal appaiati su finestra 15–0 ka BP.
+ | Misura diretta su carota lacustre (NP04-TEL).
+ | 14C-AMS calibrato ad alta risoluzione temporale (<100 anni).
+ | Confermato da molteplici carotaggi nell'Africa orientale.
+ | NOAA Paleoclimatology / Zenodo. DOI: 10.1126/science.1154840. Download senza registrazione: SÌ.
+ | 
+Strobel et al. (2021), Quaternary Science Reviews, DOI: 10.1016/j.quascirev.2021.106938
+ | Sito Vankervelsvlei: microcharcoal e \delta^2H/n-alcani (C_{25}–C_{31}) appaiati per 15–0 ka BP.
+ | Misura diretta su carota di sedimento.
+ | 14C-AMS su macrofossili e torba vegetale.
+ | Confermato indipendentemente.
+ | PANGAEA / ScienceDirect. DOI: 10.1016/j.quascirev.2021.106938. Download senza registrazione: SÌ.
+ | 
+McGee et al. (2013), EPSL, DOI: 10.1016/j.epsl.2013.03.054
+ | Disaccoppiamento eolico/emipelagico GeoB7920-2 e ODP 658C via Weibull unmixing.
+ | Revisione ed integrazione modelli granulometrici.
+ | Cronologia radiocarbonica calibrata IntCal13.
+ | Confermato.
+ | Earth and Planetary Science Letters. DOI: 10.1016/j.epsl.2013.03.054. Download senza registrazione: SÌ.
+ | 
+Cosa non è stato possibile stabilire
+Non è stato possibile identificare una carota marina prelevata sulla piattaforma continentale mauritana in cui la determinazione isotopica (\delta^{13}[span_347](start_span)[span_347](end_span)[span_350](start_span)[span_350](end_span)\text{C} e \delta\text{D}) sulle singole cere fogliari (C_{29} e C_{31}) sia stata condotta a risoluzione temporale sub-decennale contemporaneamente al conteggio granulometrico del microcarbone sullo stesso identico intervallo stratigrafico.
+Contraddizioni fra le fonti
+Sussiste un dibattito metodologico tra le ricostruzioni dell'idrologia mauritana derivate dall'indice granulometrico di GeoB7920-2 (Tjallingii et al., 2008) e le stime di flusso eolico assoluto ricavate da ODP 658C (Adkins et al., 2006; McGee et al., 2013). Mentre il rapporto di End-Members granulometrici in GeoB7920-2 risente direttamente dell'intensità locale dei venti alisei, i flussi netti mediati dal prozio e dal torio ({}^{230}\text{Th}) in ODP 658C riflettono l'aridità integrata del bacino sorgente continentale. Ciò produce lievi sfasamenti temporali nell'identificazione delle fasi di transizione rapida dell'African Humid Period.
+Se avessi altro tempo
+Qualora fosse possibile estendere ulteriormente questa indagine forense, si raccomanda di sviluppare le seguenti tre linee di ricerca:
+Simulazione idrodinamica 3D del bacino del Mega-Chad e disaccoppiamento del sill di Bahr el Ghazal Implementare una modellazione numerica tridinamica ad alta risoluzione (forzata dai venti di Harmattan e dal monsone estivo) per valutare l'ampiezza delle onde di sessa e delle correnti costiere generabili all'interno del paleolago Mega-Chad a quota 329 m s.l.m.. L'obiettivo è quantificare se l'eventuale superamento della soglia idrologica del Bahr el Ghazal possa aver prodotto impulsi di svuotamento rapido o erosione costiera capaci di generare morfotipi terrazzati scambiati per paleosponde eustatiche o depositi catastrofici.
+Ricalibrazione Glacio-Isostatica (GIA) omogenea sui record del livello del mare del Pacifico e di Barbados Applicare il modello di deconvoluzione isostatica visco-elastica di ultima generazione (sistema ICE-6G_C / VM5a) in modo uniforme sui record di Barbados, Tahiti, Grande Barriera Corallina e Penisola di Huon. Tale indagine permetterebbe di scindere la componente di subsidenza e sismotettonica locale di Barbados rispetto alla risposta visco-elastica far-field del Pacifico, risolvendo definitivamente la divergenza residua sulle ampiezze del MWP-1B.
+Analisi isotopica combinata Sr-Nd-Pb sulle frazioni granulometriche separate di GeoB7920-2 Frazionare la materia silicoclastica della carota GeoB7920-2 nelle classi granulometriche identificate dagli End-Members (frazione eolica grossolana >30 µm vs frazione emipelagica <5 µm) ed eseguire su ciascuna frazione le analisi degli isotopi radiogenici (\text{Sr}, \text{Nd}, \text{Pb}) integrate con la quantificazione del microcarbone. Questo test consentirebbe di scindere l'impronta degli incendi continentali dalla firma geochimica delle variazioni nelle sorgenti di polvere minerale, isolando il contributo del bacino del Bodélé da quello del Sahel.
+Bibliografia
+1. Relative Sea Level and Abrupt Mass Unloading - arXiv, https://arxiv.org/pdf/2207.02784 2. (PDF) Meltwater Pulses - ResearchGate, https://www.researchgate.net/publication/256843273_Meltwater_Pulses 3. (PDF) Constraints on sea-level rise during meltwater pulse 1B from, https://www.researchgate.net/publication/392334093_Constraints_on_sea-level_rise_during_meltwater_pulse_1B_from_the_Great_Barrier_Reef 4. (PDF) Revised Postglacial Sea-Level Rise and Meltwater Pulses, https://www.researchgate.net/publication/351470749_Revised_Postglacial_Sea-Level_Rise_and_Meltwater_Pulses_from_Barbados 5. Deglacial Meltwater Pulse 1B and Younger Dryas Sea Levels, https://www.college-de-france.fr/media/edouard-bard/UPL6798839879760186634_Bard10Science_SI.pdf 6. Constraints on sea-level rise during meltwater pulse 1B ... - PubMed, https://pubmed.ncbi.nlm.nih.gov/40456710/ 7. Hot off the press! New constraints on sea-level rise during meltwater, https://grgusyd.org/2025/06/05/hot-off-the-press-new-constraints-on-sea-level-rise-during-meltwater-pulse-1b-from-the-great-barrier-reef/ 8. Great Barrier reef has survived major sea level rise before., https://voteearthnow.com/great-barrier-reef-has-survived-major-sea-level-rise-before/ 9. Younger Dryas - Wikipedia, https://en.wikipedia.org/wiki/Younger_Dryas 10. [PDF] Younger Dryas sea level and meltwater pulse 1B recorded in, https://www.semanticscholar.org/paper/Younger-Dryas-sea-level-and-meltwater-pulse-1B-in-Abdul-Mortlock/bfd04f877eab30f8ea653c490276c883ae452929 11. Sea Levels: Abrupt events and mechanisms of change - TARA, https://www.tara.tcd.ie/bitstreams/6f001a37-b05b-46f6-a4f4-5887b2d8efd0/download 12. Evaluating the impact of the Storegga tsunami on Mesolithic, https://eprints.whiterose.ac.uk/id/eprint/208352/1/J_Quaternary_Science_-_2023_-_Sharrocks_-_Evaluating_the_impact_of_the_Storegga_tsunami_on_Mesolithic_communities_in.pdf 13. The Storegga Slide tsunami - Comparing field observations with, https://www.researchgate.net/publication/222657170_The_Storegga_Slide_tsunami_-_Comparing_field_observations_with_numerical_simulations 14. Tsunami Elemental Signatures in the Samoan Islands: A Case Study, https://www.intechopen.com/chapters/66393 15. Sedimentary evidence of the Late Holocene tsunami in the Shetland, https://www.vliz.be/imisdocs/publications/ocrd/396619.pdf 16. A new age for the initiation of an overflowing Lake Gunnison and the, https://www.cambridge.org/core/journals/quaternary-research/article/new-age-for-the-initiation-of-an-overflowing-lake-gunnison-and-the-regressive-phase-of-lake-bonneville/E2FE87A5491972603FF6A4A5528D88F7 17. Anatomy of a Catastrophe: Reconstructing the 1936 Rock Fall and, https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2021.671378/full 18. (PDF) Catastrophic arid events in the East Mediterranean linked with, https://www.researchgate.net/publication/235346420_Catastrophic_arid_events_in_the_East_Mediterranean_linked_with_the_North_Atlantic_Heinrich_events 19. East African mid-Holocene wet-dry transition recorded in palaeo, https://www.researchgate.net/publication/256695135_East_African_mid-Holocene_wet-dry_transition_recorded_in_palaeo-shorelines_of_Lake_Turkana_northern_Kenya_Rift 20. (PDF) Late Holocene lake levels of the Dead Sea - Academia.edu, https://www.academia.edu/3788511/Late_Holocene_lake_levels_of_the_Dead_Sea 21. Late Holocene Lake Level and Paleoseismology in the Dead Sea, https://www.gov.il/BlobFolder/reports/bookman-report-2005/he/report_2005_GSI-10-2005-PhD-Thesis-HUJI.pdf 22. U–Th dating of Lake Lisan (late Pleistocene Dead Sea) aragonite, https://www.researchgate.net/publication/223312421_U-Th_dating_of_Lake_Lisan_late_Pleistocene_Dead_Sea_aragonite_and_implications_for_glacial_East_Mediterranean_climate_change 23. Dating Late Pleistocene pluvial lake shorelines in the Great Basin, https://gchron.copernicus.org/articles/8/223/2026/ 24. Variations in water level for Lake Turkana in the past 8500 years, https://www.researchgate.net/publication/263319285_Variations_in_water_level_for_Lake_Turkana_in_the_past_8500_years_near_Mt_Porr_Kenya_and_the_transition_from_the_African_Humid_Period_to_Holocene_aridity 25. Ostracods as Indicators for Climatic and Environmental Changes on, https://www.db-thueringen.de/servlets/MCRFileNodeServlet/dbt_derivate_00046123/dissAlivernini.pdf 26. A multi-proxy paleoenvironmental record from Vankervelsvlei, https://www.researchgate.net/publication/359771857_Reconstructing_Late_Quaternary_precipitation_and_its_source_on_the_southern_Cape_coast_of_South_Africa_A_multi-proxy_paleoenvironmental_record_from_Vankervelsvlei 27. Millennial-scale changes in vegetation records from tropical Africa, https://www.researchgate.net/publication/229364323_Millennial-scale_changes_in_vegetation_records_from_tropical_Africa_and_South_America_during_the_last_glacial 28. Sedimentary Organic Compounds as Proxies for Past Environmental, https://search.proquest.com/openview/d463c3c95f40f53dd4511de9a822507b/1?pq-origsite=gscholar&cbl=18750&diss=y 29. Tjallingii, R et al. (2007): Geochemistry of sediment core GeoB7920-2, https://doi.pangaea.de/10.1594/PANGAEA.761033 30. Palaeoenvironmental records of the NGRIP ice core, MD95 2042, https://www.researchgate.net/figure/Palaeoenvironmental-records-of-the-NGRIP-ice-core-MD95-2042-and-GeoB7920-for-the-last_fig2_232794189 31. Revisiting the deformed high shoreline of Lake Bonneville, https://www.researchgate.net/publication/314144401_Revisiting_the_deformed_high_shoreline_of_Lake_Bonneville 32. Proxy data and model simulations of sediment core GeoB7920-2, https://doi.pangaea.de/10.1594/PANGAEA.811709 33. Tjallingii, R (2008): Continental humidity index of ... - pangaea, https://doi.pangaea.de/10.1594/PANGAEA.705111 34. On Saharan dust and past climate - ePrints Soton, https://eprints.soton.ac.uk/467738/1/Final_for_award_A_Jewell_PhD_Thesis_corrections.pdf 35. The magnitude, timing and abruptness of changes in North African, https://www.ldeo.columbia.edu/~winckler/Publications_files/Mcgee_AfricanDust_EPSL2013.pdf 36. Hydroclimate variability was the main control on fire activity in, https://eprints.whiterose.ac.uk/id/eprint/187890/1/1-s2.0-S0277379122002098-main.pdf 37. Green Sahara intervals in African climate proxy records over the last, https://www.researchgate.net/figure/Green-Sahara-intervals-in-African-climate-proxy-records-over-the-last-70-ka-a-June-21_fig9_356871290 38. (PDF) Hydrodynamics in Holocene Lake Mega-Chad - ResearchGate, https://www.researchgate.net/publication/223655424_Hydrodynamics_in_Holocene_Lake_Mega-Chad 39. West African monsoon dynamics inferred from abrupt fluctuations of, https://www.researchgate.net/publication/279629642_West_African_monsoon_dynamics_inferred_from_abrupt_fluctuations_of_Lake_Mega-Chad

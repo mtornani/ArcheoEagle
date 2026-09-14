@@ -6,6 +6,8 @@ import unittest
 import numpy as np
 
 from core.hydro.control import (
+    multiscale_step_score,
+    coarsen,
     BAMA_RIDGE,
     CONTROL_TILE,
     STEP_SCORE_THRESHOLD,
@@ -162,3 +164,69 @@ class MetricTest(unittest.TestCase):
         s_low = float(np.median(_slope_map(dem, [0.0, 11.0, 1.0, 12.0])))
         s_high = float(np.median(_slope_map(dem, [0.0, 31.0, 1.0, 32.0])))
         self.assertGreater(s_high / s_low, 1.1)  # ~14% di differenza reale
+
+
+class MultiscaleTest(unittest.TestCase):
+    """14 set 2026. Gli otto rilevatori falliti in CALIBRAZIONE.md non avevano
+    un bersaglio invisibile: avevano la scala sbagliata. La Bama Ridge e' un
+    gradino di ~8 m su ~1 km e a 30 m/pixel sta sotto la rugosita' delle dune."""
+
+    def _wide_shallow_step(self, n=240, rough=1.2, seed=7):
+        """Terreno che imita il problema reale, non una versione facile.
+
+        Rampa regionale ampia (280-368 m) perche' lo sweep di step_score guarda
+        +-40 m attorno alla quota: su un terreno che copre 11 m quasi ogni
+        livello di riferimento e' vuoto e il punteggio esce None. Sopra ci va
+        un gradino di 8 m spalmato su 20 righe — 0,4 m per pixel, sotto il
+        rumore di 1,2 m, che e' esattamente il rapporto della Bama Ridge a
+        30 m/pixel. A piena risoluzione deve sparire; mediando deve emergere.
+        """
+        rng = np.random.default_rng(seed)
+        rows = np.arange(n)
+        dem = np.repeat((280.0 + 88.0 * rows / n)[:, None], n, axis=1)
+        band = np.clip((rows - n // 2) / 20.0, 0.0, 1.0) * 8.0   # gradino graduale
+        dem += band[:, None]
+        return dem + rng.normal(0, rough, (n, n))
+
+    def test_coarsen_averages_it_does_not_sample(self):
+        # La distinzione che separa il segnale dall'artefatto da aliasing.
+        # 16x16 per stare sopra la guardia degli 8 px: il blocco in alto a
+        # sinistra vale 1,3,5,7 -> media 4. Campionando darebbe 1.
+        a = np.zeros((16, 16)); a[0, 0], a[0, 1], a[1, 0], a[1, 1] = 1.0, 3.0, 5.0, 7.0
+        self.assertAlmostEqual(float(coarsen(a, 2)[0, 0]), 4.0)   # media, non campione
+        self.assertEqual(coarsen(a, 2).shape, (8, 8))
+        self.assertEqual(coarsen(a, 1).shape, a.shape)            # fattore 1 = identita'
+
+    def test_coarsen_refuses_to_shrink_below_usable(self):
+        small = np.zeros((10, 10))
+        self.assertEqual(coarsen(small, 8).shape, (10, 10))       # non riduce
+
+    def test_averaging_kills_the_fine_noise(self):
+        dem = self._wide_shallow_step()
+        fine = float(np.std(np.gradient(dem)[0]))
+        coarse = float(np.std(np.gradient(coarsen(dem, 6))[0]))
+        self.assertLess(coarse, fine)
+
+    def test_the_step_is_found_coarse_and_missed_fine(self):
+        dem = self._wide_shallow_step()
+        # 326 m e' il CENTRO della rampa (il gradino sale da 320 a 328 su 20
+        # righe), cioe' la quota fisicamente giusta per un gradino graduale —
+        # non una quota scelta perche' comoda. A 328, in cima al gradino, c'e'
+        # una rottura netta che anche la piena risoluzione vede: li' il test
+        # non misurerebbe cio' che deve.
+        fine = step_score(dem, 326.0)["step_score"]
+        multi = multiscale_step_score(dem, 326.0)
+        self.assertGreater(multi["step_score"], fine)
+        self.assertGreater(multi["factor"], 1)
+
+    def test_profile_is_returned_for_diagnosis(self):
+        # Il profilo per scala e' cio' che distingue un picco largo da una lama.
+        got = multiscale_step_score(self._wide_shallow_step(), 326.0)
+        self.assertGreaterEqual(len(got["profile"]), 4)
+        self.assertTrue(all("factor" in row and "step_score" in row for row in got["profile"]))
+
+    def test_flat_terrain_scores_nothing_at_any_scale(self):
+        flat = np.full((200, 200), 300.0) + np.linspace(0, 88, 200)[:, None]
+        got = multiscale_step_score(flat, 340.0)
+        # una rampa a pendenza costante non e' un gradino a nessuna scala
+        self.assertLess(got.get("step_score") or 0.0, STEP_SCORE_THRESHOLD)

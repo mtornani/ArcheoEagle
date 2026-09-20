@@ -126,3 +126,76 @@ I zirconi vengono da **migliaia di metri** di profondità. Non c'è nessun tasso
 **Il modo corretto di dirlo:** Carlson ha ragione sul fatto che lì sotto c'è roba continentale, e non è una cosa da poco — è una misura pubblicata su *Nature* che molti scettici ignorano. Ha torto sul quando è stata all'aria, e ha torto di un fattore fra 146 e 562.
 
 **Cosa non posso dire:** cosa sostenga *oggi*, dopo la spedizione del 2025. Quella è la sola cosa che manca, ed è la sola per cui mi serve la trascrizione.
+
+---
+
+# La fonte vera dietro l'ep007 — e perché resta APERTA
+
+**20 settembre 2026, terzo giro.** Il sito di Carlson non ha resoconti della spedizione (sitemap: l'Atlantide è la serie 2019 più il merchandising, e la ricerca interna per "Azores" dà **zero risultati**). Ma le note libsyn dell'episodio 007 danno il dettaglio che mancava:
+
+> *«Randall reveals evidence from the **mid-1970's** that concludes a granitic 'micro-continent' exists under the Mid-Atlantic that has been exposed above sea level within the past ~20,000 years.»*
+
+Tirando quel filo si arriva a una fonte primaria vera, e non è folklore.
+
+## Heezen et al. (1969), Atlantis Seamount
+
+Ciottoli di **calcare dragati** dall'Atlantis Seamount. Due osservazioni:
+
+- lo **stato di litificazione** suggerisce litificazione in **condizioni subaeree**;
+- un ciottolo dà un'età **radiocarbonica apparente di 12.000 ± 900 anni** (J.L. Kulp, il laboratorio radiocarbonio di Lamont).
+
+Conclusione degli autori: il seamount **dev'essere stato un'isola negli ultimi 12.000 anni**.
+
+**Bruce Heezen non è un divulgatore**: è il coautore della prima mappa globale del fondo oceanico. Questa è una rivendicazione seria, fatta da gente seria, pubblicata. Va trattata come tale.
+
+## Il verdetto dipende da UN numero che non ho
+
+Livello del mare a 12 ka: **−65,0 m**. Perché una vetta fosse isola allora, oggi deve stare più in alto di:
+
+| tasso di subsidenza | vetta max oggi |
+|---|---|
+| nessuno | **−65,0 m** |
+| 0,3 mm/a (max geologico) | −68,6 m |
+| 7,2 mm/a (GPS, estrapolato) | −151,4 m |
+
+E all'inverso, il tasso richiesto per varie profondità:
+
+| vetta oggi | tasso richiesto | vs geologico |
+|---|---|---|
+| −100 m | 2,9 mm/a | 10× |
+| −200 m | 11,2 mm/a | 38× |
+| −300 m | 19,6 mm/a | **65×** |
+| −1830 m (campioni Klenova, ~6000 ft) | 147,1 mm/a | **490×** |
+
+**Quindi:**
+- se la vetta dell'Atlantis Seamount sta **sopra i −65 m**, la tesi **non ha bisogno di niente di esotico**: la bastano l'eustasia e il minimo glaciale. Sarebbe vera e banale.
+- se sta a **−300 m o più giù**, serve un tasso di subsidenza che nessuno ha mai misurato in Atlantico.
+
+**Non sono riuscito a verificare la profondità della vetta.** Il documento CBD intitolato "Atlantis Seamount" è a immagini, le ricerche non la danno. **Senza quel numero il claim resta aperto, e aperto ≠ falsificato** (§5).
+
+## Il punto debole che vale a qualunque profondità
+
+Indipendentemente dalla vetta, il metodo del 1969 ha un problema noto e severo:
+
+**Il radiocarbonio su carbonato marino a ~12.000 anni è il caso peggiore possibile.** Un calcare di *qualunque* età reale, con pochi punti percentuali di carbonio moderno da ricristallizzazione o contaminazione, legge intorno ai 12.000 anni. È l'artefatto classico, ed è proprio nella finestra dove morde di più. Un'età di 12.000 ± 900 su un ciottolo dragato non è una data: è un limite superiore molto morbido.
+
+E **«stato di litificazione» come indicatore subaereo** è un criterio qualitativo del 1969. La petrografia dei cementi carbonatici moderna distingue cemento meteorico da marino con fabric e isotopi stabili — strumenti che nel 1969 non c'erano.
+
+**Cercata una rivalutazione successiva in letteratura: non l'ho trovata.** Il che è debolmente informativo: per una rivendicazione di questa portata, può voler dire che nessuno l'ha più ripresa.
+
+## Verdetto: APERTO, con kill-shot preciso
+
+| clausola | esito |
+|---|---|
+| materiale continentale nel medio Atlantico | **`+`** (zirconi 330/1600 Ma, *Nature* 1998) |
+| è un micro-continente | contestata (litosfera riciclata; plateau oceanico) |
+| esposto ~20.000 anni fa **a profondità di dorsale** | **`−`** (146–562× il tasso geologico) |
+| **Atlantis Seamount isola entro 12.000 anni** | **APERTO** — dipende dalla profondità della vetta |
+
+**Kill-shot, due numeri:**
+1. **La profondità della vetta dell'Atlantis Seamount.** Sopra −65 m il claim vive senza tettonica esotica; sotto −150 m muore.
+2. **Una datazione U-Th** (non ¹⁴C) sullo stesso carbonato, con petrografia dei cementi. L'U-Th non ha il problema di contaminazione del radiocarbonio in quella finestra.
+
+Entrambi sono ottenibili: il primo da batimetria pubblica (**GMRT, che `shelf.py` già sa scaricare**), il secondo da chiunque abbia accesso ai campioni dragati in archivio.
+
+**Il primo lo posso fare io.** È il prossimo lavoro, ed è la prima volta in questa indagine che un claim di Carlson mi lascia un compito invece di un verdetto.

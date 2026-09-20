@@ -30,11 +30,13 @@ Destinazioni diverse per scopi diversi. **Da inviare a mano da Mirko: nessun inv
 >
 > Full dossier, with the numbers and our own mistakes listed: **[link]**
 >
+> In the interest of full disclosure: this work was done with AI assistance. That is exactly why every source, measurement and calculation is laid out in the dossier — so you can check it instead of taking our word for it. The bathymetry is public and the arithmetic is one page.
+>
 > If any of it is wrong, we'll say so in writing and change the file.
 >
 > — Mirko Tornani
 
-**Decisione che spetta a Mirko:** se dichiarare che il lavoro è assistito da IA. Non lo decido io. Dichiararlo è più onesto e in quell'ambiente può tagliare in entrambe le direzioni; ometterlo non è una bugia, ma se emerge dopo pesa.
+**Dichiarazione IA: inclusa, decisa da Mirko.** Collocata **subito dopo il link**, non in fondo: in fondo sembrerebbe sepolta, e all'inizio diventerebbe il titolo della mail, che non è. Lì dov'è fa il lavoro giusto — trasforma l'ammissione nella ragione per cui il fascicolo è verificabile: *«è esattamente per questo che ogni fonte e ogni calcolo sono esposti».*
 
 ---
 
@@ -53,6 +55,8 @@ L'opposto: due righe, una domanda sola, nessuna tesi. Non è una richiesta di ca
 > The reason: the summit measures −268 m on GMRT, and plate subsidence places wave planation in the Miocene, so the radiocarbon age looks like a contamination artefact. A U–Th date on the same material would settle a question that has been open since 1969.
 >
 > We are independent researchers without institutional affiliation, so this is only a question about whether the material exists — not a request for it.
+>
+> For transparency: the analysis behind this question was done with AI assistance. The bathymetry is public (GMRT) and the subsidence calculation is standard plate-cooling; both are reproducible.
 >
 > Grateful for any pointer, including to the right person to ask.
 >

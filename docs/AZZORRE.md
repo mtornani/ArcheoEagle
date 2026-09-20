@@ -255,3 +255,67 @@ Quindi **l'Atlantis Seamount fu davvero un'isola.** La litificazione subaerea ch
 Il claim più forte della catena Carlson→Heezen aveva dentro **un'osservazione vera che nessuno ha rivalutato dal 1969**, e un errore di datazione di tre ordini di grandezza. Scartarlo a priori mi avrebbe fatto perdere la prima; prenderlo per buono mi avrebbe fatto ingoiare il secondo.
 
 **È esattamente il motivo per cui §2.3 dice "lente, non oracolo".**
+
+---
+
+# La subsidenza termica — l'orologio che Heezen non aveva
+
+**20 settembre 2026.** `backend/core/marine/thermal.py`, 11 test.
+
+## Gli input, tutti da letteratura
+
+| | |
+|---|---|
+| crosta sotto il Great Meteor | **85 Ma** (anomalia magnetica 34) |
+| basalti datati, Great Meteor | **16 e 11 Ma** |
+| formazione della catena Seewarte sulla placca africana | **26–10 Ma** |
+| vetta dell'Atlantis Seamount | **−268,0 m** (misurata, GMRT) |
+
+La catena è il prodotto della placca africana passata sopra il punto caldo del New England.
+
+## Il tasso della piastra cala con l'età — è il cuore dell'argomento
+
+| età crosta | GDH1 (Stein & Stein 1992) | P&S (1977) |
+|---|---|---|
+| 20 Ma | 40,3 m/Ma | 39,5 m/Ma |
+| 60 Ma | 13,0 m/Ma | 22,6 m/Ma |
+| **85 Ma** | **6,5 m/Ma** | 13,2 m/Ma |
+| 100 Ma | 4,3 m/Ma | 10,4 m/Ma |
+
+Una piastra vecchia è già fredda e **non si muove quasi più**. Su crosta di 85 Ma si parla di **metri per milione di anni**.
+
+## La risposta alla domanda del 1969
+
+Se la cima fu spianata dalle onde quando il vulcanismo cessò — che è come si forma un guyot — il tasso implicito è:
+
+| spianata | tasso implicito |
+|---|---|
+| 26 Ma fa | **0,0103 mm/a** |
+| 16 Ma fa | 0,0168 mm/a |
+| 11 Ma fa | 0,0244 mm/a |
+| 10 Ma fa | **0,0268 mm/a** |
+
+**L'Atlantis Seamount fu un'isola fra ~26 e ~10 milioni di anni fa.**
+
+Heezen chiedeva 12.000 anni, che richiedono **16,9 mm/a**:
+
+> **da 631 a 1.641 volte** il tasso implicito dalla geologia della catena.
+
+Non è più un confronto con tassi presi in prestito dalle Azzorre — contesto sbagliato, come avevo dichiarato. È il confronto con **la geologia di quel seamount**.
+
+## Limite dichiarato, e va detto
+
+La **sola** subsidenza termica di piastra a 85 Ma dà ~6,5 m/Ma: in 10–26 Ma sono 65–170 m, **non 268**. La differenza viene da due cose che il modulo non calcola: il **decadimento del rigonfiamento del punto caldo** e la **flessura da carico vulcanico**. Entrambe reali e attese su un edificio costruito da hotspot — e infatti il tasso osservato (10–27 m/Ma) sta 1,5–4× sopra il termico puro, che è quanto ci si aspetta.
+
+Quindi questi numeri sono un **ordine di grandezza, non una data**. Per la domanda in oggetto bastano e avanzano: il divario da spiegare è **mille volte**.
+
+## Il punto che non va perso
+
+| | |
+|---|---|
+| L'Atlantis Seamount **fu** un'isola | **`+`** — la cima piatta lo dimostra, e il Great Meteor ne ha una gemella a −274 m |
+| La litificazione subaerea vista da Heezen | **`+`** — reale, e l'interpretazione geologica era corretta |
+| **Quando**: 12.000 anni | **`−`** — sbagliato di 631–1641× |
+| **Quando**: ~10–26 Ma | risposta, da dati pubblici, senza toccare un campione |
+
+Heezen non ha sbagliato a guardare. Ha sbagliato a fidarsi del radiocarbonio su carbonato marino a 12 ka, che è il posto dove quell'orologio mente di più. **La sua osservazione ha aspettato cinquantasette anni una risposta che si poteva dare da casa.**

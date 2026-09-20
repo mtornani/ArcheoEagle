@@ -14,6 +14,19 @@ Strumento forense per restringere **da casa** dove cercare un referente reale di
 | **B — catastrofe** | **chiusa** | nessun deposito transatlantico; l'assenza mette un tetto alla taglia |
 | **C — confinamento** | **parcheggiata** | il suo unico kill-shot non esiste nei bacini chiusi; il sostituto è da carota, non da casa |
 | **Younger Dryas** | **anello del diluvio `−`** | il YD è il tratto più lento della deglaciazione, e MWP1A lo precede di 1750 anni |
+| **Azzorre / Atlantis Seamount** | **data `−`, osservazione `+`** | vetta misurata a −268 m: isola entro 12 ka richiede 56× il tasso geologico. Ma è un **guyot**: isola lo fu davvero, decine di milioni di anni fa |
+
+## Zero piste di luogo. Tre fili di metodo aperti.
+
+Sul «dove cercare» non c'è niente di aperto: cinque indagini, cinque no. **Non è un fallimento, è il mestiere** — §1 dice *restringere*, e restringere significa escludere.
+
+Quello che resta vivo è il metodo:
+
+1. **Discriminante frattale D** — ha superato il primo test (7 sponde datate su 10 più lisce delle quote di controllo, t −2,30) e **discrimina dove `step_score` fallisce**. Ipotesi viva, non risultato.
+2. **`step_score` non generalizza** — passa su 1 tile di 12 sponde datate, quello su cui è stato costruito. Problema aperto, non pista.
+3. **Il modello «una sponda» è sbagliato** — Armitage dà tre gruppi OSL sulla Bama Ridge. Prima ancora del modello «un livello».
+
+E un conto fattibile e mai fatto: la **subsidenza termica** della litosfera oceanica direbbe *quando* l'Atlantis Seamount fu isola, senza bisogno dei campioni in archivio.
 
 ## Il risultato che conta
 
@@ -41,6 +54,10 @@ Spiega anche perché l'hillshade lo trovava a occhio in un secondo: guardare un'
 | `PISTA-C-confinamento.md` | Dickson, seiche, confinamento — parcheggiata |
 | `YOUNGER-DRYAS.md` | impatto cometario valutato nel ledger |
 | `SCREENING-BACINI.md` | il Sahara non ha catini a pareti ripide |
+| `AZZORRE.md` | Carlson, Heezen 1969, e la vetta misurata a −268 m |
+| `ISOSTASIA-MEGACHAD.md` | modello radiale non supportato; il pilota frattale |
+| `BANCO-FRATTALE.md` | 11 sponde datate: il rilevatore non generalizza |
+| `MEGA-CHAD-MISURA.md` | la casella §9 chiusa, e tre difetti che si coprivano |
 
 **Metodo e strumenti**
 

@@ -1,3 +1,58 @@
+# Stato — 20 settembre 2026
+
+**Azzorre e Atlantis Seamount.** Mirko chiede di non scartare Carlson a priori. §2.3 dice come: lente non oracolo, tesi con fonte, può prendere un `−`. Ma **dopo** averla letta.
+
+Dettaglio: `docs/AZZORRE.md`. Suite **132/132**.
+
+## Il risultato che vale: dentro il claim c'erano due cose diverse
+
+Seguendo il filo (sito di Carlson → note libsyn → letteratura) si arriva alla fonte primaria vera: **Heezen et al. (1969)**, ciottoli di calcare dragati dall'**Atlantis Seamount**, litificazione in condizioni **subaeree**, un ciottolo a **12.000 ± 900 anni** al radiocarbonio (J.L. Kulp, Lamont). Conclusione degli autori: fu un'isola negli ultimi 12.000 anni.
+
+**Batimetria presa (GMRT, nessuna chiave).** Vetta **−268,0 m** a 34,1293N 30,2430W; zero celle sopra −265 m su 11,5 milioni di punti. Fonte secondaria dava −265 m: concordano entro 3 m.
+
+| | mare | serve | vs geologico | vs GPS |
+|---|---|---|---|---|
+| **12 ka — il claim** | −65,0 m | **16,9 mm/a** | **56×** | **2,35×** |
+| 20 ka — caso più generoso | −125,3 m | 7,1 mm/a | 24× | 0,99× |
+
+**La data è falsificata.** Ma il **Great Meteor**, stessa catena, ha la vetta a **−274,2 m**: due cime piatte entro 6 m. È la firma dei **guyot** — piattaforme di abrasione spianate dalle onde al livello del mare, poi affondate su litosfera che si raffredda.
+
+**Quindi l'Atlantis Seamount FU un'isola. L'osservazione di Heezen era giusta; sbagliata è la data**, di tre ordini di grandezza. Colpevole: il **¹⁴C su carbonato marino a ~12 ka**, dove pochi punti percentuali di carbonio moderno da ricristallizzazione fanno leggere 12.000 anni a un calcare di qualunque età.
+
+Scartarlo a priori avrebbe fatto perdere l'osservazione; prenderlo per buono avrebbe fatto ingoiare l'errore.
+
+## Azzorre — la subsidenza ora si calcola
+
+`shelf.py` diceva dall'inizio che l'unica via per far coincidere terra abitabile e monumenti è la subsidenza tettonica. Era una frase, ora è un conto (`depth_was_land_kyr`, `deepest_ever_land_m`).
+
+Due tassi pubblicati che differiscono **~24×**: GPS breve termine 5,7–7,2 mm/a; geologico di lungo termine **≤ 0,3 mm/a** (Quartau et al. 2015, con Commento Marques 2016 e Replica — contestato).
+
+Un punto oggi a −30 m: emerso fino a **8,8 ka** al tasso geologico, fino a **4,0 ka** al GPS. **Al tasso geologico la subsidenza regala 300 anni; al GPS ne regala 5.000.** Tutta la questione si riduce a quale numero si usa, e il GPS misura un respiro magmatico di oggi.
+
+## Errori miei dichiarati
+
+- Ho applicato i tassi **delle Azzorre** alla catena Atlantis–Great Meteor, che è **intraplacca su litosfera vecchia**: contesto diverso, sbagliato due volte. L'ho fatto per generosità verso il claim.
+- Il verso del conto sulla subsidenza sbagliato **due volte** prima di scriverlo giusto.
+
+## Cosa è accettato come vero, e non è poco
+
+- Zirconi **paleozoici (330 Ma) e proterozoici (1600 Ma)** dalla dorsale medio-atlantica (*Nature* 1998): materiale continentale lì **c'è**. Molti scettici lo liquidano senza averlo letto.
+- Frane sottomarine documentate alle Azzorre; **torbiditi da frana in carote di gravità**; piattaforme insulari annegate dal LGM.
+- Le torbiditi da frana sono il **kill-shot sostitutivo** che Pista C cercava quando l'ho parcheggiata.
+
+## Ledger
+
+| clausola | esito |
+|---|---|
+| materiale continentale nel medio Atlantico | **`+`** |
+| è un micro-continente | contestata (litosfera riciclata; plateau oceanico) |
+| esposto 20 ka a profondità di dorsale | **`−`** (146–562× il geologico) |
+| **Atlantis Seamount fu un'isola** | **`+`** — guyot, misurato |
+| **...entro 12.000 anni** | **`−`** — 56×. Chiuso. |
+| frane recenti dalle Canarie | già `−` in Pista B |
+
+---
+
 # Stato — 14 settembre 2026
 
 **Giornata di consolidamento, non di espansione.** Zero piste nuove. Suite **117/117**.

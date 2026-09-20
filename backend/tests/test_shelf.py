@@ -6,6 +6,9 @@ import unittest
 import numpy as np
 
 from core.marine.shelf import (
+    deepest_ever_land_m,
+    depth_was_land_kyr,
+    AZORES_SUBSIDENCE,
     MWP1A,
     KNOWN_SUBMERGED_SITES,
     SLOPE_MAX,
@@ -189,3 +192,39 @@ class YoungerDryasTest(unittest.TestCase):
         others = [self._rate_mm_yr(a, a - 1.0) for a in
                   (18.0, 17.0, 16.0, 15.0, 14.0, 12.0, 11.0, 10.0, 9.0, 8.0)]
         self.assertLessEqual(yd, min(others))
+
+
+class SubsidenceTest(unittest.TestCase):
+    """Le Azzorre: due tassi di subsidenza pubblicati che differiscono ~24x.
+    Quale si usa decide se un sito sommerso poteva esistere. Questi test
+    bloccano il conto, non l'opinione."""
+
+    def test_zero_subsidence_is_the_pure_eustatic_case(self):
+        a = depth_was_land_kyr(-30.0, 0.0)
+        self.assertIsNotNone(a)
+        self.assertAlmostEqual(a, 9.1, delta=0.3)
+
+    def test_geological_rate_buys_almost_nothing(self):
+        # 0,3 mm/a e' il MASSIMO di lungo termine per le Azzorre.
+        base = depth_was_land_kyr(-30.0, 0.0)
+        geo = depth_was_land_kyr(-30.0, AZORES_SUBSIDENCE["geological_long_term_max_mm_yr"])
+        self.assertLess(base - geo, 0.6)          # meno di 600 anni guadagnati
+
+    def test_gps_rate_would_open_the_window_by_millennia(self):
+        # Il tasso GPS sposta -30 m dentro l'epoca dei paesi veri. E' il motivo
+        # per cui estrapolarlo a 12.000 anni e' l'errore da non fare.
+        base = depth_was_land_kyr(-30.0, 0.0)
+        gps = depth_was_land_kyr(-30.0, AZORES_SUBSIDENCE["gps_short_term_mm_yr"][1])
+        self.assertGreater(base - gps, 4.0)       # oltre 4.000 anni guadagnati
+
+    def test_the_two_published_rates_differ_by_more_than_an_order(self):
+        gps = AZORES_SUBSIDENCE["gps_short_term_mm_yr"][1]
+        geo = AZORES_SUBSIDENCE["geological_long_term_max_mm_yr"]
+        self.assertGreater(gps / geo, 20.0)
+        self.assertTrue(AZORES_SUBSIDENCE["contested"])
+
+    def test_subsidence_deepens_the_ever_land_limit(self):
+        self.assertLess(deepest_ever_land_m(0.6), deepest_ever_land_m(0.0))
+
+    def test_a_point_above_sea_level_is_land_now(self):
+        self.assertEqual(depth_was_land_kyr(5.0, 0.0), 0.0)

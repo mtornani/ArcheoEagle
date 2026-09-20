@@ -276,3 +276,80 @@ def witnessed_loss_km(gradient: float, vertical_rate_m_per_yr: float,
     """Costa persa nell'arco di una vita umana. La soglia del ricordo."""
     r = horizontal_retreat_m_per_yr(gradient, vertical_rate_m_per_yr)
     return None if r is None else float(r * years / 1000.0)
+
+
+# ---------------------------------------------------------------------------
+# SUBSIDENZA TETTONICA — 20 set 2026
+# ---------------------------------------------------------------------------
+# Questo modulo dichiara dall'inizio che l'unica via per far coincidere "terra
+# abitabile" e "monumenti" e' la **subsidenza tettonica**: senza, -30/-130 m
+# significa 20-7 ka e non c'e' niente da costruire. Finora era una frase. Qui
+# diventa un conto.
+#
+# Caso reale su cui e' stata scritta: le Azzorre, arcipelago vulcanico
+# ripetutamente proposto come referente atlantideo. Hanno subsidenza vera e
+# misurata, ma con DUE numeri che differiscono di ~24 volte:
+#
+#   GPS, breve termine        5,7-7,2 mm/a   deformazione vulcanica/magmatica
+#                                            attuale, non estrapolabile
+#   Geologico, lungo termine  <= 0,3 mm/a    dalla profondita' del ciglio di
+#                                            piattaforma su edifici di eta'
+#                                            nota (Quartau et al., 2015,
+#                                            G-cubed; con Commento di Marques
+#                                            et al. 2016 e Replica: contestato)
+#
+# Cosa cambia, per un punto che oggi sta a -30 m (il limite "niente monumenti"):
+#
+#   nessuna subsidenza   emerso fino a  9,1 ka
+#   0,3 mm/a             emerso fino a  8,8 ka    <- regala 300 anni
+#   0,6 mm/a             emerso fino a  8,5 ka
+#   7,2 mm/a             emerso fino a  4,0 ka    <- regala 5.000 anni
+#
+# Al tasso geologico la subsidenza NON apre la finestra. Al tasso GPS la apre
+# del tutto. Tutta la questione "un sito sommerso poteva esserci" si riduce a
+# quale dei due numeri si usa, e il tasso GPS misura un respiro magmatico di
+# oggi: applicarlo a 12.000 anni e' l'errore, non la scoperta.
+
+AZORES_SUBSIDENCE = {
+    "gps_short_term_mm_yr": (5.7, 7.2),
+    "geological_long_term_max_mm_yr": 0.3,
+    "source": "Quartau et al. 2015 G-cubed; Commento Marques et al. 2016 + Replica",
+    "grade": "literature",
+    "contested": True,
+}
+
+
+def depth_was_land_kyr(z_m: float, subsidence_mm_yr: float = 0.0,
+                       max_kyr: float = 20.0, step_kyr: float = 0.05) -> Optional[float]:
+    """Quanto tempo fa questo punto ha smesso di essere terra emersa.
+
+    Un punto che sprofonda stava PIU' IN ALTO in passato: la sua quota di
+    allora e' z_m + tasso * anni. Era terra se quella quota superava il mare
+    di allora. Restituisce il piu' RECENTE momento in cui lo era, in ka.
+    None se non lo e' mai stato nella finestra.
+
+    subsidence_mm_yr=0 da' il caso puramente eustatico, che e' il default: una
+    subsidenza va passata solo dove e' misurata, con la sua fonte.
+    """
+    rate_m_per_kyr = float(subsidence_mm_yr)          # mm/a = m per migliaio di anni
+    t = 0.0
+    latest: Optional[float] = None
+    while t <= max_kyr:
+        if z_m + rate_m_per_kyr * t > sea_level_at(t):
+            latest = t if latest is None else min(latest, t)
+            break                                      # scandendo dal presente, il primo e' il piu' recente
+        t += step_kyr
+    return latest
+
+
+def deepest_ever_land_m(subsidence_mm_yr: float = 0.0, max_kyr: float = 20.0) -> float:
+    """Il punto piu' profondo di OGGI che in passato fu terra emersa.
+
+    Condizione: e' bastato che fosse emerso per QUALCHE istante, quindi si
+    prende il MINIMO di (mare - sollevamento) sulla finestra, non il massimo.
+    (Segno sbagliato due volte prima di scriverlo bene: il commento resta.)
+    """
+    rate = float(subsidence_mm_yr)
+    ts = np.arange(0.0, max_kyr + 1e-9, 0.1)
+    f = np.array([sea_level_at(float(t)) - rate * float(t) for t in ts])
+    return float(f.min())

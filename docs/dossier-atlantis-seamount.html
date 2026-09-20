@@ -1,0 +1,202 @@
+<title>Atlantis Seamount Dossier</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#F1F4F2; --panel:#E6EBE8; --ink:#16201E; --ink-soft:#4A5956;
+    --rule:#C8D2CE; --sound:#0F4C5C; --sound-soft:#2A6F7F; --flag:#B26A08;
+    --good:#2F6B4F;
+    --serif:'Spectral',Georgia,serif; --sans:'IBM Plex Sans',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    --paper:#0D1416; --panel:#151F21; --ink:#DFE7E5; --ink-soft:#9BAAA7;
+    --rule:#263436; --sound:#5FB7C9; --sound-soft:#3E8FA0; --flag:#E0A44A;
+    --good:#6FBF93;
+  }}
+  :root[data-theme="dark"]{
+    --paper:#0D1416; --panel:#151F21; --ink:#DFE7E5; --ink-soft:#9BAAA7;
+    --rule:#263436; --sound:#5FB7C9; --sound-soft:#3E8FA0; --flag:#E0A44A;
+    --good:#6FBF93;
+  }
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.65;padding-inline:20px;padding-block:0}
+  .wrap{max-width:44rem;margin:0 auto;padding-block:clamp(2.5rem,7vw,4.5rem)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5.5vw,2.9rem);
+     line-height:1.12;margin:0 0 .6rem;text-wrap:balance;letter-spacing:-.01em}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,3.2vw,1.55rem);
+     line-height:1.25;margin:0;text-wrap:balance}
+  h3{font-family:var(--sans);font-weight:600;font-size:1rem;margin:0 0 .4rem}
+  p{margin:0}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;
+           text-transform:uppercase;color:var(--sound-soft);margin:0 0 1rem}
+  .standfirst{font-family:var(--serif);font-size:clamp(1.05rem,2.6vw,1.2rem);
+              color:var(--ink-soft);line-height:1.5;margin:0}
+  header{border-bottom:2px solid var(--ink);padding-bottom:1.6rem;margin-bottom:2.4rem;
+         display:flex;flex-direction:column;gap:.9rem}
+  .byline{font-family:var(--mono);font-size:.74rem;color:var(--ink-soft);
+          display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+  section{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.8rem}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .lede{font-size:1.05rem}
+  strong{font-weight:600}
+  em.claim{font-style:italic;color:var(--ink-soft)}
+
+  .plate{background:var(--panel);border:1px solid var(--rule);padding:1.3rem 1.4rem;
+         display:flex;flex-direction:column;gap:.9rem}
+  .plate-label{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;
+               text-transform:uppercase;color:var(--sound-soft)}
+
+  table{border-collapse:collapse;width:100%;font-size:.93rem}
+  th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--rule);
+        vertical-align:top}
+  th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;
+     text-transform:uppercase;color:var(--sound-soft);font-weight:500}
+  td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .scroll{overflow-x:auto}
+
+  ul.findings{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.85rem}
+  ul.findings li{display:grid;grid-template-columns:1.7rem 1fr;gap:.7rem;align-items:start}
+  .mark{font-family:var(--mono);font-weight:500;font-size:.95rem;line-height:1.6}
+  .mark.yes{color:var(--good)} .mark.no{color:var(--flag)}
+
+  .verdict{border-left:4px solid var(--flag);padding:.2rem 0 .2rem 1.2rem;
+           display:flex;flex-direction:column;gap:.5rem}
+  .verdict .big{font-family:var(--serif);font-size:clamp(1.5rem,4vw,1.9rem);
+                font-weight:600;line-height:1.2;color:var(--flag)}
+  .ask{border:1px solid var(--sound);padding:1.3rem 1.4rem;display:flex;
+       flex-direction:column;gap:.9rem}
+  ol.asks{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+  ol.asks li::marker{font-family:var(--mono);color:var(--sound-soft)}
+  footer{border-top:1px solid var(--rule);padding-top:1.4rem;margin-top:1rem;
+         font-size:.86rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:.7rem}
+  a{color:var(--sound)} a:focus-visible{outline:2px solid var(--sound);outline-offset:2px}
+  .fig{width:100%;height:auto;display:block;max-width:100%}
+  figcaption{font-size:.83rem;color:var(--ink-soft);margin-top:.6rem}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Forensic dossier &middot; open data, reproducible</p>
+  <h1>An island, yes. Twelve thousand years ago, no.</h1>
+  <p class="standfirst">Heezen et al. dredged limestone from the Atlantis Seamount in 1969, saw subaerial lithification, and dated a cobble to 12,000&nbsp;±&nbsp;900&nbsp;yr by radiocarbon. The observation was right. The clock was the wrong one — and a better clock has been available for decades.</p>
+  <p class="byline"><span>ArcheoEagle project</span><span>20 September 2026</span><span>Bathymetry: GMRT</span></p>
+</header>
+
+<section>
+  <h2>What we are not doing</h2>
+  <p class="lede">This is not a debunk. Three parts of the underlying case survive contact with the data, and one of them is a measurement most sceptics have never read.</p>
+  <ul class="findings">
+    <li><span class="mark yes">✓</span><div><h3>Continental material does exist under the mid-Atlantic</h3><p>Palaeozoic (~330&nbsp;Ma) and Proterozoic (~1600&nbsp;Ma) zircons were recovered from gabbros near the Kane Fracture Zone and published in <em>Nature</em> in 1998. Whatever it means, it is real and measured.</p></div></li>
+    <li><span class="mark yes">✓</span><div><h3>The Atlantis Seamount really was an island</h3><p>Its summit is a flat plain at −268&nbsp;m. Great Meteor, in the same chain, has a twin at −274&nbsp;m. Two flat tops within 6&nbsp;m of each other is the signature of guyots: wave-cut platforms planed at sea level, then drowned together.</p></div></li>
+    <li><span class="mark yes">✓</span><div><h3>Heezen read the rock correctly</h3><p>Subaerial lithification in that limestone is exactly what a drowned wave-cut platform should show. The geological interpretation was sound.</p></div></li>
+  </ul>
+</section>
+
+<section>
+  <div class="plate">
+    <p class="plate-label">Plate 1 &middot; Depth section, vertical scale only</p>
+    <svg class="fig" viewBox="0 0 640 330" role="img" aria-label="Depth scale showing sea level today at 0 m, sea level 12,000 years ago at minus 65 m, the glacial lowstand at minus 125 m, and the Atlantis Seamount summit at minus 268 m.">
+      <rect x="0" y="0" width="640" height="330" fill="none"/>
+      <line x1="120" y1="26" x2="120" y2="300" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+      <g font-family="IBM Plex Mono, monospace" font-size="12" fill="currentColor">
+        <line x1="120" y1="30" x2="600" y2="30" stroke="currentColor" stroke-width="2"/>
+        <text x="128" y="22">Sea level today &nbsp;0 m</text>
+        <line x1="120" y1="88" x2="520" y2="88" stroke="currentColor" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.8"/>
+        <text x="128" y="80">Sea level at 12 ka &nbsp;−65 m</text>
+        <line x1="120" y1="141" x2="470" y2="141" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.65"/>
+        <text x="128" y="133">Glacial lowstand, 20 ka &nbsp;−125 m</text>
+        <line x1="120" y1="270" x2="600" y2="270" stroke="currentColor" stroke-width="3"/>
+        <text x="128" y="262" font-weight="500">Atlantis Seamount summit &nbsp;−268 m</text>
+        <line x1="120" y1="276" x2="560" y2="276" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+        <text x="128" y="296" opacity="0.75">Great Meteor summit &nbsp;−274 m</text>
+        <g opacity="0.9">
+          <line x1="88" y1="141" x2="88" y2="270" stroke="currentColor" stroke-width="1"/>
+          <line x1="83" y1="141" x2="93" y2="141" stroke="currentColor" stroke-width="1"/>
+          <line x1="83" y1="270" x2="93" y2="270" stroke="currentColor" stroke-width="1"/>
+          <text x="6" y="200" font-size="11">143 m</text>
+          <text x="6" y="214" font-size="11">short</text>
+        </g>
+      </g>
+    </svg>
+    <figcaption>The summit sits 143&nbsp;m below the lowest sea level of the last 20,000 years. Eustasy alone never exposed it. To have been an island at 12&nbsp;ka it must have subsided 203&nbsp;m since — the whole question is whether anything makes it sink that fast.</figcaption>
+  </div>
+</section>
+
+<section>
+  <h2>The measurement</h2>
+  <p>GMRT GridServer, no key, anyone can repeat it. A grid of 11.5 million soundings over the seamount returns <strong class="num">−268.0 m</strong> at <span class="num">34.1293°N, 30.2430°W</span>. Not one cell in the grid rises above <span class="num">−265 m</span>. A published secondary figure gives 265&nbsp;m; the two agree within three metres.</p>
+</section>
+
+<section>
+  <h2>The clock Heezen didn't have</h2>
+  <p>Oceanic lithosphere sinks as it cools, on a law calibrated across every ocean basin. A guyot planed flat at sea level rides down with the plate beneath it — so the depth of its summit <em>is</em> a chronometer. The rate falls steeply with plate age, and that is the crux.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Crustal age</th><th>GDH1 &middot; Stein &amp; Stein 1992</th><th>Parsons &amp; Sclater 1977</th></tr></thead>
+      <tbody>
+        <tr><td class="n">20 Ma</td><td class="n">40.3 m / Ma</td><td class="n">39.5 m / Ma</td></tr>
+        <tr><td class="n">60 Ma</td><td class="n">13.0 m / Ma</td><td class="n">22.6 m / Ma</td></tr>
+        <tr><td class="n"><strong>85 Ma</strong></td><td class="n"><strong>6.5 m / Ma</strong></td><td class="n">13.2 m / Ma</td></tr>
+        <tr><td class="n">100 Ma</td><td class="n">4.3 m / Ma</td><td class="n">10.4 m / Ma</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The crust under Great Meteor is <strong class="num">85 Ma</strong>, from magnetic anomaly 34. The Seewarte chain was built on the African plate over the New England hotspot between <strong class="num">26 and 10 Ma</strong>; Great Meteor basalts date to <span class="num">16</span> and <span class="num">11 Ma</span>. Old plate barely moves — metres per million years.</p>
+</section>
+
+<section>
+  <h2>The answer</h2>
+  <p>A guyot is planed while its volcano is active or shortly after. Take the chain's own volcanic window as the planation window, and the implied subsidence rate follows directly:</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Planed at</th><th>Implied rate</th></tr></thead>
+      <tbody>
+        <tr><td class="n">26 Ma</td><td class="n">0.0103 mm / yr</td></tr>
+        <tr><td class="n">16 Ma</td><td class="n">0.0168 mm / yr</td></tr>
+        <tr><td class="n">11 Ma</td><td class="n">0.0244 mm / yr</td></tr>
+        <tr><td class="n">10 Ma</td><td class="n">0.0268 mm / yr</td></tr>
+        <tr><td class="n"><strong>12,000 yr</strong> — the 1969 claim</td><td class="n"><strong>16.9 mm / yr</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="verdict">
+    <p class="big">The 12,000-year date is off by a factor of 631 to 1,641.</p>
+    <p>Not measured against rates borrowed from somewhere else — measured against the geology of this chain. The Atlantis Seamount was an island roughly <strong>10 to 26 million years ago</strong>.</p>
+  </div>
+  <p>The likely culprit is specific and forgivable: radiocarbon on marine carbonate at ~12&nbsp;ka is the worst case that method has. A few percent of modern carbon from recrystallisation makes a limestone of <em>any</em> age read as twelve thousand years. In 1969 there was no alternative. There is now.</p>
+</section>
+
+<section>
+  <h2>Limits we declare</h2>
+  <ul class="findings">
+    <li><span class="mark no">!</span><div><p>Plate cooling alone at 85&nbsp;Ma gives 65–170&nbsp;m over 10–26&nbsp;Myr, not 268&nbsp;m. The balance comes from hotspot swell decay and volcanic loading flexure — both real, both expected on a hotspot edifice, neither computed here. These are <strong>orders of magnitude, not a date</strong>. For a thousand-fold gap they are enough.</p></div></li>
+    <li><span class="mark no">!</span><div><p>Earlier in this work we compared against Azores subsidence rates. That was wrong: the Azores are an active plateau on a triple junction; this chain is intraplate on old lithosphere. We corrected it rather than quietly dropping it.</p></div></li>
+    <li><span class="mark no">!</span><div><p>We could not read what Randall Carlson argues <em>today</em>, after the November 2025 expedition. Everything above addresses the 2019 episode and the 1969 paper behind it.</p></div></li>
+  </ul>
+</section>
+
+<section class="ask">
+  <p class="plate-label">What we are asking for</p>
+  <h2>Three things we cannot get, and you might</h2>
+  <p>This dossier was built entirely from public data by two people with a laptop. That is its point and also its ceiling. Three things would move it, and none of them are ours to reach.</p>
+  <ol class="asks">
+    <li><strong>A U–Th date on the dredged carbonate.</strong> Uranium–thorium does not suffer the contamination that wrecks radiocarbon in this window. One date on archived Lamont material would replace our order-of-magnitude estimate with a number. If the samples still exist, someone should run it.</li>
+    <li><strong>Cement petrography on the same limestone.</strong> Meteoric and marine cements are now distinguished by fabric and stable isotopes. That would settle the subaerial question properly instead of on the 1969 criterion of "state of lithification".</li>
+    <li><strong>Anything from the 2025 Azores expedition that bears on deposits or cores.</strong> We weighed the claims we could find. We would rather weigh the current ones.</li>
+  </ol>
+  <p>If any of it contradicts what is above, we will say so in writing and change the file. That has happened five times in this project already.</p>
+</section>
+
+<section>
+  <h2>How this was built</h2>
+  <p>Every prediction in this project is committed to version control <em>before</em> the test runs, so the timestamp proves it came first. Positive controls are mandatory: a detector that cannot find a known target is not reporting on unknown ones. Five separate lines of investigation have been closed by their own evidence, including two the authors wanted to be true.</p>
+  <p>The rule this dossier came from: treat a proposition as a thesis with a source, test it clause by clause, and let each clause take its own verdict. Discarding it unread would have lost a real observation. Swallowing it whole would have carried a thousand-fold error.</p>
+</section>
+
+<footer>
+  <p><strong>Sources.</strong> Heezen et al. (1969), dredged limestone, Atlantis Seamount; radiocarbon by J.&nbsp;L.&nbsp;Kulp, Lamont. Zircons: <em>Nature</em> (1998), Kane Fracture Zone. Plate models: Parsons &amp; Sclater (1977); Stein &amp; Stein (1992). Chain ages: Tucholke &amp; Smoot (1990); crustal age from anomaly 34. Bathymetry: GMRT GridServer, accessed 20 September 2026.</p>
+  <p>Depths are metres below present sea level. Rates are millimetres per year unless marked m/Ma. Calculations and tests are reproducible from the project repository.</p>
+</footer>
+
+</div>

@@ -319,3 +319,22 @@ Quindi questi numeri sono un **ordine di grandezza, non una data**. Per la doman
 | **Quando**: ~10–26 Ma | risposta, da dati pubblici, senza toccare un campione |
 
 Heezen non ha sbagliato a guardare. Ha sbagliato a fidarsi del radiocarbonio su carbonato marino a 12 ka, che è il posto dove quell'orologio mente di più. **La sua osservazione ha aspettato cinquantasette anni una risposta che si poteva dare da casa.**
+
+---
+
+# Fascicolo per Randall Carlson
+
+**20 settembre 2026.** Pagina pubblicata: <https://claude.ai/artifact/63LLuPzVqqbHT1CvmQFXMz>
+Copia in repo: `docs/dossier-atlantis-seamount.html`
+
+**È privata.** Perché lui possa aprirla, Mirko deve condividerla dal menu Share della pagina.
+
+Scritta in inglese perché il destinatario è lui. Struttura: prima **cosa gli diamo ragione** (tre `+`, incluso il dato di *Nature* 1998 che molti scettici non hanno mai letto), poi la misura, poi l'orologio, poi il verdetto, poi **i limiti dichiarati** — compreso l'errore nostro dei tassi azzorriani applicati al contesto sbagliato.
+
+Chiude con tre richieste precise, che sono il motivo per cui si manda:
+
+1. una datazione **U-Th** sul carbonato dragato (sostituirebbe il nostro ordine di grandezza con un numero);
+2. **petrografia dei cementi** sullo stesso calcare (chiuderebbe la questione subaerea col metodo giusto invece che col criterio del 1969);
+3. qualunque cosa dalla **spedizione 2025** che riguardi depositi o carote.
+
+E l'impegno esplicito: se qualcosa contraddice il fascicolo, lo scriviamo e cambiamo il file. In questo progetto è già successo cinque volte.

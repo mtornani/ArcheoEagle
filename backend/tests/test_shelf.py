@@ -228,3 +228,40 @@ class SubsidenceTest(unittest.TestCase):
 
     def test_a_point_above_sea_level_is_land_now(self):
         self.assertEqual(depth_was_land_kyr(5.0, 0.0), 0.0)
+
+
+class MidAtlanticExposureTest(unittest.TestCase):
+    """Tesi (Kosmographia Ep007, nov 2019): un 'micro-continente granitico'
+    sotto il medio Atlantico sarebbe stato esposto negli ultimi ~20.000 anni.
+    La parte granitica e' reale (zirconi 330 e 1600 Ma, Nature 1998). La parte
+    sull'esposizione si pesa qui, e non regge di due-tre ordini di grandezza."""
+
+    def _rate_needed_mm_yr(self, z_now_m, kyr=20.0):
+        """Tasso di subsidenza minimo perche' z_now fosse emerso kyr fa."""
+        return ((sea_level_at(kyr) - z_now_m) / (kyr * 1000.0)) * 1000.0
+
+    def test_the_glacial_lowstand_needs_no_subsidence(self):
+        # -130 m e' gia' spiegato dall'eustasia: nessuna tettonica richiesta.
+        self.assertLess(self._rate_needed_mm_yr(-130.0), 1.0)
+
+    def test_the_ridge_axis_needs_hundreds_of_times_the_geological_rate(self):
+        # I zirconi vengono da gabbri presso la zona di frattura di Kane,
+        # a migliaia di metri di profondita'.
+        need = self._rate_needed_mm_yr(-3500.0)
+        geo = AZORES_SUBSIDENCE["geological_long_term_max_mm_yr"]
+        self.assertGreater(need / geo, 500.0)
+
+    def test_even_the_gps_rate_cannot_reach_plateau_depths(self):
+        # Il tasso GPS estrapolato a 20.000 anni - gia' un abuso - arriva a
+        # circa -270 m. Il Plateau delle Azzorre sta a migliaia di metri.
+        gps = AZORES_SUBSIDENCE["gps_short_term_mm_yr"][1]
+        deepest = deepest_ever_land_m(gps)
+        self.assertGreater(deepest, -300.0)
+        self.assertLess(deepest, -200.0)
+
+    def test_the_claim_fails_on_every_published_rate(self):
+        # Non dipende da quale numero scegli: fallisce con entrambi.
+        need = self._rate_needed_mm_yr(-2000.0)
+        for rate in (AZORES_SUBSIDENCE["geological_long_term_max_mm_yr"],
+                     *AZORES_SUBSIDENCE["gps_short_term_mm_yr"]):
+            self.assertGreater(need / rate, 10.0)

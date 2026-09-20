@@ -63,3 +63,66 @@ Tutta la questione «alle Azzorre poteva esserci un sito sommerso» si riduce a 
 ## Nota di metodo
 
 Il verso del conto l'ho sbagliato **due volte** prima di scriverlo giusto (*«è stato terra per QUALCHE istante»* richiede il minimo, non il massimo). Il commento è rimasto nel codice. Un risultato che dipende da un segno va guardato due volte.
+
+---
+
+# Aggiornamento 20/9 sera — il sito, e la tesi del micro-continente
+
+## Il sito non contiene dati
+
+`kosmogoniauniversity.com` dà **404 sulla radice** (esistono solo sottopagine come `/terms`); `kosmogonia.university` è un **dominio parcheggiato** (`window.location.href="/lander"`). Kosmogonia è una piattaforma di iscrizione lanciata nel 2026, e i contenuti stanno dietro `skool.com/kosmogonia`. **Non è una fonte di dati geologici**, è un portale di corsi.
+
+## Correzione importante sulla cronologia
+
+Gli episodi sulle Azzorre **sono del 2019, non della spedizione 2025**:
+
+| ep | data | claim |
+|---|---|---|
+| #009 | 10 dic 2019 | Richat |
+| **#008** | 4 dic 2019 | frane recenti dalle **Canarie**, da sonar e batimetria |
+| **#007** | 7 nov 2019 | **«micro-continente granitico» sotto il medio Atlantico, esposto negli ultimi ~20.000 anni** |
+| #006 | 22 ott 2019 | Younger Dryas, carote di ghiaccio |
+| #005 | 22 ott 2019 | eustasia e isostasia |
+
+Quindi il materiale della spedizione di novembre 2025 sta altrove — nell'episodio di Julian Dorey che **non sono riuscito a leggere**. Quello che valuto qui è la tesi del 2019, che è la sua versione più forte e più specifica.
+
+L'ep #008 sulle Canarie è **già nel ledger con un `−`**: `PISTA-B-catastrofe.md` — nessun deposito transatlantico è mai stato collegato a frane delle Canarie.
+
+## La tesi del micro-continente, spezzata in clausole
+
+Come vuole §3: ogni clausola si testa da sola, e N/A è legale.
+
+**Clausola 1 — «esiste materiale granitico/continentale nel medio Atlantico».** **`+`, VERO.** Zirconi **paleozoici (~330 Ma) e proterozoici (~1600 Ma)** perforati da gabbri presso la zona di frattura di Kane, pubblicati su *Nature* (1998). Non è folklore, è una misura.
+
+**Clausola 2 — «è un micro-continente».** **Contestata.** La letteratura spiega quegli zirconi come **litosfera continentale delaminata**, riciclata attraverso celle di circolazione nel mantello poco profondo e riportata all'asse della dorsale. Il Plateau delle Azzorre è interpretato come **plateau oceanico** da interazione pennacchio–dorsale con magmatismo dal Miocene. Materiale continentale presente ≠ continente sommerso.
+
+**Clausola 3 — «esposto negli ultimi ~20.000 anni».** **`−`, e di due-tre ordini di grandezza.**
+
+Livello del mare a 20 ka: **−125,3 m**. Perché un punto che oggi sta a *z* fosse terra emersa allora, serve un tasso di subsidenza di almeno:
+
+| profondità oggi | tasso richiesto | vs geologico (0,3) | vs GPS (7,2) |
+|---|---|---|---|
+| −130 m (minimo glaciale) | 0,2 mm/a | **1×** | 0,03× |
+| −500 m (scarpata insulare) | 18,7 mm/a | 62× | 2,6× |
+| −1000 m (base edificio) | 43,7 mm/a | **146×** | 6,1× |
+| −2000 m (Plateau Azzorre) | 93,7 mm/a | **312×** | 13× |
+| −3500 m (asse dorsale, zona Kane) | 168,7 mm/a | **562×** | 23× |
+
+E la controprova inversa: **col tasso GPS sostenuto per 20.000 anni** — che è già un abuso, misura un respiro magmatico di oggi — si sprofonda di 144 m, e la cosa più profonda che sarebbe stata emersa sta a **−269 m**.
+
+I zirconi vengono da **migliaia di metri** di profondità. Non c'è nessun tasso pubblicato, né onesto né generoso, che li porti all'aria 20.000 anni fa.
+
+**E il punto che rende il verdetto solido: non dipende da quale numero scegli.** Fallisce col tasso geologico e fallisce col tasso GPS. Un `−` che regge su entrambi gli estremi della controversia non è una scelta di campo.
+
+## Verdetto aggiornato
+
+| clausola | esito |
+|---|---|
+| materiale granitico nel medio Atlantico | **`+`** — misurato, *Nature* 1998 |
+| è un micro-continente | **contestata** — la letteratura dice litosfera riciclata; plateau oceanico |
+| esposto negli ultimi 20.000 anni | **`−`** — servono 146–562× il tasso geologico |
+| frane recenti dalle Canarie | già `−` in Pista B |
+
+**Il modo corretto di dirlo:** Carlson ha ragione sul fatto che lì sotto c'è roba continentale, e non è una cosa da poco — è una misura pubblicata su *Nature* che molti scettici ignorano. Ha torto sul quando è stata all'aria, e ha torto di un fattore fra 146 e 562.
+
+**Cosa non posso dire:** cosa sostenga *oggi*, dopo la spedizione del 2025. Quella è la sola cosa che manca, ed è la sola per cui mi serve la trascrizione.

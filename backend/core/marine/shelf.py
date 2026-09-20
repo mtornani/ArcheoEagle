@@ -353,3 +353,58 @@ def deepest_ever_land_m(subsidence_mm_yr: float = 0.0, max_kyr: float = 20.0) ->
     ts = np.arange(0.0, max_kyr + 1e-9, 0.1)
     f = np.array([sea_level_at(float(t)) - rate * float(t) for t in ts])
     return float(f.min())
+
+
+# ---------------------------------------------------------------------------
+# ATLANTIS SEAMOUNT — misurato il 20 set 2026, GMRT
+# ---------------------------------------------------------------------------
+# Heezen et al. (1969) dragarono ciottoli di calcare dall'Atlantis Seamount.
+# Lo stato di litificazione suggeriva condizioni SUBAEREE, e un ciottolo diede
+# 12.000 +- 900 anni al radiocarbonio (J.L. Kulp, Lamont). Conclusione: il
+# seamount fu un'isola negli ultimi 12.000 anni. E' la fonte primaria dietro
+# la tesi del "micro-continente esposto" (Kosmographia ep007).
+#
+# VETTA MISURATA SU GMRT: -268,0 m a 34,1293N 30,2430W. Nessuna cella sopra
+# -265 m in una griglia di 11,5 milioni di punti. (Una fonte secondaria dava
+# -265 m: concordano entro 3 m.)
+#
+# Cosa servirebbe perche' quella vetta fosse stata isola:
+#
+#   a 12 ka (l'eta' del ciottolo)   mare -65,0 m   -> 16,9 mm/a = 56x il
+#                                                     tasso geologico massimo
+#   a 20 ka (massimo glaciale,      mare -125,3 m  ->  7,1 mm/a = 24x il
+#            il caso piu' generoso)                    geologico, e 0,99x il
+#                                                      GPS estrapolato
+#
+# LA CONCLUSIONE DI HEEZEN E' FALSIFICATA: 12.000 anni richiedono 56 volte il
+# tasso geologico e 2,35 volte perfino il tasso GPS, che gia' non si estrapola.
+#
+# MA HEEZEN AVEVA RAGIONE SULL'OSSERVAZIONE. Il Great Meteor Seamount, stessa
+# catena, ha la vetta a -274,2 m: due cime piatte alla stessa quota entro 6 m.
+# E' la firma dei GUYOT — sommita' spianate dalle onde quando erano al livello
+# del mare, poi affondate insieme su litosfera oceanica che si raffredda. Il
+# ripiano a ~270 m E' una piattaforma di abrasione annegata.
+#
+# Quindi: l'Atlantis Seamount fu davvero un'isola. La litificazione subaerea
+# che Heezen vide era reale. Sbagliato e' il QUANDO — la subsidenza termica di
+# litosfera vecchia lavora su decine di milioni di anni, non su dodicimila. Il
+# colpevole e' il radiocarbonio su carbonato marino a ~12 ka, dove pochi punti
+# percentuali di carbonio moderno da ricristallizzazione fanno leggere 12.000
+# anni a un calcare di qualunque eta'.
+#
+# E c'e' un errore in piu' da non ripetere: i tassi delle Azzorre qui NON si
+# applicano. La catena Atlantis-Great Meteor sta su litosfera atlantica
+# vecchia e intraplacca; le Azzorre sono un plateau vulcanicamente attivo su
+# giunzione tripla. Usare il GPS azzorriano qui e' sbagliato due volte.
+
+ATLANTIS_SEAMOUNT = {
+    "name": "Atlantis Seamount",
+    "summit_m": -268.0,
+    "lat": 34.1293,
+    "lon": -30.2430,
+    "source": "GMRT GridServer, misurato 2026-09-20",
+    "grade": "survey",
+    "claim": "Heezen et al. (1969): isola negli ultimi 12.000 anni",
+    "claim_verdict": "falsificato: servono 16,9 mm/a = 56x il tasso geologico",
+    "chain_comparison_m": -274.2,   # Great Meteor, stessa catena
+}

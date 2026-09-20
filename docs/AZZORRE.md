@@ -199,3 +199,59 @@ E **«stato di litificazione» come indicatore subaereo** è un criterio qualita
 Entrambi sono ottenibili: il primo da batimetria pubblica (**GMRT, che `shelf.py` già sa scaricare**), il secondo da chiunque abbia accesso ai campioni dragati in archivio.
 
 **Il primo lo posso fare io.** È il prossimo lavoro, ed è la prima volta in questa indagine che un claim di Carlson mi lascia un compito invece di un verdetto.
+
+---
+
+# La batimetria, presa. Heezen aveva ragione sull'osservazione e torto sulla data.
+
+**20 settembre 2026, misura.** GMRT GridServer, nessuna chiave, `shelf.py` lo scaricava già.
+
+## La misura
+
+| | vetta misurata | posizione |
+|---|---|---|
+| **Atlantis Seamount** | **−268,0 m** | 34,1293°N 30,2430°W |
+| **Great Meteor Seamount** (stessa catena) | **−274,2 m** | 29,5977°N 28,9848°W |
+
+Griglia 3515 × 3278 = 11,5 milioni di punti sull'Atlantis. **Zero celle sopra −265 m.** Una fonte secondaria dava −265 m: concordano entro 3 metri, ed è una conferma indipendente.
+
+## Il verdetto sulla data: falsificato
+
+| | mare | tasso richiesto | vs geologico (0,3) | vs GPS (7,2) |
+|---|---|---|---|---|
+| **12 ka** (l'età del ciottolo di Heezen) | −65,0 m | **16,9 mm/a** | **56×** | **2,35×** |
+| 20 ka (massimo glaciale, il caso più generoso possibile) | −125,3 m | 7,1 mm/a | 24× | 0,99× |
+
+**La conclusione di Heezen — isola entro 12.000 anni — richiede 56 volte il tasso geologico massimo, e non basta nemmeno il tasso GPS che già non si estrapola.** Falsificata.
+
+Nota sul caso a 20 ka: al massimo glaciale, col tasso GPS sostenuto per ventimila anni, la vetta arriverebbe al livello del mare con **1,3 m di margine**. Non è destino, è aritmetica — 7,2 mm/a × 20.000 anni = 144 m, e servono 143 m. Ma è la versione più generosa immaginabile, e **non è quella che Heezen sostiene**.
+
+**E c'è un errore mio da non ripetere:** i tassi delle Azzorre **qui non si applicano**. La catena Atlantis–Great Meteor sta su litosfera atlantica vecchia e intraplacca; le Azzorre sono un plateau vulcanicamente attivo su giunzione tripla. Usare il GPS azzorriano su questi seamount è sbagliato due volte, e io l'ho fatto per generosità verso il claim. La subsidenza vera qui è **termica**, e su litosfera vecchia è più lenta ancora.
+
+## E però: l'osservazione era giusta
+
+Il dato che non cercavo e che risolve la questione: **due seamount della stessa catena hanno la cima piatta alla stessa quota entro 6 metri** (−268,0 e −274,2).
+
+Questa è la firma dei **guyot**: sommità **spianate dall'erosione delle onde quando erano al livello del mare**, poi affondate insieme su litosfera oceanica che si raffredda. Il ripiano a ~270 m **è** una piattaforma di abrasione annegata.
+
+Quindi **l'Atlantis Seamount fu davvero un'isola.** La litificazione subaerea che Heezen vide nel calcare era reale, e la sua interpretazione geologica era corretta.
+
+**Sbagliato è il quando.** La subsidenza termica di litosfera vecchia lavora su **decine di milioni di anni**, non su dodicimila. E il colpevole ha un nome: il **radiocarbonio su carbonato marino a ~12 ka**, dove pochi punti percentuali di carbonio moderno da ricristallizzazione fanno leggere 12.000 anni a un calcare di qualunque età. Heezen non ha sbagliato a guardare: ha sbagliato a fidarsi dell'unico orologio che aveva nel 1969.
+
+## Verdetto finale per il ledger
+
+| clausola | esito |
+|---|---|
+| materiale continentale nel medio Atlantico | **`+`** (zirconi 330/1600 Ma, *Nature* 1998) |
+| è un micro-continente | contestata (litosfera riciclata; plateau oceanico) |
+| esposto ~20.000 anni fa a profondità di dorsale | **`−`** (146–562× il tasso geologico) |
+| Atlantis Seamount **fu** un'isola | **`+`** — guyot, cima piatta a ~270 m, due nella stessa catena |
+| ...**entro 12.000 anni** | **`−`** — servono 56× il tasso geologico. **Chiuso.** |
+
+**Cosa resta aperto:** una datazione U-Th sul carbonato dragato direbbe *quando* fu isola. Non cambia il `−` sui 12.000 anni — lo conferma con un numero invece che con un'esclusione. Chi ha accesso ai campioni in archivio può farlo; io no.
+
+## Cosa mi porto via
+
+Il claim più forte della catena Carlson→Heezen aveva dentro **un'osservazione vera che nessuno ha rivalutato dal 1969**, e un errore di datazione di tre ordini di grandezza. Scartarlo a priori mi avrebbe fatto perdere la prima; prenderlo per buono mi avrebbe fatto ingoiare il secondo.
+
+**È esattamente il motivo per cui §2.3 dice "lente, non oracolo".**

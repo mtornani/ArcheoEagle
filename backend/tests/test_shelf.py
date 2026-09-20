@@ -6,6 +6,7 @@ import unittest
 import numpy as np
 
 from core.marine.shelf import (
+    ATLANTIS_SEAMOUNT,
     deepest_ever_land_m,
     depth_was_land_kyr,
     AZORES_SUBSIDENCE,
@@ -265,3 +266,38 @@ class MidAtlanticExposureTest(unittest.TestCase):
         for rate in (AZORES_SUBSIDENCE["geological_long_term_max_mm_yr"],
                      *AZORES_SUBSIDENCE["gps_short_term_mm_yr"]):
             self.assertGreater(need / rate, 10.0)
+
+
+class AtlantisSeamountTest(unittest.TestCase):
+    """Heezen et al. (1969): l'Atlantis Seamount fu un'isola entro 12.000 anni.
+    Vetta misurata su GMRT il 20/9/2026: -268,0 m. Questi test bloccano il
+    conto che falsifica la DATA senza toccare l'OSSERVAZIONE."""
+
+    def _rate_needed(self, kyr):
+        z = ATLANTIS_SEAMOUNT["summit_m"]
+        return ((sea_level_at(kyr) - z) / (kyr * 1000.0)) * 1000.0
+
+    def test_twelve_thousand_years_needs_56x_the_geological_rate(self):
+        need = self._rate_needed(12.0)
+        geo = AZORES_SUBSIDENCE["geological_long_term_max_mm_yr"]
+        self.assertAlmostEqual(need, 16.9, delta=0.5)
+        self.assertGreater(need / geo, 50.0)
+
+    def test_it_fails_even_against_the_gps_rate(self):
+        # Il tasso GPS gia' non si estrapola; anche accettandolo, non basta.
+        need = self._rate_needed(12.0)
+        self.assertGreater(need / AZORES_SUBSIDENCE["gps_short_term_mm_yr"][1], 2.0)
+
+    def test_the_summit_is_never_land_without_subsidence(self):
+        # Sotto il minimo glaciale: la sola eustasia non lo emerge mai.
+        self.assertLess(ATLANTIS_SEAMOUNT["summit_m"], deepest_ever_land_m(0.0))
+
+    def test_two_seamounts_in_the_chain_share_a_summit_depth(self):
+        # Cime piatte alla stessa quota entro 6 m: firma dei guyot, cioe'
+        # piattaforme di abrasione annegate. Heezen aveva ragione che fu
+        # un'isola; sbagliava di ordini di grandezza su QUANDO.
+        gap = abs(ATLANTIS_SEAMOUNT["summit_m"] - ATLANTIS_SEAMOUNT["chain_comparison_m"])
+        self.assertLess(gap, 10.0)
+
+    def test_the_measurement_is_survey_grade_not_literature(self):
+        self.assertEqual(ATLANTIS_SEAMOUNT["grade"], "survey")

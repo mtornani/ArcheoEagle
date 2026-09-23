@@ -216,3 +216,201 @@ def compare_methods(dem, bbox: BBox, level_m: float) -> Dict[str, Any]:
         "traced_lines": traced,
         "polar_lines": polar,
     }
+
+
+# Defaults for local-relief split. Not STEP_SCORE_THRESHOLD; do not move that.
+DEFAULT_MIN_DROP_M = 15.0
+DEFAULT_MIN_SEG_KM = 5.0
+DEFAULT_SAMPLE_EVERY_N = 5
+
+
+def local_drop_along(
+    dem,
+    bbox: BBox,
+    line: List[LngLat],
+    offset_deg: float = 0.01,
+    sample_every_n: int = DEFAULT_SAMPLE_EVERY_N,
+) -> List[Tuple[int, float]]:
+    """Per-sample |Δz| across the polyline tangent.
+
+    Returns (vertex_index, drop_m). Aggregating these into one mean is what
+    relief_across does — and that mixes ridge + meanders. Use this to see
+    *where* the drop collapses. Isolinea ≠ ridge. Not a shore label.
+    """
+    if len(line) < 3:
+        return []
+    step = max(1, int(sample_every_n))
+    out: List[Tuple[int, float]] = []
+    for i in range(0, len(line) - 1, step):
+        j = min(i + 1, len(line) - 1)
+        lon0, lat0 = line[i]
+        lon1, lat1 = line[j]
+        dx, dy = lon1 - lon0, lat1 - lat0
+        norm = (dx * dx + dy * dy) ** 0.5
+        if norm < 1e-12:
+            continue
+        px, py = -dy / norm * offset_deg, dx / norm * offset_deg
+        mid = ((lon0 + lon1) / 2.0, (lat0 + lat1) / 2.0)
+        za = _sample_dem(dem, bbox, mid[0] + px, mid[1] + py)
+        zb = _sample_dem(dem, bbox, mid[0] - px, mid[1] - py)
+        if za is None or zb is None:
+            continue
+        out.append((i, abs(za - zb)))
+    return out
+
+
+def split_by_local_relief(
+    dem,
+    bbox: BBox,
+    line: List[LngLat],
+    min_drop_m: float = DEFAULT_MIN_DROP_M,
+    min_seg_km: float = DEFAULT_MIN_SEG_KM,
+    offset_deg: float = 0.01,
+    sample_every_n: int = DEFAULT_SAMPLE_EVERY_N,
+) -> List[Dict[str, Any]]:
+    """Break a polyline where local |Δz| collapses; keep high-drop runs.
+
+    Consecutive samples with drop >= min_drop_m form a candidate segment.
+    A collapse (drop below threshold) ends the run. Segments shorter than
+    min_seg_km are discarded.
+
+    Output grade stays dem-contour / isolinea. High-Δz pieces are
+    "candidate ridge segments", NOT "shore found" / "sponda individuata".
+    """
+    samples = local_drop_along(
+        dem, bbox, line,
+        offset_deg=offset_deg,
+        sample_every_n=sample_every_n,
+    )
+    if not samples:
+        return []
+
+    runs: List[Tuple[int, int, List[float]]] = []
+    start_i: Optional[int] = None
+    end_i: Optional[int] = None
+    run_drops: List[float] = []
+
+    def _flush() -> None:
+        nonlocal start_i, end_i, run_drops
+        if start_i is not None and end_i is not None:
+            runs.append((start_i, end_i, list(run_drops)))
+        start_i, end_i, run_drops = None, None, []
+
+    for idx, drop in samples:
+        if drop >= min_drop_m:
+            if start_i is None:
+                start_i = idx
+            end_i = idx
+            run_drops.append(drop)
+        else:
+            _flush()
+    _flush()
+
+    # map sample indices to sub-polylines; extend end to next vertex for geometry
+    step = max(1, int(sample_every_n))
+    kept: List[Dict[str, Any]] = []
+    for start_i, end_i, drops in runs:
+        # include vertices through the next sample stride so the segment has length
+        stop = min(len(line), end_i + step + 1)
+        sub = line[start_i:stop]
+        if len(sub) < 2:
+            continue
+        length = _length_km(sub)
+        if length < min_seg_km:
+            continue
+        mean_drop = sum(drops) / len(drops) if drops else 0.0
+        kept.append({
+            "line": sub,
+            "length_km": round(length, 2),
+            "drop_mean_m": round(mean_drop, 1),
+            "drop_min_m": round(min(drops), 1) if drops else None,
+            "n_samples": len(drops),
+            "i0": start_i,
+            "i1": stop - 1,
+            "grade": "dem-contour",
+            "label": "candidate ridge segment",
+        })
+    return kept
+
+
+def split_lines_by_relief(
+    dem,
+    bbox: BBox,
+    lines: Sequence[List[LngLat]],
+    min_drop_m: float = DEFAULT_MIN_DROP_M,
+    min_seg_km: float = DEFAULT_MIN_SEG_KM,
+    offset_deg: float = 0.01,
+    sample_every_n: int = DEFAULT_SAMPLE_EVERY_N,
+) -> List[Dict[str, Any]]:
+    """Apply split_by_local_relief to each open polyline (e.g. shoreline_from_dem).
+
+    Accepts a list of lines or the 'coordinates' of LineString features.
+    Does not claim shore — only candidate high-Δz isoline segments.
+    """
+    out: List[Dict[str, Any]] = []
+    for line in lines:
+        if not line or len(line) < 3:
+            continue
+        for seg in split_by_local_relief(
+            dem, bbox, list(line),
+            min_drop_m=min_drop_m,
+            min_seg_km=min_seg_km,
+            offset_deg=offset_deg,
+            sample_every_n=sample_every_n,
+        ):
+            out.append(seg)
+    return out
+
+
+def split_longest_by_relief(
+    dem,
+    bbox: BBox,
+    lines: Sequence[List[LngLat]],
+    min_drop_m: float = DEFAULT_MIN_DROP_M,
+    min_seg_km: float = DEFAULT_MIN_SEG_KM,
+    offset_deg: float = 0.01,
+    sample_every_n: int = DEFAULT_SAMPLE_EVERY_N,
+) -> Dict[str, Any]:
+    """Report: split the longest isoline by local relief. For control only.
+
+    Fields: n_segments, lengths_km, drops_m. Never 'sponda individuata'.
+    Positive control still fails until proven on real tiles.
+    """
+    empty = {
+        "n_segments": 0,
+        "lengths_km": [],
+        "drops_m": [],
+        "source_longest_km": 0.0,
+        "grade": "dem-contour",
+        "label": "candidate ridge segments",
+        "puoi_dire": (
+            "segmenti di isolinea con |Δz| locale alto rispetto al resto "
+            "della stessa polilinea"
+        ),
+        "non_puoi_dire": (
+            "sponda individuata: isolinea ≠ ridge; il controllo positivo "
+            "Bama resta fallito finché non dimostrato"
+        ),
+        "min_drop_m": min_drop_m,
+        "min_seg_km": min_seg_km,
+    }
+    if not lines:
+        return empty
+    longest = max(lines, key=_length_km)
+    segs = split_by_local_relief(
+        dem, bbox, longest,
+        min_drop_m=min_drop_m,
+        min_seg_km=min_seg_km,
+        offset_deg=offset_deg,
+        sample_every_n=sample_every_n,
+    )
+    return {
+        **empty,
+        "n_segments": len(segs),
+        "lengths_km": [s["length_km"] for s in segs],
+        "drops_m": [s["drop_mean_m"] for s in segs],
+        "source_longest_km": round(_length_km(longest), 1),
+        "segments": [
+            {k: v for k, v in s.items() if k != "line"} for s in segs
+        ],
+    }

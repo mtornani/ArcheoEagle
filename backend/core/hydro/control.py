@@ -358,11 +358,18 @@ def run_positive_control(level_m: float = 320.0) -> Dict[str, Any]:
 
 
 def run_lineament_control(level_m: float = 320.0) -> Dict[str, Any]:
-    """Traced polylines vs polar-sort, and whether they join across a tile edge.
+    """Traced polylines vs polar-sort, joins, and local-relief splits.
 
-    Does not say 'sponda individuata'. Reports lengths and joins. Touches network.
+    Does not say 'sponda individuata'. Reports lengths, joins, and
+    candidate high-Δz segments of the longest isoline (isolinea ≠ ridge).
+    Touches network.
     """
-    from core.hydro.lineament import compare_methods, join_count, summarize
+    from core.hydro.lineament import (
+        compare_methods,
+        join_count,
+        split_longest_by_relief,
+        summarize,
+    )
     from core.hydro.measure import fetch_copernicus_tile, shoreline_from_dem
 
     pairs = {
@@ -396,5 +403,9 @@ def run_lineament_control(level_m: float = 320.0) -> Dict[str, Any]:
         rec["joins"] = join_count(lines0, bbox0, lines1, bbox1)
         rec["traced_a"] = summarize(lines0, bbox0)
         rec["traced_b"] = summarize(lines1, bbox1)
+        # Split longest isoline where local |Δz| collapses. Isolinea ≠ ridge.
+        # Report only; never claim shore / sponda individuata.
+        rec["relief_split_a"] = split_longest_by_relief(dem0, bbox0, lines0)
+        rec["relief_split_b"] = split_longest_by_relief(dem1, bbox1, lines1)
         out["pairs"][name] = rec
     return out

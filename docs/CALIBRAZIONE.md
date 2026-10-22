@@ -440,3 +440,26 @@ run_positive_control(320.0)   # scarica 2 tile Copernicus, ~70 MB
 I test unitari (`backend/tests/test_control.py`) non toccano la rete: verificano
 che lo strumento veda un gradino sintetico e — piu' importante — che **non** ne
 veda uno su una rampa a pendenza costante.
+
+
+## Tentativo 10 — stub. Spezzare dove Δz locale crolla (codice).
+
+Implementato in `core/hydro/lineament.py` (Tentativo 9 → prossimo passo onesto):
+
+- `local_drop_along` — |Δz| per campione lungo la polilinea (non la media di scena).
+- `split_by_local_relief` / `split_lines_by_relief` — spezza dove il salto crolla;
+  tiene i run con drop ≥ soglia e lunghezza ≥ `min_seg_km`.
+- `split_longest_by_relief` — report per il banco (`n_segments`, `lengths_km`,
+  `drops_m`), cablato in `run_lineament_control` come `relief_split_a/b`.
+
+Grade resta `dem-contour` / isolinea. I segmenti ad alto Δz sono etichettati
+**candidate ridge segment**, mai "sponda individuata". Isolinea ≠ ridge.
+
+Test offline in `backend/tests/test_lineament.py` (`LocalReliefSplitTest`):
+ridge N-S + meandri su bacino piatto → tiene il ridge, scarta i meandri;
+rampa costante → zero segmenti falsi.
+
+**Il controllo positivo Bama resta FALLITO** finché non dimostrato sui tile
+reali. STEP_SCORE_THRESHOLD non toccata. Nessuna UI dice sponda individuata.
+Questo chiude solo lo strumento di spezzatura; non il verdetto sulla sponda.
+

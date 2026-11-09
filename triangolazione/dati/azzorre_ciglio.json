@@ -1,0 +1,1993 @@
+{
+ "Santa Maria": {
+  "land_km2": 104.0,
+  "shelf_ref_slope": 2.48,
+  "break_m": -130,
+  "bins": [
+   {
+    "top": 0,
+    "bot": -10,
+    "area_km2": 5.39,
+    "slope_med": 2.78
+   },
+   {
+    "top": -10,
+    "bot": -20,
+    "area_km2": 12.39,
+    "slope_med": 1.59
+   },
+   {
+    "top": -20,
+    "bot": -30,
+    "area_km2": 14.56,
+    "slope_med": 1.99
+   },
+   {
+    "top": -30,
+    "bot": -40,
+    "area_km2": 19.04,
+    "slope_med": 1.99
+   },
+   {
+    "top": -40,
+    "bot": -50,
+    "area_km2": 13.23,
+    "slope_med": 2.34
+   },
+   {
+    "top": -50,
+    "bot": -60,
+    "area_km2": 10.02,
+    "slope_med": 2.7
+   },
+   {
+    "top": -60,
+    "bot": -70,
+    "area_km2": 9.05,
+    "slope_med": 3.05
+   },
+   {
+    "top": -70,
+    "bot": -80,
+    "area_km2": 10.83,
+    "slope_med": 2.63
+   },
+   {
+    "top": -80,
+    "bot": -90,
+    "area_km2": 6.21,
+    "slope_med": 2.67
+   },
+   {
+    "top": -90,
+    "bot": -100,
+    "area_km2": 6.71,
+    "slope_med": 2.52
+   },
+   {
+    "top": -100,
+    "bot": -110,
+    "area_km2": 7.51,
+    "slope_med": 2.0
+   },
+   {
+    "top": -110,
+    "bot": -120,
+    "area_km2": 6.05,
+    "slope_med": 2.38
+   },
+   {
+    "top": -120,
+    "bot": -130,
+    "area_km2": 4.43,
+    "slope_med": 4.95
+   },
+   {
+    "top": -130,
+    "bot": -140,
+    "area_km2": 3.82,
+    "slope_med": 7.39
+   },
+   {
+    "top": -140,
+    "bot": -150,
+    "area_km2": 3.91,
+    "slope_med": 9.44
+   },
+   {
+    "top": -150,
+    "bot": -160,
+    "area_km2": 3.7,
+    "slope_med": 13.09
+   },
+   {
+    "top": -160,
+    "bot": -170,
+    "area_km2": 2.32,
+    "slope_med": 14.6
+   },
+   {
+    "top": -170,
+    "bot": -180,
+    "area_km2": 1.8,
+    "slope_med": 14.1
+   },
+   {
+    "top": -180,
+    "bot": -190,
+    "area_km2": 1.99,
+    "slope_med": 15.72
+   },
+   {
+    "top": -190,
+    "bot": -200,
+    "area_km2": 2.02,
+    "slope_med": 17.71
+   },
+   {
+    "top": -200,
+    "bot": -210,
+    "area_km2": 2.13,
+    "slope_med": 17.66
+   },
+   {
+    "top": -210,
+    "bot": -220,
+    "area_km2": 2.68,
+    "slope_med": 17.22
+   },
+   {
+    "top": -220,
+    "bot": -230,
+    "area_km2": 2.75,
+    "slope_med": 14.86
+   },
+   {
+    "top": -230,
+    "bot": -240,
+    "area_km2": 3.18,
+    "slope_med": 15.19
+   },
+   {
+    "top": -240,
+    "bot": -250,
+    "area_km2": 3.14,
+    "slope_med": 14.88
+   },
+   {
+    "top": -250,
+    "bot": -260,
+    "area_km2": 2.8,
+    "slope_med": 14.65
+   },
+   {
+    "top": -260,
+    "bot": -270,
+    "area_km2": 2.53,
+    "slope_med": 14.39
+   },
+   {
+    "top": -270,
+    "bot": -280,
+    "area_km2": 2.38,
+    "slope_med": 13.72
+   },
+   {
+    "top": -280,
+    "bot": -290,
+    "area_km2": 2.37,
+    "slope_med": 14.85
+   },
+   {
+    "top": -290,
+    "bot": -300,
+    "area_km2": 2.25,
+    "slope_med": 14.36
+   },
+   {
+    "top": -300,
+    "bot": -310,
+    "area_km2": 2.14,
+    "slope_med": 14.32
+   },
+   {
+    "top": -310,
+    "bot": -320,
+    "area_km2": 2.44,
+    "slope_med": 14.93
+   },
+   {
+    "top": -320,
+    "bot": -330,
+    "area_km2": 2.33,
+    "slope_med": 14.84
+   },
+   {
+    "top": -330,
+    "bot": -340,
+    "area_km2": 2.2,
+    "slope_med": 14.56
+   },
+   {
+    "top": -340,
+    "bot": -350,
+    "area_km2": 2.64,
+    "slope_med": 15.88
+   },
+   {
+    "top": -350,
+    "bot": -360,
+    "area_km2": 2.49,
+    "slope_med": 14.9
+   },
+   {
+    "top": -360,
+    "bot": -370,
+    "area_km2": 2.45,
+    "slope_med": 15.42
+   },
+   {
+    "top": -370,
+    "bot": -380,
+    "area_km2": 2.4,
+    "slope_med": 15.25
+   },
+   {
+    "top": -380,
+    "bot": -390,
+    "area_km2": 2.5,
+    "slope_med": 15.26
+   },
+   {
+    "top": -390,
+    "bot": -400,
+    "area_km2": 2.54,
+    "slope_med": 15.83
+   }
+  ],
+  "control_top3_bins": [
+   [
+    -30,
+    -40
+   ],
+   [
+    -40,
+    -50
+   ],
+   [
+    -70,
+    -80
+   ]
+  ],
+  "control_hits": 3
+ },
+ "Sao Miguel": {
+  "land_km2": 766.6,
+  "shelf_ref_slope": 2.52,
+  "break_m": -150,
+  "bins": [
+   {
+    "top": 0,
+    "bot": -10,
+    "area_km2": 27.43,
+    "slope_med": 2.99
+   },
+   {
+    "top": -10,
+    "bot": -20,
+    "area_km2": 29.63,
+    "slope_med": 2.46
+   },
+   {
+    "top": -20,
+    "bot": -30,
+    "area_km2": 31.61,
+    "slope_med": 2.52
+   },
+   {
+    "top": -30,
+    "bot": -40,
+    "area_km2": 31.77,
+    "slope_med": 2.53
+   },
+   {
+    "top": -40,
+    "bot": -50,
+    "area_km2": 33.42,
+    "slope_med": 2.37
+   },
+   {
+    "top": -50,
+    "bot": -60,
+    "area_km2": 35.58,
+    "slope_med": 2.25
+   },
+   {
+    "top": -60,
+    "bot": -70,
+    "area_km2": 32.08,
+    "slope_med": 2.65
+   },
+   {
+    "top": -70,
+    "bot": -80,
+    "area_km2": 29.82,
+    "slope_med": 2.95
+   },
+   {
+    "top": -80,
+    "bot": -90,
+    "area_km2": 26.62,
+    "slope_med": 3.4
+   },
+   {
+    "top": -90,
+    "bot": -100,
+    "area_km2": 25.27,
+    "slope_med": 3.52
+   },
+   {
+    "top": -100,
+    "bot": -110,
+    "area_km2": 25.82,
+    "slope_med": 3.2
+   },
+   {
+    "top": -110,
+    "bot": -120,
+    "area_km2": 28.74,
+    "slope_med": 2.87
+   },
+   {
+    "top": -120,
+    "bot": -130,
+    "area_km2": 23.51,
+    "slope_med": 3.56
+   },
+   {
+    "top": -130,
+    "bot": -140,
+    "area_km2": 21.67,
+    "slope_med": 4.03
+   },
+   {
+    "top": -140,
+    "bot": -150,
+    "area_km2": 19.26,
+    "slope_med": 5.0
+   },
+   {
+    "top": -150,
+    "bot": -160,
+    "area_km2": 16.04,
+    "slope_med": 5.92
+   },
+   {
+    "top": -160,
+    "bot": -170,
+    "area_km2": 13.41,
+    "slope_med": 7.69
+   },
+   {
+    "top": -170,
+    "bot": -180,
+    "area_km2": 12.27,
+    "slope_med": 9.26
+   },
+   {
+    "top": -180,
+    "bot": -190,
+    "area_km2": 11.56,
+    "slope_med": 9.11
+   },
+   {
+    "top": -190,
+    "bot": -200,
+    "area_km2": 12.33,
+    "slope_med": 8.68
+   },
+   {
+    "top": -200,
+    "bot": -210,
+    "area_km2": 12.37,
+    "slope_med": 9.49
+   },
+   {
+    "top": -210,
+    "bot": -220,
+    "area_km2": 12.55,
+    "slope_med": 8.92
+   },
+   {
+    "top": -220,
+    "bot": -230,
+    "area_km2": 12.31,
+    "slope_med": 9.6
+   },
+   {
+    "top": -230,
+    "bot": -240,
+    "area_km2": 12.07,
+    "slope_med": 8.98
+   },
+   {
+    "top": -240,
+    "bot": -250,
+    "area_km2": 12.28,
+    "slope_med": 9.23
+   },
+   {
+    "top": -250,
+    "bot": -260,
+    "area_km2": 12.18,
+    "slope_med": 9.81
+   },
+   {
+    "top": -260,
+    "bot": -270,
+    "area_km2": 12.64,
+    "slope_med": 10.17
+   },
+   {
+    "top": -270,
+    "bot": -280,
+    "area_km2": 12.31,
+    "slope_med": 9.7
+   },
+   {
+    "top": -280,
+    "bot": -290,
+    "area_km2": 12.57,
+    "slope_med": 10.08
+   },
+   {
+    "top": -290,
+    "bot": -300,
+    "area_km2": 12.83,
+    "slope_med": 10.96
+   },
+   {
+    "top": -300,
+    "bot": -310,
+    "area_km2": 13.02,
+    "slope_med": 9.83
+   },
+   {
+    "top": -310,
+    "bot": -320,
+    "area_km2": 14.35,
+    "slope_med": 8.68
+   },
+   {
+    "top": -320,
+    "bot": -330,
+    "area_km2": 15.69,
+    "slope_med": 8.18
+   },
+   {
+    "top": -330,
+    "bot": -340,
+    "area_km2": 15.81,
+    "slope_med": 7.96
+   },
+   {
+    "top": -340,
+    "bot": -350,
+    "area_km2": 15.48,
+    "slope_med": 8.93
+   },
+   {
+    "top": -350,
+    "bot": -360,
+    "area_km2": 15.53,
+    "slope_med": 8.07
+   },
+   {
+    "top": -360,
+    "bot": -370,
+    "area_km2": 14.75,
+    "slope_med": 9.73
+   },
+   {
+    "top": -370,
+    "bot": -380,
+    "area_km2": 14.09,
+    "slope_med": 9.58
+   },
+   {
+    "top": -380,
+    "bot": -390,
+    "area_km2": 14.05,
+    "slope_med": 10.06
+   },
+   {
+    "top": -390,
+    "bot": -400,
+    "area_km2": 13.07,
+    "slope_med": 10.72
+   }
+  ]
+ },
+ "Terceira": {
+  "land_km2": 414.2,
+  "shelf_ref_slope": 2.62,
+  "break_m": -330,
+  "bins": [
+   {
+    "top": 0,
+    "bot": -10,
+    "area_km2": 11.97,
+    "slope_med": 3.39
+   },
+   {
+    "top": -10,
+    "bot": -20,
+    "area_km2": 11.58,
+    "slope_med": 3.73
+   },
+   {
+    "top": -20,
+    "bot": -30,
+    "area_km2": 12.54,
+    "slope_med": 3.23
+   },
+   {
+    "top": -30,
+    "bot": -40,
+    "area_km2": 13.12,
+    "slope_med": 3.17
+   },
+   {
+    "top": -40,
+    "bot": -50,
+    "area_km2": 15.11,
+    "slope_med": 2.82
+   },
+   {
+    "top": -50,
+    "bot": -60,
+    "area_km2": 19.67,
+    "slope_med": 2.43
+   },
+   {
+    "top": -60,
+    "bot": -70,
+    "area_km2": 21.56,
+    "slope_med": 2.1
+   },
+   {
+    "top": -70,
+    "bot": -80,
+    "area_km2": 21.86,
+    "slope_med": 2.13
+   },
+   {
+    "top": -80,
+    "bot": -90,
+    "area_km2": 20.66,
+    "slope_med": 2.33
+   },
+   {
+    "top": -90,
+    "bot": -100,
+    "area_km2": 19.23,
+    "slope_med": 2.62
+   },
+   {
+    "top": -100,
+    "bot": -110,
+    "area_km2": 17.06,
+    "slope_med": 2.73
+   },
+   {
+    "top": -110,
+    "bot": -120,
+    "area_km2": 17.26,
+    "slope_med": 2.66
+   },
+   {
+    "top": -120,
+    "bot": -130,
+    "area_km2": 18.41,
+    "slope_med": 2.39
+   },
+   {
+    "top": -130,
+    "bot": -140,
+    "area_km2": 19.62,
+    "slope_med": 1.86
+   },
+   {
+    "top": -140,
+    "bot": -150,
+    "area_km2": 20.2,
+    "slope_med": 1.79
+   },
+   {
+    "top": -150,
+    "bot": -160,
+    "area_km2": 18.11,
+    "slope_med": 2.25
+   },
+   {
+    "top": -160,
+    "bot": -170,
+    "area_km2": 13.71,
+    "slope_med": 2.81
+   },
+   {
+    "top": -170,
+    "bot": -180,
+    "area_km2": 12.0,
+    "slope_med": 3.35
+   },
+   {
+    "top": -180,
+    "bot": -190,
+    "area_km2": 11.25,
+    "slope_med": 3.4
+   },
+   {
+    "top": -190,
+    "bot": -200,
+    "area_km2": 10.43,
+    "slope_med": 3.52
+   },
+   {
+    "top": -200,
+    "bot": -210,
+    "area_km2": 9.6,
+    "slope_med": 3.56
+   },
+   {
+    "top": -210,
+    "bot": -220,
+    "area_km2": 10.01,
+    "slope_med": 3.7
+   },
+   {
+    "top": -220,
+    "bot": -230,
+    "area_km2": 10.31,
+    "slope_med": 3.73
+   },
+   {
+    "top": -230,
+    "bot": -240,
+    "area_km2": 9.65,
+    "slope_med": 4.25
+   },
+   {
+    "top": -240,
+    "bot": -250,
+    "area_km2": 8.93,
+    "slope_med": 4.72
+   },
+   {
+    "top": -250,
+    "bot": -260,
+    "area_km2": 8.37,
+    "slope_med": 5.47
+   },
+   {
+    "top": -260,
+    "bot": -270,
+    "area_km2": 8.5,
+    "slope_med": 5.39
+   },
+   {
+    "top": -270,
+    "bot": -280,
+    "area_km2": 9.78,
+    "slope_med": 4.24
+   },
+   {
+    "top": -280,
+    "bot": -290,
+    "area_km2": 10.22,
+    "slope_med": 4.36
+   },
+   {
+    "top": -290,
+    "bot": -300,
+    "area_km2": 12.28,
+    "slope_med": 3.69
+   },
+   {
+    "top": -300,
+    "bot": -310,
+    "area_km2": 13.07,
+    "slope_med": 3.3
+   },
+   {
+    "top": -310,
+    "bot": -320,
+    "area_km2": 12.04,
+    "slope_med": 4.25
+   },
+   {
+    "top": -320,
+    "bot": -330,
+    "area_km2": 11.46,
+    "slope_med": 4.69
+   },
+   {
+    "top": -330,
+    "bot": -340,
+    "area_km2": 11.21,
+    "slope_med": 5.92
+   },
+   {
+    "top": -340,
+    "bot": -350,
+    "area_km2": 10.33,
+    "slope_med": 6.47
+   },
+   {
+    "top": -350,
+    "bot": -360,
+    "area_km2": 10.45,
+    "slope_med": 6.98
+   },
+   {
+    "top": -360,
+    "bot": -370,
+    "area_km2": 10.35,
+    "slope_med": 7.18
+   },
+   {
+    "top": -370,
+    "bot": -380,
+    "area_km2": 10.44,
+    "slope_med": 6.76
+   },
+   {
+    "top": -380,
+    "bot": -390,
+    "area_km2": 10.54,
+    "slope_med": 6.7
+   },
+   {
+    "top": -390,
+    "bot": -400,
+    "area_km2": 10.57,
+    "slope_med": 7.05
+   }
+  ]
+ },
+ "Graciosa": {
+  "land_km2": 65.9,
+  "shelf_ref_slope": 3.8,
+  "break_m": -250,
+  "bins": [
+   {
+    "top": 0,
+    "bot": -10,
+    "area_km2": 5.37,
+    "slope_med": 3.56
+   },
+   {
+    "top": -10,
+    "bot": -20,
+    "area_km2": 6.95,
+    "slope_med": 3.4
+   },
+   {
+    "top": -20,
+    "bot": -30,
+    "area_km2": 5.96,
+    "slope_med": 3.78
+   },
+   {
+    "top": -30,
+    "bot": -40,
+    "area_km2": 5.48,
+    "slope_med": 3.88
+   },
+   {
+    "top": -40,
+    "bot": -50,
+    "area_km2": 5.33,
+    "slope_med": 3.93
+   },
+   {
+    "top": -50,
+    "bot": -60,
+    "area_km2": 5.85,
+    "slope_med": 3.82
+   },
+   {
+    "top": -60,
+    "bot": -70,
+    "area_km2": 6.0,
+    "slope_med": 3.7
+   },
+   {
+    "top": -70,
+    "bot": -80,
+    "area_km2": 8.75,
+    "slope_med": 2.96
+   },
+   {
+    "top": -80,
+    "bot": -90,
+    "area_km2": 9.69,
+    "slope_med": 2.31
+   },
+   {
+    "top": -90,
+    "bot": -100,
+    "area_km2": 6.75,
+    "slope_med": 3.12
+   },
+   {
+    "top": -100,
+    "bot": -110,
+    "area_km2": 5.32,
+    "slope_med": 3.95
+   },
+   {
+    "top": -110,
+    "bot": -120,
+    "area_km2": 5.98,
+    "slope_med": 3.97
+   },
+   {
+    "top": -120,
+    "bot": -130,
+    "area_km2": 7.5,
+    "slope_med": 3.29
+   },
+   {
+    "top": -130,
+    "bot": -140,
+    "area_km2": 8.93,
+    "slope_med": 2.69
+   },
+   {
+    "top": -140,
+    "bot": -150,
+    "area_km2": 11.13,
+    "slope_med": 1.99
+   },
+   {
+    "top": -150,
+    "bot": -160,
+    "area_km2": 10.6,
+    "slope_med": 1.89
+   },
+   {
+    "top": -160,
+    "bot": -170,
+    "area_km2": 10.86,
+    "slope_med": 1.88
+   },
+   {
+    "top": -170,
+    "bot": -180,
+    "area_km2": 9.54,
+    "slope_med": 2.27
+   },
+   {
+    "top": -180,
+    "bot": -190,
+    "area_km2": 7.52,
+    "slope_med": 2.67
+   },
+   {
+    "top": -190,
+    "bot": -200,
+    "area_km2": 6.9,
+    "slope_med": 3.33
+   },
+   {
+    "top": -200,
+    "bot": -210,
+    "area_km2": 6.7,
+    "slope_med": 3.41
+   },
+   {
+    "top": -210,
+    "bot": -220,
+    "area_km2": 6.41,
+    "slope_med": 3.73
+   },
+   {
+    "top": -220,
+    "bot": -230,
+    "area_km2": 5.69,
+    "slope_med": 4.22
+   },
+   {
+    "top": -230,
+    "bot": -240,
+    "area_km2": 4.98,
+    "slope_med": 5.8
+   },
+   {
+    "top": -240,
+    "bot": -250,
+    "area_km2": 4.57,
+    "slope_med": 7.5
+   },
+   {
+    "top": -250,
+    "bot": -260,
+    "area_km2": 4.01,
+    "slope_med": 9.37
+   },
+   {
+    "top": -260,
+    "bot": -270,
+    "area_km2": 3.82,
+    "slope_med": 10.78
+   },
+   {
+    "top": -270,
+    "bot": -280,
+    "area_km2": 3.86,
+    "slope_med": 10.82
+   },
+   {
+    "top": -280,
+    "bot": -290,
+    "area_km2": 3.92,
+    "slope_med": 11.5
+   },
+   {
+    "top": -290,
+    "bot": -300,
+    "area_km2": 3.95,
+    "slope_med": 10.86
+   },
+   {
+    "top": -300,
+    "bot": -310,
+    "area_km2": 3.84,
+    "slope_med": 12.03
+   },
+   {
+    "top": -310,
+    "bot": -320,
+    "area_km2": 3.82,
+    "slope_med": 12.4
+   },
+   {
+    "top": -320,
+    "bot": -330,
+    "area_km2": 3.54,
+    "slope_med": 13.14
+   },
+   {
+    "top": -330,
+    "bot": -340,
+    "area_km2": 4.08,
+    "slope_med": 13.57
+   },
+   {
+    "top": -340,
+    "bot": -350,
+    "area_km2": 3.89,
+    "slope_med": 12.73
+   },
+   {
+    "top": -350,
+    "bot": -360,
+    "area_km2": 4.43,
+    "slope_med": 13.47
+   },
+   {
+    "top": -360,
+    "bot": -370,
+    "area_km2": 4.12,
+    "slope_med": 14.54
+   },
+   {
+    "top": -370,
+    "bot": -380,
+    "area_km2": 4.26,
+    "slope_med": 14.36
+   },
+   {
+    "top": -380,
+    "bot": -390,
+    "area_km2": 4.58,
+    "slope_med": 13.66
+   },
+   {
+    "top": -390,
+    "bot": -400,
+    "area_km2": 4.03,
+    "slope_med": 14.33
+   }
+  ]
+ },
+ "Sao Jorge": {
+  "land_km2": 261.8,
+  "shelf_ref_slope": 3.88,
+  "break_m": -170,
+  "bins": [
+   {
+    "top": 0,
+    "bot": -10,
+    "area_km2": 16.82,
+    "slope_med": 3.33
+   },
+   {
+    "top": -10,
+    "bot": -20,
+    "area_km2": 12.32,
+    "slope_med": 4.33
+   },
+   {
+    "top": -20,
+    "bot": -30,
+    "area_km2": 13.31,
+    "slope_med": 3.92
+   },
+   {
+    "top": -30,
+    "bot": -40,
+    "area_km2": 12.86,
+    "slope_med": 3.83
+   },
+   {
+    "top": -40,
+    "bot": -50,
+    "area_km2": 13.15,
+    "slope_med": 4.0
+   },
+   {
+    "top": -50,
+    "bot": -60,
+    "area_km2": 13.82,
+    "slope_med": 4.0
+   },
+   {
+    "top": -60,
+    "bot": -70,
+    "area_km2": 15.7,
+    "slope_med": 3.66
+   },
+   {
+    "top": -70,
+    "bot": -80,
+    "area_km2": 16.01,
+    "slope_med": 3.69
+   },
+   {
+    "top": -80,
+    "bot": -90,
+    "area_km2": 14.97,
+    "slope_med": 4.1
+   },
+   {
+    "top": -90,
+    "bot": -100,
+    "area_km2": 14.13,
+    "slope_med": 4.44
+   },
+   {
+    "top": -100,
+    "bot": -110,
+    "area_km2": 13.88,
+    "slope_med": 4.53
+   },
+   {
+    "top": -110,
+    "bot": -120,
+    "area_km2": 14.83,
+    "slope_med": 3.97
+   },
+   {
+    "top": -120,
+    "bot": -130,
+    "area_km2": 16.26,
+    "slope_med": 3.0
+   },
+   {
+    "top": -130,
+    "bot": -140,
+    "area_km2": 13.52,
+    "slope_med": 4.24
+   },
+   {
+    "top": -140,
+    "bot": -150,
+    "area_km2": 11.79,
+    "slope_med": 5.26
+   },
+   {
+    "top": -150,
+    "bot": -160,
+    "area_km2": 10.08,
+    "slope_med": 6.88
+   },
+   {
+    "top": -160,
+    "bot": -170,
+    "area_km2": 10.12,
+    "slope_med": 7.28
+   },
+   {
+    "top": -170,
+    "bot": -180,
+    "area_km2": 8.93,
+    "slope_med": 8.5
+   },
+   {
+    "top": -180,
+    "bot": -190,
+    "area_km2": 8.78,
+    "slope_med": 8.75
+   },
+   {
+    "top": -190,
+    "bot": -200,
+    "area_km2": 8.37,
+    "slope_med": 8.81
+   },
+   {
+    "top": -200,
+    "bot": -210,
+    "area_km2": 7.63,
+    "slope_med": 10.07
+   },
+   {
+    "top": -210,
+    "bot": -220,
+    "area_km2": 7.28,
+    "slope_med": 9.36
+   },
+   {
+    "top": -220,
+    "bot": -230,
+    "area_km2": 7.04,
+    "slope_med": 10.78
+   },
+   {
+    "top": -230,
+    "bot": -240,
+    "area_km2": 6.84,
+    "slope_med": 11.32
+   },
+   {
+    "top": -240,
+    "bot": -250,
+    "area_km2": 6.89,
+    "slope_med": 10.46
+   },
+   {
+    "top": -250,
+    "bot": -260,
+    "area_km2": 6.68,
+    "slope_med": 11.79
+   },
+   {
+    "top": -260,
+    "bot": -270,
+    "area_km2": 5.88,
+    "slope_med": 11.79
+   },
+   {
+    "top": -270,
+    "bot": -280,
+    "area_km2": 5.92,
+    "slope_med": 12.7
+   },
+   {
+    "top": -280,
+    "bot": -290,
+    "area_km2": 4.91,
+    "slope_med": 14.62
+   },
+   {
+    "top": -290,
+    "bot": -300,
+    "area_km2": 5.25,
+    "slope_med": 14.77
+   },
+   {
+    "top": -300,
+    "bot": -310,
+    "area_km2": 4.77,
+    "slope_med": 17.59
+   },
+   {
+    "top": -310,
+    "bot": -320,
+    "area_km2": 4.75,
+    "slope_med": 16.32
+   },
+   {
+    "top": -320,
+    "bot": -330,
+    "area_km2": 5.2,
+    "slope_med": 16.65
+   },
+   {
+    "top": -330,
+    "bot": -340,
+    "area_km2": 4.61,
+    "slope_med": 17.9
+   },
+   {
+    "top": -340,
+    "bot": -350,
+    "area_km2": 4.53,
+    "slope_med": 17.17
+   },
+   {
+    "top": -350,
+    "bot": -360,
+    "area_km2": 4.46,
+    "slope_med": 18.87
+   },
+   {
+    "top": -360,
+    "bot": -370,
+    "area_km2": 4.53,
+    "slope_med": 20.14
+   },
+   {
+    "top": -370,
+    "bot": -380,
+    "area_km2": 4.41,
+    "slope_med": 20.29
+   },
+   {
+    "top": -380,
+    "bot": -390,
+    "area_km2": 4.21,
+    "slope_med": 20.57
+   },
+   {
+    "top": -390,
+    "bot": -400,
+    "area_km2": 3.96,
+    "slope_med": 19.62
+   }
+  ]
+ },
+ "Pico-Faial": {
+  "land_km2": 643.2,
+  "shelf_ref_slope": 3.62,
+  "break_m": -160,
+  "bins": [
+   {
+    "top": 0,
+    "bot": -10,
+    "area_km2": 16.86,
+    "slope_med": 3.69
+   },
+   {
+    "top": -10,
+    "bot": -20,
+    "area_km2": 14.18,
+    "slope_med": 4.38
+   },
+   {
+    "top": -20,
+    "bot": -30,
+    "area_km2": 14.45,
+    "slope_med": 3.52
+   },
+   {
+    "top": -30,
+    "bot": -40,
+    "area_km2": 15.7,
+    "slope_med": 3.52
+   },
+   {
+    "top": -40,
+    "bot": -50,
+    "area_km2": 16.28,
+    "slope_med": 3.56
+   },
+   {
+    "top": -50,
+    "bot": -60,
+    "area_km2": 16.96,
+    "slope_med": 3.79
+   },
+   {
+    "top": -60,
+    "bot": -70,
+    "area_km2": 18.68,
+    "slope_med": 3.68
+   },
+   {
+    "top": -70,
+    "bot": -80,
+    "area_km2": 17.75,
+    "slope_med": 3.8
+   },
+   {
+    "top": -80,
+    "bot": -90,
+    "area_km2": 20.26,
+    "slope_med": 3.36
+   },
+   {
+    "top": -90,
+    "bot": -100,
+    "area_km2": 21.86,
+    "slope_med": 5.51
+   },
+   {
+    "top": -100,
+    "bot": -110,
+    "area_km2": 9.76,
+    "slope_med": 5.95
+   },
+   {
+    "top": -110,
+    "bot": -120,
+    "area_km2": 8.84,
+    "slope_med": 7.05
+   },
+   {
+    "top": -120,
+    "bot": -130,
+    "area_km2": 8.96,
+    "slope_med": 5.87
+   },
+   {
+    "top": -130,
+    "bot": -140,
+    "area_km2": 9.51,
+    "slope_med": 5.98
+   },
+   {
+    "top": -140,
+    "bot": -150,
+    "area_km2": 9.37,
+    "slope_med": 5.53
+   },
+   {
+    "top": -150,
+    "bot": -160,
+    "area_km2": 9.38,
+    "slope_med": 4.31
+   },
+   {
+    "top": -160,
+    "bot": -170,
+    "area_km2": 8.15,
+    "slope_med": 7.7
+   },
+   {
+    "top": -170,
+    "bot": -180,
+    "area_km2": 6.45,
+    "slope_med": 10.58
+   },
+   {
+    "top": -180,
+    "bot": -190,
+    "area_km2": 5.91,
+    "slope_med": 13.4
+   },
+   {
+    "top": -190,
+    "bot": -200,
+    "area_km2": 10.84,
+    "slope_med": 23.87
+   },
+   {
+    "top": -200,
+    "bot": -210,
+    "area_km2": 4.83,
+    "slope_med": 17.34
+   },
+   {
+    "top": -210,
+    "bot": -220,
+    "area_km2": 4.43,
+    "slope_med": 17.03
+   },
+   {
+    "top": -220,
+    "bot": -230,
+    "area_km2": 4.63,
+    "slope_med": 15.49
+   },
+   {
+    "top": -230,
+    "bot": -240,
+    "area_km2": 5.04,
+    "slope_med": 16.01
+   },
+   {
+    "top": -240,
+    "bot": -250,
+    "area_km2": 5.51,
+    "slope_med": 17.85
+   },
+   {
+    "top": -250,
+    "bot": -260,
+    "area_km2": 5.39,
+    "slope_med": 18.01
+   },
+   {
+    "top": -260,
+    "bot": -270,
+    "area_km2": 5.8,
+    "slope_med": 16.69
+   },
+   {
+    "top": -270,
+    "bot": -280,
+    "area_km2": 5.96,
+    "slope_med": 16.61
+   },
+   {
+    "top": -280,
+    "bot": -290,
+    "area_km2": 6.89,
+    "slope_med": 16.44
+   },
+   {
+    "top": -290,
+    "bot": -300,
+    "area_km2": 7.21,
+    "slope_med": 17.03
+   },
+   {
+    "top": -300,
+    "bot": -310,
+    "area_km2": 6.52,
+    "slope_med": 17.06
+   },
+   {
+    "top": -310,
+    "bot": -320,
+    "area_km2": 7.16,
+    "slope_med": 15.53
+   },
+   {
+    "top": -320,
+    "bot": -330,
+    "area_km2": 7.41,
+    "slope_med": 16.02
+   },
+   {
+    "top": -330,
+    "bot": -340,
+    "area_km2": 6.87,
+    "slope_med": 17.62
+   },
+   {
+    "top": -340,
+    "bot": -350,
+    "area_km2": 6.79,
+    "slope_med": 15.92
+   },
+   {
+    "top": -350,
+    "bot": -360,
+    "area_km2": 8.22,
+    "slope_med": 17.11
+   },
+   {
+    "top": -360,
+    "bot": -370,
+    "area_km2": 9.66,
+    "slope_med": 18.55
+   },
+   {
+    "top": -370,
+    "bot": -380,
+    "area_km2": 6.03,
+    "slope_med": 15.51
+   },
+   {
+    "top": -380,
+    "bot": -390,
+    "area_km2": 5.55,
+    "slope_med": 16.6
+   },
+   {
+    "top": -390,
+    "bot": -400,
+    "area_km2": 5.88,
+    "slope_med": 15.9
+   }
+  ]
+ },
+ "Flores": {
+  "land_km2": 150.6,
+  "shelf_ref_slope": 2.3,
+  "break_m": -170,
+  "bins": [
+   {
+    "top": 0,
+    "bot": -10,
+    "area_km2": 11.07,
+    "slope_med": 2.49
+   },
+   {
+    "top": -10,
+    "bot": -20,
+    "area_km2": 8.57,
+    "slope_med": 2.79
+   },
+   {
+    "top": -20,
+    "bot": -30,
+    "area_km2": 8.74,
+    "slope_med": 2.87
+   },
+   {
+    "top": -30,
+    "bot": -40,
+    "area_km2": 9.8,
+    "slope_med": 2.75
+   },
+   {
+    "top": -40,
+    "bot": -50,
+    "area_km2": 10.88,
+    "slope_med": 2.52
+   },
+   {
+    "top": -50,
+    "bot": -60,
+    "area_km2": 16.33,
+    "slope_med": 1.85
+   },
+   {
+    "top": -60,
+    "bot": -70,
+    "area_km2": 16.46,
+    "slope_med": 2.0
+   },
+   {
+    "top": -70,
+    "bot": -80,
+    "area_km2": 16.77,
+    "slope_med": 2.09
+   },
+   {
+    "top": -80,
+    "bot": -90,
+    "area_km2": 15.1,
+    "slope_med": 2.36
+   },
+   {
+    "top": -90,
+    "bot": -100,
+    "area_km2": 14.98,
+    "slope_med": 2.6
+   },
+   {
+    "top": -100,
+    "bot": -110,
+    "area_km2": 16.33,
+    "slope_med": 2.2
+   },
+   {
+    "top": -110,
+    "bot": -120,
+    "area_km2": 20.66,
+    "slope_med": 1.68
+   },
+   {
+    "top": -120,
+    "bot": -130,
+    "area_km2": 19.83,
+    "slope_med": 1.58
+   },
+   {
+    "top": -130,
+    "bot": -140,
+    "area_km2": 19.08,
+    "slope_med": 1.5
+   },
+   {
+    "top": -140,
+    "bot": -150,
+    "area_km2": 17.24,
+    "slope_med": 1.64
+   },
+   {
+    "top": -150,
+    "bot": -160,
+    "area_km2": 14.9,
+    "slope_med": 2.02
+   },
+   {
+    "top": -160,
+    "bot": -170,
+    "area_km2": 10.88,
+    "slope_med": 3.1
+   },
+   {
+    "top": -170,
+    "bot": -180,
+    "area_km2": 7.38,
+    "slope_med": 5.08
+   },
+   {
+    "top": -180,
+    "bot": -190,
+    "area_km2": 6.07,
+    "slope_med": 7.12
+   },
+   {
+    "top": -190,
+    "bot": -200,
+    "area_km2": 4.57,
+    "slope_med": 8.89
+   },
+   {
+    "top": -200,
+    "bot": -210,
+    "area_km2": 4.38,
+    "slope_med": 12.02
+   },
+   {
+    "top": -210,
+    "bot": -220,
+    "area_km2": 3.45,
+    "slope_med": 12.56
+   },
+   {
+    "top": -220,
+    "bot": -230,
+    "area_km2": 3.26,
+    "slope_med": 14.46
+   },
+   {
+    "top": -230,
+    "bot": -240,
+    "area_km2": 3.07,
+    "slope_med": 14.9
+   },
+   {
+    "top": -240,
+    "bot": -250,
+    "area_km2": 2.58,
+    "slope_med": 16.53
+   },
+   {
+    "top": -250,
+    "bot": -260,
+    "area_km2": 2.93,
+    "slope_med": 16.88
+   },
+   {
+    "top": -260,
+    "bot": -270,
+    "area_km2": 2.8,
+    "slope_med": 18.33
+   },
+   {
+    "top": -270,
+    "bot": -280,
+    "area_km2": 2.41,
+    "slope_med": 17.84
+   },
+   {
+    "top": -280,
+    "bot": -290,
+    "area_km2": 2.42,
+    "slope_med": 17.14
+   },
+   {
+    "top": -290,
+    "bot": -300,
+    "area_km2": 2.48,
+    "slope_med": 18.33
+   },
+   {
+    "top": -300,
+    "bot": -310,
+    "area_km2": 2.57,
+    "slope_med": 19.43
+   },
+   {
+    "top": -310,
+    "bot": -320,
+    "area_km2": 2.41,
+    "slope_med": 17.32
+   },
+   {
+    "top": -320,
+    "bot": -330,
+    "area_km2": 2.4,
+    "slope_med": 17.92
+   },
+   {
+    "top": -330,
+    "bot": -340,
+    "area_km2": 2.71,
+    "slope_med": 17.08
+   },
+   {
+    "top": -340,
+    "bot": -350,
+    "area_km2": 2.76,
+    "slope_med": 17.93
+   },
+   {
+    "top": -350,
+    "bot": -360,
+    "area_km2": 2.71,
+    "slope_med": 17.31
+   },
+   {
+    "top": -360,
+    "bot": -370,
+    "area_km2": 2.47,
+    "slope_med": 17.48
+   },
+   {
+    "top": -370,
+    "bot": -380,
+    "area_km2": 2.56,
+    "slope_med": 17.67
+   },
+   {
+    "top": -380,
+    "bot": -390,
+    "area_km2": 2.75,
+    "slope_med": 17.64
+   },
+   {
+    "top": -390,
+    "bot": -400,
+    "area_km2": 2.61,
+    "slope_med": 17.83
+   }
+  ]
+ },
+ "Corvo": {
+  "land_km2": 19.7,
+  "shelf_ref_slope": 2.65,
+  "break_m": -100,
+  "bins": [
+   {
+    "top": 0,
+    "bot": -10,
+    "area_km2": 3.1,
+    "slope_med": 3.01
+   },
+   {
+    "top": -10,
+    "bot": -20,
+    "area_km2": 2.75,
+    "slope_med": 3.42
+   },
+   {
+    "top": -20,
+    "bot": -30,
+    "area_km2": 3.15,
+    "slope_med": 2.91
+   },
+   {
+    "top": -30,
+    "bot": -40,
+    "area_km2": 3.27,
+    "slope_med": 3.07
+   },
+   {
+    "top": -40,
+    "bot": -50,
+    "area_km2": 3.97,
+    "slope_med": 2.88
+   },
+   {
+    "top": -50,
+    "bot": -60,
+    "area_km2": 5.12,
+    "slope_med": 2.38
+   },
+   {
+    "top": -60,
+    "bot": -70,
+    "area_km2": 4.87,
+    "slope_med": 2.36
+   },
+   {
+    "top": -70,
+    "bot": -80,
+    "area_km2": 3.79,
+    "slope_med": 2.42
+   },
+   {
+    "top": -80,
+    "bot": -90,
+    "area_km2": 3.07,
+    "slope_med": 2.9
+   },
+   {
+    "top": -90,
+    "bot": -100,
+    "area_km2": 2.35,
+    "slope_med": 5.26
+   },
+   {
+    "top": -100,
+    "bot": -110,
+    "area_km2": 1.65,
+    "slope_med": 8.8
+   },
+   {
+    "top": -110,
+    "bot": -120,
+    "area_km2": 1.31,
+    "slope_med": 12.15
+   },
+   {
+    "top": -120,
+    "bot": -130,
+    "area_km2": 1.15,
+    "slope_med": 15.56
+   },
+   {
+    "top": -130,
+    "bot": -140,
+    "area_km2": 0.98,
+    "slope_med": 17.62
+   },
+   {
+    "top": -140,
+    "bot": -150,
+    "area_km2": 0.83,
+    "slope_med": 19.86
+   },
+   {
+    "top": -150,
+    "bot": -160,
+    "area_km2": 0.72,
+    "slope_med": 21.38
+   },
+   {
+    "top": -160,
+    "bot": -170,
+    "area_km2": 0.65,
+    "slope_med": 22.07
+   },
+   {
+    "top": -170,
+    "bot": -180,
+    "area_km2": 0.65,
+    "slope_med": 23.29
+   },
+   {
+    "top": -180,
+    "bot": -190,
+    "area_km2": 0.66,
+    "slope_med": 25.21
+   },
+   {
+    "top": -190,
+    "bot": -200,
+    "area_km2": 0.76,
+    "slope_med": 25.54
+   },
+   {
+    "top": -200,
+    "bot": -210,
+    "area_km2": 0.58,
+    "slope_med": 25.95
+   },
+   {
+    "top": -210,
+    "bot": -220,
+    "area_km2": 0.51,
+    "slope_med": 26.99
+   },
+   {
+    "top": -220,
+    "bot": -230,
+    "area_km2": 0.54,
+    "slope_med": 27.29
+   },
+   {
+    "top": -230,
+    "bot": -240,
+    "area_km2": 0.69,
+    "slope_med": 27.18
+   },
+   {
+    "top": -240,
+    "bot": -250,
+    "area_km2": 0.46,
+    "slope_med": 27.62
+   },
+   {
+    "top": -250,
+    "bot": -260,
+    "area_km2": 0.54,
+    "slope_med": 28.93
+   },
+   {
+    "top": -260,
+    "bot": -270,
+    "area_km2": 0.7,
+    "slope_med": 27.66
+   },
+   {
+    "top": -270,
+    "bot": -280,
+    "area_km2": 0.6,
+    "slope_med": 28.62
+   },
+   {
+    "top": -280,
+    "bot": -290,
+    "area_km2": 0.52,
+    "slope_med": 28.01
+   },
+   {
+    "top": -290,
+    "bot": -300,
+    "area_km2": 0.55,
+    "slope_med": 28.98
+   },
+   {
+    "top": -300,
+    "bot": -310,
+    "area_km2": 0.56,
+    "slope_med": 27.8
+   },
+   {
+    "top": -310,
+    "bot": -320,
+    "area_km2": 0.71,
+    "slope_med": 28.47
+   },
+   {
+    "top": -320,
+    "bot": -330,
+    "area_km2": 0.6,
+    "slope_med": 27.51
+   },
+   {
+    "top": -330,
+    "bot": -340,
+    "area_km2": 0.62,
+    "slope_med": 26.69
+   },
+   {
+    "top": -340,
+    "bot": -350,
+    "area_km2": 0.65,
+    "slope_med": 27.96
+   },
+   {
+    "top": -350,
+    "bot": -360,
+    "area_km2": 0.69,
+    "slope_med": 26.66
+   },
+   {
+    "top": -360,
+    "bot": -370,
+    "area_km2": 0.57,
+    "slope_med": 26.35
+   },
+   {
+    "top": -370,
+    "bot": -380,
+    "area_km2": 0.72,
+    "slope_med": 26.61
+   },
+   {
+    "top": -380,
+    "bot": -390,
+    "area_km2": 0.69,
+    "slope_med": 25.79
+   },
+   {
+    "top": -390,
+    "bot": -400,
+    "area_km2": 0.71,
+    "slope_med": 27.01
+   }
+  ]
+ }
+}

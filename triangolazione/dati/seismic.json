@@ -1,0 +1,122 @@
+[
+ {
+  "name": "Helike (Golfo di Corinto)",
+  "lat": 38.22,
+  "lon": 22.13,
+  "n_M5_150": 157,
+  "n_M5_300": 402,
+  "max_M_300_since1900": 7.9,
+  "max_place": "Southern Greece",
+  "max_year": 1903
+ },
+ {
+  "name": "Atalante (Golfo Euboico)",
+  "lat": 38.67,
+  "lon": 23.1,
+  "n_M5_150": 113,
+  "n_M5_300": 411,
+  "max_M_300_since1900": 7.9,
+  "max_place": "Southern Greece",
+  "max_year": 1903
+ },
+ {
+  "name": "Thera / Santorini",
+  "lat": 36.4,
+  "lon": 25.4,
+  "n_M5_150": 56,
+  "n_M5_300": 368,
+  "max_M_300_since1900": 7.9,
+  "max_place": "Southern Greece",
+  "max_year": 1903
+ },
+ {
+  "name": "Do\u00f1ana / Tartesso",
+  "lat": 37.0,
+  "lon": -6.4,
+  "n_M5_150": 3,
+  "n_M5_300": 23,
+  "max_M_300_since1900": 7.8,
+  "max_place": "Strait of Gibraltar",
+  "max_year": 1954
+ },
+ {
+  "name": "Banco Spartel",
+  "lat": 35.92,
+  "lon": -5.97,
+  "n_M5_150": 4,
+  "n_M5_300": 30,
+  "max_M_300_since1900": 7.8,
+  "max_place": "Strait of Gibraltar",
+  "max_year": 1954
+ },
+ {
+  "name": "Sorgente 1755 (Horseshoe)",
+  "lat": 36.0,
+  "lon": -10.5,
+  "n_M5_150": 9,
+  "n_M5_300": 14,
+  "max_M_300_since1900": 7.8,
+  "max_place": "188 km SW of Sagres, Portugal",
+  "max_year": 1969
+ },
+ {
+  "name": "Richat",
+  "lat": 21.12,
+  "lon": -11.4,
+  "n_M5_150": 0,
+  "n_M5_300": 0,
+  "max_M_300_since1900": 4.6,
+  "max_place": "76 km E of Zouerate, Mauritania",
+  "max_year": 2012
+ },
+ {
+  "name": "Foce Tamanrasset (Timiris)",
+  "lat": 19.4,
+  "lon": -17.5,
+  "n_M5_150": 0,
+  "n_M5_300": 0,
+  "max_M_300_since1900": 4.5,
+  "max_place": "Mauritania",
+  "max_year": 2008
+ },
+ {
+  "name": "Mega-Chad (Bama)",
+  "lat": 11.5,
+  "lon": 13.7,
+  "n_M5_150": 0,
+  "n_M5_300": 0,
+  "max_M_300_since1900": null,
+  "max_place": null,
+  "max_year": null
+ },
+ {
+  "name": "Doggerland",
+  "lat": 54.5,
+  "lon": 2.5,
+  "n_M5_150": 0,
+  "n_M5_300": 0,
+  "max_M_300_since1900": 5.7,
+  "max_place": "103 km ENE of Easington, United Kingdom",
+  "max_year": 1931
+ },
+ {
+  "name": "Piattaforma Mar Nero NW",
+  "lat": 45.0,
+  "lon": 31.0,
+  "n_M5_150": 0,
+  "n_M5_300": 1,
+  "max_M_300_since1900": 6.71,
+  "max_place": "20 km SSE of Partenit, Ukraine",
+  "max_year": 1927
+ },
+ {
+  "name": "Azzorre",
+  "lat": 38.5,
+  "lon": -28.0,
+  "n_M5_150": 16,
+  "n_M5_300": 60,
+  "max_M_300_since1900": 6.7,
+  "max_place": "29 km NE of Ribeira Seca, Portugal",
+  "max_year": 1980
+ }
+]

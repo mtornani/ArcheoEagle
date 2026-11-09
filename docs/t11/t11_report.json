@@ -1,0 +1,915 @@
+{
+ "dem": "Copernicus GLO-90, aggregato a 12 arcsec",
+ "bbox_lat_lon": [
+  6,
+  21,
+  8,
+  23
+ ],
+ "runs": {
+  "mean_conn4": {
+   "spill_m": 324.18,
+   "seed_latlon": [
+    17.175,
+    17.722
+   ],
+   "seed_z_m": 162.0,
+   "pour_point_latlon": [
+    10.275,
+    15.295
+   ],
+   "pour_point_z_m": 324.18,
+   "pour_point_km_from_mayo_kebbi": 52.7,
+   "area_km2": 344315,
+   "volume_km3": 14306,
+   "max_depth_m": 162.2,
+   "truncated": false
+  },
+  "mean_conn8": {
+   "spill_m": 324.13,
+   "seed_latlon": [
+    17.175,
+    17.722
+   ],
+   "seed_z_m": 162.0,
+   "pour_point_latlon": [
+    10.272,
+    15.295
+   ],
+   "pour_point_z_m": 324.13,
+   "pour_point_km_from_mayo_kebbi": 52.4,
+   "area_km2": 344479,
+   "volume_km3": 14288,
+   "max_depth_m": 162.1,
+   "truncated": false
+  },
+  "min_conn4": {
+   "spill_m": 323.69,
+   "seed_latlon": [
+    17.055,
+    17.522
+   ],
+   "seed_z_m": 153.9,
+   "pour_point_latlon": [
+    10.245,
+    15.298
+   ],
+   "pour_point_z_m": 323.69,
+   "pour_point_km_from_mayo_kebbi": 50.4,
+   "area_km2": 347788,
+   "volume_km3": 14609,
+   "max_depth_m": 169.8,
+   "truncated": false
+  },
+  "min_conn8": {
+   "spill_m": 323.66,
+   "seed_latlon": [
+    17.055,
+    17.522
+   ],
+   "seed_z_m": 153.9,
+   "pour_point_latlon": [
+    10.295,
+    15.302
+   ],
+   "pour_point_z_m": 323.66,
+   "pour_point_km_from_mayo_kebbi": 55.0,
+   "area_km2": 349992,
+   "volume_km3": 14624,
+   "max_depth_m": 169.8,
+   "truncated": false
+  }
+ },
+ "hypsometry_mean_conn4": [
+  {
+   "z_m": 160.0,
+   "area_km2": 0,
+   "volume_km3": 0.0
+  },
+  {
+   "z_m": 161.0,
+   "area_km2": 0,
+   "volume_km3": 0.0
+  },
+  {
+   "z_m": 162.0,
+   "area_km2": 0,
+   "volume_km3": 0.0
+  },
+  {
+   "z_m": 163.0,
+   "area_km2": 1,
+   "volume_km3": 0.0
+  },
+  {
+   "z_m": 164.0,
+   "area_km2": 17,
+   "volume_km3": 0.0
+  },
+  {
+   "z_m": 165.0,
+   "area_km2": 134,
+   "volume_km3": 0.1
+  },
+  {
+   "z_m": 166.0,
+   "area_km2": 464,
+   "volume_km3": 0.4
+  },
+  {
+   "z_m": 167.0,
+   "area_km2": 967,
+   "volume_km3": 1.1
+  },
+  {
+   "z_m": 168.0,
+   "area_km2": 1484,
+   "volume_km3": 2.3
+  },
+  {
+   "z_m": 169.0,
+   "area_km2": 1990,
+   "volume_km3": 4.0
+  },
+  {
+   "z_m": 170.0,
+   "area_km2": 2470,
+   "volume_km3": 6.3
+  },
+  {
+   "z_m": 171.0,
+   "area_km2": 2965,
+   "volume_km3": 9.0
+  },
+  {
+   "z_m": 172.0,
+   "area_km2": 3416,
+   "volume_km3": 12.2
+  },
+  {
+   "z_m": 173.0,
+   "area_km2": 3812,
+   "volume_km3": 15.8
+  },
+  {
+   "z_m": 174.0,
+   "area_km2": 4205,
+   "volume_km3": 19.8
+  },
+  {
+   "z_m": 175.0,
+   "area_km2": 4614,
+   "volume_km3": 24.2
+  },
+  {
+   "z_m": 176.0,
+   "area_km2": 5033,
+   "volume_km3": 29.0
+  },
+  {
+   "z_m": 177.0,
+   "area_km2": 5449,
+   "volume_km3": 34.3
+  },
+  {
+   "z_m": 178.0,
+   "area_km2": 5904,
+   "volume_km3": 39.9
+  },
+  {
+   "z_m": 179.0,
+   "area_km2": 6327,
+   "volume_km3": 46.1
+  },
+  {
+   "z_m": 180.0,
+   "area_km2": 6734,
+   "volume_km3": 52.6
+  },
+  {
+   "z_m": 181.0,
+   "area_km2": 7128,
+   "volume_km3": 59.5
+  },
+  {
+   "z_m": 182.0,
+   "area_km2": 7520,
+   "volume_km3": 66.9
+  },
+  {
+   "z_m": 183.0,
+   "area_km2": 7915,
+   "volume_km3": 74.6
+  },
+  {
+   "z_m": 184.0,
+   "area_km2": 8276,
+   "volume_km3": 82.7
+  },
+  {
+   "z_m": 185.0,
+   "area_km2": 8649,
+   "volume_km3": 91.1
+  },
+  {
+   "z_m": 186.0,
+   "area_km2": 9052,
+   "volume_km3": 100.0
+  },
+  {
+   "z_m": 187.0,
+   "area_km2": 9435,
+   "volume_km3": 109.2
+  },
+  {
+   "z_m": 188.0,
+   "area_km2": 9844,
+   "volume_km3": 118.9
+  },
+  {
+   "z_m": 189.0,
+   "area_km2": 10253,
+   "volume_km3": 128.9
+  },
+  {
+   "z_m": 190.0,
+   "area_km2": 10651,
+   "volume_km3": 139.4
+  },
+  {
+   "z_m": 191.0,
+   "area_km2": 11027,
+   "volume_km3": 150.2
+  },
+  {
+   "z_m": 192.0,
+   "area_km2": 11426,
+   "volume_km3": 161.4
+  },
+  {
+   "z_m": 193.0,
+   "area_km2": 11838,
+   "volume_km3": 173.1
+  },
+  {
+   "z_m": 194.0,
+   "area_km2": 12242,
+   "volume_km3": 185.1
+  },
+  {
+   "z_m": 195.0,
+   "area_km2": 12670,
+   "volume_km3": 197.5
+  },
+  {
+   "z_m": 196.0,
+   "area_km2": 13125,
+   "volume_km3": 210.4
+  },
+  {
+   "z_m": 197.0,
+   "area_km2": 13623,
+   "volume_km3": 223.8
+  },
+  {
+   "z_m": 198.0,
+   "area_km2": 14115,
+   "volume_km3": 237.7
+  },
+  {
+   "z_m": 199.0,
+   "area_km2": 14644,
+   "volume_km3": 252.1
+  },
+  {
+   "z_m": 200.0,
+   "area_km2": 15160,
+   "volume_km3": 267.0
+  },
+  {
+   "z_m": 201.0,
+   "area_km2": 15675,
+   "volume_km3": 282.4
+  },
+  {
+   "z_m": 202.0,
+   "area_km2": 16170,
+   "volume_km3": 298.3
+  },
+  {
+   "z_m": 203.0,
+   "area_km2": 16657,
+   "volume_km3": 314.7
+  },
+  {
+   "z_m": 204.0,
+   "area_km2": 17159,
+   "volume_km3": 331.6
+  },
+  {
+   "z_m": 205.0,
+   "area_km2": 17678,
+   "volume_km3": 349.0
+  },
+  {
+   "z_m": 206.0,
+   "area_km2": 18210,
+   "volume_km3": 367.0
+  },
+  {
+   "z_m": 207.0,
+   "area_km2": 18730,
+   "volume_km3": 385.5
+  },
+  {
+   "z_m": 208.0,
+   "area_km2": 19227,
+   "volume_km3": 404.4
+  },
+  {
+   "z_m": 209.0,
+   "area_km2": 19728,
+   "volume_km3": 423.9
+  },
+  {
+   "z_m": 210.0,
+   "area_km2": 20267,
+   "volume_km3": 443.9
+  },
+  {
+   "z_m": 211.0,
+   "area_km2": 20811,
+   "volume_km3": 464.4
+  },
+  {
+   "z_m": 212.0,
+   "area_km2": 21356,
+   "volume_km3": 485.5
+  },
+  {
+   "z_m": 213.0,
+   "area_km2": 21934,
+   "volume_km3": 507.2
+  },
+  {
+   "z_m": 214.0,
+   "area_km2": 22485,
+   "volume_km3": 529.4
+  },
+  {
+   "z_m": 215.0,
+   "area_km2": 23063,
+   "volume_km3": 552.2
+  },
+  {
+   "z_m": 216.0,
+   "area_km2": 23674,
+   "volume_km3": 575.5
+  },
+  {
+   "z_m": 217.0,
+   "area_km2": 24355,
+   "volume_km3": 599.5
+  },
+  {
+   "z_m": 218.0,
+   "area_km2": 25050,
+   "volume_km3": 624.2
+  },
+  {
+   "z_m": 219.0,
+   "area_km2": 25730,
+   "volume_km3": 649.6
+  },
+  {
+   "z_m": 220.0,
+   "area_km2": 26400,
+   "volume_km3": 675.7
+  },
+  {
+   "z_m": 221.0,
+   "area_km2": 27072,
+   "volume_km3": 702.4
+  },
+  {
+   "z_m": 222.0,
+   "area_km2": 27691,
+   "volume_km3": 729.8
+  },
+  {
+   "z_m": 223.0,
+   "area_km2": 28336,
+   "volume_km3": 757.8
+  },
+  {
+   "z_m": 224.0,
+   "area_km2": 28975,
+   "volume_km3": 786.5
+  },
+  {
+   "z_m": 225.0,
+   "area_km2": 29628,
+   "volume_km3": 815.8
+  },
+  {
+   "z_m": 226.0,
+   "area_km2": 30281,
+   "volume_km3": 845.7
+  },
+  {
+   "z_m": 227.0,
+   "area_km2": 31001,
+   "volume_km3": 876.4
+  },
+  {
+   "z_m": 228.0,
+   "area_km2": 31692,
+   "volume_km3": 907.7
+  },
+  {
+   "z_m": 229.0,
+   "area_km2": 32348,
+   "volume_km3": 939.7
+  },
+  {
+   "z_m": 230.0,
+   "area_km2": 33030,
+   "volume_km3": 972.4
+  },
+  {
+   "z_m": 231.0,
+   "area_km2": 33712,
+   "volume_km3": 1005.8
+  },
+  {
+   "z_m": 232.0,
+   "area_km2": 34400,
+   "volume_km3": 1039.9
+  },
+  {
+   "z_m": 233.0,
+   "area_km2": 35083,
+   "volume_km3": 1074.6
+  },
+  {
+   "z_m": 234.0,
+   "area_km2": 35794,
+   "volume_km3": 1110.0
+  },
+  {
+   "z_m": 235.0,
+   "area_km2": 36551,
+   "volume_km3": 1146.2
+  },
+  {
+   "z_m": 236.0,
+   "area_km2": 37283,
+   "volume_km3": 1183.1
+  },
+  {
+   "z_m": 237.0,
+   "area_km2": 38004,
+   "volume_km3": 1220.8
+  },
+  {
+   "z_m": 238.0,
+   "area_km2": 38726,
+   "volume_km3": 1259.1
+  },
+  {
+   "z_m": 239.0,
+   "area_km2": 39484,
+   "volume_km3": 1298.2
+  },
+  {
+   "z_m": 240.0,
+   "area_km2": 40214,
+   "volume_km3": 1338.1
+  },
+  {
+   "z_m": 241.0,
+   "area_km2": 40924,
+   "volume_km3": 1378.7
+  },
+  {
+   "z_m": 242.0,
+   "area_km2": 41584,
+   "volume_km3": 1419.9
+  },
+  {
+   "z_m": 243.0,
+   "area_km2": 42205,
+   "volume_km3": 1461.8
+  },
+  {
+   "z_m": 244.0,
+   "area_km2": 42853,
+   "volume_km3": 1504.3
+  },
+  {
+   "z_m": 245.0,
+   "area_km2": 43514,
+   "volume_km3": 1547.5
+  },
+  {
+   "z_m": 246.0,
+   "area_km2": 44151,
+   "volume_km3": 1591.3
+  },
+  {
+   "z_m": 247.0,
+   "area_km2": 44807,
+   "volume_km3": 1635.8
+  },
+  {
+   "z_m": 248.0,
+   "area_km2": 45473,
+   "volume_km3": 1681.0
+  },
+  {
+   "z_m": 249.0,
+   "area_km2": 46160,
+   "volume_km3": 1726.8
+  },
+  {
+   "z_m": 250.0,
+   "area_km2": 46843,
+   "volume_km3": 1773.3
+  },
+  {
+   "z_m": 251.0,
+   "area_km2": 47550,
+   "volume_km3": 1820.5
+  },
+  {
+   "z_m": 252.0,
+   "area_km2": 48254,
+   "volume_km3": 1868.4
+  },
+  {
+   "z_m": 253.0,
+   "area_km2": 48952,
+   "volume_km3": 1917.0
+  },
+  {
+   "z_m": 254.0,
+   "area_km2": 49603,
+   "volume_km3": 1966.3
+  },
+  {
+   "z_m": 255.0,
+   "area_km2": 50224,
+   "volume_km3": 2016.2
+  },
+  {
+   "z_m": 256.0,
+   "area_km2": 50841,
+   "volume_km3": 2066.7
+  },
+  {
+   "z_m": 257.0,
+   "area_km2": 51522,
+   "volume_km3": 2117.9
+  },
+  {
+   "z_m": 258.0,
+   "area_km2": 52200,
+   "volume_km3": 2169.7
+  },
+  {
+   "z_m": 259.0,
+   "area_km2": 52967,
+   "volume_km3": 2222.3
+  },
+  {
+   "z_m": 260.0,
+   "area_km2": 53774,
+   "volume_km3": 2275.7
+  },
+  {
+   "z_m": 261.0,
+   "area_km2": 54596,
+   "volume_km3": 2329.9
+  },
+  {
+   "z_m": 262.0,
+   "area_km2": 55457,
+   "volume_km3": 2384.9
+  },
+  {
+   "z_m": 263.0,
+   "area_km2": 56329,
+   "volume_km3": 2440.8
+  },
+  {
+   "z_m": 264.0,
+   "area_km2": 57248,
+   "volume_km3": 2497.5
+  },
+  {
+   "z_m": 265.0,
+   "area_km2": 58225,
+   "volume_km3": 2555.3
+  },
+  {
+   "z_m": 266.0,
+   "area_km2": 59298,
+   "volume_km3": 2614.0
+  },
+  {
+   "z_m": 267.0,
+   "area_km2": 60429,
+   "volume_km3": 2673.9
+  },
+  {
+   "z_m": 268.0,
+   "area_km2": 61644,
+   "volume_km3": 2734.9
+  },
+  {
+   "z_m": 269.0,
+   "area_km2": 62945,
+   "volume_km3": 2797.2
+  },
+  {
+   "z_m": 270.0,
+   "area_km2": 64480,
+   "volume_km3": 2860.9
+  },
+  {
+   "z_m": 271.0,
+   "area_km2": 66443,
+   "volume_km3": 2926.3
+  },
+  {
+   "z_m": 272.0,
+   "area_km2": 68839,
+   "volume_km3": 2994.0
+  },
+  {
+   "z_m": 273.0,
+   "area_km2": 71246,
+   "volume_km3": 3064.1
+  },
+  {
+   "z_m": 274.0,
+   "area_km2": 73824,
+   "volume_km3": 3136.6
+  },
+  {
+   "z_m": 275.0,
+   "area_km2": 76595,
+   "volume_km3": 3211.8
+  },
+  {
+   "z_m": 276.0,
+   "area_km2": 79493,
+   "volume_km3": 3289.8
+  },
+  {
+   "z_m": 277.0,
+   "area_km2": 82592,
+   "volume_km3": 3370.8
+  },
+  {
+   "z_m": 278.0,
+   "area_km2": 85874,
+   "volume_km3": 3455.0
+  },
+  {
+   "z_m": 279.0,
+   "area_km2": 89681,
+   "volume_km3": 3542.8
+  },
+  {
+   "z_m": 280.0,
+   "area_km2": 94533,
+   "volume_km3": 3634.7
+  },
+  {
+   "z_m": 281.0,
+   "area_km2": 103586,
+   "volume_km3": 3734.4
+  },
+  {
+   "z_m": 282.0,
+   "area_km2": 110407,
+   "volume_km3": 3841.5
+  },
+  {
+   "z_m": 283.0,
+   "area_km2": 115829,
+   "volume_km3": 3954.6
+  },
+  {
+   "z_m": 284.0,
+   "area_km2": 121364,
+   "volume_km3": 4073.3
+  },
+  {
+   "z_m": 285.0,
+   "area_km2": 126865,
+   "volume_km3": 4197.4
+  },
+  {
+   "z_m": 286.0,
+   "area_km2": 132782,
+   "volume_km3": 4327.2
+  },
+  {
+   "z_m": 287.0,
+   "area_km2": 139744,
+   "volume_km3": 4463.3
+  },
+  {
+   "z_m": 288.0,
+   "area_km2": 148833,
+   "volume_km3": 4607.4
+  },
+  {
+   "z_m": 289.0,
+   "area_km2": 159582,
+   "volume_km3": 4761.6
+  },
+  {
+   "z_m": 290.0,
+   "area_km2": 170116,
+   "volume_km3": 4926.4
+  },
+  {
+   "z_m": 291.0,
+   "area_km2": 180313,
+   "volume_km3": 5101.7
+  },
+  {
+   "z_m": 292.0,
+   "area_km2": 189675,
+   "volume_km3": 5286.8
+  },
+  {
+   "z_m": 293.0,
+   "area_km2": 198194,
+   "volume_km3": 5480.8
+  },
+  {
+   "z_m": 294.0,
+   "area_km2": 206068,
+   "volume_km3": 5683.0
+  },
+  {
+   "z_m": 295.0,
+   "area_km2": 213226,
+   "volume_km3": 5892.6
+  },
+  {
+   "z_m": 296.0,
+   "area_km2": 220459,
+   "volume_km3": 6109.5
+  },
+  {
+   "z_m": 297.0,
+   "area_km2": 227299,
+   "volume_km3": 6333.4
+  },
+  {
+   "z_m": 298.0,
+   "area_km2": 233665,
+   "volume_km3": 6563.9
+  },
+  {
+   "z_m": 299.0,
+   "area_km2": 239774,
+   "volume_km3": 6800.6
+  },
+  {
+   "z_m": 300.0,
+   "area_km2": 245613,
+   "volume_km3": 7043.4
+  },
+  {
+   "z_m": 301.0,
+   "area_km2": 251298,
+   "volume_km3": 7291.8
+  },
+  {
+   "z_m": 302.0,
+   "area_km2": 257117,
+   "volume_km3": 7546.0
+  },
+  {
+   "z_m": 303.0,
+   "area_km2": 262844,
+   "volume_km3": 7806.0
+  },
+  {
+   "z_m": 304.0,
+   "area_km2": 268026,
+   "volume_km3": 8071.5
+  },
+  {
+   "z_m": 305.0,
+   "area_km2": 273091,
+   "volume_km3": 8342.1
+  },
+  {
+   "z_m": 306.0,
+   "area_km2": 277728,
+   "volume_km3": 8617.5
+  },
+  {
+   "z_m": 307.0,
+   "area_km2": 282011,
+   "volume_km3": 8897.4
+  },
+  {
+   "z_m": 308.0,
+   "area_km2": 286136,
+   "volume_km3": 9181.5
+  },
+  {
+   "z_m": 309.0,
+   "area_km2": 290237,
+   "volume_km3": 9469.7
+  },
+  {
+   "z_m": 310.0,
+   "area_km2": 294153,
+   "volume_km3": 9761.9
+  },
+  {
+   "z_m": 311.0,
+   "area_km2": 297970,
+   "volume_km3": 10058.0
+  },
+  {
+   "z_m": 312.0,
+   "area_km2": 301641,
+   "volume_km3": 10357.8
+  },
+  {
+   "z_m": 313.0,
+   "area_km2": 305322,
+   "volume_km3": 10661.3
+  },
+  {
+   "z_m": 314.0,
+   "area_km2": 309031,
+   "volume_km3": 10968.5
+  },
+  {
+   "z_m": 315.0,
+   "area_km2": 312897,
+   "volume_km3": 11279.4
+  },
+  {
+   "z_m": 316.0,
+   "area_km2": 316697,
+   "volume_km3": 11594.2
+  },
+  {
+   "z_m": 317.0,
+   "area_km2": 320466,
+   "volume_km3": 11912.8
+  },
+  {
+   "z_m": 318.0,
+   "area_km2": 324223,
+   "volume_km3": 12235.2
+  },
+  {
+   "z_m": 319.0,
+   "area_km2": 327922,
+   "volume_km3": 12561.3
+  },
+  {
+   "z_m": 320.0,
+   "area_km2": 331509,
+   "volume_km3": 12891.0
+  },
+  {
+   "z_m": 321.0,
+   "area_km2": 334942,
+   "volume_km3": 13224.2
+  },
+  {
+   "z_m": 322.0,
+   "area_km2": 338096,
+   "volume_km3": 13560.8
+  },
+  {
+   "z_m": 323.0,
+   "area_km2": 341087,
+   "volume_km3": 13900.4
+  },
+  {
+   "z_m": 324.0,
+   "area_km2": 343862,
+   "volume_km3": 14242.9
+  },
+  {
+   "z_m": 324.18,
+   "area_km2": 344303,
+   "volume_km3": 14304.8
+  }
+ ]
+}

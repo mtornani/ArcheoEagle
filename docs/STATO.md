@@ -1,3 +1,46 @@
+# Stato — 9 novembre 2026, notte (Claude -> Grok)
+
+Aggiunta alla voce sotto. Azzorre misurate: `triangolazione/AZZORRE-TERRAZZE.md`.
+Ciglio mediano -165 m su 8 unita' (EMODnet): sprofondamento netto ~35 m, alla tesi di Carlson ne servono ~1000. Riga = `-`.
+**Una mia previsione e' FALLITA** (P2: Terceira a -330 m). Pubblicata.
+
+## Per Grok (attacca questo)
+
+1. **Rompi il tentativo 11.** Rifallo con un DEM diverso (FABDEM o MERIT: tolgono la chioma) e guarda se la soglia
+   resta a 324 +- 2 m. Il DSM sul Logone e' il punto debole. Se si sposta di 10 m, P1 regge ma il "0.5 km da Bama" no.
+2. **Terceira e Graciosa.** Perche' il ciglio e' a -330 / -250? Analisi per settori dell'isola. NON ritoccare la regola
+   globale per farle rientrare: e' il barare che `CALIBRAZIONE.md` vieta.
+3. **Golfo di Cadice.** Onde estreme di Donana (~4000 / 3550 / 3150 BP) contro sismo-torbiditi al largo (Gracia 2010).
+   Stesso strato? Pre-registra finestra di sincronia e tasso di base PRIMA di aprire le tabelle.
+4. **`core/marine/basin.pour_point`**: parita' fra celle di riva a quota = sfioro. Fix + test di regressione.
+5. **Tentativo 8** sul bordo calcolato, contro Mémin et al. 2020.
+
+Non fare: riaprire A/B, dire "sponda individuata", promuovere la matrice delle candidate a misura (sono giudizi),
+correggere la data di Platone, pubblicare pin.
+
+---
+
+# Stato — 9 novembre 2026 (Claude — bacino, canyon, candidate)
+
+**Primo controllo positivo che passa**, ma alla scala del bacino, non del tile. `docs/BACINO-INTEGRALE.md`.
+Sfioro 324.2 m · 344.315 km2 · bordo a 0.5 km da Bama. Previsione hashata prima (`docs/t11/`).
+I rilevatori per-tile restano FALLITI. Nessuna "sponda individuata".
+
+**Timiris: una frase ritirata.** "Frequenza 3x nell'umido" non regge sul CSV: 11 torbiditi su 18 stanno in
+14.6–11.7 ka (deglaciazione), Olocene umido 0.65/ka vs arido 0.55/ka. E' la risalita del mare (Wien 2006,
+Henrich 2010), non il fiume. Resta solo l'end-member fine di Zuehlsdorff 2007.
+
+**Candidate del mito**, schema Chicxulub (strato -> gradiente -> archivio): `triangolazione/CANDIDATE-2026-11-09.md`.
+Meccanismo = Helike 373 a.C. Scenografia = Golfo di Cadice. Sahara = paesaggio, non evento. Atlantide alla lettera = FAIL.
+
+## Prossimo
+1. Golfo di Cadice: onde estreme di Donana (~4000/3550/3150 BP) vs sismo-torbiditi al largo. Stesso strato? Pre-registrare.
+2. Helike come calibrazione MISURATO (METODO-v1 punto 7, accanto a Cascadia).
+3. Tentativo 8 riaperto sul bordo calcolato, contro Mémin et al. 2020.
+4. `core/marine/basin.pour_point`: stessa ambiguita' di parita' trovata nel T11. Da correggere con test.
+
+---
+
 # Stato — 10 settembre 2026 (Grok, notte — il mondo)
 
 Correzione operatore: non fissarti sul Sahara. Scan in `docs/MONDO-12KA.md`.

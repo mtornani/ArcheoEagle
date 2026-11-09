@@ -1,0 +1,16 @@
+{
+ "bbox": [
+  36.5,
+  40,
+  -32,
+  -24.5
+ ],
+ "fonte": "GMRT GridServer, resolution=med",
+ "area_km2_per_livello_mare": {
+  "0": 2446,
+  "-60": 3036,
+  "-100": 3576,
+  "-130": 3915
+ },
+ "frazione_sotto_-1000m": 0.91
+}

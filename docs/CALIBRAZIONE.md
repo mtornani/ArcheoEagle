@@ -463,3 +463,14 @@ rampa costante → zero segmenti falsi.
 reali. STEP_SCORE_THRESHOLD non toccata. Nessuna UI dice sponda individuata.
 Questo chiude solo lo strumento di spezzatura; non il verdetto sulla sponda.
 
+
+## Tentativo 11 — integrale di bacino (PASSA, alla scala del bacino). 9 novembre 2026.
+
+Eseguita la "direzione non provata n.1". Previsione e kill-shot registrati prima (`docs/t11/PREREG-T11.md`).
+Priority-flood su 225 tile GLO-90: sfioro **324.2 m**, pour point sullo spartiacque Logone–Mayo Kebbi,
+**344.315 km2**, bordo a **0.5 km** da Bama (OSL, mai usato nel calcolo). Quattro previsioni su quattro.
+Dettaglio, limiti e correzione a `pour_point`: `docs/BACINO-INTEGRALE.md`.
+
+**Non cambia le regole sopra.** I rilevatori per-tile (1–10) restano FALLITI e `STEP_SCORE_THRESHOLD`
+non e' stata toccata. Nessuna UI dice "sponda individuata": questo e' un test di bacino, non di tile.
+Sblocca il tentativo 8: ora esiste una maschera di sponda indipendente dai tile.

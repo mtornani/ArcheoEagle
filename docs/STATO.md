@@ -1,3 +1,24 @@
+# Stato — 9 novembre 2026 (Claude — bacino, canyon, candidate)
+
+**Primo controllo positivo che passa**, ma alla scala del bacino, non del tile. `docs/BACINO-INTEGRALE.md`.
+Sfioro 324.2 m · 344.315 km2 · bordo a 0.5 km da Bama. Previsione hashata prima (`docs/t11/`).
+I rilevatori per-tile restano FALLITI. Nessuna "sponda individuata".
+
+**Timiris: una frase ritirata.** "Frequenza 3x nell'umido" non regge sul CSV: 11 torbiditi su 18 stanno in
+14.6–11.7 ka (deglaciazione), Olocene umido 0.65/ka vs arido 0.55/ka. E' la risalita del mare (Wien 2006,
+Henrich 2010), non il fiume. Resta solo l'end-member fine di Zuehlsdorff 2007.
+
+**Candidate del mito**, schema Chicxulub (strato -> gradiente -> archivio): `triangolazione/CANDIDATE-2026-11-09.md`.
+Meccanismo = Helike 373 a.C. Scenografia = Golfo di Cadice. Sahara = paesaggio, non evento. Atlantide alla lettera = FAIL.
+
+## Prossimo
+1. Golfo di Cadice: onde estreme di Donana (~4000/3550/3150 BP) vs sismo-torbiditi al largo. Stesso strato? Pre-registrare.
+2. Helike come calibrazione MISURATO (METODO-v1 punto 7, accanto a Cascadia).
+3. Tentativo 8 riaperto sul bordo calcolato, contro Mémin et al. 2020.
+4. `core/marine/basin.pour_point`: stessa ambiguita' di parita' trovata nel T11. Da correggere con test.
+
+---
+
 # Stato — 10 settembre 2026 (Grok, notte — il mondo)
 
 Correzione operatore: non fissarti sul Sahara. Scan in `docs/MONDO-12KA.md`.

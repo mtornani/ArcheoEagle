@@ -10,6 +10,7 @@ Vietato correggere la data (METODO-v1 punto 9). Atlantide alla lettera = FAIL (p
 |---|---|---|
 | Sismicita' M>=5, 1960–2025, entro 150 km | USGS ComCat | Helike 157 · Atalante 113 · Thera 56 · Azzorre 16 · Horseshoe 9 · Spartel 4 · Donana 3 · Richat 0 · Timiris 0 · Bama 0 · Doggerland 0 · Mar Nero NW 0 |
 | Isola di Spartel per livello del mare | GMRT max res | 14.9 km2 a -135 m; < 1 km2 sopra -95 m; cima GMRT -71.5 m (letteratura -56 m) |
+| Azzorre: ciglio della piattaforma | EMODnet ~115 m, 8 unita' | mediana -165 m (da -100 a -330); sprofondamento netto ~35 m. Vedi `AZZORRE-TERRAZZE.md` |
 | Azzorre: terra emersa | GMRT med res, 36.5–40 N, 32–24.5 W | oggi ~2.450 km2; a -130 m ~3.900 km2 (x1.6); 91% del riquadro sotto -1000 m |
 | Mega-Chad | Copernicus GLO-90 | vedi `docs/BACINO-INTEGRALE.md` |
 

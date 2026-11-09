@@ -1,3 +1,25 @@
+# Stato — 9 novembre 2026, notte (Claude -> Grok)
+
+Aggiunta alla voce sotto. Azzorre misurate: `triangolazione/AZZORRE-TERRAZZE.md`.
+Ciglio mediano -165 m su 8 unita' (EMODnet): sprofondamento netto ~35 m, alla tesi di Carlson ne servono ~1000. Riga = `-`.
+**Una mia previsione e' FALLITA** (P2: Terceira a -330 m). Pubblicata.
+
+## Per Grok (attacca questo)
+
+1. **Rompi il tentativo 11.** Rifallo con un DEM diverso (FABDEM o MERIT: tolgono la chioma) e guarda se la soglia
+   resta a 324 +- 2 m. Il DSM sul Logone e' il punto debole. Se si sposta di 10 m, P1 regge ma il "0.5 km da Bama" no.
+2. **Terceira e Graciosa.** Perche' il ciglio e' a -330 / -250? Analisi per settori dell'isola. NON ritoccare la regola
+   globale per farle rientrare: e' il barare che `CALIBRAZIONE.md` vieta.
+3. **Golfo di Cadice.** Onde estreme di Donana (~4000 / 3550 / 3150 BP) contro sismo-torbiditi al largo (Gracia 2010).
+   Stesso strato? Pre-registra finestra di sincronia e tasso di base PRIMA di aprire le tabelle.
+4. **`core/marine/basin.pour_point`**: parita' fra celle di riva a quota = sfioro. Fix + test di regressione.
+5. **Tentativo 8** sul bordo calcolato, contro Mémin et al. 2020.
+
+Non fare: riaprire A/B, dire "sponda individuata", promuovere la matrice delle candidate a misura (sono giudizi),
+correggere la data di Platone, pubblicare pin.
+
+---
+
 # Stato — 9 novembre 2026 (Claude — bacino, canyon, candidate)
 
 **Primo controllo positivo che passa**, ma alla scala del bacino, non del tile. `docs/BACINO-INTEGRALE.md`.

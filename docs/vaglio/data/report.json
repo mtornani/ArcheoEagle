@@ -1,0 +1,1130 @@
+{
+ "pack_hash": "3b94f3d294788a987b0497188484cbdac15c81159ac9c35f3dc6522c8a7a4ba0",
+ "pack_timestamp": "2026-11-16T17:27:11+00:00",
+ "n_candidates": 11916,
+ "outcomes": {
+  "regge_alla_revisione": 15,
+  "incerto": 25,
+  "da_rivedere": 11876
+ },
+ "known": {
+  "rilievo_gia_analizzato": 11667,
+  "sito_noto_vicino": 249
+ },
+ "reviewed": [
+  {
+   "label": "C001",
+   "outcome": "regge_alla_revisione",
+   "score": 3121.1,
+   "n_objects": 10,
+   "area_m2": 10807.1,
+   "max_height_m": 1.97,
+   "extent_m": 205.3,
+   "mean_prob": 0.861,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C002",
+   "outcome": "regge_alla_revisione",
+   "score": 2840.6,
+   "n_objects": 7,
+   "area_m2": 8680.0,
+   "max_height_m": 3.6,
+   "extent_m": 145.6,
+   "mean_prob": 0.863,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C003",
+   "outcome": "regge_alla_revisione",
+   "score": 2349.4,
+   "n_objects": 13,
+   "area_m2": 7599.7,
+   "max_height_m": 2.41,
+   "extent_m": 308.6,
+   "mean_prob": 0.818,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C004",
+   "outcome": "regge_alla_revisione",
+   "score": 2133.3,
+   "n_objects": 12,
+   "area_m2": 4816.3,
+   "max_height_m": 2.68,
+   "extent_m": 234.0,
+   "mean_prob": 0.823,
+   "votes": [
+    {
+     "verdict": "incerto",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C005",
+   "outcome": "regge_alla_revisione",
+   "score": 2086.6,
+   "n_objects": 12,
+   "area_m2": 6935.2,
+   "max_height_m": 2.09,
+   "extent_m": 245.4,
+   "mean_prob": 0.828,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C006",
+   "outcome": "regge_alla_revisione",
+   "score": 2056.0,
+   "n_objects": 4,
+   "area_m2": 6985.4,
+   "max_height_m": 2.44,
+   "extent_m": 82.5,
+   "mean_prob": 0.827,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C007",
+   "outcome": "regge_alla_revisione",
+   "score": 1751.6,
+   "n_objects": 7,
+   "area_m2": 5311.7,
+   "max_height_m": 2.25,
+   "extent_m": 166.4,
+   "mean_prob": 0.829,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C008",
+   "outcome": "regge_alla_revisione",
+   "score": 1516.7,
+   "n_objects": 8,
+   "area_m2": 2647.4,
+   "max_height_m": 2.79,
+   "extent_m": 176.2,
+   "mean_prob": 0.833,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C009",
+   "outcome": "regge_alla_revisione",
+   "score": 1490.6,
+   "n_objects": 4,
+   "area_m2": 6623.6,
+   "max_height_m": 2.97,
+   "extent_m": 71.3,
+   "mean_prob": 0.83,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C010",
+   "outcome": "regge_alla_revisione",
+   "score": 1466.0,
+   "n_objects": 8,
+   "area_m2": 4016.4,
+   "max_height_m": 2.44,
+   "extent_m": 127.4,
+   "mean_prob": 0.816,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C011",
+   "outcome": "regge_alla_revisione",
+   "score": 1454.1,
+   "n_objects": 7,
+   "area_m2": 3756.7,
+   "max_height_m": 2.83,
+   "extent_m": 169.7,
+   "mean_prob": 0.855,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C012",
+   "outcome": "regge_alla_revisione",
+   "score": 1192.5,
+   "n_objects": 3,
+   "area_m2": 1916.3,
+   "max_height_m": 2.57,
+   "extent_m": 84.5,
+   "mean_prob": 0.852,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C013",
+   "outcome": "regge_alla_revisione",
+   "score": 493.1,
+   "n_objects": 2,
+   "area_m2": 2424.0,
+   "max_height_m": 2.25,
+   "extent_m": 53.7,
+   "mean_prob": 0.838,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C014",
+   "outcome": "regge_alla_revisione",
+   "score": 367.0,
+   "n_objects": 1,
+   "area_m2": 1768.0,
+   "max_height_m": 2.12,
+   "extent_m": 0.0,
+   "mean_prob": 0.864,
+   "votes": [
+    {
+     "verdict": "incerto",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C015",
+   "outcome": "regge_alla_revisione",
+   "score": 358.3,
+   "n_objects": 1,
+   "area_m2": 2323.2,
+   "max_height_m": 1.78,
+   "extent_m": 0.0,
+   "mean_prob": 0.858,
+   "votes": [
+    {
+     "verdict": "struttura",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "struttura",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C016",
+   "outcome": "incerto",
+   "score": 5931.3,
+   "n_objects": 29,
+   "area_m2": 27588.0,
+   "max_height_m": 2.27,
+   "extent_m": 417.0,
+   "mean_prob": 0.793,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C017",
+   "outcome": "incerto",
+   "score": 1529.4,
+   "n_objects": 9,
+   "area_m2": 7028.0,
+   "max_height_m": 1.77,
+   "extent_m": 211.5,
+   "mean_prob": 0.826,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C018",
+   "outcome": "incerto",
+   "score": 1529.0,
+   "n_objects": 7,
+   "area_m2": 5291.2,
+   "max_height_m": 2.16,
+   "extent_m": 144.9,
+   "mean_prob": 0.821,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C019",
+   "outcome": "incerto",
+   "score": 1523.5,
+   "n_objects": 6,
+   "area_m2": 5635.6,
+   "max_height_m": 2.11,
+   "extent_m": 171.0,
+   "mean_prob": 0.78,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C020",
+   "outcome": "incerto",
+   "score": 1314.5,
+   "n_objects": 6,
+   "area_m2": 4966.1,
+   "max_height_m": 1.68,
+   "extent_m": 100.8,
+   "mean_prob": 0.806,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C021",
+   "outcome": "incerto",
+   "score": 1149.6,
+   "n_objects": 5,
+   "area_m2": 8510.8,
+   "max_height_m": 1.6,
+   "extent_m": 136.7,
+   "mean_prob": 0.815,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C022",
+   "outcome": "incerto",
+   "score": 1140.3,
+   "n_objects": 5,
+   "area_m2": 2215.8,
+   "max_height_m": 3.57,
+   "extent_m": 95.0,
+   "mean_prob": 0.832,
+   "votes": [
+    {
+     "verdict": "incerto",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C023",
+   "outcome": "incerto",
+   "score": 1134.5,
+   "n_objects": 7,
+   "area_m2": 2320.1,
+   "max_height_m": 1.76,
+   "extent_m": 151.7,
+   "mean_prob": 0.823,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C024",
+   "outcome": "incerto",
+   "score": 367.5,
+   "n_objects": 2,
+   "area_m2": 1690.0,
+   "max_height_m": 2.1,
+   "extent_m": 58.0,
+   "mean_prob": 0.802,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C025",
+   "outcome": "incerto",
+   "score": 180.0,
+   "n_objects": 1,
+   "area_m2": 126334.0,
+   "max_height_m": 1.7,
+   "extent_m": 0.0,
+   "mean_prob": 0.802,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C026",
+   "outcome": "incerto",
+   "score": 179.6,
+   "n_objects": 1,
+   "area_m2": 552.5,
+   "max_height_m": 1.05,
+   "extent_m": 0.0,
+   "mean_prob": 0.798,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C027",
+   "outcome": "incerto",
+   "score": 176.6,
+   "n_objects": 1,
+   "area_m2": 409.2,
+   "max_height_m": 1.34,
+   "extent_m": 0.0,
+   "mean_prob": 0.799,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C028",
+   "outcome": "incerto",
+   "score": 171.3,
+   "n_objects": 1,
+   "area_m2": 1279.0,
+   "max_height_m": 0.89,
+   "extent_m": 0.0,
+   "mean_prob": 0.814,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C029",
+   "outcome": "incerto",
+   "score": 160.5,
+   "n_objects": 1,
+   "area_m2": 369.5,
+   "max_height_m": 1.55,
+   "extent_m": 0.0,
+   "mean_prob": 0.796,
+   "votes": [
+    {
+     "verdict": "incerto",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C030",
+   "outcome": "incerto",
+   "score": 159.3,
+   "n_objects": 1,
+   "area_m2": 275.5,
+   "max_height_m": 1.9,
+   "extent_m": 0.0,
+   "mean_prob": 0.807,
+   "votes": [
+    {
+     "verdict": "incerto",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C031",
+   "outcome": "incerto",
+   "score": 142.9,
+   "n_objects": 1,
+   "area_m2": 314.0,
+   "max_height_m": 1.4,
+   "extent_m": 0.0,
+   "mean_prob": 0.829,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C032",
+   "outcome": "incerto",
+   "score": 135.6,
+   "n_objects": 1,
+   "area_m2": 335.8,
+   "max_height_m": 1.56,
+   "extent_m": 0.0,
+   "mean_prob": 0.766,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C033",
+   "outcome": "incerto",
+   "score": 128.0,
+   "n_objects": 2,
+   "area_m2": 285.2,
+   "max_height_m": 1.72,
+   "extent_m": 43.5,
+   "mean_prob": 0.802,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C034",
+   "outcome": "incerto",
+   "score": 124.6,
+   "n_objects": 2,
+   "area_m2": 285.7,
+   "max_height_m": 1.82,
+   "extent_m": 5.1,
+   "mean_prob": 0.83,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C035",
+   "outcome": "incerto",
+   "score": 76.9,
+   "n_objects": 1,
+   "area_m2": 2717.2,
+   "max_height_m": 1.06,
+   "extent_m": 0.0,
+   "mean_prob": 0.785,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C036",
+   "outcome": "incerto",
+   "score": 69.8,
+   "n_objects": 1,
+   "area_m2": 187.5,
+   "max_height_m": 1.24,
+   "extent_m": 0.0,
+   "mean_prob": 0.825,
+   "votes": [
+    {
+     "verdict": "incerto",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C037",
+   "outcome": "incerto",
+   "score": 65.2,
+   "n_objects": 1,
+   "area_m2": 153.8,
+   "max_height_m": 1.36,
+   "extent_m": 0.0,
+   "mean_prob": 0.838,
+   "votes": [
+    {
+     "verdict": "moderno",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "moderno",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "moderno",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C038",
+   "outcome": "incerto",
+   "score": 39.9,
+   "n_objects": 1,
+   "area_m2": 161.0,
+   "max_height_m": 1.01,
+   "extent_m": 0.0,
+   "mean_prob": 0.826,
+   "votes": [
+    {
+     "verdict": "naturale",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "naturale",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C039",
+   "outcome": "incerto",
+   "score": 39.0,
+   "n_objects": 1,
+   "area_m2": 180.0,
+   "max_height_m": 1.08,
+   "extent_m": 0.0,
+   "mean_prob": 0.818,
+   "votes": [
+    {
+     "verdict": "incerto",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  },
+  {
+   "label": "C040",
+   "outcome": "incerto",
+   "score": 28.4,
+   "n_objects": 1,
+   "area_m2": 164.8,
+   "max_height_m": 0.75,
+   "extent_m": 0.0,
+   "mean_prob": 0.835,
+   "votes": [
+    {
+     "verdict": "incerto",
+     "reviewer": "D"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "E"
+    },
+    {
+     "verdict": "incerto",
+     "reviewer": "F"
+    }
+   ],
+   "known": "rilievo_gia_analizzato",
+   "survey": "G-LiHT Yucatan 2013"
+  }
+ ],
+ "controls": [
+  {
+   "file": "img/controls/pos_1870_c.jpg",
+   "kind": "struttura",
+   "src": "pos_1870_c.jpg"
+  },
+  {
+   "file": "img/controls/pos_1992_c.jpg",
+   "kind": "struttura",
+   "src": "pos_1992_c.jpg"
+  },
+  {
+   "file": "img/controls/pos_2060_c.jpg",
+   "kind": "struttura",
+   "src": "pos_2060_c.jpg"
+  },
+  {
+   "file": "img/controls/pos_1812_c.jpg",
+   "kind": "struttura",
+   "src": "pos_1812_c.jpg"
+  },
+  {
+   "file": "img/controls/pos_1962_c.jpg",
+   "kind": "struttura",
+   "src": "pos_1962_c.jpg"
+  },
+  {
+   "file": "img/controls/pos_2016_c.jpg",
+   "kind": "struttura",
+   "src": "pos_2016_c.jpg"
+  },
+  {
+   "file": "img/controls/pos_1786_c.jpg",
+   "kind": "struttura",
+   "src": "pos_1786_c.jpg"
+  },
+  {
+   "file": "img/controls/pos_1851_c.jpg",
+   "kind": "struttura",
+   "src": "pos_1851_c.jpg"
+  },
+  {
+   "file": "img/controls/pos_2031_c.jpg",
+   "kind": "struttura",
+   "src": "pos_2031_c.jpg"
+  },
+  {
+   "file": "img/controls/pos_1767_c.jpg",
+   "kind": "struttura",
+   "src": "pos_1767_c.jpg"
+  },
+  {
+   "file": "img/controls/neg_1828_3.jpg",
+   "kind": "vuoto",
+   "src": "neg_1828_3.jpg"
+  },
+  {
+   "file": "img/controls/neg_1825_3.jpg",
+   "kind": "vuoto",
+   "src": "neg_1825_3.jpg"
+  },
+  {
+   "file": "img/controls/neg_1859_3.jpg",
+   "kind": "vuoto",
+   "src": "neg_1859_3.jpg"
+  },
+  {
+   "file": "img/controls/neg_1861_3.jpg",
+   "kind": "vuoto",
+   "src": "neg_1861_3.jpg"
+  }
+ ],
+ "colormap": "viridis, inverted sky-view + hillshade from the original tile",
+ "controls_source": "Kokalj et al. 2023, Sci Data 10:558, CC BY 4.0. Tiles already in vaglio/vaglio/data/controls/."
+}

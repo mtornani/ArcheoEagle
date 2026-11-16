@@ -1,0 +1,6391 @@
+{
+"source": "OpenTopography, G-LiHT Yucatan 2013 reprocessed (Britton 2026), doi:10.5069/G9Z899N1 + doi:10.5069/G9TH8JX9, PDDL",
+"base_url": "https://opentopography.s3.sdsc.edu/raster/",
+"listed": "2026-11-16",
+"transects": [
+{
+"id": "Centro_GLAS_l0s435",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.158,
+"bbox": [
+-88.91507,
+19.58252,
+-88.90644,
+19.63839
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s435_DEM_0p33m_v1.tif",
+"dtm_mb": 54.1
+},
+{
+"id": "Centro_GLAS_l0s436",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.904,
+"bbox": [
+-88.9254,
+19.51641,
+-88.91164,
+19.58282
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s436_DEM_0p33m_v1.tif",
+"dtm_mb": 71.6
+},
+{
+"id": "Centro_GLAS_l0s437",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.361,
+"bbox": [
+-88.93506,
+19.44901,
+-88.92106,
+19.51675
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s437_DEM_0p33m_v1.tif",
+"dtm_mb": 77.7
+},
+{
+"id": "Centro_GLAS_l0s438",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.577,
+"bbox": [
+-88.94521,
+19.38143,
+-88.93085,
+19.4498
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s438_DEM_0p33m_v1.tif",
+"dtm_mb": 79.5
+},
+{
+"id": "Centro_GLAS_l0s439",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.382,
+"bbox": [
+-88.95459,
+19.31354,
+-88.94071,
+19.38247
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s439_DEM_0p33m_v1.tif",
+"dtm_mb": 80.0
+},
+{
+"id": "Centro_GLAS_l0s440",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.323,
+"bbox": [
+-88.96465,
+19.24583,
+-88.95027,
+19.31448
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s440_DEM_0p33m_v1.tif",
+"dtm_mb": 74.5
+},
+{
+"id": "Centro_GLAS_l0s441",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.522,
+"bbox": [
+-88.9747,
+19.17746,
+-88.96003,
+19.24666
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s441_DEM_0p33m_v1.tif",
+"dtm_mb": 79.8
+},
+{
+"id": "Centro_GLAS_l0s442",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.418,
+"bbox": [
+-88.98471,
+19.10747,
+-88.97008,
+19.17815
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s442_DEM_0p33m_v1.tif",
+"dtm_mb": 79.1
+},
+{
+"id": "Centro_GLAS_l0s443",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.967,
+"bbox": [
+-88.99462,
+19.03812,
+-88.98069,
+19.10819
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s443_DEM_0p33m_v1.tif",
+"dtm_mb": 71.7
+},
+{
+"id": "Centro_GLAS_l0s444",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.568,
+"bbox": [
+-89.00399,
+18.97197,
+-88.99112,
+19.03866
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s444_DEM_0p33m_v1.tif",
+"dtm_mb": 64.3
+},
+{
+"id": "Centro_GLAS_l0s445",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.003,
+"bbox": [
+-89.01419,
+18.90526,
+-89.00067,
+18.97258
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s445_DEM_0p33m_v1.tif",
+"dtm_mb": 67.1
+},
+{
+"id": "Centro_GLAS_l0s446",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.033,
+"bbox": [
+-89.02344,
+18.83691,
+-89.00953,
+18.90611
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s446_DEM_0p33m_v1.tif",
+"dtm_mb": 73.3
+},
+{
+"id": "Centro_GLAS_l0s447",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.925,
+"bbox": [
+-89.03334,
+18.76925,
+-89.01981,
+18.83755
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s447_DEM_0p33m_v1.tif",
+"dtm_mb": 65.2
+},
+{
+"id": "Centro_GLAS_l0s448",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.68,
+"bbox": [
+-89.04243,
+18.70206,
+-89.02959,
+18.76997
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s448_DEM_0p33m_v1.tif",
+"dtm_mb": 63.7
+},
+{
+"id": "Centro_GLAS_l0s449",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.047,
+"bbox": [
+-89.05216,
+18.63505,
+-89.03872,
+18.70316
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s449_DEM_0p33m_v1.tif",
+"dtm_mb": 62.4
+},
+{
+"id": "Centro_GLAS_l0s450",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.032,
+"bbox": [
+-89.06183,
+18.56923,
+-89.04847,
+18.63631
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s450_DEM_0p33m_v1.tif",
+"dtm_mb": 60.1
+},
+{
+"id": "Centro_GLAS_l0s451",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.843,
+"bbox": [
+-89.07166,
+18.50339,
+-89.05845,
+18.5703
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s451_DEM_0p33m_v1.tif",
+"dtm_mb": 63.9
+},
+{
+"id": "Centro_GLAS_l0s452",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.79,
+"bbox": [
+-89.08119,
+18.43709,
+-89.06802,
+18.50409
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s452_DEM_0p33m_v1.tif",
+"dtm_mb": 66.1
+},
+{
+"id": "Centro_GLAS_l0s453",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.609,
+"bbox": [
+-89.09069,
+18.37104,
+-89.07772,
+18.43758
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s453_DEM_0p33m_v1.tif",
+"dtm_mb": 63.0
+},
+{
+"id": "Centro_GLAS_l0s454",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.074,
+"bbox": [
+-89.09563,
+18.33737,
+-89.08591,
+18.37233
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l0s454_DEM_0p33m_v1.tif",
+"dtm_mb": 32.3
+},
+{
+"id": "Centro_GLAS_l1s455",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.786,
+"bbox": [
+-89.06357,
+18.36047,
+-89.05134,
+18.42357
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s455_DEM_0p33m_v1.tif",
+"dtm_mb": 64.0
+},
+{
+"id": "Centro_GLAS_l1s456",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.887,
+"bbox": [
+-89.07449,
+18.4227,
+-89.05937,
+18.49615
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s456_DEM_0p33m_v1.tif",
+"dtm_mb": 80.9
+},
+{
+"id": "Centro_GLAS_l1s457",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 4.0,
+"bbox": [
+-89.08429,
+18.4952,
+-89.06967,
+18.56865
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s457_DEM_0p33m_v1.tif",
+"dtm_mb": 75.8
+},
+{
+"id": "Centro_GLAS_l1s458",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 4.719,
+"bbox": [
+-89.09522,
+18.56618,
+-89.07937,
+18.64353
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s458_DEM_0p33m_v1.tif",
+"dtm_mb": 78.8
+},
+{
+"id": "Centro_GLAS_l1s459",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.397,
+"bbox": [
+-89.10575,
+18.64229,
+-89.09116,
+18.71822
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s459_DEM_0p33m_v1.tif",
+"dtm_mb": 76.8
+},
+{
+"id": "Centro_GLAS_l1s460",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 4.001,
+"bbox": [
+-89.1162,
+18.7175,
+-89.10123,
+18.79269
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s460_DEM_0p33m_v1.tif",
+"dtm_mb": 82.6
+},
+{
+"id": "Centro_GLAS_l1s461",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.572,
+"bbox": [
+-89.12634,
+18.79179,
+-89.11175,
+18.86789
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s461_DEM_0p33m_v1.tif",
+"dtm_mb": 79.8
+},
+{
+"id": "Centro_GLAS_l1s462",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.234,
+"bbox": [
+-89.13716,
+18.86717,
+-89.12261,
+18.94308
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s462_DEM_0p33m_v1.tif",
+"dtm_mb": 77.0
+},
+{
+"id": "Centro_GLAS_l1s463",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.379,
+"bbox": [
+-89.14723,
+18.94272,
+-89.13321,
+19.01554
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s463_DEM_0p33m_v1.tif",
+"dtm_mb": 82.0
+},
+{
+"id": "Centro_GLAS_l1s464",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.156,
+"bbox": [
+-89.15721,
+19.015,
+-89.14327,
+19.08875
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s464_DEM_0p33m_v1.tif",
+"dtm_mb": 76.1
+},
+{
+"id": "Centro_GLAS_l1s465",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.065,
+"bbox": [
+-89.16689,
+19.0882,
+-89.15337,
+19.16092
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s465_DEM_0p33m_v1.tif",
+"dtm_mb": 73.2
+},
+{
+"id": "Centro_GLAS_l1s466",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.329,
+"bbox": [
+-89.17719,
+19.16044,
+-89.16316,
+19.23359
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s466_DEM_0p33m_v1.tif",
+"dtm_mb": 81.5
+},
+{
+"id": "Centro_GLAS_l1s467",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.636,
+"bbox": [
+-89.18697,
+19.23295,
+-89.17264,
+19.30716
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s467_DEM_0p33m_v1.tif",
+"dtm_mb": 82.4
+},
+{
+"id": "Centro_GLAS_l1s468",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.737,
+"bbox": [
+-89.19704,
+19.30635,
+-89.18276,
+19.37928
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s468_DEM_0p33m_v1.tif",
+"dtm_mb": 84.6
+},
+{
+"id": "Centro_GLAS_l1s469",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.738,
+"bbox": [
+-89.20681,
+19.37834,
+-89.19238,
+19.45274
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s469_DEM_0p33m_v1.tif",
+"dtm_mb": 82.2
+},
+{
+"id": "Centro_GLAS_l1s470",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.419,
+"bbox": [
+-89.21701,
+19.45178,
+-89.20242,
+19.52736
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s470_DEM_0p33m_v1.tif",
+"dtm_mb": 74.8
+},
+{
+"id": "Centro_GLAS_l1s471",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.405,
+"bbox": [
+-89.22611,
+19.52653,
+-89.21293,
+19.59943
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s471_DEM_0p33m_v1.tif",
+"dtm_mb": 79.1
+},
+{
+"id": "Centro_GLAS_l1s472",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.434,
+"bbox": [
+-89.23614,
+19.59892,
+-89.22216,
+19.67236
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s472_DEM_0p33m_v1.tif",
+"dtm_mb": 82.6
+},
+{
+"id": "Centro_GLAS_l1s473",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.576,
+"bbox": [
+-89.24529,
+19.67135,
+-89.23154,
+19.74503
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s473_DEM_0p33m_v1.tif",
+"dtm_mb": 79.2
+},
+{
+"id": "Centro_GLAS_l1s474",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.031,
+"bbox": [
+-89.25306,
+19.74435,
+-89.2411,
+19.80804
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_Glas/Centro_Glas/Centro_GLAS_l1s474_DEM_0p33m_v1.tif",
+"dtm_mb": 72.3
+},
+{
+"id": "Centro_NFI_l0s385",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.018,
+"bbox": [
+-89.90671,
+19.75249,
+-89.88083,
+19.76243
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l0s385_DEM_0p33m_v1.tif",
+"dtm_mb": 24.3
+},
+{
+"id": "Centro_NFI_l0s386",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.029,
+"bbox": [
+-89.88197,
+19.72182,
+-89.82819,
+19.75551
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l0s386_DEM_0p33m_v1.tif",
+"dtm_mb": 54.6
+},
+{
+"id": "Centro_NFI_l0s387",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.405,
+"bbox": [
+-89.82966,
+19.69085,
+-89.77945,
+19.72449
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l0s387_DEM_0p33m_v1.tif",
+"dtm_mb": 60.2
+},
+{
+"id": "Centro_NFI_l10s481",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.781,
+"bbox": [
+-89.13682,
+19.55312,
+-89.09259,
+19.55937
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s481_DEM_0p33m_v1.tif",
+"dtm_mb": 41.2
+},
+{
+"id": "Centro_NFI_l10s482",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.417,
+"bbox": [
+-89.19985,
+19.55254,
+-89.13636,
+19.60315
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s482_DEM_0p33m_v1.tif",
+"dtm_mb": 87.1
+},
+{
+"id": "Centro_NFI_l10s483",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.834,
+"bbox": [
+-89.26083,
+19.60045,
+-89.19706,
+19.65374
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s483_DEM_0p33m_v1.tif",
+"dtm_mb": 92.0
+},
+{
+"id": "Centro_NFI_l10s484",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.851,
+"bbox": [
+-89.32853,
+19.65039,
+-89.25826,
+19.69515
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s484_DEM_0p33m_v1.tif",
+"dtm_mb": 92.1
+},
+{
+"id": "Centro_NFI_l10s485",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.523,
+"bbox": [
+-89.39767,
+19.69154,
+-89.32612,
+19.73537
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s485_DEM_0p33m_v1.tif",
+"dtm_mb": 86.2
+},
+{
+"id": "Centro_NFI_l10s486",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.732,
+"bbox": [
+-89.46637,
+19.73242,
+-89.39565,
+19.77365
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s486_DEM_0p33m_v1.tif",
+"dtm_mb": 84.2
+},
+{
+"id": "Centro_NFI_l10s487",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.606,
+"bbox": [
+-89.54019,
+19.77012,
+-89.46455,
+19.80327
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s487_DEM_0p33m_v1.tif",
+"dtm_mb": 82.0
+},
+{
+"id": "Centro_NFI_l10s488",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.409,
+"bbox": [
+-89.61198,
+19.79984,
+-89.53831,
+19.83897
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s488_DEM_0p33m_v1.tif",
+"dtm_mb": 87.5
+},
+{
+"id": "Centro_NFI_l10s489",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.593,
+"bbox": [
+-89.66491,
+19.83712,
+-89.60863,
+19.89449
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s489_DEM_0p33m_v1.tif",
+"dtm_mb": 85.4
+},
+{
+"id": "Centro_NFI_l10s490",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.819,
+"bbox": [
+-89.73092,
+19.89098,
+-89.66332,
+19.92869
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l10s490_DEM_0p33m_v1.tif",
+"dtm_mb": 73.0
+},
+{
+"id": "Centro_NFI_l1s391",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.189,
+"bbox": [
+-89.65318,
+19.50659,
+-89.61768,
+19.54579
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l1s391_DEM_0p33m_v1.tif",
+"dtm_mb": 54.7
+},
+{
+"id": "Centro_NFI_l1s392",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.724,
+"bbox": [
+-89.62049,
+19.45865,
+-89.57488,
+19.50917
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l1s392_DEM_0p33m_v1.tif",
+"dtm_mb": 62.0
+},
+{
+"id": "Centro_NFI_l1s393",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.349,
+"bbox": [
+-89.57769,
+19.43954,
+-89.55141,
+19.46109
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l1s393_DEM_0p33m_v1.tif",
+"dtm_mb": 31.9
+},
+{
+"id": "Centro_NFI_l2s395",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.015,
+"bbox": [
+-89.43885,
+19.36192,
+-89.41255,
+19.37817
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l2s395_DEM_0p33m_v1.tif",
+"dtm_mb": 24.6
+},
+{
+"id": "Centro_NFI_l2s396",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.318,
+"bbox": [
+-89.41432,
+19.34337,
+-89.38158,
+19.36459
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l2s396_DEM_0p33m_v1.tif",
+"dtm_mb": 31.3
+},
+{
+"id": "Centro_NFI_l3s398",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.902,
+"bbox": [
+-89.33508,
+19.21077,
+-89.31064,
+19.25024
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l3s398_DEM_0p33m_v1.tif",
+"dtm_mb": 44.5
+},
+{
+"id": "Centro_NFI_l3s399",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.007,
+"bbox": [
+-89.3143,
+19.16298,
+-89.2702,
+19.21323
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l3s399_DEM_0p33m_v1.tif",
+"dtm_mb": 66.4
+},
+{
+"id": "Centro_NFI_l3s400",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.99,
+"bbox": [
+-89.27309,
+19.13053,
+-89.21163,
+19.16587
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l3s400_DEM_0p33m_v1.tif",
+"dtm_mb": 71.6
+},
+{
+"id": "Centro_NFI_l3s401",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.371,
+"bbox": [
+-89.21285,
+19.10759,
+-89.14855,
+19.13348
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l3s401_DEM_0p33m_v1.tif",
+"dtm_mb": 58.1
+},
+{
+"id": "Centro_NFI_l3s402",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.522,
+"bbox": [
+-89.14979,
+19.09139,
+-89.11356,
+19.11065
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l3s402_DEM_0p33m_v1.tif",
+"dtm_mb": 38.1
+},
+{
+"id": "Centro_NFI_l4s404",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.607,
+"bbox": [
+-89.03268,
+19.00809,
+-88.9848,
+19.04154
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l4s404_DEM_0p33m_v1.tif",
+"dtm_mb": 66.9
+},
+{
+"id": "Centro_NFI_l4s405",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.785,
+"bbox": [
+-88.98722,
+18.96883,
+-88.93506,
+19.011
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l4s405_DEM_0p33m_v1.tif",
+"dtm_mb": 70.5
+},
+{
+"id": "Centro_NFI_l4s406",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.438,
+"bbox": [
+-88.93764,
+18.93679,
+-88.89438,
+18.97212
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l4s406_DEM_0p33m_v1.tif",
+"dtm_mb": 60.1
+},
+{
+"id": "Centro_NFI_l5s408",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.254,
+"bbox": [
+-88.84513,
+18.8156,
+-88.82907,
+18.84071
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l5s408_DEM_0p33m_v1.tif",
+"dtm_mb": 29.2
+},
+{
+"id": "Centro_NFI_l5s409",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.851,
+"bbox": [
+-88.83249,
+18.76493,
+-88.79027,
+18.8177
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l5s409_DEM_0p33m_v1.tif",
+"dtm_mb": 70.8
+},
+{
+"id": "Centro_NFI_l5s410",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.154,
+"bbox": [
+-88.79319,
+18.73014,
+-88.76546,
+18.7678
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l5s410_DEM_0p33m_v1.tif",
+"dtm_mb": 52.1
+},
+{
+"id": "Centro_NFI_l6s412",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.077,
+"bbox": [
+-88.71993,
+18.59383,
+-88.68963,
+18.64564
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l6s412_DEM_0p33m_v1.tif",
+"dtm_mb": 67.8
+},
+{
+"id": "Centro_NFI_l6s413",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.266,
+"bbox": [
+-88.69353,
+18.5285,
+-88.6764,
+18.59544
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l6s413_DEM_0p33m_v1.tif",
+"dtm_mb": 81.8
+},
+{
+"id": "Centro_NFI_l6s414",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.058,
+"bbox": [
+-88.68037,
+18.4647,
+-88.66069,
+18.52989
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l6s414_DEM_0p33m_v1.tif",
+"dtm_mb": 81.5
+},
+{
+"id": "Centro_NFI_l6s415",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.012,
+"bbox": [
+-88.66482,
+18.43613,
+-88.65205,
+18.46695
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l6s415_DEM_0p33m_v1.tif",
+"dtm_mb": 32.6
+},
+{
+"id": "Centro_NFI_l7s422",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.377,
+"bbox": [
+-88.50817,
+18.89063,
+-88.49913,
+18.92819
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l7s422_DEM_0p33m_v1.tif",
+"dtm_mb": 44.0
+},
+{
+"id": "Centro_NFI_l7s423",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.422,
+"bbox": [
+-88.53239,
+18.92615,
+-88.50375,
+18.99732
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l7s423_DEM_0p33m_v1.tif",
+"dtm_mb": 90.0
+},
+{
+"id": "Centro_NFI_l7s424",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.905,
+"bbox": [
+-88.54993,
+18.99611,
+-88.5283,
+19.069
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l7s424_DEM_0p33m_v1.tif",
+"dtm_mb": 89.5
+},
+{
+"id": "Centro_NFI_l7s425",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.846,
+"bbox": [
+-88.58568,
+19.06792,
+-88.54555,
+19.133
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l7s425_DEM_0p33m_v1.tif",
+"dtm_mb": 94.5
+},
+{
+"id": "Centro_NFI_l7s426",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.17,
+"bbox": [
+-88.62696,
+19.13026,
+-88.58284,
+19.19618
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l7s426_DEM_0p33m_v1.tif",
+"dtm_mb": 88.6
+},
+{
+"id": "Centro_NFI_l7s427",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.074,
+"bbox": [
+-88.66394,
+19.19452,
+-88.62404,
+19.2605
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l7s427_DEM_0p33m_v1.tif",
+"dtm_mb": 86.9
+},
+{
+"id": "Centro_NFI_l7s428",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.671,
+"bbox": [
+-88.70645,
+19.25856,
+-88.66039,
+19.32073
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l7s428_DEM_0p33m_v1.tif",
+"dtm_mb": 89.7
+},
+{
+"id": "Centro_NFI_l7s429",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.204,
+"bbox": [
+-88.73457,
+19.31805,
+-88.70328,
+19.35638
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l7s429_DEM_0p33m_v1.tif",
+"dtm_mb": 56.5
+},
+{
+"id": "Centro_NFI_l8s431",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 4.076,
+"bbox": [
+-88.82922,
+19.45367,
+-88.78624,
+19.51007
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l8s431_DEM_0p33m_v1.tif",
+"dtm_mb": 77.9
+},
+{
+"id": "Centro_NFI_l8s432",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.657,
+"bbox": [
+-88.89132,
+19.50671,
+-88.82603,
+19.55634
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l8s432_DEM_0p33m_v1.tif",
+"dtm_mb": 88.0
+},
+{
+"id": "Centro_NFI_l8s433",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.32,
+"bbox": [
+-88.94883,
+19.55276,
+-88.88867,
+19.592
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l8s433_DEM_0p33m_v1.tif",
+"dtm_mb": 77.3
+},
+{
+"id": "Centro_NFI_l9s476",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.067,
+"bbox": [
+-89.15765,
+19.7779,
+-89.10695,
+19.80279
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l9s476_DEM_0p33m_v1.tif",
+"dtm_mb": 53.5
+},
+{
+"id": "Centro_NFI_l9s477",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.067,
+"bbox": [
+-89.10902,
+19.74399,
+-89.04888,
+19.7811
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l9s477_DEM_0p33m_v1.tif",
+"dtm_mb": 77.8
+},
+{
+"id": "Centro_NFI_l9s478",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.47,
+"bbox": [
+-89.05099,
+19.71448,
+-89.00259,
+19.74705
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Centro/Centro_NFI/Centro_NFI/Centro_NFI_l9s478_DEM_0p33m_v1.tif",
+"dtm_mb": 61.7
+},
+{
+"id": "Chiaps1_GLAS_l0s441",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.71,
+"bbox": [
+-91.01083,
+16.12843,
+-91.00169,
+16.18304
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s441_DEM_0p33m_v1.tif",
+"dtm_mb": 50.3
+},
+{
+"id": "Chiaps1_GLAS_l0s442",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.791,
+"bbox": [
+-91.00589,
+16.18166,
+-90.99143,
+16.25725
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s442_DEM_0p33m_v1.tif",
+"dtm_mb": 69.8
+},
+{
+"id": "Chiaps1_GLAS_l0s443",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.003,
+"bbox": [
+-90.99597,
+16.25557,
+-90.98024,
+16.3303
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s443_DEM_0p33m_v1.tif",
+"dtm_mb": 69.4
+},
+{
+"id": "Chiaps1_GLAS_l0s444",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.49,
+"bbox": [
+-90.98503,
+16.32887,
+-90.97083,
+16.40264
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s444_DEM_0p33m_v1.tif",
+"dtm_mb": 66.2
+},
+{
+"id": "Chiaps1_GLAS_l0s445",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.295,
+"bbox": [
+-90.97472,
+16.4013,
+-90.96125,
+16.47408
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s445_DEM_0p33m_v1.tif",
+"dtm_mb": 65.8
+},
+{
+"id": "Chiaps1_GLAS_l0s446",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.068,
+"bbox": [
+-90.96535,
+16.47294,
+-90.95055,
+16.54237
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s446_DEM_0p33m_v1.tif",
+"dtm_mb": 65.0
+},
+{
+"id": "Chiaps1_GLAS_l0s447",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 5.819,
+"bbox": [
+-90.95638,
+16.5388,
+-90.93821,
+16.62007
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s447_DEM_0p33m_v1.tif",
+"dtm_mb": 68.9
+},
+{
+"id": "Chiaps1_GLAS_l0s448",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.947,
+"bbox": [
+-90.94386,
+16.61741,
+-90.92872,
+16.69491
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s448_DEM_0p33m_v1.tif",
+"dtm_mb": 71.3
+},
+{
+"id": "Chiaps1_GLAS_l0s449",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.39,
+"bbox": [
+-90.9332,
+16.69323,
+-90.91731,
+16.77654
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s449_DEM_0p33m_v1.tif",
+"dtm_mb": 81.2
+},
+{
+"id": "Chiaps1_GLAS_l0s450",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.175,
+"bbox": [
+-90.93742,
+16.77518,
+-90.91108,
+16.84854
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l0s450_DEM_0p33m_v1.tif",
+"dtm_mb": 82.8
+},
+{
+"id": "Chiaps1_GLAS_l1s456",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.869,
+"bbox": [
+-90.66966,
+16.59158,
+-90.6617,
+16.63413
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l1s456_DEM_0p33m_v1.tif",
+"dtm_mb": 40.6
+},
+{
+"id": "Chiaps1_GLAS_l1s457",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.591,
+"bbox": [
+-90.67976,
+16.52081,
+-90.66621,
+16.59209
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l1s457_DEM_0p33m_v1.tif",
+"dtm_mb": 60.5
+},
+{
+"id": "Chiaps1_GLAS_l1s458",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.933,
+"bbox": [
+-90.6896,
+16.44965,
+-90.676,
+16.52131
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l1s458_DEM_0p33m_v1.tif",
+"dtm_mb": 64.7
+},
+{
+"id": "Chiaps1_GLAS_l1s459",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.16,
+"bbox": [
+-90.69962,
+16.37792,
+-90.68589,
+16.45066
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l1s459_DEM_0p33m_v1.tif",
+"dtm_mb": 61.9
+},
+{
+"id": "Chiaps1_GLAS_l1s460",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.377,
+"bbox": [
+-90.70932,
+16.30666,
+-90.6961,
+16.37856
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l1s460_DEM_0p33m_v1.tif",
+"dtm_mb": 56.9
+},
+{
+"id": "Chiaps1_GLAS_l1s461",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.986,
+"bbox": [
+-90.71985,
+16.23372,
+-90.70608,
+16.30741
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l1s461_DEM_0p33m_v1.tif",
+"dtm_mb": 58.2
+},
+{
+"id": "Chiaps1_GLAS_l1s462",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.736,
+"bbox": [
+-90.72975,
+16.16236,
+-90.71622,
+16.23489
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l1s462_DEM_0p33m_v1.tif",
+"dtm_mb": 63.6
+},
+{
+"id": "Chiaps1_GLAS_l1s463",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.598,
+"bbox": [
+-90.73953,
+16.09003,
+-90.7267,
+16.16306
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l1s463_DEM_0p33m_v1.tif",
+"dtm_mb": 53.7
+},
+{
+"id": "Chiaps1_GLAS_l1s464",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.152,
+"bbox": [
+-90.76464,
+16.07788,
+-90.73631,
+16.09124
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l1s464_DEM_0p33m_v1.tif",
+"dtm_mb": 27.6
+},
+{
+"id": "Chiaps1_GLAS_l2s477",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.791,
+"bbox": [
+-90.92634,
+16.72318,
+-90.91621,
+16.76922
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s477_DEM_0p33m_v1.tif",
+"dtm_mb": 39.3
+},
+{
+"id": "Chiaps1_GLAS_l2s478",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.794,
+"bbox": [
+-90.92006,
+16.65984,
+-90.90706,
+16.7245
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s478_DEM_0p33m_v1.tif",
+"dtm_mb": 49.8
+},
+{
+"id": "Chiaps1_GLAS_l2s479",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.601,
+"bbox": [
+-90.91051,
+16.59128,
+-90.89607,
+16.66137
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s479_DEM_0p33m_v1.tif",
+"dtm_mb": 60.1
+},
+{
+"id": "Chiaps1_GLAS_l2s480",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.443,
+"bbox": [
+-90.90111,
+16.51854,
+-90.88638,
+16.59302
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s480_DEM_0p33m_v1.tif",
+"dtm_mb": 72.4
+},
+{
+"id": "Chiaps1_GLAS_l2s481",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.439,
+"bbox": [
+-90.89062,
+16.44919,
+-90.87618,
+16.51995
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s481_DEM_0p33m_v1.tif",
+"dtm_mb": 61.6
+},
+{
+"id": "Chiaps1_GLAS_l2s482",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.307,
+"bbox": [
+-90.88195,
+16.37183,
+-90.86553,
+16.45056
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s482_DEM_0p33m_v1.tif",
+"dtm_mb": 72.5
+},
+{
+"id": "Chiaps1_GLAS_l2s483",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.038,
+"bbox": [
+-90.86974,
+16.29916,
+-90.85633,
+16.37292
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s483_DEM_0p33m_v1.tif",
+"dtm_mb": 59.4
+},
+{
+"id": "Chiaps1_GLAS_l2s484",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.005,
+"bbox": [
+-90.85984,
+16.2275,
+-90.84557,
+16.29998
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s484_DEM_0p33m_v1.tif",
+"dtm_mb": 70.8
+},
+{
+"id": "Chiaps1_GLAS_l2s485",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.69,
+"bbox": [
+-90.84919,
+16.15293,
+-90.83507,
+16.22816
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s485_DEM_0p33m_v1.tif",
+"dtm_mb": 66.3
+},
+{
+"id": "Chiaps1_GLAS_l2s486",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.456,
+"bbox": [
+-90.83872,
+16.08581,
+-90.8272,
+16.15343
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiaps1_Glas/Chiaps1_Glas/Chiaps1_GLAS_l2s486_DEM_0p33m_v1.tif",
+"dtm_mb": 55.2
+},
+{
+"id": "Chiaps1_NFI_l0s418",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.547,
+"bbox": [
+-92.23352,
+15.82269,
+-92.22681,
+15.86065
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s418_DEM_0p33m_v1.tif",
+"dtm_mb": 31.2
+},
+{
+"id": "Chiaps1_NFI_l0s419",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.639,
+"bbox": [
+-92.22924,
+15.85955,
+-92.16681,
+15.89705
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s419_DEM_0p33m_v1.tif",
+"dtm_mb": 60.1
+},
+{
+"id": "Chiaps1_NFI_l0s420",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.066,
+"bbox": [
+-92.18267,
+15.8804,
+-92.14766,
+15.92035
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s420_DEM_0p33m_v1.tif",
+"dtm_mb": 64.5
+},
+{
+"id": "Chiaps1_NFI_l0s421",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.891,
+"bbox": [
+-92.18234,
+15.86931,
+-92.13066,
+15.90332
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s421_DEM_0p33m_v1.tif",
+"dtm_mb": 59.5
+},
+{
+"id": "Chiaps1_NFI_l0s423",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.362,
+"bbox": [
+-91.98438,
+15.87095,
+-91.97576,
+15.8759
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s423_DEM_0p33m_v1.tif",
+"dtm_mb": 6.2
+},
+{
+"id": "Chiaps1_NFI_l0s424",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.02,
+"bbox": [
+-91.97632,
+15.86793,
+-91.89853,
+15.87548
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s424_DEM_0p33m_v1.tif",
+"dtm_mb": 60.5
+},
+{
+"id": "Chiaps1_NFI_l0s425",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.704,
+"bbox": [
+-91.89898,
+15.86757,
+-91.86027,
+15.92209
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s425_DEM_0p33m_v1.tif",
+"dtm_mb": 37.7
+},
+{
+"id": "Chiaps1_NFI_l0s426",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.445,
+"bbox": [
+-91.8625,
+15.92047,
+-91.83028,
+15.97877
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s426_DEM_0p33m_v1.tif",
+"dtm_mb": 36.6
+},
+{
+"id": "Chiaps1_NFI_l0s427",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.309,
+"bbox": [
+-91.83465,
+15.97663,
+-91.79508,
+16.03966
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s427_DEM_0p33m_v1.tif",
+"dtm_mb": 13.3
+},
+{
+"id": "Chiaps1_NFI_l0s428",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.993,
+"bbox": [
+-91.80053,
+16.03576,
+-91.78788,
+16.10443
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s428_DEM_0p33m_v1.tif",
+"dtm_mb": 40.2
+},
+{
+"id": "Chiaps1_NFI_l0s429",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.286,
+"bbox": [
+-91.79232,
+16.10359,
+-91.7549,
+16.1581
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s429_DEM_0p33m_v1.tif",
+"dtm_mb": 57.0
+},
+{
+"id": "Chiaps1_NFI_l0s430",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 5.96,
+"bbox": [
+-91.75785,
+16.11531,
+-91.69041,
+16.15112
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s430_DEM_0p33m_v1.tif",
+"dtm_mb": 60.5
+},
+{
+"id": "Chiaps1_NFI_l0s431",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.824,
+"bbox": [
+-91.69218,
+16.11425,
+-91.61168,
+16.12192
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s431_DEM_0p33m_v1.tif",
+"dtm_mb": 51.8
+},
+{
+"id": "Chiaps1_NFI_l0s432",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.134,
+"bbox": [
+-91.6123,
+16.11264,
+-91.537,
+16.13618
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s432_DEM_0p33m_v1.tif",
+"dtm_mb": 54.2
+},
+{
+"id": "Chiaps1_NFI_l0s433",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.606,
+"bbox": [
+-91.57569,
+16.11067,
+-91.53835,
+16.14557
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s433_DEM_0p33m_v1.tif",
+"dtm_mb": 36.8
+},
+{
+"id": "Chiaps1_NFI_l0s434",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.037,
+"bbox": [
+-91.54106,
+16.11119,
+-91.466,
+16.13692
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s434_DEM_0p33m_v1.tif",
+"dtm_mb": 61.1
+},
+{
+"id": "Chiaps1_NFI_l0s435",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.199,
+"bbox": [
+-91.46717,
+16.1343,
+-91.38822,
+16.16112
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s435_DEM_0p33m_v1.tif",
+"dtm_mb": 58.1
+},
+{
+"id": "Chiaps1_NFI_l0s436",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.358,
+"bbox": [
+-91.38985,
+16.15657,
+-91.3144,
+16.1782
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s436_DEM_0p33m_v1.tif",
+"dtm_mb": 55.8
+},
+{
+"id": "Chiaps1_NFI_l0s437",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.375,
+"bbox": [
+-91.31566,
+16.17544,
+-91.26001,
+16.19055
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l0s437_DEM_0p33m_v1.tif",
+"dtm_mb": 44.7
+},
+{
+"id": "Chiaps1_NFI_l1s451",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.137,
+"bbox": [
+-90.93043,
+16.79888,
+-90.90938,
+16.8176
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l1s451_DEM_0p33m_v1.tif",
+"dtm_mb": 26.9
+},
+{
+"id": "Chiaps1_NFI_l1s452",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.61,
+"bbox": [
+-90.91257,
+16.78667,
+-90.83926,
+16.80157
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l1s452_DEM_0p33m_v1.tif",
+"dtm_mb": 68.3
+},
+{
+"id": "Chiaps1_NFI_l1s453",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.357,
+"bbox": [
+-90.84085,
+16.75047,
+-90.78113,
+16.79093
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l1s453_DEM_0p33m_v1.tif",
+"dtm_mb": 63.0
+},
+{
+"id": "Chiaps1_NFI_l1s454",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.254,
+"bbox": [
+-90.78351,
+16.70632,
+-90.7284,
+16.75342
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l1s454_DEM_0p33m_v1.tif",
+"dtm_mb": 65.5
+},
+{
+"id": "Chiaps1_NFI_l1s455",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.865,
+"bbox": [
+-90.7311,
+16.65417,
+-90.68264,
+16.70884
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l1s455_DEM_0p33m_v1.tif",
+"dtm_mb": 62.2
+},
+{
+"id": "Chiaps1_NFI_l1s456",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.772,
+"bbox": [
+-90.68482,
+16.62355,
+-90.66234,
+16.65688
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l1s456_DEM_0p33m_v1.tif",
+"dtm_mb": 33.7
+},
+{
+"id": "Chiaps1_NFI_l2s464",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.079,
+"bbox": [
+-90.74857,
+16.10339,
+-90.7455,
+16.10741
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s464_DEM_0p33m_v1.tif",
+"dtm_mb": 1.7
+},
+{
+"id": "Chiaps1_NFI_l2s465",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.815,
+"bbox": [
+-90.74696,
+16.09245,
+-90.70366,
+16.13702
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s465_DEM_0p33m_v1.tif",
+"dtm_mb": 66.2
+},
+{
+"id": "Chiaps1_NFI_l2s466",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.68,
+"bbox": [
+-90.74435,
+16.13498,
+-90.71234,
+16.20723
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s466_DEM_0p33m_v1.tif",
+"dtm_mb": 64.4
+},
+{
+"id": "Chiaps1_NFI_l2s467",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.319,
+"bbox": [
+-90.75691,
+16.20562,
+-90.74106,
+16.28056
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s467_DEM_0p33m_v1.tif",
+"dtm_mb": 68.6
+},
+{
+"id": "Chiaps1_NFI_l2s468",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.322,
+"bbox": [
+-90.75279,
+16.27973,
+-90.73917,
+16.35442
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s468_DEM_0p33m_v1.tif",
+"dtm_mb": 80.4
+},
+{
+"id": "Chiaps1_NFI_l2s469",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.531,
+"bbox": [
+-90.75044,
+16.354,
+-90.73757,
+16.42882
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s469_DEM_0p33m_v1.tif",
+"dtm_mb": 84.1
+},
+{
+"id": "Chiaps1_NFI_l2s470",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 5.608,
+"bbox": [
+-90.75927,
+16.42642,
+-90.74547,
+16.50371
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s470_DEM_0p33m_v1.tif",
+"dtm_mb": 81.9
+},
+{
+"id": "Chiaps1_NFI_l2s471",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.431,
+"bbox": [
+-90.76829,
+16.50171,
+-90.75332,
+16.58078
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s471_DEM_0p33m_v1.tif",
+"dtm_mb": 83.3
+},
+{
+"id": "Chiaps1_NFI_l2s472",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.35,
+"bbox": [
+-90.80792,
+16.57865,
+-90.76338,
+16.64609
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s472_DEM_0p33m_v1.tif",
+"dtm_mb": 81.1
+},
+{
+"id": "Chiaps1_NFI_l2s473",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.597,
+"bbox": [
+-90.84827,
+16.64337,
+-90.80501,
+16.6951
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Chiaps1/Chiapas_NFI/Chiapas_NFI/Chiaps1_NFI_l2s473_DEM_0p33m_v1.tif",
+"dtm_mb": 66.4
+},
+{
+"id": "ChiapsCampeche_NFI_l0s472",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.56,
+"bbox": [
+-91.10778,
+16.69455,
+-91.09743,
+16.70301
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s472_DEM_0p33m_v1.tif",
+"dtm_mb": 6.9
+},
+{
+"id": "ChiapsCampeche_NFI_l0s473",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.047,
+"bbox": [
+-91.17848,
+16.69827,
+-91.10531,
+16.72757
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s473_DEM_0p33m_v1.tif",
+"dtm_mb": 69.7
+},
+{
+"id": "ChiapsCampeche_NFI_l0s474",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.27,
+"bbox": [
+-91.2325,
+16.71915,
+-91.17684,
+16.78032
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s474_DEM_0p33m_v1.tif",
+"dtm_mb": 84.1
+},
+{
+"id": "ChiapsCampeche_NFI_l0s475",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.935,
+"bbox": [
+-91.29635,
+16.7719,
+-91.23016,
+16.79533
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s475_DEM_0p33m_v1.tif",
+"dtm_mb": 68.1
+},
+{
+"id": "ChiapsCampeche_NFI_l0s476",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.561,
+"bbox": [
+-91.34424,
+16.79364,
+-91.29286,
+16.85722
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s476_DEM_0p33m_v1.tif",
+"dtm_mb": 76.9
+},
+{
+"id": "ChiapsCampeche_NFI_l0s477",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.759,
+"bbox": [
+-91.39505,
+16.85411,
+-91.34167,
+16.91259
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s477_DEM_0p33m_v1.tif",
+"dtm_mb": 35.1
+},
+{
+"id": "ChiapsCampeche_NFI_l0s478",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.731,
+"bbox": [
+-91.4346,
+16.90996,
+-91.39257,
+16.95738
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s478_DEM_0p33m_v1.tif",
+"dtm_mb": 34.4
+},
+{
+"id": "ChiapsCampeche_NFI_l0s479",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.968,
+"bbox": [
+-91.49823,
+16.98148,
+-91.45593,
+17.03071
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s479_DEM_0p33m_v1.tif",
+"dtm_mb": 39.5
+},
+{
+"id": "ChiapsCampeche_NFI_l0s480",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.593,
+"bbox": [
+-91.5155,
+17.02872,
+-91.49526,
+17.10874
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s480_DEM_0p33m_v1.tif",
+"dtm_mb": 49.5
+},
+{
+"id": "ChiapsCampeche_NFI_l0s481",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.291,
+"bbox": [
+-91.54777,
+17.10731,
+-91.51188,
+17.18256
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s481_DEM_0p33m_v1.tif",
+"dtm_mb": 80.4
+},
+{
+"id": "ChiapsCampeche_NFI_l0s482",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.688,
+"bbox": [
+-91.57965,
+17.17925,
+-91.5445,
+17.22545
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s482_DEM_0p33m_v1.tif",
+"dtm_mb": 53.0
+},
+{
+"id": "ChiapsCampeche_NFI_l0s483",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.49,
+"bbox": [
+-91.57501,
+17.26218,
+-91.55404,
+17.3262
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s483_DEM_0p33m_v1.tif",
+"dtm_mb": 42.7
+},
+{
+"id": "ChiapsCampeche_NFI_l0s484",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.485,
+"bbox": [
+-91.55758,
+17.3249,
+-91.55003,
+17.40628
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s484_DEM_0p33m_v1.tif",
+"dtm_mb": 84.6
+},
+{
+"id": "ChiapsCampeche_NFI_l0s485",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.389,
+"bbox": [
+-91.554,
+17.40533,
+-91.5459,
+17.45839
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l0s485_DEM_0p33m_v1.tif",
+"dtm_mb": 51.8
+},
+{
+"id": "ChiapsCampeche_NFI_l1s492",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.077,
+"bbox": [
+-91.4765,
+17.89979,
+-91.46335,
+17.92793
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l1s492_DEM_0p33m_v1.tif",
+"dtm_mb": 21.5
+},
+{
+"id": "ChiapsCampeche_NFI_l1s493",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.985,
+"bbox": [
+-91.47049,
+17.92423,
+-91.45679,
+17.98266
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l1s493_DEM_0p33m_v1.tif",
+"dtm_mb": 70.2
+},
+{
+"id": "ChiapsCampeche_NFI_l2s497",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.789,
+"bbox": [
+-91.3662,
+18.2841,
+-91.35589,
+18.30537
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l2s497_DEM_0p33m_v1.tif",
+"dtm_mb": 24.0
+},
+{
+"id": "ChiapsCampeche_NFI_l2s498",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.107,
+"bbox": [
+-91.35915,
+18.30432,
+-91.33006,
+18.37756
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l2s498_DEM_0p33m_v1.tif",
+"dtm_mb": 96.7
+},
+{
+"id": "ChiapsCampeche_NFI_l2s499",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.462,
+"bbox": [
+-91.33379,
+18.376,
+-91.27507,
+18.42705
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l2s499_DEM_0p33m_v1.tif",
+"dtm_mb": 120.3
+},
+{
+"id": "ChiapsCampeche_NFI_l2s500",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.163,
+"bbox": [
+-91.27666,
+18.4158,
+-91.20516,
+18.43942
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l2s500_DEM_0p33m_v1.tif",
+"dtm_mb": 94.2
+},
+{
+"id": "ChiapsCampeche_NFI_l2s501",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.009,
+"bbox": [
+-91.20779,
+18.36155,
+-91.15601,
+18.41811
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l2s501_DEM_0p33m_v1.tif",
+"dtm_mb": 82.2
+},
+{
+"id": "ChiapsCampeche_NFI_l2s502",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.766,
+"bbox": [
+-91.15861,
+18.32821,
+-91.09316,
+18.36375
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l2s502_DEM_0p33m_v1.tif",
+"dtm_mb": 71.3
+},
+{
+"id": "ChiapsCampeche_NFI_l2s503",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.202,
+"bbox": [
+-91.09483,
+18.3013,
+-91.02515,
+18.33139
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l2s503_DEM_0p33m_v1.tif",
+"dtm_mb": 65.8
+},
+{
+"id": "ChiapsCampeche_NFI_l2s504",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.642,
+"bbox": [
+-91.02674,
+18.26737,
+-90.96057,
+18.30421
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Campeche/Campeche/ChiapsCampeche_NFI_l2s504_DEM_0p33m_v1.tif",
+"dtm_mb": 68.6
+},
+{
+"id": "Norte_GLAS_l0s397",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.084,
+"bbox": [
+-90.46128,
+19.974,
+-90.44855,
+20.02657
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s397_DEM_0p33m_v1.tif",
+"dtm_mb": 73.2
+},
+{
+"id": "Norte_GLAS_l0s398",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.084,
+"bbox": [
+-90.45305,
+20.02483,
+-90.43619,
+20.10695
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s398_DEM_0p33m_v1.tif",
+"dtm_mb": 128.1
+},
+{
+"id": "Norte_GLAS_l0s399",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.591,
+"bbox": [
+-90.44033,
+20.10571,
+-90.42477,
+20.18659
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s399_DEM_0p33m_v1.tif",
+"dtm_mb": 123.8
+},
+{
+"id": "Norte_GLAS_l0s400",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.497,
+"bbox": [
+-90.4286,
+20.1855,
+-90.41374,
+20.26483
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s400_DEM_0p33m_v1.tif",
+"dtm_mb": 114.6
+},
+{
+"id": "Norte_GLAS_l0s401",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.387,
+"bbox": [
+-90.41758,
+20.26386,
+-90.40296,
+20.34303
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s401_DEM_0p33m_v1.tif",
+"dtm_mb": 115.8
+},
+{
+"id": "Norte_GLAS_l0s402",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.405,
+"bbox": [
+-90.4067,
+20.34218,
+-90.39094,
+20.42172
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s402_DEM_0p33m_v1.tif",
+"dtm_mb": 115.9
+},
+{
+"id": "Norte_GLAS_l0s403",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.523,
+"bbox": [
+-90.39516,
+20.4205,
+-90.37981,
+20.50097
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s403_DEM_0p33m_v1.tif",
+"dtm_mb": 110.4
+},
+{
+"id": "Norte_GLAS_l0s404",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.43,
+"bbox": [
+-90.38342,
+20.49995,
+-90.36793,
+20.57932
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s404_DEM_0p33m_v1.tif",
+"dtm_mb": 111.0
+},
+{
+"id": "Norte_GLAS_l0s405",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.477,
+"bbox": [
+-90.37209,
+20.57813,
+-90.35695,
+20.65644
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s405_DEM_0p33m_v1.tif",
+"dtm_mb": 116.4
+},
+{
+"id": "Norte_GLAS_l0s406",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.559,
+"bbox": [
+-90.36082,
+20.6554,
+-90.34505,
+20.73438
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s406_DEM_0p33m_v1.tif",
+"dtm_mb": 119.9
+},
+{
+"id": "Norte_GLAS_l0s407",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.453,
+"bbox": [
+-90.34874,
+20.73313,
+-90.33375,
+20.81373
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s407_DEM_0p33m_v1.tif",
+"dtm_mb": 116.6
+},
+{
+"id": "Norte_GLAS_l0s408",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.679,
+"bbox": [
+-90.33763,
+20.81277,
+-90.32224,
+20.89393
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s408_DEM_0p33m_v1.tif",
+"dtm_mb": 121.8
+},
+{
+"id": "Norte_GLAS_l0s409",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.527,
+"bbox": [
+-90.32599,
+20.89287,
+-90.30973,
+20.97375
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s409_DEM_0p33m_v1.tif",
+"dtm_mb": 115.4
+},
+{
+"id": "Norte_GLAS_l0s410",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.379,
+"bbox": [
+-90.3139,
+20.97277,
+-90.30112,
+21.0342
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l0s410_DEM_0p33m_v1.tif",
+"dtm_mb": 78.5
+},
+{
+"id": "Norte_GLAS_l1s412",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.755,
+"bbox": [
+-90.21638,
+21.00184,
+-90.20358,
+21.04512
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s412_DEM_0p33m_v1.tif",
+"dtm_mb": 60.1
+},
+{
+"id": "Norte_GLAS_l1s413",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.534,
+"bbox": [
+-90.20723,
+20.94019,
+-90.19482,
+21.00275
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s413_DEM_0p33m_v1.tif",
+"dtm_mb": 88.2
+},
+{
+"id": "Norte_GLAS_l1s414",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.716,
+"bbox": [
+-90.19859,
+20.87927,
+-90.18512,
+20.94112
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s414_DEM_0p33m_v1.tif",
+"dtm_mb": 87.0
+},
+{
+"id": "Norte_GLAS_l1s415",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.827,
+"bbox": [
+-90.18974,
+20.81816,
+-90.17681,
+20.88034
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s415_DEM_0p33m_v1.tif",
+"dtm_mb": 87.6
+},
+{
+"id": "Norte_GLAS_l1s416",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.695,
+"bbox": [
+-90.18076,
+20.75561,
+-90.16749,
+20.81923
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s416_DEM_0p33m_v1.tif",
+"dtm_mb": 87.4
+},
+{
+"id": "Norte_GLAS_l1s417",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.432,
+"bbox": [
+-90.17107,
+20.69382,
+-90.15891,
+20.75659
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s417_DEM_0p33m_v1.tif",
+"dtm_mb": 77.7
+},
+{
+"id": "Norte_GLAS_l1s418",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.123,
+"bbox": [
+-90.16213,
+20.6308,
+-90.14957,
+20.69463
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s418_DEM_0p33m_v1.tif",
+"dtm_mb": 64.8
+},
+{
+"id": "Norte_GLAS_l1s419",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.039,
+"bbox": [
+-90.15269,
+20.56892,
+-90.1405,
+20.63151
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s419_DEM_0p33m_v1.tif",
+"dtm_mb": 62.7
+},
+{
+"id": "Norte_GLAS_l1s420",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.11,
+"bbox": [
+-90.14342,
+20.50636,
+-90.13141,
+20.56951
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s420_DEM_0p33m_v1.tif",
+"dtm_mb": 65.2
+},
+{
+"id": "Norte_GLAS_l1s421",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.542,
+"bbox": [
+-90.13483,
+20.44405,
+-90.12215,
+20.50735
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s421_DEM_0p33m_v1.tif",
+"dtm_mb": 72.9
+},
+{
+"id": "Norte_GLAS_l1s422",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.478,
+"bbox": [
+-90.12549,
+20.38248,
+-90.11329,
+20.44491
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s422_DEM_0p33m_v1.tif",
+"dtm_mb": 76.1
+},
+{
+"id": "Norte_GLAS_l1s423",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.322,
+"bbox": [
+-90.11646,
+20.32249,
+-90.10452,
+20.38333
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s423_DEM_0p33m_v1.tif",
+"dtm_mb": 67.6
+},
+{
+"id": "Norte_GLAS_l1s424",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.344,
+"bbox": [
+-90.10795,
+20.26247,
+-90.09565,
+20.32327
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s424_DEM_0p33m_v1.tif",
+"dtm_mb": 69.4
+},
+{
+"id": "Norte_GLAS_l1s425",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.452,
+"bbox": [
+-90.09926,
+20.20307,
+-90.08714,
+20.26336
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s425_DEM_0p33m_v1.tif",
+"dtm_mb": 69.6
+},
+{
+"id": "Norte_GLAS_l1s426",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.509,
+"bbox": [
+-90.09044,
+20.14482,
+-90.07793,
+20.20389
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s426_DEM_0p33m_v1.tif",
+"dtm_mb": 64.1
+},
+{
+"id": "Norte_GLAS_l1s427",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.744,
+"bbox": [
+-90.08193,
+20.08344,
+-90.06881,
+20.14579
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s427_DEM_0p33m_v1.tif",
+"dtm_mb": 69.2
+},
+{
+"id": "Norte_GLAS_l1s428",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.294,
+"bbox": [
+-90.07288,
+20.05442,
+-90.06513,
+20.08433
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_Norte/Norte_Glas/Norte_Glas/Norte_GLAS_l1s428_DEM_0p33m_v1.tif",
+"dtm_mb": 32.0
+},
+{
+"id": "Norte_NFI_l0s443",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.876,
+"bbox": [
+-89.65221,
+20.29413,
+-89.63683,
+20.32761
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l0s443_DEM_0p33m_v1.tif",
+"dtm_mb": 37.7
+},
+{
+"id": "Norte_NFI_l0s444",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.894,
+"bbox": [
+-89.6404,
+20.32471,
+-89.59255,
+20.39319
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l0s444_DEM_0p33m_v1.tif",
+"dtm_mb": 78.0
+},
+{
+"id": "Norte_NFI_l0s445",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.094,
+"bbox": [
+-89.59479,
+20.3915,
+-89.54889,
+20.45861
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l0s445_DEM_0p33m_v1.tif",
+"dtm_mb": 88.3
+},
+{
+"id": "Norte_NFI_l0s446",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.829,
+"bbox": [
+-89.55191,
+20.4566,
+-89.51138,
+20.51825
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l0s446_DEM_0p33m_v1.tif",
+"dtm_mb": 81.8
+},
+{
+"id": "Norte_NFI_l1s446",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.12,
+"bbox": [
+-89.51464,
+20.51544,
+-89.50996,
+20.5196
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l1s446_DEM_0p33m_v1.tif",
+"dtm_mb": 2.2
+},
+{
+"id": "Norte_NFI_l1s447",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.126,
+"bbox": [
+-89.51338,
+20.51712,
+-89.50868,
+20.52166
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l1s447_DEM_0p33m_v1.tif",
+"dtm_mb": 3.4
+},
+{
+"id": "Norte_NFI_l2s448",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.971,
+"bbox": [
+-89.44207,
+20.62658,
+-89.42723,
+20.6483
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l2s448_DEM_0p33m_v1.tif",
+"dtm_mb": 27.0
+},
+{
+"id": "Norte_NFI_l2s449",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.046,
+"bbox": [
+-89.43011,
+20.64622,
+-89.38526,
+20.71285
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l2s449_DEM_0p33m_v1.tif",
+"dtm_mb": 93.3
+},
+{
+"id": "Norte_NFI_l2s450",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.015,
+"bbox": [
+-89.38814,
+20.71091,
+-89.34347,
+20.77617
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l2s450_DEM_0p33m_v1.tif",
+"dtm_mb": 89.9
+},
+{
+"id": "Norte_NFI_l2s451",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.286,
+"bbox": [
+-89.34629,
+20.77405,
+-89.30115,
+20.84119
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l2s451_DEM_0p33m_v1.tif",
+"dtm_mb": 92.4
+},
+{
+"id": "Norte_NFI_l2s452",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.407,
+"bbox": [
+-89.30409,
+20.83895,
+-89.27695,
+20.86153
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l2s452_DEM_0p33m_v1.tif",
+"dtm_mb": 40.2
+},
+{
+"id": "Norte_NFI_l3s455",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.092,
+"bbox": [
+-89.03006,
+20.90229,
+-89.0272,
+20.90618
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l3s455_DEM_0p33m_v1.tif",
+"dtm_mb": 2.2
+},
+{
+"id": "Norte_NFI_l3s456",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.468,
+"bbox": [
+-89.02781,
+20.90292,
+-88.95818,
+20.92132
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l3s456_DEM_0p33m_v1.tif",
+"dtm_mb": 71.6
+},
+{
+"id": "Norte_NFI_l3s457",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.476,
+"bbox": [
+-88.95866,
+20.91824,
+-88.88883,
+20.93653
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l3s457_DEM_0p33m_v1.tif",
+"dtm_mb": 71.7
+},
+{
+"id": "Norte_NFI_l3s458",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.502,
+"bbox": [
+-88.88919,
+20.93356,
+-88.81926,
+20.94959
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l3s458_DEM_0p33m_v1.tif",
+"dtm_mb": 71.3
+},
+{
+"id": "Norte_NFI_l3s459",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.405,
+"bbox": [
+-88.81954,
+20.9465,
+-88.74946,
+20.95971
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l3s459_DEM_0p33m_v1.tif",
+"dtm_mb": 68.2
+},
+{
+"id": "Norte_NFI_l3s460",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.421,
+"bbox": [
+-88.74979,
+20.95656,
+-88.67859,
+20.97009
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l3s460_DEM_0p33m_v1.tif",
+"dtm_mb": 69.1
+},
+{
+"id": "Norte_NFI_l3s461",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.989,
+"bbox": [
+-88.67879,
+20.96712,
+-88.64646,
+20.97425
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Norte/Norte_NFI/Norte_NFI/Norte_NFI_l3s461_DEM_0p33m_v1.tif",
+"dtm_mb": 26.9
+},
+{
+"id": "North2_GLAS_l0s390",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.569,
+"bbox": [
+-88.77433,
+20.5829,
+-88.75506,
+20.64754
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s390_DEM_0p33m_v1.tif",
+"dtm_mb": 71.9
+},
+{
+"id": "North2_GLAS_l0s391",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.678,
+"bbox": [
+-88.75986,
+20.64584,
+-88.74521,
+20.7245
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s391_DEM_0p33m_v1.tif",
+"dtm_mb": 97.9
+},
+{
+"id": "North2_GLAS_l0s392",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.921,
+"bbox": [
+-88.74936,
+20.72322,
+-88.73346,
+20.80305
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s392_DEM_0p33m_v1.tif",
+"dtm_mb": 105.4
+},
+{
+"id": "North2_GLAS_l0s393",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.797,
+"bbox": [
+-88.73754,
+20.80197,
+-88.72193,
+20.88367
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s393_DEM_0p33m_v1.tif",
+"dtm_mb": 103.2
+},
+{
+"id": "North2_GLAS_l0s394",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.837,
+"bbox": [
+-88.72617,
+20.88262,
+-88.71031,
+20.96299
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s394_DEM_0p33m_v1.tif",
+"dtm_mb": 103.9
+},
+{
+"id": "North2_GLAS_l0s395",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.738,
+"bbox": [
+-88.71443,
+20.96185,
+-88.69888,
+21.04266
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s395_DEM_0p33m_v1.tif",
+"dtm_mb": 106.3
+},
+{
+"id": "North2_GLAS_l0s396",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.693,
+"bbox": [
+-88.70277,
+21.04156,
+-88.68683,
+21.12233
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s396_DEM_0p33m_v1.tif",
+"dtm_mb": 105.7
+},
+{
+"id": "North2_GLAS_l0s397",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.798,
+"bbox": [
+-88.69078,
+21.12126,
+-88.67509,
+21.2024
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s397_DEM_0p33m_v1.tif",
+"dtm_mb": 108.6
+},
+{
+"id": "North2_GLAS_l0s398",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.849,
+"bbox": [
+-88.67916,
+21.20133,
+-88.66349,
+21.2824
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s398_DEM_0p33m_v1.tif",
+"dtm_mb": 116.1
+},
+{
+"id": "North2_GLAS_l0s399",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.784,
+"bbox": [
+-88.66975,
+21.28138,
+-88.65463,
+21.36104
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s399_DEM_0p33m_v1.tif",
+"dtm_mb": 115.4
+},
+{
+"id": "North2_GLAS_l0s400",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.186,
+"bbox": [
+-88.68105,
+21.35845,
+-88.66641,
+21.38498
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l0s400_DEM_0p33m_v1.tif",
+"dtm_mb": 34.8
+},
+{
+"id": "North2_GLAS_l1s401",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.996,
+"bbox": [
+-88.65798,
+21.31852,
+-88.64494,
+21.36804
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s401_DEM_0p33m_v1.tif",
+"dtm_mb": 61.0
+},
+{
+"id": "North2_GLAS_l1s402",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.851,
+"bbox": [
+-88.64931,
+21.26073,
+-88.6366,
+21.31959
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s402_DEM_0p33m_v1.tif",
+"dtm_mb": 81.5
+},
+{
+"id": "North2_GLAS_l1s403",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.039,
+"bbox": [
+-88.64048,
+21.20195,
+-88.62757,
+21.26203
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s403_DEM_0p33m_v1.tif",
+"dtm_mb": 79.0
+},
+{
+"id": "North2_GLAS_l1s404",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.885,
+"bbox": [
+-88.6322,
+21.14185,
+-88.61871,
+21.20331
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s404_DEM_0p33m_v1.tif",
+"dtm_mb": 81.7
+},
+{
+"id": "North2_GLAS_l1s405",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.651,
+"bbox": [
+-88.62272,
+21.0823,
+-88.61026,
+21.14285
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s405_DEM_0p33m_v1.tif",
+"dtm_mb": 76.2
+},
+{
+"id": "North2_GLAS_l1s406",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.798,
+"bbox": [
+-88.61416,
+21.02397,
+-88.60153,
+21.08327
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s406_DEM_0p33m_v1.tif",
+"dtm_mb": 78.8
+},
+{
+"id": "North2_GLAS_l1s407",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.721,
+"bbox": [
+-88.60583,
+20.9629,
+-88.59263,
+21.02495
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s407_DEM_0p33m_v1.tif",
+"dtm_mb": 73.9
+},
+{
+"id": "North2_GLAS_l1s408",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.61,
+"bbox": [
+-88.59621,
+20.9014,
+-88.58314,
+20.96365
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s408_DEM_0p33m_v1.tif",
+"dtm_mb": 70.9
+},
+{
+"id": "North2_GLAS_l1s409",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.554,
+"bbox": [
+-88.58689,
+20.83934,
+-88.57511,
+20.90207
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s409_DEM_0p33m_v1.tif",
+"dtm_mb": 70.1
+},
+{
+"id": "North2_GLAS_l1s410",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.602,
+"bbox": [
+-88.57851,
+20.7779,
+-88.56584,
+20.84031
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s410_DEM_0p33m_v1.tif",
+"dtm_mb": 68.7
+},
+{
+"id": "North2_GLAS_l1s411",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.432,
+"bbox": [
+-88.56921,
+20.71604,
+-88.5567,
+20.77882
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s411_DEM_0p33m_v1.tif",
+"dtm_mb": 67.5
+},
+{
+"id": "North2_GLAS_l1s412",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.328,
+"bbox": [
+-88.56002,
+20.65337,
+-88.54786,
+20.71684
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s412_DEM_0p33m_v1.tif",
+"dtm_mb": 63.8
+},
+{
+"id": "North2_GLAS_l1s413",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.313,
+"bbox": [
+-88.55079,
+20.59103,
+-88.53814,
+20.65406
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s413_DEM_0p33m_v1.tif",
+"dtm_mb": 65.1
+},
+{
+"id": "North2_GLAS_l1s414",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.976,
+"bbox": [
+-88.54164,
+20.54534,
+-88.52982,
+20.59206
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l1s414_DEM_0p33m_v1.tif",
+"dtm_mb": 51.8
+},
+{
+"id": "North2_GLAS_l2s427",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.423,
+"bbox": [
+-87.93638,
+20.74518,
+-87.92395,
+20.79304
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s427_DEM_0p33m_v1.tif",
+"dtm_mb": 58.4
+},
+{
+"id": "North2_GLAS_l2s428",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.448,
+"bbox": [
+-87.92995,
+20.79191,
+-87.91441,
+20.87157
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s428_DEM_0p33m_v1.tif",
+"dtm_mb": 93.7
+},
+{
+"id": "North2_GLAS_l2s429",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.416,
+"bbox": [
+-87.91829,
+20.87075,
+-87.90325,
+20.94876
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s429_DEM_0p33m_v1.tif",
+"dtm_mb": 91.2
+},
+{
+"id": "North2_GLAS_l2s430",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.288,
+"bbox": [
+-87.90732,
+20.94783,
+-87.89217,
+21.0253
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s430_DEM_0p33m_v1.tif",
+"dtm_mb": 90.6
+},
+{
+"id": "North2_GLAS_l2s431",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.267,
+"bbox": [
+-87.896,
+21.02445,
+-87.88126,
+21.10192
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s431_DEM_0p33m_v1.tif",
+"dtm_mb": 89.9
+},
+{
+"id": "North2_GLAS_l2s432",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.487,
+"bbox": [
+-87.88536,
+21.10115,
+-87.86942,
+21.17927
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s432_DEM_0p33m_v1.tif",
+"dtm_mb": 97.6
+},
+{
+"id": "North2_GLAS_l2s433",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.651,
+"bbox": [
+-87.87348,
+21.1779,
+-87.85796,
+21.25683
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s433_DEM_0p33m_v1.tif",
+"dtm_mb": 97.6
+},
+{
+"id": "North2_GLAS_l2s434",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.576,
+"bbox": [
+-87.86212,
+21.25583,
+-87.84637,
+21.33324
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s434_DEM_0p33m_v1.tif",
+"dtm_mb": 103.0
+},
+{
+"id": "North2_GLAS_l2s435",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.598,
+"bbox": [
+-87.85025,
+21.33227,
+-87.83527,
+21.41175
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s435_DEM_0p33m_v1.tif",
+"dtm_mb": 105.6
+},
+{
+"id": "North2_GLAS_l2s436",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.674,
+"bbox": [
+-87.83934,
+21.41077,
+-87.8237,
+21.49033
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s436_DEM_0p33m_v1.tif",
+"dtm_mb": 108.2
+},
+{
+"id": "North2_GLAS_l2s437",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.874,
+"bbox": [
+-87.82786,
+21.48956,
+-87.82021,
+21.51018
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l2s437_DEM_0p33m_v1.tif",
+"dtm_mb": 26.1
+},
+{
+"id": "North2_GLAS_l3s439",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.356,
+"bbox": [
+-87.88333,
+21.40783,
+-87.87143,
+21.46737
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s439_DEM_0p33m_v1.tif",
+"dtm_mb": 64.9
+},
+{
+"id": "North2_GLAS_l3s440",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.739,
+"bbox": [
+-87.87601,
+21.34645,
+-87.86291,
+21.40879
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s440_DEM_0p33m_v1.tif",
+"dtm_mb": 76.7
+},
+{
+"id": "North2_GLAS_l3s441",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.026,
+"bbox": [
+-87.86722,
+21.28426,
+-87.85417,
+21.34747
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s441_DEM_0p33m_v1.tif",
+"dtm_mb": 82.5
+},
+{
+"id": "North2_GLAS_l3s442",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.953,
+"bbox": [
+-87.85847,
+21.22223,
+-87.84552,
+21.28521
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s442_DEM_0p33m_v1.tif",
+"dtm_mb": 81.1
+},
+{
+"id": "North2_GLAS_l3s443",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.823,
+"bbox": [
+-87.84869,
+21.16104,
+-87.83559,
+21.22297
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s443_DEM_0p33m_v1.tif",
+"dtm_mb": 80.6
+},
+{
+"id": "North2_GLAS_l3s444",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.836,
+"bbox": [
+-87.84002,
+21.09754,
+-87.82615,
+21.16207
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s444_DEM_0p33m_v1.tif",
+"dtm_mb": 48.8
+},
+{
+"id": "North2_GLAS_l3s445",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.985,
+"bbox": [
+-87.83094,
+21.03307,
+-87.81681,
+21.09855
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s445_DEM_0p33m_v1.tif",
+"dtm_mb": 83.3
+},
+{
+"id": "North2_GLAS_l3s446",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.788,
+"bbox": [
+-87.82057,
+20.96901,
+-87.80788,
+21.03409
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s446_DEM_0p33m_v1.tif",
+"dtm_mb": 76.9
+},
+{
+"id": "North2_GLAS_l3s447",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.643,
+"bbox": [
+-87.81147,
+20.90475,
+-87.79852,
+20.96991
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s447_DEM_0p33m_v1.tif",
+"dtm_mb": 69.7
+},
+{
+"id": "North2_GLAS_l3s448",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.526,
+"bbox": [
+-87.80209,
+20.84154,
+-87.78959,
+20.90572
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s448_DEM_0p33m_v1.tif",
+"dtm_mb": 67.2
+},
+{
+"id": "North2_GLAS_l3s449",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.472,
+"bbox": [
+-87.79294,
+20.77866,
+-87.78038,
+20.84257
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s449_DEM_0p33m_v1.tif",
+"dtm_mb": 62.4
+},
+{
+"id": "North2_GLAS_l3s450",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.345,
+"bbox": [
+-87.78376,
+20.71755,
+-87.77112,
+20.7796
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s450_DEM_0p33m_v1.tif",
+"dtm_mb": 65.2
+},
+{
+"id": "North2_GLAS_l3s451",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.483,
+"bbox": [
+-87.77445,
+20.65666,
+-87.76186,
+20.7184
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s451_DEM_0p33m_v1.tif",
+"dtm_mb": 69.0
+},
+{
+"id": "North2_GLAS_l3s452",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.015,
+"bbox": [
+-87.76544,
+20.59491,
+-87.75266,
+20.65768
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s452_DEM_0p33m_v1.tif",
+"dtm_mb": 77.0
+},
+{
+"id": "North2_GLAS_l3s453",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.094,
+"bbox": [
+-87.75695,
+20.53125,
+-87.74394,
+20.59614
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s453_DEM_0p33m_v1.tif",
+"dtm_mb": 85.9
+},
+{
+"id": "North2_GLAS_l3s454",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.916,
+"bbox": [
+-87.74782,
+20.46722,
+-87.73383,
+20.53214
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s454_DEM_0p33m_v1.tif",
+"dtm_mb": 85.6
+},
+{
+"id": "North2_GLAS_l3s455",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.994,
+"bbox": [
+-87.73828,
+20.40334,
+-87.72475,
+20.46829
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s455_DEM_0p33m_v1.tif",
+"dtm_mb": 85.5
+},
+{
+"id": "North2_GLAS_l3s456",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.076,
+"bbox": [
+-87.72933,
+20.34175,
+-87.71554,
+20.40451
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s456_DEM_0p33m_v1.tif",
+"dtm_mb": 89.4
+},
+{
+"id": "North2_GLAS_l3s457",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.04,
+"bbox": [
+-87.71973,
+20.27876,
+-87.7065,
+20.34304
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s457_DEM_0p33m_v1.tif",
+"dtm_mb": 82.0
+},
+{
+"id": "North2_GLAS_l3s458",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.018,
+"bbox": [
+-87.71077,
+20.21443,
+-87.69714,
+20.27995
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s458_DEM_0p33m_v1.tif",
+"dtm_mb": 75.5
+},
+{
+"id": "North2_GLAS_l3s459",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.636,
+"bbox": [
+-87.7015,
+20.15173,
+-87.6884,
+20.21556
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s459_DEM_0p33m_v1.tif",
+"dtm_mb": 72.0
+},
+{
+"id": "North2_GLAS_l3s460",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.151,
+"bbox": [
+-87.69192,
+20.08832,
+-87.67803,
+20.15287
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s460_DEM_0p33m_v1.tif",
+"dtm_mb": 81.2
+},
+{
+"id": "North2_GLAS_l3s461",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.732,
+"bbox": [
+-87.68329,
+20.03756,
+-87.67071,
+20.08964
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_Glas/North2_Glas/North2_GLAS_l3s461_DEM_0p33m_v1.tif",
+"dtm_mb": 65.8
+},
+{
+"id": "North2_NFI_l0s359",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.579,
+"bbox": [
+-87.356,
+20.95076,
+-87.31618,
+20.95945
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l0s359_DEM_0p33m_v1.tif",
+"dtm_mb": 42.8
+},
+{
+"id": "North2_NFI_l0s360",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.545,
+"bbox": [
+-87.41923,
+20.94268,
+-87.35465,
+20.95436
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l0s360_DEM_0p33m_v1.tif",
+"dtm_mb": 70.3
+},
+{
+"id": "North2_NFI_l10s420",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.713,
+"bbox": [
+-88.25955,
+20.70044,
+-88.19809,
+20.7102
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l10s420_DEM_0p33m_v1.tif",
+"dtm_mb": 58.4
+},
+{
+"id": "North2_NFI_l10s421",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.057,
+"bbox": [
+-88.19897,
+20.69852,
+-88.17068,
+20.70451
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l10s421_DEM_0p33m_v1.tif",
+"dtm_mb": 27.9
+},
+{
+"id": "North2_NFI_l11s423",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.338,
+"bbox": [
+-88.0507,
+20.68263,
+-87.98855,
+20.69036
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l11s423_DEM_0p33m_v1.tif",
+"dtm_mb": 52.5
+},
+{
+"id": "North2_NFI_l11s424",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.592,
+"bbox": [
+-87.98928,
+20.68502,
+-87.92129,
+20.70532
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l11s424_DEM_0p33m_v1.tif",
+"dtm_mb": 69.4
+},
+{
+"id": "North2_NFI_l11s425",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.305,
+"bbox": [
+-87.92179,
+20.70124,
+-87.85098,
+20.72036
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l11s425_DEM_0p33m_v1.tif",
+"dtm_mb": 79.6
+},
+{
+"id": "North2_NFI_l11s426",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.456,
+"bbox": [
+-87.85251,
+20.71677,
+-87.84252,
+20.72637
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l11s426_DEM_0p33m_v1.tif",
+"dtm_mb": 11.9
+},
+{
+"id": "North2_NFI_l1s362",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.583,
+"bbox": [
+-87.60461,
+20.9169,
+-87.54936,
+20.92851
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l1s362_DEM_0p33m_v1.tif",
+"dtm_mb": 62.6
+},
+{
+"id": "North2_NFI_l1s363",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.344,
+"bbox": [
+-87.68015,
+20.88844,
+-87.60284,
+20.92062
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l1s363_DEM_0p33m_v1.tif",
+"dtm_mb": 94.7
+},
+{
+"id": "North2_NFI_l1s364",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.982,
+"bbox": [
+-87.73062,
+20.87423,
+-87.67848,
+20.89138
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l1s364_DEM_0p33m_v1.tif",
+"dtm_mb": 54.0
+},
+{
+"id": "North2_NFI_l2s365",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.13,
+"bbox": [
+-87.84121,
+20.85197,
+-87.80747,
+20.86163
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l2s365_DEM_0p33m_v1.tif",
+"dtm_mb": 29.6
+},
+{
+"id": "North2_NFI_l2s366",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.265,
+"bbox": [
+-87.91987,
+20.8342,
+-87.83985,
+20.85502
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l2s366_DEM_0p33m_v1.tif",
+"dtm_mb": 81.4
+},
+{
+"id": "North2_NFI_l2s367",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.858,
+"bbox": [
+-87.99888,
+20.81725,
+-87.91805,
+20.83794
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l2s367_DEM_0p33m_v1.tif",
+"dtm_mb": 89.9
+},
+{
+"id": "North2_NFI_l2s368",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.255,
+"bbox": [
+-88.00386,
+20.81628,
+-87.99683,
+20.821
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l2s368_DEM_0p33m_v1.tif",
+"dtm_mb": 5.7
+},
+{
+"id": "North2_NFI_l3s370",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.097,
+"bbox": [
+-88.25167,
+20.8357,
+-88.18577,
+20.84588
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l3s370_DEM_0p33m_v1.tif",
+"dtm_mb": 78.1
+},
+{
+"id": "North2_NFI_l3s371",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.714,
+"bbox": [
+-88.33135,
+20.81952,
+-88.24972,
+20.84441
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l3s371_DEM_0p33m_v1.tif",
+"dtm_mb": 93.1
+},
+{
+"id": "North2_NFI_l3s372",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.931,
+"bbox": [
+-88.39757,
+20.80407,
+-88.32977,
+20.82328
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l3s372_DEM_0p33m_v1.tif",
+"dtm_mb": 73.0
+},
+{
+"id": "North2_NFI_l4s374",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.895,
+"bbox": [
+-88.57383,
+20.77041,
+-88.50117,
+20.78566
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l4s374_DEM_0p33m_v1.tif",
+"dtm_mb": 76.9
+},
+{
+"id": "North2_NFI_l4s375",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.573,
+"bbox": [
+-88.65654,
+20.75845,
+-88.57247,
+20.77407
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l4s375_DEM_0p33m_v1.tif",
+"dtm_mb": 90.6
+},
+{
+"id": "North2_NFI_l4s376",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.756,
+"bbox": [
+-88.7391,
+20.74597,
+-88.65485,
+20.76226
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l4s376_DEM_0p33m_v1.tif",
+"dtm_mb": 90.7
+},
+{
+"id": "North2_NFI_l4s377",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.529,
+"bbox": [
+-88.75091,
+20.74643,
+-88.73804,
+20.75158
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l4s377_DEM_0p33m_v1.tif",
+"dtm_mb": 12.7
+},
+{
+"id": "North2_NFI_l5s378",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.001,
+"bbox": [
+-88.91241,
+20.76195,
+-88.885,
+20.76757
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l5s378_DEM_0p33m_v1.tif",
+"dtm_mb": 26.1
+},
+{
+"id": "North2_NFI_l5s379",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.17,
+"bbox": [
+-88.94357,
+20.7643,
+-88.91197,
+20.76923
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l5s379_DEM_0p33m_v1.tif",
+"dtm_mb": 30.7
+},
+{
+"id": "North2_NFI_l6s380",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.612,
+"bbox": [
+-89.0784,
+20.74187,
+-89.06126,
+20.74725
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l6s380_DEM_0p33m_v1.tif",
+"dtm_mb": 16.2
+},
+{
+"id": "North2_NFI_l6s381",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.941,
+"bbox": [
+-89.12835,
+20.73465,
+-89.07702,
+20.74509
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l6s381_DEM_0p33m_v1.tif",
+"dtm_mb": 51.8
+},
+{
+"id": "North2_NFI_l7s383",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.603,
+"bbox": [
+-89.0406,
+20.68073,
+-89.00227,
+20.68878
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l7s383_DEM_0p33m_v1.tif",
+"dtm_mb": 37.3
+},
+{
+"id": "North2_NFI_l7s384",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.739,
+"bbox": [
+-89.00327,
+20.67686,
+-88.95438,
+20.68414
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l7s384_DEM_0p33m_v1.tif",
+"dtm_mb": 46.8
+},
+{
+"id": "North2_NFI_l8s386",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.835,
+"bbox": [
+-88.82777,
+20.66403,
+-88.80438,
+20.66917
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l8s386_DEM_0p33m_v1.tif",
+"dtm_mb": 21.5
+},
+{
+"id": "North2_NFI_l8s387",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.238,
+"bbox": [
+-88.80522,
+20.65841,
+-88.7391,
+20.66719
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l8s387_DEM_0p33m_v1.tif",
+"dtm_mb": 61.0
+},
+{
+"id": "North2_NFI_l8s388",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.576,
+"bbox": [
+-88.73985,
+20.65564,
+-88.72249,
+20.66138
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l8s388_DEM_0p33m_v1.tif",
+"dtm_mb": 15.8
+},
+{
+"id": "North2_NFI_l9s417",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.853,
+"bbox": [
+-88.45823,
+20.7058,
+-88.42646,
+20.73538
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_North2/North2_NFI/North2_NFI/North2_NFI_l9s417_DEM_0p33m_v1.tif",
+"dtm_mb": 40.7
+},
+{
+"id": "OutYuc_GLAS_l0s427",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.953,
+"bbox": [
+-87.33327,
+21.36195,
+-87.32264,
+21.39806
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l0s427_DEM_0p33m_v1.tif",
+"dtm_mb": 37.0
+},
+{
+"id": "OutYuc_GLAS_l0s428",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.463,
+"bbox": [
+-87.34199,
+21.30451,
+-87.32903,
+21.36471
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l0s428_DEM_0p33m_v1.tif",
+"dtm_mb": 31.7
+},
+{
+"id": "OutYuc_GLAS_l0s429",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.816,
+"bbox": [
+-87.35023,
+21.24351,
+-87.3369,
+21.30593
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l0s429_DEM_0p33m_v1.tif",
+"dtm_mb": 84.1
+},
+{
+"id": "OutYuc_GLAS_l0s430",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.517,
+"bbox": [
+-87.35958,
+21.18214,
+-87.3465,
+21.24417
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l0s430_DEM_0p33m_v1.tif",
+"dtm_mb": 72.7
+},
+{
+"id": "OutYuc_GLAS_l0s431",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.733,
+"bbox": [
+-87.36786,
+21.12108,
+-87.35507,
+21.18286
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l0s431_DEM_0p33m_v1.tif",
+"dtm_mb": 78.4
+},
+{
+"id": "OutYuc_GLAS_l0s432",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.582,
+"bbox": [
+-87.37706,
+21.06073,
+-87.36393,
+21.12181
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l0s432_DEM_0p33m_v1.tif",
+"dtm_mb": 82.8
+},
+{
+"id": "OutYuc_GLAS_l0s433",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.261,
+"bbox": [
+-87.38125,
+21.0333,
+-87.37294,
+21.06126
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l0s433_DEM_0p33m_v1.tif",
+"dtm_mb": 36.6
+},
+{
+"id": "OutYuc_GLAS_l1s435",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.312,
+"bbox": [
+-87.40405,
+20.87525,
+-87.39599,
+20.90381
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s435_DEM_0p33m_v1.tif",
+"dtm_mb": 34.4
+},
+{
+"id": "OutYuc_GLAS_l1s436",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.052,
+"bbox": [
+-87.4136,
+20.81584,
+-87.39979,
+20.87633
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s436_DEM_0p33m_v1.tif",
+"dtm_mb": 78.2
+},
+{
+"id": "OutYuc_GLAS_l1s437",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.258,
+"bbox": [
+-87.42182,
+20.75467,
+-87.40875,
+20.81695
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s437_DEM_0p33m_v1.tif",
+"dtm_mb": 79.3
+},
+{
+"id": "OutYuc_GLAS_l1s438",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.199,
+"bbox": [
+-87.43076,
+20.69306,
+-87.41708,
+20.75618
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s438_DEM_0p33m_v1.tif",
+"dtm_mb": 75.4
+},
+{
+"id": "OutYuc_GLAS_l1s439",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.673,
+"bbox": [
+-87.43969,
+20.63068,
+-87.42678,
+20.69434
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s439_DEM_0p33m_v1.tif",
+"dtm_mb": 69.7
+},
+{
+"id": "OutYuc_GLAS_l1s440",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.488,
+"bbox": [
+-87.44888,
+20.56905,
+-87.43574,
+20.63163
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s440_DEM_0p33m_v1.tif",
+"dtm_mb": 69.7
+},
+{
+"id": "OutYuc_GLAS_l1s441",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.634,
+"bbox": [
+-87.45798,
+20.50757,
+-87.44514,
+20.57005
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s441_DEM_0p33m_v1.tif",
+"dtm_mb": 66.5
+},
+{
+"id": "OutYuc_GLAS_l1s442",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.667,
+"bbox": [
+-87.46698,
+20.44592,
+-87.45396,
+20.50853
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s442_DEM_0p33m_v1.tif",
+"dtm_mb": 76.2
+},
+{
+"id": "OutYuc_GLAS_l1s443",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.678,
+"bbox": [
+-87.47594,
+20.38566,
+-87.46298,
+20.44656
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s443_DEM_0p33m_v1.tif",
+"dtm_mb": 83.5
+},
+{
+"id": "OutYuc_GLAS_l1s444",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.57,
+"bbox": [
+-87.48465,
+20.32368,
+-87.47195,
+20.38613
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s444_DEM_0p33m_v1.tif",
+"dtm_mb": 79.2
+},
+{
+"id": "OutYuc_GLAS_l1s445",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.438,
+"bbox": [
+-87.50426,
+20.2658,
+-87.48112,
+20.32433
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s445_DEM_0p33m_v1.tif",
+"dtm_mb": 78.4
+},
+{
+"id": "OutYuc_GLAS_l1s446",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.364,
+"bbox": [
+-87.52678,
+20.21242,
+-87.50238,
+20.26821
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s446_DEM_0p33m_v1.tif",
+"dtm_mb": 76.6
+},
+{
+"id": "OutYuc_GLAS_l1s447",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.98,
+"bbox": [
+-87.52596,
+20.15294,
+-87.50353,
+20.21332
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s447_DEM_0p33m_v1.tif",
+"dtm_mb": 74.7
+},
+{
+"id": "OutYuc_GLAS_l1s448",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.505,
+"bbox": [
+-87.5185,
+20.09268,
+-87.50531,
+20.15445
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s448_DEM_0p33m_v1.tif",
+"dtm_mb": 71.5
+},
+{
+"id": "OutYuc_GLAS_l1s449",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.375,
+"bbox": [
+-87.527,
+20.03181,
+-87.51459,
+20.09367
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s449_DEM_0p33m_v1.tif",
+"dtm_mb": 85.0
+},
+{
+"id": "OutYuc_GLAS_l1s450",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.154,
+"bbox": [
+-87.53737,
+19.9702,
+-87.52347,
+20.03269
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s450_DEM_0p33m_v1.tif",
+"dtm_mb": 85.3
+},
+{
+"id": "OutYuc_GLAS_l1s451",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.116,
+"bbox": [
+-87.54576,
+19.90877,
+-87.53217,
+19.97147
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s451_DEM_0p33m_v1.tif",
+"dtm_mb": 84.0
+},
+{
+"id": "OutYuc_GLAS_l1s452",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.064,
+"bbox": [
+-87.5544,
+19.84673,
+-87.54153,
+19.91018
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s452_DEM_0p33m_v1.tif",
+"dtm_mb": 84.9
+},
+{
+"id": "OutYuc_GLAS_l1s453",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 1.539,
+"bbox": [
+-87.55928,
+19.81282,
+-87.55067,
+19.84769
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_Glas/Out_Yuc_Glas/OutYuc_GLAS_l1s453_DEM_0p33m_v1.tif",
+"dtm_mb": 46.8
+},
+{
+"id": "OutYuc_NFI_l0s413",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.812,
+"bbox": [
+-87.41951,
+21.17675,
+-87.36372,
+21.18845
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s413_DEM_0p33m_v1.tif",
+"dtm_mb": 64.9
+},
+{
+"id": "OutYuc_NFI_l0s414",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.705,
+"bbox": [
+-87.48657,
+21.15334,
+-87.41735,
+21.18025
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s414_DEM_0p33m_v1.tif",
+"dtm_mb": 82.2
+},
+{
+"id": "OutYuc_NFI_l0s415",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.526,
+"bbox": [
+-87.55595,
+21.13323,
+-87.48483,
+21.15618
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s415_DEM_0p33m_v1.tif",
+"dtm_mb": 74.8
+},
+{
+"id": "OutYuc_NFI_l0s416",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.592,
+"bbox": [
+-87.62744,
+21.11751,
+-87.55468,
+21.13617
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s416_DEM_0p33m_v1.tif",
+"dtm_mb": 69.7
+},
+{
+"id": "OutYuc_NFI_l0s417",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.776,
+"bbox": [
+-87.69927,
+21.10564,
+-87.62612,
+21.1205
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s417_DEM_0p33m_v1.tif",
+"dtm_mb": 76.1
+},
+{
+"id": "OutYuc_NFI_l0s418",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 3.841,
+"bbox": [
+-87.71061,
+21.11146,
+-87.68129,
+21.18329
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s418_DEM_0p33m_v1.tif",
+"dtm_mb": 91.5
+},
+{
+"id": "OutYuc_NFI_l0s419",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.65,
+"bbox": [
+-87.68407,
+21.18063,
+-87.6188,
+21.21674
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s419_DEM_0p33m_v1.tif",
+"dtm_mb": 81.8
+},
+{
+"id": "OutYuc_NFI_l0s420",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.837,
+"bbox": [
+-87.61915,
+21.21348,
+-87.54589,
+21.22768
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s420_DEM_0p33m_v1.tif",
+"dtm_mb": 70.1
+},
+{
+"id": "OutYuc_NFI_l0s421",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.434,
+"bbox": [
+-87.54678,
+21.22437,
+-87.47445,
+21.23919
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s421_DEM_0p33m_v1.tif",
+"dtm_mb": 69.7
+},
+{
+"id": "OutYuc_NFI_l0s422",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.531,
+"bbox": [
+-87.47482,
+21.23622,
+-87.40307,
+21.24897
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s422_DEM_0p33m_v1.tif",
+"dtm_mb": 73.4
+},
+{
+"id": "OutYuc_NFI_l0s423",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 2.716,
+"bbox": [
+-87.40334,
+21.24565,
+-87.33186,
+21.25813
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s423_DEM_0p33m_v1.tif",
+"dtm_mb": 80.2
+},
+{
+"id": "OutYuc_NFI_l0s424",
+"dataset": "MX13E_Britton",
+"epsg": 32616,
+"area_km2": 0.996,
+"bbox": [
+-87.33216,
+21.25444,
+-87.30742,
+21.2611
+],
+"dtm": "MX13E_Britton/DTM_0p33m/Yuc_Out_Yuc/Out_Yuc_NFI/Out_Yuc_NFI/OutYuc_NFI_l0s424_DEM_0p33m_v1.tif",
+"dtm_mb": 28.6
+},
+{
+"id": "South_GLAS_l0s383",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.774,
+"bbox": [
+-90.49916,
+19.77779,
+-90.48589,
+19.80713
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s383_DEM_0p33m_v1.tif",
+"dtm_mb": 21.7
+},
+{
+"id": "South_GLAS_l0s384",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.33,
+"bbox": [
+-90.49832,
+19.71007,
+-90.48594,
+19.7783
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s384_DEM_0p33m_v1.tif",
+"dtm_mb": 62.0
+},
+{
+"id": "South_GLAS_l0s385",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.323,
+"bbox": [
+-90.50981,
+19.63417,
+-90.49502,
+19.7104
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s385_DEM_0p33m_v1.tif",
+"dtm_mb": 85.3
+},
+{
+"id": "South_GLAS_l0s386",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.146,
+"bbox": [
+-90.52102,
+19.55546,
+-90.5061,
+19.63447
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s386_DEM_0p33m_v1.tif",
+"dtm_mb": 85.5
+},
+{
+"id": "South_GLAS_l0s387",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.961,
+"bbox": [
+-90.53189,
+19.47779,
+-90.51754,
+19.55564
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s387_DEM_0p33m_v1.tif",
+"dtm_mb": 77.4
+},
+{
+"id": "South_GLAS_l0s388",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.841,
+"bbox": [
+-90.54311,
+19.40134,
+-90.52876,
+19.47802
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s388_DEM_0p33m_v1.tif",
+"dtm_mb": 78.6
+},
+{
+"id": "South_GLAS_l0s389",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.838,
+"bbox": [
+-90.55458,
+19.32451,
+-90.53978,
+19.40158
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s389_DEM_0p33m_v1.tif",
+"dtm_mb": 74.4
+},
+{
+"id": "South_GLAS_l0s390",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.08,
+"bbox": [
+-90.56548,
+19.24858,
+-90.55121,
+19.32492
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s390_DEM_0p33m_v1.tif",
+"dtm_mb": 84.8
+},
+{
+"id": "South_GLAS_l0s391",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.043,
+"bbox": [
+-90.57637,
+19.17491,
+-90.56186,
+19.24905
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s391_DEM_0p33m_v1.tif",
+"dtm_mb": 82.1
+},
+{
+"id": "South_GLAS_l0s392",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.779,
+"bbox": [
+-90.5864,
+19.10275,
+-90.57283,
+19.17519
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s392_DEM_0p33m_v1.tif",
+"dtm_mb": 73.3
+},
+{
+"id": "South_GLAS_l0s393",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.122,
+"bbox": [
+-90.59632,
+19.03661,
+-90.58334,
+19.10317
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s393_DEM_0p33m_v1.tif",
+"dtm_mb": 75.1
+},
+{
+"id": "South_GLAS_l0s394",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.196,
+"bbox": [
+-90.60587,
+18.96987,
+-90.59191,
+19.03705
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s394_DEM_0p33m_v1.tif",
+"dtm_mb": 80.3
+},
+{
+"id": "South_GLAS_l0s395",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.178,
+"bbox": [
+-90.61651,
+18.8983,
+-90.60163,
+18.97033
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s395_DEM_0p33m_v1.tif",
+"dtm_mb": 84.0
+},
+{
+"id": "South_GLAS_l0s396",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.211,
+"bbox": [
+-90.62641,
+18.82879,
+-90.61265,
+18.89889
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s396_DEM_0p33m_v1.tif",
+"dtm_mb": 72.2
+},
+{
+"id": "South_GLAS_l0s397",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.75,
+"bbox": [
+-90.63557,
+18.76361,
+-90.62291,
+18.82966
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s397_DEM_0p33m_v1.tif",
+"dtm_mb": 71.4
+},
+{
+"id": "South_GLAS_l0s398",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.252,
+"bbox": [
+-90.6454,
+18.69799,
+-90.63168,
+18.764
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s398_DEM_0p33m_v1.tif",
+"dtm_mb": 70.8
+},
+{
+"id": "South_GLAS_l0s399",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.337,
+"bbox": [
+-90.65506,
+18.67343,
+-90.64106,
+18.69878
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l0s399_DEM_0p33m_v1.tif",
+"dtm_mb": 27.7
+},
+{
+"id": "South_GLAS_l1s400",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.314,
+"bbox": [
+-90.65202,
+18.65053,
+-90.64718,
+18.65886
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s400_DEM_0p33m_v1.tif",
+"dtm_mb": 6.8
+},
+{
+"id": "South_GLAS_l1s401",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.556,
+"bbox": [
+-90.66145,
+18.58351,
+-90.64759,
+18.65086
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s401_DEM_0p33m_v1.tif",
+"dtm_mb": 61.2
+},
+{
+"id": "South_GLAS_l1s402",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.712,
+"bbox": [
+-90.67165,
+18.51577,
+-90.65833,
+18.58389
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s402_DEM_0p33m_v1.tif",
+"dtm_mb": 64.6
+},
+{
+"id": "South_GLAS_l1s403",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.207,
+"bbox": [
+-90.68177,
+18.44826,
+-90.66787,
+18.51625
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s403_DEM_0p33m_v1.tif",
+"dtm_mb": 72.3
+},
+{
+"id": "South_GLAS_l1s404",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.037,
+"bbox": [
+-90.69124,
+18.38001,
+-90.67794,
+18.44893
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s404_DEM_0p33m_v1.tif",
+"dtm_mb": 67.4
+},
+{
+"id": "South_GLAS_l1s405",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.519,
+"bbox": [
+-90.70153,
+18.31258,
+-90.68647,
+18.3809
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s405_DEM_0p33m_v1.tif",
+"dtm_mb": 76.2
+},
+{
+"id": "South_GLAS_l1s406",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.2,
+"bbox": [
+-90.71041,
+18.24603,
+-90.69684,
+18.3135
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s406_DEM_0p33m_v1.tif",
+"dtm_mb": 75.3
+},
+{
+"id": "South_GLAS_l1s407",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.35,
+"bbox": [
+-90.72043,
+18.17818,
+-90.70643,
+18.24675
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s407_DEM_0p33m_v1.tif",
+"dtm_mb": 78.7
+},
+{
+"id": "South_GLAS_l1s408",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.743,
+"bbox": [
+-90.73088,
+18.10841,
+-90.71564,
+18.17911
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s408_DEM_0p33m_v1.tif",
+"dtm_mb": 78.6
+},
+{
+"id": "South_GLAS_l1s409",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.007,
+"bbox": [
+-90.73866,
+18.04629,
+-90.72614,
+18.10966
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l1s409_DEM_0p33m_v1.tif",
+"dtm_mb": 72.2
+},
+{
+"id": "South_GLAS_l2s429",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.931,
+"bbox": [
+-90.60385,
+18.17255,
+-90.59705,
+18.19244
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s429_DEM_0p33m_v1.tif",
+"dtm_mb": 21.1
+},
+{
+"id": "South_GLAS_l2s430",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.595,
+"bbox": [
+-90.61436,
+18.19178,
+-90.59957,
+18.26844
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s430_DEM_0p33m_v1.tif",
+"dtm_mb": 86.7
+},
+{
+"id": "South_GLAS_l2s431",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.443,
+"bbox": [
+-90.625,
+18.2677,
+-90.61031,
+18.34279
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s431_DEM_0p33m_v1.tif",
+"dtm_mb": 85.5
+},
+{
+"id": "South_GLAS_l2s432",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.237,
+"bbox": [
+-90.63609,
+18.34233,
+-90.62116,
+18.41607
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s432_DEM_0p33m_v1.tif",
+"dtm_mb": 78.9
+},
+{
+"id": "South_GLAS_l2s433",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.596,
+"bbox": [
+-90.64623,
+18.41556,
+-90.6317,
+18.49075
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s433_DEM_0p33m_v1.tif",
+"dtm_mb": 79.9
+},
+{
+"id": "South_GLAS_l2s434",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.304,
+"bbox": [
+-90.65722,
+18.48972,
+-90.64226,
+18.56526
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s434_DEM_0p33m_v1.tif",
+"dtm_mb": 74.9
+},
+{
+"id": "South_GLAS_l2s435",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.992,
+"bbox": [
+-90.66757,
+18.56464,
+-90.65333,
+18.64064
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s435_DEM_0p33m_v1.tif",
+"dtm_mb": 72.1
+},
+{
+"id": "South_GLAS_l2s436",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.781,
+"bbox": [
+-90.6789,
+18.63966,
+-90.66393,
+18.71576
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s436_DEM_0p33m_v1.tif",
+"dtm_mb": 71.9
+},
+{
+"id": "South_GLAS_l2s437",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.296,
+"bbox": [
+-90.68655,
+18.71465,
+-90.66867,
+18.78343
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s437_DEM_0p33m_v1.tif",
+"dtm_mb": 83.2
+},
+{
+"id": "South_GLAS_l2s438",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.034,
+"bbox": [
+-90.6694,
+18.74829,
+-90.60556,
+18.78371
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s438_DEM_0p33m_v1.tif",
+"dtm_mb": 73.3
+},
+{
+"id": "South_GLAS_l2s439",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.557,
+"bbox": [
+-90.60703,
+18.73987,
+-90.59167,
+18.75083
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l2s439_DEM_0p33m_v1.tif",
+"dtm_mb": 12.7
+},
+{
+"id": "South_GLAS_l3s454",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.771,
+"bbox": [
+-89.80634,
+18.19486,
+-89.78936,
+18.24432
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s454_DEM_0p33m_v1.tif",
+"dtm_mb": 47.2
+},
+{
+"id": "South_GLAS_l3s455",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.307,
+"bbox": [
+-89.81843,
+18.24349,
+-89.80219,
+18.31956
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s455_DEM_0p33m_v1.tif",
+"dtm_mb": 73.4
+},
+{
+"id": "South_GLAS_l3s456",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.051,
+"bbox": [
+-89.82825,
+18.3184,
+-89.8136,
+18.3944
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s456_DEM_0p33m_v1.tif",
+"dtm_mb": 75.8
+},
+{
+"id": "South_GLAS_l3s457",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.349,
+"bbox": [
+-89.83881,
+18.39348,
+-89.82394,
+18.46729
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s457_DEM_0p33m_v1.tif",
+"dtm_mb": 73.9
+},
+{
+"id": "South_GLAS_l3s458",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.384,
+"bbox": [
+-89.84986,
+18.46675,
+-89.83521,
+18.54183
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s458_DEM_0p33m_v1.tif",
+"dtm_mb": 75.6
+},
+{
+"id": "South_GLAS_l3s459",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.494,
+"bbox": [
+-89.85984,
+18.54113,
+-89.84544,
+18.61597
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s459_DEM_0p33m_v1.tif",
+"dtm_mb": 78.7
+},
+{
+"id": "South_GLAS_l3s460",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.8,
+"bbox": [
+-89.87094,
+18.61484,
+-89.85549,
+18.69086
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s460_DEM_0p33m_v1.tif",
+"dtm_mb": 77.6
+},
+{
+"id": "South_GLAS_l3s461",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.695,
+"bbox": [
+-89.88178,
+18.6898,
+-89.86616,
+18.76546
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s461_DEM_0p33m_v1.tif",
+"dtm_mb": 78.1
+},
+{
+"id": "South_GLAS_l3s462",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.44,
+"bbox": [
+-89.89283,
+18.76473,
+-89.87749,
+18.84033
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s462_DEM_0p33m_v1.tif",
+"dtm_mb": 79.8
+},
+{
+"id": "South_GLAS_l3s463",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.093,
+"bbox": [
+-89.90366,
+18.83992,
+-89.88882,
+18.91517
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s463_DEM_0p33m_v1.tif",
+"dtm_mb": 74.7
+},
+{
+"id": "South_GLAS_l3s464",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.155,
+"bbox": [
+-89.91395,
+18.91472,
+-89.90019,
+18.98693
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s464_DEM_0p33m_v1.tif",
+"dtm_mb": 75.8
+},
+{
+"id": "South_GLAS_l3s465",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.546,
+"bbox": [
+-89.92402,
+18.98629,
+-89.90937,
+19.06019
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s465_DEM_0p33m_v1.tif",
+"dtm_mb": 82.6
+},
+{
+"id": "South_GLAS_l3s466",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.633,
+"bbox": [
+-89.93491,
+19.05948,
+-89.92009,
+19.13261
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s466_DEM_0p33m_v1.tif",
+"dtm_mb": 78.1
+},
+{
+"id": "South_GLAS_l3s467",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.171,
+"bbox": [
+-89.94545,
+19.13183,
+-89.93041,
+19.20633
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s467_DEM_0p33m_v1.tif",
+"dtm_mb": 78.9
+},
+{
+"id": "South_GLAS_l3s468",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.611,
+"bbox": [
+-89.95655,
+19.20582,
+-89.94157,
+19.27959
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s468_DEM_0p33m_v1.tif",
+"dtm_mb": 82.9
+},
+{
+"id": "South_GLAS_l3s469",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.24,
+"bbox": [
+-89.96592,
+19.2789,
+-89.95197,
+19.35254
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s469_DEM_0p33m_v1.tif",
+"dtm_mb": 38.0
+},
+{
+"id": "South_GLAS_l3s470",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.342,
+"bbox": [
+-89.97844,
+19.35187,
+-89.96285,
+19.42925
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s470_DEM_0p33m_v1.tif",
+"dtm_mb": 76.4
+},
+{
+"id": "South_GLAS_l3s471",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.555,
+"bbox": [
+-89.98907,
+19.42854,
+-89.97404,
+19.50583
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s471_DEM_0p33m_v1.tif",
+"dtm_mb": 83.1
+},
+{
+"id": "South_GLAS_l3s472",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.365,
+"bbox": [
+-89.99765,
+19.50548,
+-89.98526,
+19.56561
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l3s472_DEM_0p33m_v1.tif",
+"dtm_mb": 56.5
+},
+{
+"id": "South_GLAS_l4s478",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.271,
+"bbox": [
+-89.75449,
+19.32095,
+-89.73368,
+19.36756
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l4s478_DEM_0p33m_v1.tif",
+"dtm_mb": 47.5
+},
+{
+"id": "South_GLAS_l4s479",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.549,
+"bbox": [
+-89.73815,
+19.36622,
+-89.72303,
+19.44027
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l4s479_DEM_0p33m_v1.tif",
+"dtm_mb": 79.6
+},
+{
+"id": "South_GLAS_l4s480",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.477,
+"bbox": [
+-89.727,
+19.43913,
+-89.71239,
+19.51264
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l4s480_DEM_0p33m_v1.tif",
+"dtm_mb": 74.6
+},
+{
+"id": "South_GLAS_l4s481",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.547,
+"bbox": [
+-89.71708,
+19.51153,
+-89.70214,
+19.58461
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l4s481_DEM_0p33m_v1.tif",
+"dtm_mb": 82.4
+},
+{
+"id": "South_GLAS_l4s482",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.739,
+"bbox": [
+-89.70657,
+19.58359,
+-89.69978,
+19.59959
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_Glas/South_Glas/South_GLAS_l4s482_DEM_0p33m_v1.tif",
+"dtm_mb": 17.2
+},
+{
+"id": "South_NFI_l0s411",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.328,
+"bbox": [
+-90.73538,
+18.08495,
+-90.68439,
+18.10546
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l0s411_DEM_0p33m_v1.tif",
+"dtm_mb": 49.0
+},
+{
+"id": "South_NFI_l0s412",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.068,
+"bbox": [
+-90.68606,
+18.04973,
+-90.62304,
+18.08784
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l0s412_DEM_0p33m_v1.tif",
+"dtm_mb": 76.6
+},
+{
+"id": "South_NFI_l0s413",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.169,
+"bbox": [
+-90.62498,
+18.01431,
+-90.56148,
+18.05279
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l0s413_DEM_0p33m_v1.tif",
+"dtm_mb": 60.4
+},
+{
+"id": "South_NFI_l0s414",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.145,
+"bbox": [
+-90.56244,
+17.98107,
+-90.50401,
+18.01598
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l0s414_DEM_0p33m_v1.tif",
+"dtm_mb": 54.2
+},
+{
+"id": "South_NFI_l0s415",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.375,
+"bbox": [
+-90.5056,
+17.94747,
+-90.44639,
+17.98374
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l0s415_DEM_0p33m_v1.tif",
+"dtm_mb": 60.6
+},
+{
+"id": "South_NFI_l0s416",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.441,
+"bbox": [
+-90.44812,
+17.91745,
+-90.38579,
+17.95005
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l0s416_DEM_0p33m_v1.tif",
+"dtm_mb": 57.5
+},
+{
+"id": "South_NFI_l0s417",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.218,
+"bbox": [
+-90.38696,
+17.89286,
+-90.32289,
+17.92042
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l0s417_DEM_0p33m_v1.tif",
+"dtm_mb": 53.1
+},
+{
+"id": "South_NFI_l0s418",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.907,
+"bbox": [
+-90.3239,
+17.86703,
+-90.26404,
+17.89523
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l0s418_DEM_0p33m_v1.tif",
+"dtm_mb": 44.1
+},
+{
+"id": "South_NFI_l0s419",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.217,
+"bbox": [
+-90.26545,
+17.84884,
+-90.23075,
+17.86944
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l0s419_DEM_0p33m_v1.tif",
+"dtm_mb": 24.3
+},
+{
+"id": "South_NFI_l1s421",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.729,
+"bbox": [
+-90.15457,
+17.86597,
+-90.13528,
+17.93432
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l1s421_DEM_0p33m_v1.tif",
+"dtm_mb": 59.1
+},
+{
+"id": "South_NFI_l1s422",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.606,
+"bbox": [
+-90.22327,
+17.93067,
+-90.14264,
+17.95279
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l1s422_DEM_0p33m_v1.tif",
+"dtm_mb": 69.3
+},
+{
+"id": "South_NFI_l1s423",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.384,
+"bbox": [
+-90.30033,
+17.94947,
+-90.22201,
+17.98102
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l1s423_DEM_0p33m_v1.tif",
+"dtm_mb": 72.4
+},
+{
+"id": "South_NFI_l1s424",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 4.049,
+"bbox": [
+-90.36886,
+17.97779,
+-90.29818,
+18.02268
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l1s424_DEM_0p33m_v1.tif",
+"dtm_mb": 87.9
+},
+{
+"id": "South_NFI_l1s425",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.984,
+"bbox": [
+-90.43896,
+18.01919,
+-90.36635,
+18.06415
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l1s425_DEM_0p33m_v1.tif",
+"dtm_mb": 84.6
+},
+{
+"id": "South_NFI_l1s426",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.757,
+"bbox": [
+-90.51137,
+18.06051,
+-90.43686,
+18.1065
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l1s426_DEM_0p33m_v1.tif",
+"dtm_mb": 94.7
+},
+{
+"id": "South_NFI_l1s427",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.939,
+"bbox": [
+-90.57875,
+18.10348,
+-90.50935,
+18.15159
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l1s427_DEM_0p33m_v1.tif",
+"dtm_mb": 97.9
+},
+{
+"id": "South_NFI_l1s428",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.359,
+"bbox": [
+-90.6307,
+18.14823,
+-90.57602,
+18.17656
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l1s428_DEM_0p33m_v1.tif",
+"dtm_mb": 62.4
+},
+{
+"id": "South_NFI_l2s439",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.016,
+"bbox": [
+-90.59192,
+18.71448,
+-90.54651,
+18.74361
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s439_DEM_0p33m_v1.tif",
+"dtm_mb": 40.6
+},
+{
+"id": "South_NFI_l2s440",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.579,
+"bbox": [
+-90.54832,
+18.67876,
+-90.48549,
+18.71769
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s440_DEM_0p33m_v1.tif",
+"dtm_mb": 65.0
+},
+{
+"id": "South_NFI_l2s441",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.869,
+"bbox": [
+-90.4879,
+18.64573,
+-90.42685,
+18.68279
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s441_DEM_0p33m_v1.tif",
+"dtm_mb": 71.0
+},
+{
+"id": "South_NFI_l2s442",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.018,
+"bbox": [
+-90.42899,
+18.61158,
+-90.36829,
+18.64869
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s442_DEM_0p33m_v1.tif",
+"dtm_mb": 74.4
+},
+{
+"id": "South_NFI_l2s443",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.317,
+"bbox": [
+-90.37047,
+18.57729,
+-90.30834,
+18.61519
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s443_DEM_0p33m_v1.tif",
+"dtm_mb": 84.9
+},
+{
+"id": "South_NFI_l2s444",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.273,
+"bbox": [
+-90.31078,
+18.53847,
+-90.25438,
+18.58078
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s444_DEM_0p33m_v1.tif",
+"dtm_mb": 79.4
+},
+{
+"id": "South_NFI_l2s445",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.061,
+"bbox": [
+-90.25769,
+18.47702,
+-90.22371,
+18.54052
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s445_DEM_0p33m_v1.tif",
+"dtm_mb": 80.8
+},
+{
+"id": "South_NFI_l2s446",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.052,
+"bbox": [
+-90.22717,
+18.41722,
+-90.1919,
+18.47916
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s446_DEM_0p33m_v1.tif",
+"dtm_mb": 78.3
+},
+{
+"id": "South_NFI_l2s447",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.027,
+"bbox": [
+-90.19435,
+18.38257,
+-90.13716,
+18.41922
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s447_DEM_0p33m_v1.tif",
+"dtm_mb": 64.4
+},
+{
+"id": "South_NFI_l2s448",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.183,
+"bbox": [
+-90.13935,
+18.34409,
+-90.08337,
+18.38612
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s448_DEM_0p33m_v1.tif",
+"dtm_mb": 65.4
+},
+{
+"id": "South_NFI_l2s449",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.203,
+"bbox": [
+-90.0862,
+18.29705,
+-90.03557,
+18.34651
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s449_DEM_0p33m_v1.tif",
+"dtm_mb": 65.2
+},
+{
+"id": "South_NFI_l2s450",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.081,
+"bbox": [
+-90.03754,
+18.26934,
+-89.98277,
+18.30119
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s450_DEM_0p33m_v1.tif",
+"dtm_mb": 58.1
+},
+{
+"id": "South_NFI_l2s452",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.097,
+"bbox": [
+-89.89154,
+18.1941,
+-89.85887,
+18.21777
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s452_DEM_0p33m_v1.tif",
+"dtm_mb": 30.4
+},
+{
+"id": "South_NFI_l2s453",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.106,
+"bbox": [
+-89.86218,
+18.18264,
+-89.84313,
+18.1984
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l2s453_DEM_0p33m_v1.tif",
+"dtm_mb": 19.6
+},
+{
+"id": "South_NFI_l3s482",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.529,
+"bbox": [
+-89.73827,
+19.60396,
+-89.69987,
+19.64914
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l3s482_DEM_0p33m_v1.tif",
+"dtm_mb": 63.6
+},
+{
+"id": "South_NFI_l3s483",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.94,
+"bbox": [
+-89.79549,
+19.64607,
+-89.73499,
+19.70542
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l3s483_DEM_0p33m_v1.tif",
+"dtm_mb": 93.3
+},
+{
+"id": "South_NFI_l3s484",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.855,
+"bbox": [
+-89.86502,
+19.70229,
+-89.79204,
+19.74557
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l3s484_DEM_0p33m_v1.tif",
+"dtm_mb": 91.9
+},
+{
+"id": "South_NFI_l3s485",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 1.26,
+"bbox": [
+-89.89102,
+19.74199,
+-89.86272,
+19.75932
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l3s485_DEM_0p33m_v1.tif",
+"dtm_mb": 29.6
+},
+{
+"id": "South_NFI_l4s473",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.237,
+"bbox": [
+-89.97189,
+19.55858,
+-89.92913,
+19.59063
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l4s473_DEM_0p33m_v1.tif",
+"dtm_mb": 45.8
+},
+{
+"id": "South_NFI_l4s474",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.592,
+"bbox": [
+-89.93153,
+19.5041,
+-89.88647,
+19.56071
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l4s474_DEM_0p33m_v1.tif",
+"dtm_mb": 63.8
+},
+{
+"id": "South_NFI_l4s475",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 3.032,
+"bbox": [
+-89.88957,
+19.44252,
+-89.85213,
+19.5058
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l4s475_DEM_0p33m_v1.tif",
+"dtm_mb": 71.9
+},
+{
+"id": "South_NFI_l4s476",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.9,
+"bbox": [
+-89.85496,
+19.38256,
+-89.81681,
+19.44462
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l4s476_DEM_0p33m_v1.tif",
+"dtm_mb": 69.3
+},
+{
+"id": "South_NFI_l4s477",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 2.757,
+"bbox": [
+-89.82038,
+19.33079,
+-89.77122,
+19.38461
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l4s477_DEM_0p33m_v1.tif",
+"dtm_mb": 64.7
+},
+{
+"id": "South_NFI_l4s478",
+"dataset": "MX13W_Britton",
+"epsg": 32615,
+"area_km2": 0.969,
+"bbox": [
+-89.77337,
+19.32098,
+-89.75396,
+19.3338
+],
+"dtm": "MX13W_Britton/DTM_0p33m/Yuc_South/South_NFI/South_NFI/South_NFI_l4s478_DEM_0p33m_v1.tif",
+"dtm_mb": 19.6
+}
+]
+}

@@ -234,6 +234,30 @@ Skill agent GeoLibre: `.claude/skills/geolibre/`
 - [ ] Nessuna azione essenziale richiede hover.
 - [ ] Dossier locale non lascia il device; pack cieco sì.
 
+### Flotta (§12)
+
+- [ ] Una segnalazione senza null, o con `p × n_tested > 0.05`, esce `SOTTO_IL_CASO` (`test_fleet.py`).
+- [ ] Controllo positivo assente o fallito → `NON_CALIBRATO`, mai in coda.
+- [ ] `VERIFICA_APPROFONDITA` solo con revisore ≠ autore **e** sorgente indipendente verificata.
+- [ ] Testo / letteratura → `COLONNA`. Trappole (Richat, Bimini, Yonaguni, Gunung Padang) → `RESPINTO`.
+- [ ] Sorgente fuori registro o `dead` → `RESPINTO`. `report --blind` non contiene `where`/`lon`/`lat`.
+
+### Non naturale (§13)
+
+- [ ] Nessun rilevatore "non naturale" segnala finche' il suo banco su siti noti non passa con criteri committati prima (`core/anthro/mound.py`: oggi FAIL).
+- [ ] Sorgente con ruolo spiegatore (geologia, faglie, magnetico, moderno) non regge una segnalazione → `RESPINTO` (`test_fleet.py`).
+- [ ] Nessuna stringa "artificiale" / "non naturale" su un punto di mappa: solo "spiegazioni naturali e moderne testate: …".
+
+### Vaglio (§14)
+
+- [ ] Il rilevatore dichiara recall e precisione misurate su riquadri annotati da archeologi e mai usati in addestramento, con criterio scritto prima (`vaglio/vaglio/model.py`).
+- [ ] Ogni pacco di revisione contiene controlli a risposta nota, non riconoscibili dal nome; un revisore conferma o scarta solo nella direzione in cui i controlli lo dicono affidabile (`vaglio/tests`).
+- [ ] Nessun esito si chiama "trovato", "scoperto", "nuovo", "confermato". Su un rilievo già analizzato da altri l'etichetta è "presumi già visto".
+- [ ] `pack_cieco.json` non contiene coordinate, transetto, id, né il nome del sito noto più vicino.
+- [ ] `dossier.html` si usa a 360 px senza scorrimento orizzontale, bersagli ≥ 44 px.
+- [ ] Un materiale che esce usa solo `vaglio_lavoro/kit/` e `vaglio/materiali/FATTI.md`, e passa `python -m vaglio controlla` (`vaglio/tests`: `MaterialGateTest`).
+- [ ] Le frasi obbligatorie di `vaglio/materiali/ISTRUZIONI.md` passano lo stesso cancello che controlla i materiali.
+
 ### GeoLibre (direzione)
 
 - [ ] Il geojson schematico apre come progetto GeoLibre senza backend.
@@ -270,4 +294,84 @@ GeoLibre: apri `data/sahara_paleodrainage.geolibre.json`
 
 File da leggere prima di toccare codice: **§0 di questo file**, poi il resto, `docs/GEOLIBRE.md`, `frontend/src/investigate.ts`. Ignora `archaeo-sentinel-prompt.md` come piano di build.
 
-Prossimo lavoro in ordine: (1) più tile Copernicus sulla sponda Mega-Chad 320 m — un tile 1° non è il lago, (2) L-band / ammissione onesta su Sahabi, (3) solo dopo: plugin GeoLibre che **ripete** ledger + pack cieco, non un GIS nuovo. Ogni PR cita l’item di §9 che chiude.
+Flotta: `/flotta` (§12). Prossimo lavoro in ordine: (1) più tile Copernicus sulla sponda Mega-Chad 320 m — un tile 1° non è il lago, (2) L-band / ammissione onesta su Sahabi, (3) solo dopo: plugin GeoLibre che **ripete** ledger + pack cieco, non un GIS nuovo. Ogni PR cita l’item di §9 che chiude.
+
+---
+
+## 12. Flotta — scout, cancello, scettico
+
+Aggiunta del 16 nov 2026 (richiesta operatore: "troppo specifico"). §0 vince su questa sezione.
+
+**Cosa fa.** Un supervisore (`/flotta`, `.claude/skills/flotta/`) lancia agenti scout, uno per dominio di banca dati pubblica, **sul mondo e non solo sul Sahara**. Gli scout scremano e propongono. All'operatore arriva solo ciò che merita una **seconda verifica** o una **verifica approfondita**. L'esito normale è zero.
+
+**Correzione all'obiettivo "portami le anomalie".** Un'anomalia senza null è un massimo interno, e un massimo interno esiste sempre (`docs/CALIBRAZIONE.md`). Più agenti × più banche dati = più falsi positivi, non più scoperte. Quindi gli agenti **non decidono** cosa è anomalo: lo decide un cancello deterministico (`backend/core/fleet/gate.py`), uguale per tutti, testato offline.
+
+| Agente | Dominio | Controllo positivo |
+|---|---|---|
+| `scout-sismo-tsunami` | terremoti, tsunami, eruzioni | Cascadia 1700 |
+| `scout-mare` | batimetria, livello marino | Doggerland / Atlit-Yam, null condizionato sulla profondità |
+| `scout-terreno` | DEM, radar L-band | Bama Ridge — **oggi fallisce** → tutto `NON_CALIBRATO` |
+| `scout-carote` | XRF, isotopi, pollini | evento datato noto nella stessa classe di serie |
+| `scout-datazioni` | ¹⁴C, dati di scavo | crollo ¹⁴C sahariano ~5.5 ka |
+| `scout-fonti` | testi, letteratura | — gira per ultimo, al buio, produce `COLONNA` |
+| `scettico` | seconda verifica | il suo lavoro riuscito è un `FAIL` |
+
+**Esiti del cancello.** `RESPINTO` (incompleta, trappola, sorgente fuori registro, candidato partito dal mito) · `NON_CALIBRATO` · `SOTTO_IL_CASO` · `COLONNA` · `SECONDA_VERIFICA` · `VERIFICA_APPROFONDITA` · `FAIL`. Nessuno significa "trovato". Tutti restano agli atti, FAIL compresi.
+
+**Invarianti.**
+
+- `n_tested` = quanti candidati lo scout ha guardato, non quanti ne consegna. Soglia: `p × n_tested ≤ 0.05`.
+- Scout cieco al mito (`myth_blind`). Area dai cataloghi fisici, criterio scritto prima (`triangolazione/METODO-v1.md`).
+- Chi segnala non si rivede. "Sopravvive" vale solo con una sorgente **diversa** e verificata dal vivo.
+- Solo sorgenti in `data/fleet/sources.json`, con `status` da sonda reale (`python -m core.fleet probe`). Non verificata ≠ ok.
+- Coda in `data/fleet/runs/` (gitignored, ha coordinate). Condivisibile: solo `report --blind`.
+- Gli scout usano il codice di misura che c'è. La flotta non è una scusa per il nono rilevatore.
+
+**Fuori scope.** Agenti che girano da soli a orario. Agenti che scrivono codice o spec. "Tutte le banche dati": entra una sorgente alla volta, sondata.
+
+---
+
+## 13. "Non naturale" — direzione aperta il 16 nov 2026
+
+Richiesta operatore: una mappa, da casa, delle anomalie **non riconducibili all'azione naturale**, con le prove. §0 vince. Il §1 non è riscritto: questa è una seconda domanda che usa la stessa flotta e lo stesso cancello, e a differenza di "Atlantide" passa le cinque colonne di `docs/BERSAGLIO.md` (firma, scala, contesto, null, **migliaia** di controlli positivi).
+
+**Tre classi, non due.** Naturale · moderno · antico. Da casa non si dimostra "antico": si esclude naturale e moderno, una spiegazione alla volta, e si scrive quali.
+
+**Ruoli delle sorgenti** (`data/fleet/sources.json`, campo `role`).
+
+| Ruolo | Esempi | Uso |
+|---|---|---|
+| `detector` | DEM, Sentinel-2, radar | può reggere una segnalazione |
+| `known_sites` | Menze & Ur (14.324 siti, CC0), Wikidata, toponimi GeoNames | controlli positivi |
+| `natural_explainer` | geologia Macrostrat, faglie GEM, magnetico EMAG2 | lo scettico ci **uccide** |
+| `modern_explainer` | WorldCover, CORONA, OSM | idem |
+
+**Anomalie magnetiche, termiche, sismiche: cosa sono davvero da casa.** Magnetico globale = griglia a ~3,7 km: vede la crosta, non un muro (la magnetometria archeologica si fa a piedi). Termico gratuito = ~100 m: strutture grandi e umidità, non edifici. Sismico = cataloghi di eventi e faglie: non trova niente, **spiega** i lineamenti. Per questo entrano come spiegatori, non come rilevatori. Venderli come rilevatori sarebbe il DEM sintetico con un altro nome.
+
+**Stato del primo banco (tumuli sul DEM a 30 m, alto Khabur).** Pre-registrato, eseguito, **FAIL due volte**. Scansione al buio: su 100 allarmi, 86–98 non sono tumuli a catalogo. Numeri e diagnosi nel docstring di `backend/core/anthro/mound.py`.
+
+**Prossimo colpo, in ordine.** (1) Secondo dato sugli allarmi del DEM: spettro Sentinel-2 multi-temporale (è la firma con cui Menze & Ur i siti li hanno trovati), poi geologia e toponimi come filtro. Pre-registrato, su tile non bruciati (restano N36E039, N37E039, N37E042). (2) Solo se la combinazione passa: scansione fuori dal Khabur e mappa GeoLibre con scheda-prova. (3) Non una v3 sul solo rilievo.
+
+---
+
+## 14. Vaglio — prodotto a sé (`vaglio/`)
+
+Aggiunto il 16 nov 2026 su richiesta dell'operatore. È il rilevatore che a §13 mancava: lavora dove esiste LiDAR pubblico ad alta risoluzione invece che sul DEM a 30 m. §0 vince.
+
+**Cosa fa.** `python -m vaglio`: scarica un rilievo LiDAR pubblico, calcola le visualizzazioni, segnala i rilievi a forma di costruzione, li raggruppa in complessi, li fa rivedere al buio, li confronta col già noto, scrive un fascicolo HTML offline. Istruzioni in `vaglio/README.md`.
+
+**Perché non è il compitino.** Nasce dal caso Miotti (nov 2026: 48 agenti, un sito maya "non mappato" che era già pubblicato). Copia il metodo e aggiunge le tre misure che lì mancavano: errore del rilevatore, errore dei revisori, controllo del già noto.
+
+**Invarianti.**
+
+- Il rilevatore si tara solo su annotazioni di archeologi (oggi: Chactún, Kokalj et al. 2023) con divisione addestramento/test degli autori del dataset. Ogni modifica si committa prima di rieseguire il test.
+- I revisori (agenti o persone) vedono immagini senza nome né posizione, con controlli piantati. Conferma solo chi scarta i vuoti noti; scarta solo chi trova le strutture note. Servono due revisori.
+- Un candidato su un rilievo già studiato si presume già visto. Sullo Yucatán esiste il catalogo Britton 2026 (57.181 strutture, non pubblico): lì Vaglio **riproduce**, non scopre.
+- Coordinate solo in `vaglio_lavoro/` (gitignored). Condivisibile: `pack_cieco.json`.
+- Il punteggio d'ordine decide cosa guardare prima. Non è una probabilità e non si mostra come tale.
+- L'uso del suolo di oggi (`moderno`) è una colonna: non promuove e non scarta.
+- I materiali per l'esterno li può scrivere chiunque, ma solo dal kit e dalla scheda dei fatti, e nessun numero nasce fuori da lì.
+
+**Stato al 16 nov 2026.** Rilevatore: test pre-registrato **passato** (recall 0,76, precisione 0,83 su 942 strutture mai viste). Scansione completa: 456/456 transetti, 1.272,7 km² e 11.916 complessi candidati. Dei 40 candidati rivisti, 15 reggono e 25 restano incerti; i revisori agenti confermano ma non scartano. Quei 40 vengono da un solo blocco, estratti quando erano scansionati i primi 40 transetti (12 dei 20 allora più alti, 3 dei 20 casuali): nella scansione completa, dei primi 100 per punteggio ne sono stati rivisti 3. Altri 11.876 candidati sono da rivedere. Numeri e pack cieco in `vaglio/README.md` e `vaglio/pack_cieco.json`. Prossimo, in ordine (`vaglio/RIPRESA.md`): pacco 3 pre-registrato sulla scansione completa, con revisori di altro tipo (Grok, ChatGPT, persone) per poter anche scartare; materiali per gli esperti secondo `vaglio/materiali/ISTRUZIONI.md`; chiedere a Britton il confronto col suo catalogo.
+
+**Fuori scope.** Dichiarare un sito. Contattare enti a nome dell'operatore. Pubblicare coordinate. Scansionare rilievi con licenza che non lo consente.

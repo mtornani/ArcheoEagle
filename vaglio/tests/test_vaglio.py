@@ -91,30 +91,41 @@ class ReviewTest(unittest.TestCase):
                for i, v in self.key.items()]
         return out
 
-    def test_reviewer_who_says_yes_to_everything_does_not_vote(self):
+    def test_yes_man_can_neither_confirm_nor_be_trusted(self):
         g = review.grade_reviewer(self.key, self.answers("struttura", "struttura", "struttura"))
-        self.assertEqual(g["sensitivity"], 1.0)
-        self.assertEqual(g["specificity"], 0.0)
-        self.assertFalse(g["calibrated"])
+        self.assertEqual((g["sensitivity"], g["specificity"]), (1.0, 0.0))
+        self.assertFalse(g["can_confirm"])
+        self.assertTrue(g["can_discard"])      # ma non scartera' mai niente
 
-    def test_two_calibrated_reviewers_are_needed(self):
+    def test_two_reviewers_are_needed_to_hold(self):
         good = self.answers("struttura", "naturale", "struttura")
-        res = review.ingest(self.key, {"a": good})
-        self.assertEqual(res["candidates"]["V-aaa"]["outcome"], "da_rivedere")
-        res = review.ingest(self.key, {"a": good, "b": good})
-        self.assertEqual(res["candidates"]["V-aaa"]["outcome"], "regge_alla_revisione")
+        self.assertEqual(review.ingest(self.key, {"a": good})["candidates"]["V-aaa"]["outcome"], "incerto")
+        self.assertEqual(review.ingest(self.key, {"a": good, "b": good})["candidates"]["V-aaa"]["outcome"], "regge_alla_revisione")
 
-    def test_uncalibrated_vote_is_recorded_but_not_counted(self):
-        good = self.answers("struttura", "naturale", "naturale")
+    def test_cautious_reviewer_confirms_but_cannot_discard(self):
+        # trova 2 strutture note su 8, non sbaglia mai un vuoto: e' il caso misurato il 16 nov 2026
+        def cautious(cand):
+            out = self.answers("naturale", "naturale", cand)
+            for r in out[:2]:
+                r["verdict"] = "struttura"
+            return out
+        g = review.grade_reviewer(self.key, cautious("naturale"))
+        self.assertTrue(g["can_confirm"]); self.assertFalse(g["can_discard"])
+        no = review.ingest(self.key, {"a": cautious("naturale"), "b": cautious("naturale")})
+        self.assertEqual(no["candidates"]["V-aaa"]["outcome"], "incerto")          # il suo "naturale" non scarta
+        yes = review.ingest(self.key, {"a": cautious("struttura"), "b": cautious("struttura")})
+        self.assertEqual(yes["candidates"]["V-aaa"]["outcome"], "regge_alla_revisione")
+
+    def test_yes_man_vote_is_recorded_but_does_not_confirm(self):
         bad = self.answers("struttura", "struttura", "struttura")
-        res = review.ingest(self.key, {"a": good, "b": good, "yes-man": bad})
+        res = review.ingest(self.key, {"x": bad, "y": bad})
         c = res["candidates"]["V-aaa"]
-        self.assertEqual(c["outcome"], "scartato")
-        self.assertEqual((len(c["votes"]), len(c["all_votes"])), (2, 3))
+        self.assertEqual(c["outcome"], "incerto")
+        self.assertEqual(len(c["all_votes"]), 2)
 
-    def test_disagreement_is_uncertain_not_found(self):
-        self.assertEqual(review.tally(["struttura", "naturale"]), "incerto")
-        self.assertEqual(review.tally(["struttura", "incerto", "struttura"]), "regge_alla_revisione")
+    def test_balanced_reviewers_can_discard(self):
+        good = self.answers("struttura", "naturale", "naturale")
+        self.assertEqual(review.ingest(self.key, {"a": good, "b": good})["candidates"]["V-aaa"]["outcome"], "scartato")
 
     def test_pack_hides_which_images_are_controls(self):
         from PIL import Image

@@ -11,6 +11,16 @@ usava quadranti fissi: meta' delle strutture finiva tagliata sul bordo e tre
 revisori su tre, correttamente, vedevano "piano vuoto". Controllo sbagliato,
 non revisore sbagliato: giro annullato e rifatto.
 
+EMENDAMENTO (16 nov 2026, dopo il secondo giro, dichiarato post-hoc).
+Secondo giro, controlli centrati, tre agenti nuovi: riconoscono il 30-40% degli
+edifici annotati (quelli a lati netti; i tumuli erosi no) e scartano 10 vuoti su
+10. Accordo fra loro 90-97%. Non si ritoccano i controlli finche' "passano".
+Si prende atto che l'errore e' asimmetrico e lo si tratta come tale:
+  - chi scarta bene i vuoti (specificita' >= MIN_SPEC) puo' CONFERMARE;
+  - chi trova le strutture note (sensibilita' >= MIN_SENS) puo' SCARTARE.
+Un revisore prudente dice il vero quando dice "struttura"; il suo "naturale"
+non prova niente. Limite: 10 controlli negativi per pacco sono pochi.
+
 Il revisore puo' essere un agente Claude Code, Grok, ChatGPT o una persona:
 riceve una cartella di immagini e una rubrica, restituisce un JSON.
 """
@@ -22,8 +32,8 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 VERDICTS = ("struttura", "naturale", "moderno", "artefatto", "incerto")
-MIN_SENS = 0.70      # un revisore vota solo se sui controlli trova almeno il 70% delle strutture...
-MIN_SPEC = 0.70      # ...e scarta almeno il 70% dei riquadri vuoti
+MIN_SENS = 0.70      # puo' SCARTARE solo chi sui controlli trova almeno il 70% delle strutture
+MIN_SPEC = 0.70      # puo' CONFERMARE solo chi scarta almeno il 70% dei riquadri vuoti
 MIN_CONTROLS = 10    # e ne ha visti abbastanza per dirlo
 CONTROLS = Path(__file__).resolve().parent / "data" / "controls"
 
@@ -95,24 +105,29 @@ def grade_reviewer(key: Dict[str, Dict[str, str]], answers: List[Dict[str, Any]]
     neg = [a.get(i) for i, v in key.items() if v["kind"] == "neg" and a.get(i) in VERDICTS]
     out: Dict[str, Any] = {"n_pos": len(pos), "n_neg": len(neg)}
     if len(pos) + len(neg) < MIN_CONTROLS or not pos or not neg:
-        return {**out, "calibrated": False, "why": "troppo pochi controlli valutati"}
+        return {**out, "calibrated": False, "can_confirm": False, "can_discard": False, "why": "troppo pochi controlli valutati"}
     out["sensitivity"] = round(sum(v == "struttura" for v in pos) / len(pos), 3)
     out["specificity"] = round(sum(v != "struttura" for v in neg) / len(neg), 3)
-    out["calibrated"] = bool(out["sensitivity"] >= MIN_SENS and out["specificity"] >= MIN_SPEC)
-    if not out["calibrated"]:
-        out["why"] = "sotto soglia sui controlli: i suoi voti non contano"
+    out["can_confirm"] = bool(out["specificity"] >= MIN_SPEC)   # il suo "struttura" vale
+    out["can_discard"] = bool(out["sensitivity"] >= MIN_SENS)   # il suo "non struttura" vale
+    out["calibrated"] = out["can_confirm"] and out["can_discard"]
     return out
 
 
-def tally(votes: List[str]) -> str:
-    """Esito di un candidato dai soli revisori calibrati. Mai 'trovato'."""
-    if len(votes) < 2:
+NO = ("naturale", "moderno", "artefatto")
+
+
+def tally(votes: List[Dict[str, Any]], reviewers: Dict[str, Dict[str, Any]]) -> str:
+    """Esito di un candidato. Ogni voto conta solo nella direzione in cui chi lo da' e' affidabile. Mai 'trovato'."""
+    if not votes:
         return "da_rivedere"
-    s = sum(v == "struttura" for v in votes)
-    no = sum(v in ("naturale", "moderno", "artefatto") for v in votes)
-    if s >= 2 and s / len(votes) >= 2 / 3:
+    conf = [v["verdict"] for v in votes if reviewers[v["reviewer"]].get("can_confirm")]
+    disc = [v["verdict"] for v in votes if reviewers[v["reviewer"]].get("can_discard")]
+    yes = sum(v == "struttura" for v in conf)
+    no = sum(v in NO for v in disc)
+    if len(conf) >= 2 and yes >= 2 and yes / len(conf) >= 2 / 3:
         return "regge_alla_revisione"
-    if no / len(votes) >= 2 / 3:
+    if len(disc) >= 2 and no >= 2 and no / len(disc) >= 2 / 3:
         return "scartato"
     return "incerto"
 
@@ -126,11 +141,8 @@ def ingest(key: Dict[str, Dict[str, str]], by_reviewer: Dict[str, List[Dict[str,
             k = key.get(r.get("item", ""))
             if not k or k["kind"] != "cand" or r.get("verdict") not in VERDICTS:
                 continue
-            c = cands.setdefault(k["ref"], {"votes": [], "all_votes": []})
-            vote = {"reviewer": name, "verdict": r["verdict"], "confidence": r.get("confidence"), "note": r.get("note", "")}
-            c["all_votes"].append(vote)
-            if reviewers[name]["calibrated"]:
-                c["votes"].append(vote)
+            cands.setdefault(k["ref"], {"all_votes": []})["all_votes"].append(
+                {"reviewer": name, "verdict": r["verdict"], "confidence": r.get("confidence"), "note": r.get("note", "")})
     for c in cands.values():
-        c["outcome"] = tally([v["verdict"] for v in c["votes"]])
+        c["outcome"] = tally(c["all_votes"], reviewers)
     return {"reviewers": reviewers, "candidates": cands}

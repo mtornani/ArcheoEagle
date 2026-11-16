@@ -18,16 +18,32 @@ NASA sullo Yucatán e ha annunciato un sito maya «non mappato». Era già pubbl
 | Quanto sbagliano gli agenti | Ogni pacco di revisione contiene controlli piantati a risposta nota; chi li sbaglia non vota |
 | Chi l'aveva già trovato | Ogni candidato su un rilievo già studiato si presume già visto; «non nel registro» ≠ «sconosciuto» |
 
+## Cosa è stato misurato (16 nov 2026)
+
+| Misura | Esito |
+|---|---|
+| Rilevatore su 329 riquadri di Chactún mai visti (942 strutture annotate) | ritrova il 76%; l'83% di ciò che segnala è una struttura annotata. Criterio (≥70% entrambe) scritto prima: **passa** |
+| Revisori (3 agenti, secondo giro) sui controlli piantati | riconoscono il 30–40% degli edifici noti, scartano 10 vuoti su 10, accordo fra loro 90–97% |
+| Conseguenza | un revisore così può **confermare** ma non **scartare**: il suo «naturale» non prova niente |
+| Yucatán, primi 44 transetti (137 km² su 1.273) | 1.149 complessi candidati; rivisti 40 |
+| Dei 20 col punteggio più alto | 12 reggono alla revisione |
+| Dei 20 presi a caso dal resto | 3 reggono alla revisione |
+
+Il primo giro di revisione è stato annullato: i controlli positivi erano tagliati sul bordo del
+riquadro e i revisori, giustamente, vedevano terreno vuoto. Il difetto era nel controllo.
+Nessun candidato è stato confrontato con il catalogo Britton 2026, che non è pubblico.
+
 ## Uso
 
 ```bash
 pip install -r requirements.txt
 python -m vaglio catalogo                                   # 456 transetti, 1.273 km², 31 GB
-python -m vaglio scansiona --transetti South_GLAS_l3s459    # ~1 minuto a transetto
-python -m vaglio scansiona --tutti                          # tutto lo Yucatán; riprende da dove si era fermato
+python -m vaglio scansiona --transetti South_GLAS_l3s459    # 1-2 minuti a transetto
+python -m vaglio scansiona --tutti                          # tutto lo Yucatán (~4 ore su 4 core con --parte 1/4 … 4/4); riprende da dove si era fermato
 python -m vaglio scansiona --dtm mio_rilievo.tif            # un tuo DTM di terreno nudo, in metri
 python -m vaglio pacco --top 60                             # immagini anonime + controlli piantati
 python -m vaglio esiti pacco-1 claude=a.json grok=b.json    # pesa i revisori, conta i voti
+python -m vaglio impara                                     # (quando ci sono abbastanza tenuti e scartati) riordina la coda
 python -m vaglio dossier                                    # dossier.html + pack_cieco.json + candidati.geojson
 ```
 
@@ -51,8 +67,8 @@ Da condividere c'è solo `pack_cieco.json` (niente coordinate, SHA-256).
 ## Esiti possibili di un candidato
 
 `da_rivedere` · `incerto` · `scartato` · `regge_alla_revisione`. Nessuno significa «trovato».
-Quello che regge alla revisione è una forma che due revisori calibrati su tre riconoscono
-come costruita. Che sia antica, e che sia nuova, lo dice solo un sopralluogo autorizzato.
+Quello che regge alla revisione è una forma che almeno due revisori, affidabili nel dire
+«struttura», riconoscono come costruita. Che sia antica, e che sia nuova, lo dice solo un sopralluogo autorizzato.
 
 ## Cosa non fa
 

@@ -16,7 +16,7 @@ from typing import Any, Dict, List
 
 from . import catalog, known
 
-MAX_CARDS = 200  # schede con immagine nel file; il resto sta nel GeoJSON
+MAX_CARDS = 120  # schede con immagine nel file; il resto sta nel GeoJSON
 
 OUTCOME = {
     "regge_alla_revisione": ("Regge alla revisione", "ok"),
@@ -51,7 +51,7 @@ h1{font-size:1.5rem;margin:.2em 0}h2{font-size:1.15rem;margin:1.6em 0 .5em}
 .ok{color:var(--ok)}.mid{color:var(--mid)}.new{color:var(--new)}.no{color:var(--no)}
 .card h3{margin:.3em 0;font-size:1rem}.plain{margin:.4em 0}.k{color:var(--mut);font-size:.85rem;margin:.3em 0}
 details{margin-top:.5em}summary{min-height:44px;display:flex;align-items:center;cursor:pointer;color:var(--mut)}
-table{border-collapse:collapse;width:100%;font-size:.9rem}td,th{text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)}
+html,body{overflow-x:hidden}table{border-collapse:collapse;width:100%;font-size:.9rem;table-layout:fixed}td,th{overflow-wrap:anywhere}.card,.num{min-width:0}td,th{text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)}
 code{font-size:.85em}footer{color:var(--mut);font-size:.85rem;margin:2em 0}
 """
 
@@ -89,10 +89,11 @@ def _svg_map(transects: List[Dict[str, Any]], cands: List[Dict[str, Any]], scann
     X = lambda lon: (lon - w0) / (e0 - w0) * W
     Y = lambda lat: (n0 - lat) / (n0 - s0) * H
     parts = [f'<svg class="map" viewBox="0 0 {W} {H}" role="img" aria-label="Transetti scansionati e candidati">']
-    for t in transects:
+    for t in transects:   # ingombro del transetto (rettangolo che lo contiene), non la sua traccia esatta
         w, s, e, n = t["bbox"]
-        col = "var(--fg)" if t["id"] in scanned else "var(--line)"
-        parts.append(f'<line x1="{X(w):.1f}" y1="{Y((s + n) / 2):.1f}" x2="{X(e):.1f}" y2="{Y((s + n) / 2):.1f}" stroke="{col}" stroke-width="{max(1.5, abs(Y(s) - Y(n))):.1f}" stroke-opacity=".45"/>')
+        done = t["id"] in scanned
+        parts.append(f'<rect x="{X(w):.1f}" y="{Y(n):.1f}" width="{max(1.5, X(e) - X(w)):.1f}" height="{max(1.5, Y(s) - Y(n)):.1f}" '
+                     f'fill="{"var(--fg)" if done else "var(--mut)"}" fill-opacity="{.35 if done else .12}"/>')
     for c in cands:
         cls = OUTCOME[c["outcome"]][1]
         parts.append(f'<a href="#{c["id"]}" data-o="{c["outcome"]}"><circle cx="{X(c["lon"]):.1f}" cy="{Y(c["lat"]):.1f}" r="5" class="{cls}" fill="currentColor" fill-opacity=".8"><title>{c["id"]}</title></circle></a>')
@@ -110,6 +111,7 @@ def collect(work: Path) -> Dict[str, Any]:
     for c in cands:
         c["priority"] = learn.priority(c, rank) if rank else None
     cands.sort(key=lambda c: -(c["priority"] if rank else c["score"]))
+    return_order = {"regge_alla_revisione": 0, "incerto": 1, "da_rivedere": 2, "scartato": 3}
     results = [json.loads(p.read_text(encoding="utf-8")) for p in sorted((work / "review" / "results").glob("*.json"))] \
         if (work / "review" / "results").exists() else []
     votes = {k: v for r in results for k, v in r["candidates"].items()}
@@ -120,6 +122,7 @@ def collect(work: Path) -> Dict[str, Any]:
         c["outcome"] = v["outcome"] if v else "da_rivedere"
         c["votes"] = v["all_votes"] if v else []
         c["known"] = known.status(c, sites, c["survey"])
+    cands.sort(key=lambda c: return_order[c["outcome"]])   # stabile: prima cio' che regge, poi per priorita'
     return {"scans": scans, "cands": cands, "reviewers": reviewers, "n_sites": len(sites), "rank": rank}
 
 
@@ -145,7 +148,7 @@ def build(work: Path) -> Dict[str, Any]:
     km2 = sum(s["km2"] for s in scans)
     n_obj = sum(s["n_objects"] for s in scans)
     counts = {o: sum(c["outcome"] == o for c in cands) for o in OUTCOME}
-    cal = [r for r in d["reviewers"].values() if r.get("calibrated")]
+    cal = [r for r in d["reviewers"].values() if r.get("can_confirm")]
     e = html.escape
 
     cards = []
@@ -171,7 +174,7 @@ def build(work: Path) -> Dict[str, Any]:
 </details></div></article>""")
 
     rev_rows = "".join(
-        f"<tr><td>{e(k)}</td><td>{r.get('sensitivity', '—')}</td><td>{r.get('specificity', '—')}</td><td>{r.get('n_pos', 0) + r.get('n_neg', 0)}</td><td>{'vota' if r.get('calibrated') else 'non vota'}</td></tr>"
+        f"<tr><td>{e(k)}</td><td>{r.get('sensitivity', '—')}</td><td>{r.get('specificity', '—')}</td><td>{r.get('n_pos', 0) + r.get('n_neg', 0)}</td><td>{'conferma' if r.get('can_confirm') else '—'} · {'scarta' if r.get('can_discard') else 'non scarta'}</td></tr>"
         for k, r in d["reviewers"].items())
     prior = "".join(f"<li>{e(p)}</li>" for p in known.PRIOR_WORK.get("G-LiHT Yucatan 2013", []))
     page = f"""<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -186,15 +189,15 @@ Una mappa pubblica di rovine non scavate è una mappa per i saccheggiatori.</div
 <div class="num"><b>{len(cands)}</b><span>complessi candidati</span></div>
 <div class="num"><b>{counts['regge_alla_revisione']}</b><span>reggono alla revisione</span></div>
 <div class="num"><b>{counts['scartato']}</b><span>scartati dai revisori</span></div>
-<div class="num"><b>{len(cal)}/{len(d['reviewers'])}</b><span>revisori che hanno passato i controlli</span></div>
+<div class="num"><b>{len(cal)}/{len(d['reviewers'])}</b><span>revisori che possono confermare</span></div>
 </div>
 <h2>Già guardato da altri</h2>
 <p>Questo rilievo è già stato analizzato. Ogni candidato si presume già visto finché non si dimostra il contrario.</p><ul>{prior}</ul>
 <p class="k">Elenchi di siti noti consultati: {d['n_sites']} siti. «Non nel registro» non vuol dire «sconosciuto».</p>
 <h2>Mappa</h2>{_svg_map(catalog.transects(), cands[:MAX_CARDS], {s['transect'] for s in scans})}
-<p class="k">Linee scure: transetti scansionati. Linee chiare: ancora da fare. Tocca un punto per la scheda.</p>
+<p class="k">Rettangoli marcati: transetti scansionati. Tenui: ancora da fare. Tocca un punto per la scheda (solo i primi candidati hanno una scheda).</p>
 <h2>Revisori</h2>
-{f"<table><tr><th>revisore</th><th>trova le strutture note</th><th>scarta i vuoti noti</th><th>controlli</th><th></th></tr>{rev_rows}</table>" if rev_rows else "<p>Nessuna revisione ancora. <code>python -m vaglio pacco</code> prepara le immagini.</p>"}
+{f"<table><tr><th>revisore</th><th>trova le strutture note</th><th>scarta i vuoti noti</th><th>controlli</th><th>il suo voto vale per</th></tr>{rev_rows}</table><p class='k'>Un revisore che non trova almeno il 70% delle strutture note non può scartare: il suo «naturale» non prova niente. Chi scarta almeno il 70% dei vuoti noti può confermare.</p>" if rev_rows else "<p>Nessuna revisione ancora. <code>python -m vaglio pacco</code> prepara le immagini.</p>"}
 <h2>Candidati</h2>
 <p class="k">{f"Ordine appreso da {d['rank']['n']} candidati già rivisti (capacità di separare tenuti e scartati, misurata lasciandone fuori uno alla volta: {d['rank']['auc_loo']} su 1; 0,5 = a caso)." if d['rank'] else "Ordine: punteggio di priorità (area, altezza, lati dritti). Non è una probabilità."}</p>
 <div class="filters"><button data-f="all" aria-pressed="true">Tutti {len(cands)}</button>{"".join(f'<button data-f="{o}" aria-pressed="false">{OUTCOME[o][0]} {n}</button>' for o, n in counts.items())}</div>

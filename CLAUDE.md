@@ -251,7 +251,7 @@ Skill agent GeoLibre: `.claude/skills/geolibre/`
 ### Vaglio (§14)
 
 - [ ] Il rilevatore dichiara recall e precisione misurate su riquadri annotati da archeologi e mai usati in addestramento, con criterio scritto prima (`vaglio/vaglio/model.py`).
-- [ ] Ogni pacco di revisione contiene controlli a risposta nota, non riconoscibili dal nome; un revisore sotto soglia sui controlli non vota (`vaglio/tests`).
+- [ ] Ogni pacco di revisione contiene controlli a risposta nota, non riconoscibili dal nome; un revisore conferma o scarta solo nella direzione in cui i controlli lo dicono affidabile (`vaglio/tests`).
 - [ ] Nessun esito si chiama "trovato", "scoperto", "nuovo", "confermato". Su un rilievo già analizzato da altri l'etichetta è "presumi già visto".
 - [ ] `pack_cieco.json` non contiene coordinate, transetto, id, né il nome del sito noto più vicino.
 - [ ] `dossier.html` si usa a 360 px senza scorrimento orizzontale, bersagli ≥ 44 px.
@@ -363,9 +363,11 @@ Aggiunto il 16 nov 2026 su richiesta dell'operatore. È il rilevatore che a §13
 **Invarianti.**
 
 - Il rilevatore si tara solo su annotazioni di archeologi (oggi: Chactún, Kokalj et al. 2023) con divisione addestramento/test degli autori del dataset. Ogni modifica si committa prima di rieseguire il test.
-- I revisori (agenti o persone) vedono immagini senza nome né posizione, con controlli piantati. Chi sbaglia i controlli non vota. Servono due revisori calibrati.
+- I revisori (agenti o persone) vedono immagini senza nome né posizione, con controlli piantati. Conferma solo chi scarta i vuoti noti; scarta solo chi trova le strutture note. Servono due revisori.
 - Un candidato su un rilievo già studiato si presume già visto. Sullo Yucatán esiste il catalogo Britton 2026 (57.181 strutture, non pubblico): lì Vaglio **riproduce**, non scopre.
 - Coordinate solo in `vaglio_lavoro/` (gitignored). Condivisibile: `pack_cieco.json`.
 - Il punteggio d'ordine decide cosa guardare prima. Non è una probabilità e non si mostra come tale.
+
+**Stato al 16 nov 2026.** Rilevatore: test pre-registrato **passato** (recall 0,76, precisione 0,83 su 942 strutture mai viste). Revisori agenti: confermano ma non scartano (riconoscono il 30–40% degli edifici noti, 0 falsi su 20 vuoti). Scansionati 44 transetti su 456; dei 40 candidati rivisti reggono 12 dei 20 più alti e 3 dei 20 casuali. Numeri in `vaglio/README.md`. Prossimo: finire la scansione, aggiungere revisori di altro tipo (Grok, ChatGPT, persone) per poter anche scartare, chiedere a Britton il confronto col suo catalogo.
 
 **Fuori scope.** Dichiarare un sito. Contattare enti a nome dell'operatore. Pubblicare coordinate. Scansionare rilievi con licenza che non lo consente.

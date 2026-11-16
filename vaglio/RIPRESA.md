@@ -65,16 +65,77 @@ già fatti. Le parti `--parte K/N` si possono cambiare fra un'esecuzione e l'alt
 viene cancellato dopo la scansione, salvo `--tieni-dtm`. Un transetto che fallisce (rete) viene
 scritto `FALLITO` nel log e salvato al giro dopo.
 
-## Prossimo passo: revisione
+## Prossimi passi, in quest'ordine
+
+### 1. Aggiornare e completare le colonne
 
 ```bash
-python -m vaglio pacco --top 40 --misto --controlli 20     # crea pacco-3 (40 candidati + 20 controlli)
-# far rivedere la cartella vaglio_lavoro/review/pacco-3 a 2-3 revisori diversi
-# (agente Claude Code `vaglio-revisore`, Grok, ChatGPT, persone): ognuno legge RUBRICA.md e scrive un JSON
-python -m vaglio esiti pacco-3 grok=grok.json chatgpt=gpt.json claude=claude.json
-python -m vaglio impara        # quando ci sono >= 8 candidati tenuti e >= 8 scartati
-python -m vaglio dossier       # dossier.html (mappa, schede), candidati.csv, candidati.geojson, pack_cieco.json
+git pull                              # comandi nuovi: moderno, kit, controlla, verifica; pacco --ordine
+python -m unittest discover -s tests  # OK
+python -m vaglio moderno              # uso del suolo di oggi (ESA WorldCover); scarica alcune centinaia di MB, una volta
+python -m vaglio dossier
+python -m vaglio verifica             # a posto
 ```
+
+### 2. Pacco 3: la prima revisione sulla scansione completa (pre-registrata)
+
+Scritto il 16 nov 2026, **prima** che il pacco esista. I 40 candidati rivisti finora vengono tutti dal
+blocco «Centro» e, nella scansione completa, dei primi 100 per punteggio ne sono stati rivisti 3.
+Quindi non sappiamo se il punteggio ordina bene fuori da quel blocco.
+
+```bash
+python -m vaglio pacco --top 40 --misto --controlli 20 --ordine punteggio --seme 3    # crea pacco-3
+```
+
+`--ordine punteggio` è obbligatorio: questo pacco prova il punteggio grezzo, non l'ordine appreso.
+**Non lanciare `impara` prima di aver creato il pacco 3.**
+
+Previsioni, valide per revisori che sui controlli del pacco risultano in grado di confermare:
+
+- P1. Dei 20 col punteggio più alto ne reggono **almeno 10**. Se sono meno, l'affermazione «il
+  punteggio mette in cima le costruzioni» vale solo per il blocco Centro, e va scritto.
+- P2. Dei 20 presi a caso ne reggono **meno** che dei 20 più alti, e **non più di 8**.
+- Se in questo pacco nessun revisore risulta in grado di confermare, il pacco non prova niente e
+  si rifà con altri revisori. Non si abbassano le soglie.
+
+### 3. Chi rivede, e come resta al buio
+
+Ogni revisore riceve **solo** la cartella `vaglio_lavoro/review/pacco-3/` (immagini `r_NNNN.jpg`,
+`RUBRICA.md`, `risposte_modello.json`) e restituisce un JSON. La cartella non contiene posizioni e
+si può mandare a servizi esterni. La chiave (`review/keys/pacco-3.json`) non esce mai.
+
+- Un assistente che ha accesso alla cartella di lavoro **non è un revisore valido**: può leggere la
+  chiave. Il revisore è una sessione nuova, che vede solo la cartella del pacco.
+- Servono revisori di tipo diverso: gli agenti Claude misurati finora confermano ma non scartano.
+  Grok, ChatGPT, Gemini e soprattutto una persona esperta vanno misurati sugli stessi controlli.
+- Per far rivedere il pacco agli agenti Claude: caricare lo zip della cartella del pacco nella
+  sessione Claude Code, oppure aprire una sessione Claude Code nuova nella sola cartella del pacco
+  e usare l'agente `vaglio-revisore`.
+
+```bash
+python -m vaglio esiti pacco-3 grok=grok.json chatgpt=gpt.json claude1=c1.json claude2=c2.json
+```
+
+### 4. Solo dopo: l'ordine appreso, e la sua prova
+
+```bash
+python -m vaglio impara        # impara cosa i revisori tengono; stampa quanti casi e quanto separa
+python -m vaglio pacco --top 40 --misto --controlli 20 --ordine appreso --seme 4      # crea pacco-4
+```
+
+Sui primi 40 l'ordine appreso separa quasi perfettamente, ma è un numero gonfiato dal campione e,
+applicato alla scansione completa, porta in cima i rilievi più alti, colline comprese. Regola scritta
+prima: l'ordine appreso si adotta per la coda **solo se** nel pacco 4 i suoi 20 più alti reggono
+almeno quanto i 20 più alti del pacco 3. Altrimenti resta il punteggio.
+
+### 5. Materiali per esperti e altri
+
+```bash
+python -m vaglio kit                          # vaglio_lavoro/kit/: numeri, figure, pack cieco. Nessuna posizione
+python -m vaglio controlla uscite/rapporto.md # ogni testo, prima che esca
+```
+
+Cosa scrivere, per chi, con quali parole: `vaglio/materiali/ISTRUZIONI.md`. I fatti: `vaglio/materiali/FATTI.md`.
 
 ## Regole che non si cambiano per far tornare i numeri
 
@@ -82,4 +143,5 @@ python -m vaglio dossier       # dossier.html (mappa, schede), candidati.csv, ca
 2. Nessun esito si chiama "trovato", "scoperto", "nuovo", "confermato". Sullo Yucatán esiste un catalogo di 57.181 strutture (Britton 2026, non pubblico): un candidato lì si presume già noto.
 3. I revisori vedono le immagini senza sapere quali sono i controlli. La chiave sta in `review/keys/` e non va mai data a un revisore.
 4. Un revisore conferma solo se scarta i vuoti noti, scarta solo se trova le strutture note (`review.py`). Gli agenti misurati finora possono confermare ma non scartare.
-5. Coordinate solo in `vaglio_lavoro/`. Da condividere c'è solo `pack_cieco.json`.
+5. Coordinate solo in `vaglio_lavoro/`. Da condividere ci sono solo `pack_cieco.json` e la cartella `vaglio_lavoro/kit/`.
+6. Un testo destinato a uscire passa prima da `python -m vaglio controlla`.

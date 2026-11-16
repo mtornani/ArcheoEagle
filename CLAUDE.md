@@ -255,6 +255,8 @@ Skill agent GeoLibre: `.claude/skills/geolibre/`
 - [ ] Nessun esito si chiama "trovato", "scoperto", "nuovo", "confermato". Su un rilievo già analizzato da altri l'etichetta è "presumi già visto".
 - [ ] `pack_cieco.json` non contiene coordinate, transetto, id, né il nome del sito noto più vicino.
 - [ ] `dossier.html` si usa a 360 px senza scorrimento orizzontale, bersagli ≥ 44 px.
+- [ ] Un materiale che esce usa solo `vaglio_lavoro/kit/` e `vaglio/materiali/FATTI.md`, e passa `python -m vaglio controlla` (`vaglio/tests`: `MaterialGateTest`).
+- [ ] Le frasi obbligatorie di `vaglio/materiali/ISTRUZIONI.md` passano lo stesso cancello che controlla i materiali.
 
 ### GeoLibre (direzione)
 
@@ -367,7 +369,9 @@ Aggiunto il 16 nov 2026 su richiesta dell'operatore. È il rilevatore che a §13
 - Un candidato su un rilievo già studiato si presume già visto. Sullo Yucatán esiste il catalogo Britton 2026 (57.181 strutture, non pubblico): lì Vaglio **riproduce**, non scopre.
 - Coordinate solo in `vaglio_lavoro/` (gitignored). Condivisibile: `pack_cieco.json`.
 - Il punteggio d'ordine decide cosa guardare prima. Non è una probabilità e non si mostra come tale.
+- L'uso del suolo di oggi (`moderno`) è una colonna: non promuove e non scarta.
+- I materiali per l'esterno li può scrivere chiunque, ma solo dal kit e dalla scheda dei fatti, e nessun numero nasce fuori da lì.
 
-**Stato al 16 nov 2026.** Rilevatore: test pre-registrato **passato** (recall 0,76, precisione 0,83 su 942 strutture mai viste). Scansione completa: 456/456 transetti, 1.272,7 km² e 11.916 complessi candidati. Dei 40 candidati rivisti, 15 reggono (12 dei 20 più alti e 3 dei 20 casuali) e 25 restano incerti; i revisori agenti confermano ma non scartano. Altri 11.876 candidati sono da rivedere. Numeri e pack cieco in `vaglio/README.md` e `vaglio/pack_cieco.json`. Prossimo: aggiungere revisori di altro tipo (Grok, ChatGPT, persone) per poter anche scartare, chiedere a Britton il confronto col suo catalogo.
+**Stato al 16 nov 2026.** Rilevatore: test pre-registrato **passato** (recall 0,76, precisione 0,83 su 942 strutture mai viste). Scansione completa: 456/456 transetti, 1.272,7 km² e 11.916 complessi candidati. Dei 40 candidati rivisti, 15 reggono e 25 restano incerti; i revisori agenti confermano ma non scartano. Quei 40 vengono da un solo blocco, estratti quando erano scansionati i primi 40 transetti (12 dei 20 allora più alti, 3 dei 20 casuali): nella scansione completa, dei primi 100 per punteggio ne sono stati rivisti 3. Altri 11.876 candidati sono da rivedere. Numeri e pack cieco in `vaglio/README.md` e `vaglio/pack_cieco.json`. Prossimo, in ordine (`vaglio/RIPRESA.md`): pacco 3 pre-registrato sulla scansione completa, con revisori di altro tipo (Grok, ChatGPT, persone) per poter anche scartare; materiali per gli esperti secondo `vaglio/materiali/ISTRUZIONI.md`; chiedere a Britton il confronto col suo catalogo.
 
 **Fuori scope.** Dichiarare un sito. Contattare enti a nome dell'operatore. Pubblicare coordinate. Scansionare rilievi con licenza che non lo consente.

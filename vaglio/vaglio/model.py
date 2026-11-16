@@ -50,6 +50,10 @@ SIGMAS_PX = (2, 4, 8, 16)
 SMOOTH_PX, HI, LO, STRIDE = 2.0, 0.98, 0.60, 2
 TRAIN, VALID, TEST = range(0, 1500), range(1500, 1765), range(1765, 2094)
 MODEL_PATH = Path(__file__).resolve().parent / "data" / "structures.joblib"
+# Esito del test pre-registrato (vedi docstring). Sta qui perche' i materiali lo citino da una sola fonte.
+TEST_RESULT = {"data": "2026-11-16", "commit": "b592a1e", "riquadri_di_test": 329, "strutture_annotate": 942,
+               "oggetti_previsti": 677, "recall": 0.764, "precisione": 0.830, "iou": 0.566,
+               "criterio": "recall >= 0.70 e precisione >= 0.70, scritto prima", "passato": True}
 
 
 def features(b: np.ndarray) -> np.ndarray:

@@ -27,8 +27,10 @@ NASA sullo Yucatán e ha annunciato un sito maya «non mappato». Era già pubbl
 | Conseguenza | un revisore così può **confermare** ma non **scartare**: il suo «naturale» non prova niente |
 | Yucatán, primi 44 transetti (137 km² su 1.273) | 1.149 complessi candidati; rivisti 40 |
 | Yucatán, scansione completa (456 transetti; 1.272,7 km²) | 11.916 complessi candidati; 15 reggono, 25 incerti, 11.876 da rivedere, 0 scartati |
-| Dei 20 col punteggio più alto | 12 reggono alla revisione |
+| Dei 20 col punteggio più alto **in quel momento** (primi 40 transetti, un solo blocco) | 12 reggono alla revisione |
 | Dei 20 presi a caso dal resto | 3 reggono alla revisione |
+| Nella scansione completa, dei primi 100 candidati per punteggio | ne sono stati rivisti 3: il resto è da fare |
+| Uso del suolo di oggi, sui 1.548 candidati dei primi 51 transetti | 11 sotto «costruito»: a vista, tutte strade asfaltate |
 
 La scansione completa è stata chiusa il 16 nov 2026. Il pack cieco verificabile e senza
 coordinate è versionato in `pack_cieco.json`; il dossier con coordinate resta locale.
@@ -48,12 +50,19 @@ python -m vaglio scansiona --dtm mio_rilievo.tif            # un tuo DTM di terr
 python -m vaglio pacco --top 60                             # immagini anonime + controlli piantati
 python -m vaglio esiti pacco-1 claude=a.json grok=b.json    # pesa i revisori, conta i voti
 python -m vaglio impara                                     # (quando ci sono abbastanza tenuti e scartati) riordina la coda
-python -m vaglio dossier                                    # dossier.html + pack_cieco.json + candidati.geojson
+python -m vaglio moderno                                    # cosa c'è oggi sopra ogni candidato (ESA WorldCover)
+python -m vaglio dossier                                    # dossier.html + pack_cieco.json + candidati.csv + candidati.geojson
+python -m vaglio verifica pack_cieco.json                   # controlla un pack ricevuto: firma e nessuna posizione
+python -m vaglio kit                                        # numeri e figure senza posizioni, per chi scrive i materiali
+python -m vaglio controlla testo.md                         # un testo pronto a uscire: niente coordinate, niente annunci
 ```
 
 I file locali finiscono in `./vaglio_lavoro/`. **Contiene coordinate: resta sul tuo dispositivo.**
 Da condividere c'è solo `pack_cieco.json` (niente coordinate, SHA-256); il pack della scansione
 completa è pubblicato in `./pack_cieco.json`.
+
+Per scrivere rapporti, lettere e presentazioni: `materiali/FATTI.md` (i fatti e il loro grado) e
+`materiali/ISTRUZIONI.md` (cosa produrre, per chi, con quali parole).
 
 ## Come funziona
 

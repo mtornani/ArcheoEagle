@@ -5,6 +5,10 @@
     python -m vaglio pacco --top 60                               # immagini anonime + controlli piantati
     python -m vaglio esiti pacco-1 claude=r1.json grok=r2.json    # pesa i revisori, conta i voti
     python -m vaglio impara                                       # le revisioni riordinano la coda
+    python -m vaglio moderno                                      # cosa c'e' oggi sopra ogni candidato (uso del suolo)
+    python -m vaglio verifica pack_cieco.json                     # controlla un pack ricevuto: hash e nessuna coordinata
+    python -m vaglio kit                                          # numeri e figure senza posizioni, per chi scrive i materiali
+    python -m vaglio controlla rapporto.md                        # un testo pronto a uscire: niente coordinate, niente "scoperta"
     python -m vaglio dossier                                      # HTML offline + pack cieco
 
 Tutto finisce in ./vaglio_lavoro (coordinate comprese: resta sul tuo dispositivo).
@@ -93,13 +97,21 @@ def main() -> None:
     p.add_argument("--nome", default="")
     p.add_argument("--controlli", type=int, default=30)
     p.add_argument("--seme", type=int, default=0)
+    p.add_argument("--ordine", choices=("auto", "punteggio", "appreso"), default="auto",
+                   help="come scegliere 'i piu' alti': punteggio grezzo, ordine appreso dalle revisioni, o auto (appreso se c'e')")
     p.add_argument("--misto", action="store_true",
                    help="meta' dai punteggi piu' alti, meta' a caso dal resto: misura il rilevatore su tutta la scala, non solo in cima")
     e = sub.add_parser("esiti")
     e.add_argument("nome")
     e.add_argument("risposte", nargs="+", help="revisore=file.json")
     sub.add_parser("impara")
+    sub.add_parser("moderno")
     sub.add_parser("dossier")
+    sub.add_parser("kit")
+    k = sub.add_parser("controlla")
+    k.add_argument("file", nargs="+", help="testi pronti a uscire (md, html, txt)")
+    v = sub.add_parser("verifica")
+    v.add_argument("pack", nargs="?", default="", help="pack cieco da controllare (default: quello della cartella di lavoro)")
     a = ap.parse_args()
     work = Path(a.lavoro)
 
@@ -146,7 +158,9 @@ def main() -> None:
     if a.cmd == "pacco":
         from . import learn
 
-        rank = learn.load(work)
+        rank = None if a.ordine == "punteggio" else learn.load(work)
+        if a.ordine == "appreso" and not rank:
+            raise SystemExit("nessun ordine appreso: prima `python -m vaglio impara`")
         cands = sorted((c for s in load_scans(work) for c in s["candidates"]),
                        key=lambda c: -(learn.priority(c, rank) if rank else c["score"]))
         seen = {v["ref"] for kf in (work / "review" / "keys").glob("*.json") for v in json.loads(kf.read_text()).values()} \
@@ -186,12 +200,51 @@ def main() -> None:
     if a.cmd == "impara":
         from . import learn
 
-        outcomes = {k: v["outcome"] for f in sorted((work / "review" / "results").glob("*.json"))
+        reviewed = {k: v for f in sorted((work / "review" / "results").glob("*.json"))
                     for k, v in json.loads(f.read_text(encoding="utf-8"))["candidates"].items()}
-        m = learn.fit([c for s_ in load_scans(work) for c in s_["candidates"]], outcomes)
+        m = learn.fit([c for s_ in load_scans(work) for c in s_["candidates"]], reviewed)
         (work / "review" / "ordine.json").write_text(json.dumps(m), encoding="utf-8")
         print(json.dumps({k: m[k] for k in m if k not in ("mu", "sd")}, ensure_ascii=False))
         return
+
+    if a.cmd == "moderno":
+        from . import modern
+
+        cands = [c for s_ in load_scans(work) for c in s_["candidates"]]
+        land = modern.land_use(cands, work / "worldcover")
+        (work / "moderno.json").write_text(json.dumps(land), encoding="utf-8")
+        labels = [v_["label"] for v_ in land.values()]
+        print(json.dumps({"candidati": len(land), **{k: labels.count(k) for k in sorted(set(labels))},
+                          "fonte": modern.SOURCE}, ensure_ascii=False))
+        return
+
+    if a.cmd == "verifica":
+        from . import report
+
+        path = Path(a.pack) if a.pack else work / "pack_cieco.json"
+        pack = json.loads(path.read_text(encoding="utf-8"))
+        problems = report.verify_pack(pack)
+        print(f"{path}: {len(pack.get('candidates') or [])} candidati, firmato {pack.get('timestamp')}")
+        print("\n".join(problems) if problems else "a posto: l'hash corrisponde e nessun campo localizza")
+        raise SystemExit(1 if problems else 0)
+
+    if a.cmd == "kit":
+        from . import kit
+
+        print(json.dumps(kit.export(work), ensure_ascii=False))
+        return
+
+    if a.cmd == "controlla":
+        from . import kit
+
+        bad = 0
+        for f in a.file:
+            problems = kit.check(Path(f).read_text(encoding="utf-8", errors="replace"))
+            print(f"{f}: " + ("a posto" if not problems else f"{len(problems)} problemi"))
+            for line in problems:
+                print("  -", line)
+            bad += bool(problems)
+        raise SystemExit(1 if bad else 0)
 
     if a.cmd == "dossier":
         from . import report

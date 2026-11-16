@@ -147,20 +147,118 @@ class LearnTest(unittest.TestCase):
     def cand(self, i, ortho, area=300.0):
         return {"id": f"V-{i}", "area_m2": area, "n_objects": 2, "max_height_m": 1.0, "mean_prob": 0.8, "ortho": ortho, "max_rect": 0.6}
 
+    @staticmethod
+    def rev(outcome, *verdicts):
+        return {"outcome": outcome, "all_votes": [{"reviewer": f"r{k}", "verdict": v} for k, v in enumerate(verdicts)]}
+
     def test_refuses_to_learn_from_too_few_reviews(self):
         from vaglio import learn
         cs = [self.cand(i, 0.5) for i in range(6)]
-        self.assertFalse(learn.fit(cs, {c["id"]: "scartato" for c in cs})["fitted"])
+        self.assertFalse(learn.fit(cs, {c["id"]: self.rev("scartato") for c in cs})["fitted"])
+
+    def test_label_uses_weak_negatives_but_never_guesses(self):
+        from vaglio import learn
+        self.assertEqual(learn.label(self.rev("regge_alla_revisione", "struttura", "struttura")), 1)
+        self.assertEqual(learn.label(self.rev("scartato")), 0)
+        # revisori che non possono scartare: l'esito resta incerto, ma tre "naturale" ordinano la coda
+        self.assertEqual(learn.label(self.rev("incerto", "naturale", "naturale", "moderno")), 0)
+        self.assertIsNone(learn.label(self.rev("incerto", "incerto", "incerto", "incerto")))
+        self.assertIsNone(learn.label(self.rev("incerto", "struttura", "naturale")))
+        self.assertIsNone(learn.label(self.rev("incerto", "naturale")))          # un voto solo non basta
 
     def test_learns_what_reviewers_kept_and_reports_held_out_skill(self):
         from vaglio import learn
         rng = np.random.default_rng(0)
         kept = [self.cand(i, 0.5 + 0.2 * rng.random()) for i in range(15)]
         drop = [self.cand(100 + i, 0.2 * rng.random()) for i in range(15)]
-        m = learn.fit(kept + drop, {**{c["id"]: "regge_alla_revisione" for c in kept}, **{c["id"]: "scartato" for c in drop}})
+        unsure = [self.cand(200 + i, 0.9) for i in range(5)]
+        reviewed = {**{c["id"]: self.rev("regge_alla_revisione", "struttura", "struttura") for c in kept},
+                    **{c["id"]: self.rev("incerto", "naturale", "naturale", "naturale") for c in drop},
+                    **{c["id"]: self.rev("incerto", "incerto", "incerto") for c in unsure}}
+        m = learn.fit(kept + drop + unsure, reviewed)
         self.assertTrue(m["fitted"])
+        self.assertEqual((m["n"], m["n_kept"]), (30, 15))                        # gli incerti non entrano
         self.assertGreater(m["auc_loo"], 0.9)
         self.assertGreater(learn.priority(self.cand(999, 0.6), m), learn.priority(self.cand(998, 0.05), m))
+
+
+class MaterialGateTest(unittest.TestCase):
+    def ok(self, text):
+        from vaglio import kit
+        self.assertEqual(kit.check(text), [], text)
+
+    def bad(self, text, needle):
+        from vaglio import kit
+        problems = kit.check(text)
+        self.assertTrue(any(needle in p for p in problems), (text, problems))
+
+    def test_locations_never_pass(self):
+        self.bad("Il candidato V-8cd94a52 e' il piu' grande.", "sigla di un candidato")
+        self.bad("Si trova sul transetto South_GLAS_l3s459.", "sigla di un transetto")
+        self.bad("Coordinate: 18.6066, -89.8514", "latitudine")
+        self.bad("lon -89.851400", "longitudine")
+        self.bad("vedi https://www.openstreetmap.org/?mlat=1&mlon=2", "mappa")
+
+    def test_ordinary_numbers_are_not_coordinates(self):
+        self.ok("Recall 0.764, precisione 0.830 su 942 strutture; 11.916 candidati su 1.272,7 km2.")
+        self.ok("Accordo fra revisori 90-97%. Soglia 0.98. Hash 3b94f3d294788a98. doi:10.5069/G9Z899N1")
+        self.ok("Firmato 2026-11-16T17:27:11+00:00; 18 km a nord; 21,5 ettari; 16.25 m.")
+
+    def test_discovery_words_need_a_negation_in_the_same_sentence(self):
+        self.bad("Abbiamo scoperto quindici complessi maya.", "scoperta")
+        self.bad("We discovered 15 unknown Maya sites.", "scoperta")
+        self.bad("Hemos descubierto sitios desconocidos.", "scoperta")
+        self.bad("Quindici candidati sono confermati.", "scoperta")
+        self.bad("Non e' poco. Sono siti nuovi.", "scoperta")                 # la negazione di un'altra frase non vale
+        self.ok("Non e' una scoperta: su questi dati Vaglio riproduce.")
+        self.ok("No candidate is claimed as a discovery.")
+        self.ok("Whether any candidate is unknown to archaeologists is the question we are asking.")
+        self.ok("Miotti annuncio' un sito sconosciuto che era gia' pubblicato.")
+        self.ok("Quindici candidati reggono alla revisione; i revisori possono confermare ma non scartare.")
+        self.ok("Ningun candidato se presenta como hallazgo.")
+
+    def test_mandatory_sentences_and_titles_pass_the_gate_they_are_checked_by(self):
+        # le istruzioni e il cancello non possono contraddirsi
+        import re
+        from vaglio import kit
+        doc = (Path(__file__).resolve().parents[1] / "materiali" / "ISTRUZIONI.md").read_text(encoding="utf-8")
+        fixed = re.findall(r"^- (?:IT|EN|ES): (.+)$", doc, flags=re.M)
+        self.assertEqual(len(fixed), 15)                       # cinque frasi, tre lingue
+        for sentence in fixed:
+            self.assertEqual(kit.check(sentence), [], sentence)
+        for title in re.findall(r"[«\"](Vaglio: [^»\"]+)[»\"]", doc):
+            self.assertEqual(kit.check(title), [], title)
+
+    def test_the_fact_sheet_itself_carries_no_location(self):
+        from vaglio import kit
+        facts = (Path(__file__).resolve().parents[1] / "materiali" / "FATTI.md").read_text(encoding="utf-8")
+        self.assertEqual(kit.check(facts), [])
+
+    def test_the_gate_reads_html_too(self):
+        self.bad("<p>We <b>discovered</b> a lost city.</p>", "scoperta")
+
+
+class ModernTest(unittest.TestCase):
+    def test_tile_names_follow_the_three_degree_grid(self):
+        from vaglio import modern
+        self.assertEqual(modern.tile_name(18.6, -89.85), "N18W090")
+        self.assertEqual(modern.tile_name(16.1, -91.8), "N15W093")
+        self.assertEqual(modern.tile_name(20.99, -87.01), "N18W090")
+        self.assertEqual(modern.tile_name(-0.5, 0.5), "S03E000")
+
+    def test_window_becomes_a_column_not_a_verdict(self):
+        from vaglio import modern
+        forest = np.full((13, 13), 10)
+        self.assertEqual(modern.classify(forest)["label"], "nessun uso moderno evidente")
+        village = forest.copy(); village[:3, :4] = 50          # 12 pixel su 169 = 7%
+        self.assertEqual(modern.classify(village)["label"], "costruito oggi")
+        one_house = forest.copy(); one_house[0, 0] = 50        # un pixel non basta
+        self.assertEqual(modern.classify(one_house)["label"], "nessun uso moderno evidente")
+        field = forest.copy(); field[:, :6] = 40
+        self.assertEqual(modern.classify(field)["label"], "coltivato oggi")
+        self.assertEqual(modern.classify(np.zeros((13, 13)))["label"], "nessun dato")
+        for lab in ("costruito oggi", "coltivato oggi", "nessun uso moderno evidente"):
+            self.assertNotIn("scart", lab)
 
 
 class KnownAndBlindTest(unittest.TestCase):
@@ -183,6 +281,17 @@ class KnownAndBlindTest(unittest.TestCase):
         places = [["Mérida", 20.97, -89.62], ["Campeche", 19.85, -90.53]]
         self.assertEqual(report.where(20.52, -89.62, places), "50 km a S di Mérida")
         self.assertIn("E di Campeche", report.where(19.85, -90.0, places))
+
+    def test_verify_pack_catches_tampering_and_leaks(self):
+        c = {"id": "V-1", "lon": -89.1, "lat": 18.6, "x": 1.0, "y": 2.0, "transect": "T", "where": "w", "zone": "z",
+             "score": 10.0, "n_objects": 3, "area_m2": 200.0, "max_height_m": 1.2, "outcome": "da_rivedere", "votes": [],
+             "known": {"label": "rilievo_gia_analizzato", "nearest": None, "prior_work": []}}
+        pack = report.blind_pack([c], "2026-11-16T00:00:00+00:00")
+        self.assertEqual(report.verify_pack(pack), [])
+        tampered = json.loads(json.dumps(pack)); tampered["candidates"][0]["outcome"] = "regge_alla_revisione"
+        self.assertIn("hash", report.verify_pack(tampered)[0])
+        leaky = json.loads(json.dumps(pack)); leaky["candidates"][0]["lat"] = 18.6
+        self.assertTrue(any("localizzano" in p for p in report.verify_pack(leaky)))
 
     def test_blind_pack_has_no_location(self):
         c = {"id": "V-1", "lon": -89.123456, "lat": 18.654321, "x": 831000.5, "y": 2055000.5, "transect": "South_GLAS_l3s459",

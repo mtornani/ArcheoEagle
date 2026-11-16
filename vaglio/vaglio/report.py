@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
 
-from . import catalog, known
+from . import catalog, known, modern
 
 MAX_CARDS = 120  # schede con immagine nel file; il resto sta nel GeoJSON
 
@@ -85,8 +85,15 @@ def _plain(c: Dict[str, Any]) -> str:
 
 BASEMAP = Path(__file__).resolve().parent / "data" / "basemap.json"
 WINDS = ("N", "NE", "E", "SE", "S", "SO", "O", "NO")
-ZONES = {"Centro": "Yucatán centrale", "Norte": "Yucatán nord", "North2": "Yucatán nord (2)", "South": "Campeche sud / Calakmul",
-         "OutYuc": "Yucatán esterno", "Chiaps1": "Chiapas", "ChiapsCampeche": "Chiapas–Campeche"}
+# Blocchi di volo della campagna NASA (prefisso del transetto) con la loro estensione reale, misurata
+# sugli ingombri del catalogo. Sono l'unita' piu' fine di posizione che puo' comparire in un materiale che esce.
+ZONES = {"Centro": "Centro: penisola centrale, tra Hopelchén, Peto e Xpujil",
+         "South": "South: Campeche interno, tra Hopelchén, Escárcega e Xpujil",
+         "Norte": "Norte: nord-ovest, tra Mérida e Campeche",
+         "North2": "North2: nord-est, tra Valladolid e Tizimín",
+         "OutYuc": "OutYuc: fascia orientale, tra Valladolid e Cancún",
+         "Chiaps1": "Chiaps1: Chiapas orientale, tra Comitán e il confine col Guatemala",
+         "ChiapsCampeche": "ChiapsCampeche: tra Tenosique ed Escárcega"}
 FULL_BOX = (-93.9, 15.6, -86.3, 21.9)
 
 
@@ -168,7 +175,10 @@ def collect(work: Path) -> Dict[str, Any]:
     reviewers = {f"{k}": v for r in results for k, v in r["reviewers"].items()}
     sites = known.load_sites(work / "known")
     places = json.loads(BASEMAP.read_text(encoding="utf-8"))["places"]
+    land_file = work / "moderno.json"
+    land = json.loads(land_file.read_text(encoding="utf-8")) if land_file.exists() else {}
     for c in cands:
+        c["land"] = land.get(c["id"])        # None finche' non gira `python -m vaglio moderno`
         v = votes.get(c["id"])
         c["outcome"] = v["outcome"] if v else "da_rivedere"
         c["votes"] = v["all_votes"] if v else []
@@ -176,7 +186,8 @@ def collect(work: Path) -> Dict[str, Any]:
         c["where"] = where(c["lat"], c["lon"], places)
         c["zone"] = zone(c["transect"])
     cands.sort(key=lambda c: return_order[c["outcome"]])   # stabile: prima cio' che regge, poi per priorita'
-    return {"scans": scans, "cands": cands, "reviewers": reviewers, "n_sites": len(sites), "rank": rank}
+    return {"scans": scans, "cands": cands, "reviewers": reviewers, "n_sites": len(sites), "rank": rank,
+            "has_land": bool(land)}
 
 
 def blind_pack(cands: List[Dict[str, Any]], ts: str) -> Dict[str, Any]:
@@ -194,6 +205,27 @@ def blind_pack(cands: List[Dict[str, Any]], ts: str) -> Dict[str, Any]:
             "note": "Niente coordinate. Hash = priorita', non prova."}
 
 
+LOCATING = ("lon", "lat", "x", "y", "transect", "id", "where", "zone", "nearest", "note")
+
+
+def verify_pack(pack: Dict[str, Any]) -> List[str]:
+    """Controlla un pack cieco ricevuto da altri. Lista vuota = a posto."""
+    problems = []
+    payload = {"algorithm": pack.get("algorithm"), "candidates": pack.get("candidates"), "timestamp": pack.get("timestamp")}
+    blob = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+    if hashlib.sha256(blob.encode()).hexdigest() != pack.get("hash"):
+        problems.append("l'hash non corrisponde al contenuto: il pack e' stato modificato dopo la firma")
+    for k, c in enumerate(pack.get("candidates") or []):
+        bad = [key for key in LOCATING if key in c] + [key for key in LOCATING if key in (c.get("known") or {})]
+        bad += ["votes.note"] if any("note" in v for v in c.get("votes") or []) else []
+        if bad:
+            problems.append(f"candidato {k + 1}: campi che localizzano o che non devono uscire: {sorted(set(bad))}")
+            if len(problems) > 20:
+                problems.append("... (interrotto)")
+                break
+    return problems
+
+
 def build(work: Path) -> Dict[str, Any]:
     d = collect(work)
     cands, scans = d["cands"], d["scans"]
@@ -202,6 +234,7 @@ def build(work: Path) -> Dict[str, Any]:
     n_obj = sum(s["n_objects"] for s in scans)
     counts = {o: sum(c["outcome"] == o for c in cands) for o in OUTCOME}
     cal = [r for r in d["reviewers"].values() if r.get("can_confirm")]
+    n_modern = sum(1 for c in cands if c.get("land") and c["land"]["label"] in ("costruito oggi", "coltivato oggi"))
     e = html.escape
 
     scanned = {s_["transect"] for s_ in scans}
@@ -230,6 +263,7 @@ def build(work: Path) -> Dict[str, Any]:
 <p class="plain"><b>{e(c['where'])}</b> · {e(c['zone'])}</p>
 <p class="plain">{e(_plain(c))}</p>
 <p class="k">{e(KNOWN[c['known']['label']])}{f" — più vicino: {e(near['name'])}, {near['km']} km ({e(near['source'])})" if near else ""}</p>
+{f"<p class='k'>Oggi lì sopra: <b>{e(c['land']['label'])}</b> (prevale: {e(str(c['land']['dominant']))}; costruito {int(100 * (c['land']['built'] or 0))}%, coltivo {int(100 * (c['land']['crop'] or 0))}%)</p>" if c.get('land') else ""}
 <details><summary>Misure, voti, cosa lo smentirebbe</summary>
 <table><tr><th>punteggio d'ordine</th><td>{c['score']}</td></tr><tr><th>probabilità media</th><td>{c['mean_prob']}</td></tr>
 <tr><th>ortogonalità dei bordi (0–1)</th><td>{c.get('ortho', '—')}</td></tr><tr><th>dato valido nel riquadro</th><td>{int(100 * c.get('valid_frac', 1))}%</td></tr>
@@ -257,8 +291,10 @@ Una mappa pubblica di rovine non scavate è una mappa per i saccheggiatori.</div
 <div class="num"><b>{len(cands)}</b><span>complessi candidati</span></div>
 <div class="num"><b>{counts['regge_alla_revisione']}</b><span>reggono alla revisione</span></div>
 <div class="num"><b>{counts['scartato']}</b><span>scartati dai revisori</span></div>
+{f"<div class='num'><b>{n_modern}</b><span>sotto un abitato o un campo di oggi</span></div>" if d['has_land'] else ""}
 <div class="num"><b>{len(cal)}/{len(d['reviewers'])}</b><span>revisori che possono confermare</span></div>
 </div>
+{f"<p class='k'>Uso del suolo di oggi da {modern.SOURCE}. Un abitato moderno sta spesso sopra un sito antico: «costruito oggi» non vuol dire «non antico».</p>" if d['has_land'] else "<p class='k'>Uso del suolo di oggi non ancora controllato: <code>python -m vaglio moderno</code>.</p>"}
 <h2>Già guardato da altri</h2>
 <p>Questo rilievo è già stato analizzato. Ogni candidato si presume già visto finché non si dimostra il contrario.</p><ul>{prior}</ul>
 <p class="k">Elenchi di siti noti consultati: {d['n_sites']} siti. «Non nel registro» non vuol dire «sconosciuto».</p>
@@ -289,10 +325,11 @@ Una mappa pubblica di rovine non scavate è una mappa per i saccheggiatori.</div
     with (work / "candidati.csv").open("w", newline="", encoding="utf-8") as fh:
         wr = csv.writer(fh)
         wr.writerow(["id", "esito", "dove", "zona", "lat", "lon", "rilievi", "area_m2", "altezza_max_m",
-                     "ortogonalita", "punteggio", "transetto", "sito_noto_piu_vicino", "km"])
+                     "ortogonalita", "punteggio", "transetto", "sito_noto_piu_vicino", "km", "uso_del_suolo_oggi"])
         for c in cands:
             nr = c["known"]["nearest"] or {}
             wr.writerow([c["id"], c["outcome"], c["where"], c["zone"], c["lat"], c["lon"], c["n_objects"], c["area_m2"],
-                         c["max_height_m"], c.get("ortho"), c["score"], c["transect"], nr.get("name"), nr.get("km")])
+                         c["max_height_m"], c.get("ortho"), c["score"], c["transect"], nr.get("name"), nr.get("km"),
+                         (c.get("land") or {}).get("label")])
     (work / "pack_cieco.json").write_text(json.dumps(blind_pack(cands, ts), ensure_ascii=False, indent=1), encoding="utf-8")
     return {"dossier": str(work / "dossier.html"), "candidates": len(cands), "km2": round(km2, 1), **counts}

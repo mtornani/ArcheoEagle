@@ -17,7 +17,7 @@ from . import relief
 
 BLOCK_M = 1000.0      # altezza di un blocco
 OVERLAP_M = 40.0      # sovrapposizione fra blocchi (un complesso non si taglia a meta')
-EDGE_M = 6.0          # distanza minima dal bordo del dato: la' l'interpolazione inventa
+EDGE_M = 15.0         # distanza minima dal bordo del dato: la' l'interpolazione inventa (visto: falsi rilievi a 6 m)
 LINK_M = 60.0         # due oggetti entro questa distanza sono lo stesso complesso
 CHIP_M = 120.0        # lato del riquadro mostrato a chi rivede
 
@@ -59,6 +59,27 @@ def _shape(ys: np.ndarray, xs: np.ndarray) -> Tuple[float, float]:
     return float(max(ext) / max(1.0, min(ext))), float(min(1.0, len(p) / (ext[0] * ext[1])))
 
 
+def orthogonality(dem: np.ndarray, mask: np.ndarray) -> float:
+    """Quanto i pendii attorno all'oggetto guardano in sole due direzioni perpendicolari. 0..1.
+
+    Un edificio ha quattro lati: le direzioni di massima pendenza si ammucchiano
+    ogni 90 gradi. Un dosso tondo o una cresta carsica sinuosa le sparpagliano.
+    Misura: |media di exp(4i*theta)| pesata sulla pendenza. Non e' una prova di
+    artificialita' (un argine moderno o una frattura fanno lo stesso): e' una colonna.
+    """
+    from scipy import ndimage
+
+    z = ndimage.gaussian_filter(np.where(np.isfinite(dem), dem, np.nanmedian(dem)), 1.0)
+    gy, gx = np.gradient(z, relief.PX_M)
+    mag = np.hypot(gx, gy)
+    w = np.where(ndimage.binary_dilation(mask, iterations=4) & (mag > 0.12), mag, 0.0)   # > ~7 gradi
+    tot = float(w.sum())
+    if tot <= 0 or int((w > 0).sum()) < 30:
+        return 0.0
+    th = np.arctan2(gy, gx)
+    return float(np.hypot((w * np.cos(4 * th)).sum(), (w * np.sin(4 * th)).sum()) / tot)
+
+
 def scan_dtm(path: Path, clf: Any, name: str = "") -> List[Dict[str, Any]]:
     """Tutti gli oggetti di un DTM, in coordinate del raster (x, y in metri)."""
     import rasterio
@@ -81,6 +102,9 @@ def scan_dtm(path: Path, clf: Any, name: str = "") -> List[Dict[str, Any]]:
                 m = lab[sl[i - 1]] == i
                 ys, xs = np.nonzero(m)
                 ys, xs = ys + sl[i - 1][0].start, xs + sl[i - 1][1].start
+                r0, r1 = max(0, ys.min() - 8), min(dem.shape[0], ys.max() + 9)
+                c0, c1 = max(0, xs.min() - 8), min(dem.shape[1], xs.max() + 9)
+                ortho = orthogonality(dem[r0:r1, c0:c1], lab[r0:r1, c0:c1] == i)
                 el, rect = _shape(ys, xs)
                 objs.append({
                     "x": round(x0 + (xs.mean() + 0.5) * relief.PX_M, 1),
@@ -88,7 +112,7 @@ def scan_dtm(path: Path, clf: Any, name: str = "") -> List[Dict[str, Any]]:
                     "area_m2": round(len(ys) * relief.PX_M ** 2, 1),
                     "prob": round(float(prob[ys, xs].mean()), 3),
                     "height_m": round(float(np.percentile(lrm[ys, xs], 95)), 2),
-                    "elong": round(el, 2), "rect": round(rect, 2),
+                    "elong": round(el, 2), "rect": round(rect, 2), "ortho": round(ortho, 3),
                 })
     return _dedupe(objs)
 
@@ -137,10 +161,13 @@ def cluster(objs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             "n_objects": len(g), "area_m2": round(area, 1),
             "max_height_m": max(o["height_m"] for o in g),
             "mean_prob": round(sum(o["prob"] * o["area_m2"] for o in g) / area, 3),
+            "ortho": round(sum(o.get("ortho", 0) * o["area_m2"] for o in g) / area, 3),
             "max_rect": max(o["rect"] for o in g if o["area_m2"] >= 50) if any(o["area_m2"] >= 50 for o in g) else big["rect"],
             "extent_m": round(max(math.hypot(a["x"] - b["x"], a["y"] - b["y"]) for a in g for b in g), 1) if len(g) < 400 else None,
-            # punteggio d'ordine: area sicura, premiando chi sporge. Serve a decidere cosa guardare prima.
-            "score": round(sum(o["area_m2"] * o["prob"] * min(2.0, max(0.2, o["height_m"])) for o in g), 1),
+            # punteggio d'ordine: area sicura (con tetto: un dosso enorme non vale dieci edifici), premiando
+            # chi sporge e chi ha lati dritti. Decide solo cosa guardare prima. Non e' una probabilita'.
+            "score": round(sum(min(o["area_m2"], 600.0) * o["prob"] * min(2.0, max(0.2, o["height_m"]))
+                               * (0.15 + o.get("ortho", 0)) for o in g), 1),
         })
     return sorted(out, key=lambda c: -c["score"])
 

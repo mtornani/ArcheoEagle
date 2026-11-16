@@ -25,6 +25,11 @@ EMENDAMENTO v1.1 (16 nov 2026, PRIMA di eseguire il test; test mai toccato).
   Validazione: recall 0.75, precisione 0.80. Per velocita' la probabilita' si
   calcola un pixel si' e uno no (STRIDE) e si interpola. Criterio PASSA invariato.
 
+ESITO SUL TEST (16 nov 2026, commit b592a1e, eseguito una volta): PASSA.
+  942 oggetti annotati, 677 previsti: recall 0.764, precisione 0.830, IoU 0.566.
+  L'IoU resta sotto le reti profonde della gara (~0.8): i contorni sono
+  grossolani. Il rilevatore serve a dire DOVE guardare, non a disegnare piante.
+
 LIMITE NOTO PRIMA DI MISURARE: ogni riquadro di Chactun contiene almeno una
 struttura. La precisione qui e' misurata in terreno DENSO di rovine. In terreno
 vuoto (colline carsiche, campi arati) non la misura questo banco: la misura la

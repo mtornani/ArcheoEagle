@@ -84,12 +84,15 @@ def main() -> None:
     s.add_argument("--tutti", action="store_true")
     s.add_argument("--dtm", help="un tuo GeoTIFF di terreno nudo, in metri")
     s.add_argument("--limite", type=int, default=0)
+    s.add_argument("--parte", default="", help="K/N: fai solo la K-esima di N parti (per lavorare in parallelo)")
     s.add_argument("--tieni-dtm", action="store_true", help="non cancellare i DTM scaricati")
     p = sub.add_parser("pacco")
     p.add_argument("--top", type=int, default=60)
     p.add_argument("--nome", default="")
     p.add_argument("--controlli", type=int, default=30)
     p.add_argument("--seme", type=int, default=0)
+    p.add_argument("--misto", action="store_true",
+                   help="meta' dai punteggi piu' alti, meta' a caso dal resto: misura il rilevatore su tutta la scala, non solo in cima")
     e = sub.add_parser("esiti")
     e.add_argument("nome")
     e.add_argument("risposte", nargs="+", help="revisore=file.json")
@@ -120,6 +123,9 @@ def main() -> None:
             raise SystemExit("indica --transetti, --tutti oppure --dtm")
         done = {p.stem for p in (work / "scan").glob("*.json")} if (work / "scan").exists() else set()
         ts = [t for t in ts if t["id"] not in done]
+        if a.parte:
+            k, n = (int(v) for v in a.parte.split("/"))
+            ts = [t for i, t in enumerate(catalog.transects()) if i % n == k - 1 and t in ts]
         if a.limite:
             ts = ts[: a.limite]
         for k, t in enumerate(ts, 1):
@@ -138,7 +144,14 @@ def main() -> None:
         cands = sorted((c for s in load_scans(work) for c in s["candidates"]), key=lambda c: -c["score"])
         seen = {v["ref"] for kf in (work / "review" / "keys").glob("*.json") for v in json.loads(kf.read_text()).values()} \
             if (work / "review" / "keys").exists() else set()
-        cands = [c for c in cands if c["id"] not in seen][: a.top]
+        cands = [c for c in cands if c["id"] not in seen]
+        if a.misto:
+            import random
+
+            rest = cands[a.top // 2:]
+            cands = cands[: a.top // 2] + random.Random(a.seme).sample(rest, min(len(rest), a.top - a.top // 2))
+        else:
+            cands = cands[: a.top]
         name = a.nome or f"pacco-{len(list((work / 'review' / 'keys').glob('*.json'))) + 1 if (work / 'review' / 'keys').exists() else 1}"
         print(json.dumps(review.make_pack(cands, work / "chips", work / "review", name, a.controlli, a.seme), ensure_ascii=False))
         return

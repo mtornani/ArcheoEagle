@@ -62,8 +62,17 @@ cs.forEach(c=>c.hidden=!(f==='all'||c.dataset.o===f));ds.forEach(d=>d.style.disp
 """
 
 
-def _b64(p: Path, mime: str) -> str:
-    return f"data:{mime};base64," + base64.b64encode(p.read_bytes()).decode() if p.exists() else ""
+def _b64(p: Path, mime: str = "image/jpeg", side: int = 320) -> str:
+    """Immagine ridotta e incorporata: il fascicolo resta un file solo e leggero."""
+    import io
+
+    from PIL import Image
+
+    if not p.exists():
+        return ""
+    buf = io.BytesIO()
+    Image.open(p).resize((side, side), Image.LANCZOS).save(buf, "JPEG", quality=72)
+    return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
 def _plain(c: Dict[str, Any]) -> str:
@@ -148,7 +157,7 @@ def build(work: Path) -> Dict[str, Any]:
 <p class="k">{e(KNOWN[c['known']['label']])}{f" — più vicino: {e(near['name'])}, {near['km']} km ({e(near['source'])})" if near else ""}</p>
 <details><summary>Misure, voti, cosa lo smentirebbe</summary>
 <table><tr><th>punteggio d'ordine</th><td>{c['score']}</td></tr><tr><th>probabilità media</th><td>{c['mean_prob']}</td></tr>
-<tr><th>rettangolarità max</th><td>{c['max_rect']}</td></tr><tr><th>dato valido nel riquadro</th><td>{int(100 * c.get('valid_frac', 1))}%</td></tr>
+<tr><th>ortogonalità dei bordi (0–1)</th><td>{c.get('ortho', '—')}</td></tr><tr><th>dato valido nel riquadro</th><td>{int(100 * c.get('valid_frac', 1))}%</td></tr>
 <tr><th>transetto</th><td>{e(c['transect'])}</td></tr><tr><th>lat, lon (locale)</th><td>{c['lat']}, {c['lon']}</td></tr></table>
 {f"<table><tr><th>revisore</th><th>verdetto</th><th>nota</th></tr>{votes}</table>" if votes else "<p class='k'>Nessun revisore l'ha ancora visto.</p>"}
 <p class="k"><b>Cosa posso dire:</b> qui il terreno ha la forma che gli archeologi hanno annotato come struttura a Chactún.<br>

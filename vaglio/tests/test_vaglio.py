@@ -64,6 +64,15 @@ class ClusterTest(unittest.TestCase):
     def test_overlap_duplicates_count_once(self):
         self.assertEqual(len(scan._dedupe([self.obj(0, 0, 80), self.obj(2, 1, 60), self.obj(100, 0)])), 2)
 
+    def test_square_platform_is_more_orthogonal_than_round_mound(self):
+        yy, xx = np.mgrid[0:120, 0:120]
+        sq = np.zeros((120, 120), np.float32); sq[40:80, 40:80] = 2.0
+        rd = (2.0 * (np.hypot(yy - 60, xx - 60) < 20)).astype(np.float32)
+        o_sq = scan.orthogonality(sq, sq > 0)
+        o_rd = scan.orthogonality(rd, rd > 0)
+        self.assertGreater(o_sq, 0.6)
+        self.assertLess(o_rd, 0.2)
+
     def test_priority_gate_is_explicit(self):
         base = {"n_objects": 1, "area_m2": 60.0, "max_height_m": 2.0}
         self.assertFalse(_is_candidate(base))

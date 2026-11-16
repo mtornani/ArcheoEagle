@@ -1,6 +1,7 @@
 """Addestra e misura il rilevatore su Chactun. Uso:
 
     python -m vaglio.train <cartella_chactun> fit      # addestra + sceglie soglia (0-1764)
+    python -m vaglio.train <cartella_chactun> valid    # rimisura la validazione col modello salvato
     python -m vaglio.train <cartella_chactun> test     # misura sul TEST (1765-2093), una volta
 """
 from __future__ import annotations
@@ -32,7 +33,8 @@ def fit(root: Path) -> None:
     X, y = [], []
     for i in M.TRAIN:
         b, t = load(root, i)
-        f = M.features(b).reshape(-1, 27)
+        f = M.features(b)
+        f = f.reshape(-1, f.shape[-1])
         t = t.ravel()
         pos, neg = np.flatnonzero(t), np.flatnonzero(~t)
         idx = np.concatenate([rng.choice(pos, min(len(pos), 600), replace=False),
@@ -43,31 +45,29 @@ def fit(root: Path) -> None:
     clf = HistGradientBoostingClassifier(max_iter=400, learning_rate=0.1, max_leaf_nodes=63,
                                          l2_regularization=1.0, random_state=0)
     clf.fit(X, y)
-    probs = [(M.predict(clf, b), t) for b, t in (load(root, i) for i in M.VALID)]
-    best = None
-    for thr in (0.5, 0.6, 0.7, 0.8, 0.9, 0.95):
-        s = M.summarize([M.score_tile(p, t, thr) for p, t in probs])
-        f1 = 2 * s["recall"] * s["precision"] / max(1e-9, s["recall"] + s["precision"])
-        print("soglia", thr, s, "F1", round(f1, 3), flush=True)
-        if best is None or f1 > best[0]:
-            best = (f1, thr, s)
+    v = M.summarize([M.score_tile(M.predict(clf, b), t) for b, t in (load(root, i) for i in M.VALID)])
+    print("validazione", v, flush=True)
     M.MODEL_PATH.parent.mkdir(exist_ok=True)
-    joblib.dump({"clf": clf, "thr": best[1], "valid": best[2],
+    joblib.dump({"clf": clf, "valid": v, "hi": M.HI, "lo": M.LO,
                  "source": "Kokalj et al. 2023, doi:10.6084/m9.figshare.22202395, CC BY 4.0"},
                 M.MODEL_PATH, compress=3)
-    print("soglia scelta", best[1], "->", M.MODEL_PATH, flush=True)
 
 
 def test(root: Path) -> None:
     import joblib
 
     m = joblib.load(M.MODEL_PATH)
-    s = M.summarize([M.score_tile(M.predict(m["clf"], b), t, m["thr"])
-                     for b, t in (load(root, i) for i in M.TEST)])
+    s = M.summarize([M.score_tile(M.predict(m["clf"], b), t) for b, t in (load(root, i) for i in M.TEST)])
     s["passed"] = bool(s["recall"] >= 0.70 and s["precision"] >= 0.70)
-    s["thr"] = m["thr"]
     print(json.dumps(s))
 
 
+def valid(root: Path) -> None:
+    import joblib
+
+    m = joblib.load(M.MODEL_PATH)
+    print(json.dumps(M.summarize([M.score_tile(M.predict(m["clf"], b), t) for b, t in (load(root, i) for i in M.VALID)])))
+
+
 if __name__ == "__main__":
-    {"fit": fit, "test": test}[sys.argv[2]](Path(sys.argv[1]))
+    {"fit": fit, "test": test, "valid": valid}[sys.argv[2]](Path(sys.argv[1]))

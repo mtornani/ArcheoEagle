@@ -17,6 +17,14 @@ PRE-REGISTRAZIONE (16 nov 2026, committata PRIMA di toccare i riquadri di test).
   Si riporta anche l'IoU per pixel (i vincitori della gara ECML-PKDD 2021
   stavano attorno a 0.8 con reti profonde: quello e' il termine di paragone).
 
+EMENDAMENTO v1.1 (16 nov 2026, PRIMA di eseguire il test; test mai toccato).
+  In validazione la soglia secca dava recall 0.67 / precisione 0.79: sotto
+  l'asticella. Cambiata la sola estrazione degli oggetti, scelta sui riquadri
+  1500-1764: probabilita' lisciata (SMOOTH_PX), poi soglia a isteresi — un
+  oggetto e' una componente di prob >= LO che contiene almeno un pixel >= HI.
+  Validazione: recall 0.75, precisione 0.80. Per velocita' la probabilita' si
+  calcola un pixel si' e uno no (STRIDE) e si interpola. Criterio PASSA invariato.
+
 LIMITE NOTO PRIMA DI MISURARE: ogni riquadro di Chactun contiene almeno una
 struttura. La precisione qui e' misurata in terreno DENSO di rovine. In terreno
 vuoto (colline carsiche, campi arati) non la misura questo banco: la misura la
@@ -34,6 +42,7 @@ MIN_AREA_M2 = 25.0
 HIT_FRAC = 0.30
 SLOP_M = 2.0
 SIGMAS_PX = (2, 4, 8, 16)
+SMOOTH_PX, HI, LO, STRIDE = 2.0, 0.98, 0.60, 2
 TRAIN, VALID, TEST = range(0, 1500), range(1500, 1765), range(1765, 2094)
 MODEL_PATH = Path(__file__).resolve().parent / "data" / "structures.joblib"
 
@@ -52,9 +61,29 @@ def features(b: np.ndarray) -> np.ndarray:
     return np.stack(out, axis=-1)
 
 
-def predict(model: Any, b: np.ndarray) -> np.ndarray:
-    f = features(b)
-    return model.predict_proba(f.reshape(-1, f.shape[-1]))[:, 1].reshape(b.shape[:2]).astype(np.float32)
+def predict(model: Any, b: np.ndarray, stride: int = STRIDE) -> np.ndarray:
+    """Probabilita' di struttura per pixel, gia' lisciata. Calcolata su una griglia rada e interpolata."""
+    from scipy import ndimage
+
+    f = features(b)[::stride, ::stride]
+    p = model.predict_proba(f.reshape(-1, f.shape[-1]))[:, 1].reshape(f.shape[:2]).astype(np.float32)
+    if stride > 1:
+        p = ndimage.zoom(p, stride, order=1)[: b.shape[0], : b.shape[1]]
+        p = np.pad(p, ((0, b.shape[0] - p.shape[0]), (0, b.shape[1] - p.shape[1])), mode="edge")
+    return ndimage.gaussian_filter(p, SMOOTH_PX)
+
+
+def extract(prob: np.ndarray, allowed: np.ndarray | None = None) -> np.ndarray:
+    """Maschera degli oggetti previsti: isteresi HI/LO, poi apertura. `allowed` esclude zone senza dato."""
+    from scipy import ndimage
+
+    low = prob >= LO if allowed is None else (prob >= LO) & allowed
+    lab, n = ndimage.label(low)
+    if n == 0:
+        return low
+    keep = np.zeros(n + 1, bool)
+    keep[1:] = ndimage.maximum(prob, lab, np.arange(1, n + 1)) >= HI
+    return ndimage.binary_opening(keep[lab])
 
 
 def objects(mask: np.ndarray, px_m: float = PX_M) -> Tuple[np.ndarray, int]:
@@ -71,12 +100,11 @@ def objects(mask: np.ndarray, px_m: float = PX_M) -> Tuple[np.ndarray, int]:
     return ndimage.label(lab > 0)
 
 
-def score_tile(prob: np.ndarray, truth: np.ndarray, thr: float) -> Dict[str, int]:
+def score_tile(prob: np.ndarray, truth: np.ndarray) -> Dict[str, int]:
     """Conteggi a livello di oggetto e di pixel per un riquadro."""
     from scipy import ndimage
 
-    pred = ndimage.binary_opening(prob >= thr, iterations=1)
-    pl, pn = objects(pred)
+    pl, pn = objects(extract(prob))
     tl, tn = objects(truth)
     pred_m, truth_m = pl > 0, tl > 0
     slop = ndimage.binary_dilation(truth, iterations=int(round(SLOP_M / PX_M)))

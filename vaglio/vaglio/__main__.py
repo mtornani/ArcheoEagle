@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import time
 from pathlib import Path
 from typing import Any, Dict, List
@@ -158,7 +159,12 @@ def main() -> None:
             cands = cands[: a.top // 2] + random.Random(a.seme).sample(rest, min(len(rest), a.top - a.top // 2))
         else:
             cands = cands[: a.top]
-        name = a.nome or f"pacco-{len(list((work / 'review' / 'keys').glob('*.json'))) + 1 if (work / 'review' / 'keys').exists() else 1}"
+        # numero libero dopo il piu' alto mai usato (anche fra gli annullati): un pacco rivisto non si sovrascrive
+        used = [int(m.group(1)) for p_ in (work / "review").rglob("*pacco-*")
+                for m in [re.search(r"pacco-(\d+)", p_.name)] if m] if (work / "review").exists() else []
+        name = a.nome or f"pacco-{max(used, default=0) + 1}"
+        if (work / "review" / "keys" / f"{name}.json").exists():
+            raise SystemExit(f"{name} esiste gia': scegli un altro --nome")
         print(json.dumps(review.make_pack(cands, work / "chips", work / "review", name, a.controlli, a.seme), ensure_ascii=False))
         return
 

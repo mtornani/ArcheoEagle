@@ -52,7 +52,7 @@ h1{font-size:1.5rem;margin:.2em 0}h2{font-size:1.15rem;margin:1.6em 0 .5em}
 .card h3{margin:.3em 0;font-size:1rem}.plain{margin:.4em 0}.k{color:var(--mut);font-size:.85rem;margin:.3em 0}
 details{margin-top:.5em}summary{min-height:44px;display:flex;align-items:center;cursor:pointer;color:var(--mut)}
 html,body{overflow-x:hidden}table{border-collapse:collapse;width:100%;font-size:.9rem;table-layout:fixed}td,th{overflow-wrap:anywhere}.card,.num{min-width:0}td,th{text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)}
-code{font-size:.85em}footer{color:var(--mut);font-size:.85rem;margin:2em 0}
+code{font-size:.85em}a.ext{color:var(--new);display:inline-flex;min-height:44px;align-items:center}footer{color:var(--mut);font-size:.85rem;margin:2em 0}
 """
 
 JS = """
@@ -83,20 +83,70 @@ def _plain(c: Dict[str, Any]) -> str:
     return ", ".join(bits) + "."
 
 
-def _svg_map(transects: List[Dict[str, Any]], cands: List[Dict[str, Any]], scanned: set) -> str:
-    w0, s0, e0, n0 = -93.6, 15.6, -86.4, 21.8
-    W, H = 720, 620
+BASEMAP = Path(__file__).resolve().parent / "data" / "basemap.json"
+WINDS = ("N", "NE", "E", "SE", "S", "SO", "O", "NO")
+ZONES = {"Centro": "Yucatán centrale", "Norte": "Yucatán nord", "North2": "Yucatán nord (2)", "South": "Campeche sud / Calakmul",
+         "OutYuc": "Yucatán esterno", "Chiaps1": "Chiapas", "ChiapsCampeche": "Chiapas–Campeche"}
+FULL_BOX = (-93.9, 15.6, -86.3, 21.9)
+
+
+def where(lat: float, lon: float, places: List[List[Any]]) -> str:
+    """Posizione in parole: distanza e direzione dalla localita' di riferimento piu' vicina."""
+    import math
+
+    name, plat, plon = min(places, key=lambda q: known.km(lat, lon, q[1], q[2]))
+    d = known.km(lat, lon, plat, plon)
+    ang = math.degrees(math.atan2((lon - plon) * math.cos(math.radians(lat)), lat - plat)) % 360
+    return f"{d:.0f} km a {WINDS[int((ang + 22.5) // 45) % 8]} di {name}"
+
+
+def zone(transect: str) -> str:
+    return ZONES.get(transect.split("_")[0], transect.split("_")[0])
+
+
+def _svg_map(transects: List[Dict[str, Any]], cands: List[Dict[str, Any]], scanned: set,
+             box: tuple = FULL_BOX, linked: set | None = None, r: float = 4.0) -> str:
+    """Mappa offline: costa, confini, localita', ingombro dei transetti, candidati."""
+    bm = json.loads(BASEMAP.read_text(encoding="utf-8"))
+    w0, s0, e0, n0 = box
+    W = 720
+    H = int(W * (n0 - s0) / ((e0 - w0) * 0.95))      # un grado di longitudine qui e' ~5% piu' corto
     X = lambda lon: (lon - w0) / (e0 - w0) * W
     Y = lambda lat: (n0 - lat) / (n0 - s0) * H
-    parts = [f'<svg class="map" viewBox="0 0 {W} {H}" role="img" aria-label="Transetti scansionati e candidati">']
+    inside = lambda lon, lat: w0 <= lon <= e0 and s0 <= lat <= n0
+    parts = [f'<svg class="map" viewBox="0 0 {W} {H}" role="img" aria-label="Mappa dei candidati">']
+    styles = (("states", 'stroke="var(--line)" stroke-width="1"'),
+              ("borders", 'stroke="var(--mut)" stroke-width="1.2" stroke-dasharray="5 3"'),
+              ("coast", 'stroke="var(--fg)" stroke-width="1.4"'))
+    for key, style in styles:
+        for ln in bm[key]:
+            if any(inside(x, y) for x, y in ln):
+                pts = " ".join(f"{X(x):.1f},{Y(y):.1f}" for x, y in ln)
+                parts.append(f'<polyline fill="none" {style} points="{pts}"/>')
     for t in transects:   # ingombro del transetto (rettangolo che lo contiene), non la sua traccia esatta
         w, s, e, n = t["bbox"]
+        if not (inside(w, s) or inside(e, n)):
+            continue
         done = t["id"] in scanned
         parts.append(f'<rect x="{X(w):.1f}" y="{Y(n):.1f}" width="{max(1.5, X(e) - X(w)):.1f}" height="{max(1.5, Y(s) - Y(n)):.1f}" '
-                     f'fill="{"var(--fg)" if done else "var(--mut)"}" fill-opacity="{.35 if done else .12}"/>')
-    for c in cands:
+                     f'fill="{"var(--fg)" if done else "var(--mut)"}" fill-opacity="{.28 if done else .1}"/>')
+    order = {"da_rivedere": 0, "scartato": 1, "incerto": 2, "regge_alla_revisione": 3}
+    for c in sorted(cands, key=lambda c: order[c["outcome"]]):     # cio' che regge si disegna sopra
+        if not inside(c["lon"], c["lat"]):
+            continue
         cls = OUTCOME[c["outcome"]][1]
-        parts.append(f'<a href="#{c["id"]}" data-o="{c["outcome"]}"><circle cx="{X(c["lon"]):.1f}" cy="{Y(c["lat"]):.1f}" r="5" class="{cls}" fill="currentColor" fill-opacity=".8"><title>{c["id"]}</title></circle></a>')
+        big = c["outcome"] != "da_rivedere"
+        dot = (f'<circle cx="{X(c["lon"]):.1f}" cy="{Y(c["lat"]):.1f}" r="{r * (1.5 if big else 1):.1f}" class="{cls}" '
+               f'fill="currentColor" fill-opacity="{.9 if big else .45}"/>')
+        if linked is None or c["id"] in linked:
+            parts.append(f'<a href="#{c["id"]}" data-o="{c["outcome"]}">{dot}</a>')
+        else:
+            parts.append(f'<g data-o="{c["outcome"]}">{dot}</g>')
+    for name, lat, lon in bm["places"]:
+        if inside(lon, lat):
+            parts.append(f'<rect x="{X(lon) - 2:.1f}" y="{Y(lat) - 2:.1f}" width="4" height="4" fill="var(--fg)"/>'
+                         f'<text x="{X(lon) + 5:.1f}" y="{Y(lat) + 4:.1f}" font-size="12" fill="var(--fg)" paint-order="stroke" '
+                         f'stroke="var(--card)" stroke-width="3">{html.escape(name)}</text>')
     parts.append("</svg>")
     return "".join(parts)
 
@@ -117,17 +167,20 @@ def collect(work: Path) -> Dict[str, Any]:
     votes = {k: v for r in results for k, v in r["candidates"].items()}
     reviewers = {f"{k}": v for r in results for k, v in r["reviewers"].items()}
     sites = known.load_sites(work / "known")
+    places = json.loads(BASEMAP.read_text(encoding="utf-8"))["places"]
     for c in cands:
         v = votes.get(c["id"])
         c["outcome"] = v["outcome"] if v else "da_rivedere"
         c["votes"] = v["all_votes"] if v else []
         c["known"] = known.status(c, sites, c["survey"])
+        c["where"] = where(c["lat"], c["lon"], places)
+        c["zone"] = zone(c["transect"])
     cands.sort(key=lambda c: return_order[c["outcome"]])   # stabile: prima cio' che regge, poi per priorita'
     return {"scans": scans, "cands": cands, "reviewers": reviewers, "n_sites": len(sites), "rank": rank}
 
 
 def blind_pack(cands: List[Dict[str, Any]], ts: str) -> Dict[str, Any]:
-    drop = {"lon", "lat", "x", "y", "transect", "id"}
+    drop = {"lon", "lat", "x", "y", "transect", "id", "where", "zone"}
     rows = []
     for k, c in enumerate(cands, 1):
         r = {key: val for key, val in c.items() if key not in drop}
@@ -151,6 +204,19 @@ def build(work: Path) -> Dict[str, Any]:
     cal = [r for r in d["reviewers"].values() if r.get("can_confirm")]
     e = html.escape
 
+    scanned = {s_["transect"] for s_ in scans}
+    shown = {c["id"] for c in cands[:MAX_CARDS]}
+    zoom = FULL_BOX
+    if cands:
+        lons, lats = [c["lon"] for c in cands], [c["lat"] for c in cands]
+        zoom = (min(lons) - 0.35, min(lats) - 0.35, max(lons) + 0.35, max(lats) + 0.35)
+    zone_rows = "".join(
+        f"<tr><td>{e(z)}</td><td>{sum(s_['km2'] for s_ in scans if zone(s_['transect']) == z):.0f}</td>"
+        f"<td>{sum(c['zone'] == z for c in cands)}</td>"
+        f"<td>{sum(c['zone'] == z and c['outcome'] == 'regge_alla_revisione' for c in cands)}</td>"
+        f"<td>{sum(c['zone'] == z and c['outcome'] == 'incerto' for c in cands)}</td></tr>"
+        for z in sorted({zone(s_["transect"]) for s_ in scans}))
+
     cards = []
     for rank, c in enumerate(cands[:MAX_CARDS], 1):
         lab, cls = OUTCOME[c["outcome"]]
@@ -161,12 +227,14 @@ def build(work: Path) -> Dict[str, Any]:
 <img loading="lazy" alt="Stesso riquadro: rosso sporge, blu affonda" src="{_b64(work / 'context' / (c['id'] + '.jpg'), 'image/jpeg')}"></div>
 <div class="body"><span class="tag {cls}">{lab}</span>
 <h3>#{rank} · {c['id']}</h3>
+<p class="plain"><b>{e(c['where'])}</b> · {e(c['zone'])}</p>
 <p class="plain">{e(_plain(c))}</p>
 <p class="k">{e(KNOWN[c['known']['label']])}{f" — più vicino: {e(near['name'])}, {near['km']} km ({e(near['source'])})" if near else ""}</p>
 <details><summary>Misure, voti, cosa lo smentirebbe</summary>
 <table><tr><th>punteggio d'ordine</th><td>{c['score']}</td></tr><tr><th>probabilità media</th><td>{c['mean_prob']}</td></tr>
 <tr><th>ortogonalità dei bordi (0–1)</th><td>{c.get('ortho', '—')}</td></tr><tr><th>dato valido nel riquadro</th><td>{int(100 * c.get('valid_frac', 1))}%</td></tr>
 <tr><th>transetto</th><td>{e(c['transect'])}</td></tr><tr><th>lat, lon (locale)</th><td>{c['lat']}, {c['lon']}</td></tr></table>
+<p class="k"><a class="ext" href="https://www.openstreetmap.org/?mlat={c['lat']}&mlon={c['lon']}#map=15/{c['lat']}/{c['lon']}" rel="noreferrer">Apri il punto su OpenStreetMap</a> Richiede rete e manda queste coordinate a un servizio esterno.</p>
 {f"<table><tr><th>revisore</th><th>verdetto</th><th>nota</th></tr>{votes}</table>" if votes else "<p class='k'>Nessun revisore l'ha ancora visto.</p>"}
 <p class="k"><b>Cosa posso dire:</b> qui il terreno ha la forma che gli archeologi hanno annotato come struttura a Chactún.<br>
 <b>Cosa non posso dire:</b> che sia antico, che sia maya, che sia nuovo.<br>
@@ -194,8 +262,14 @@ Una mappa pubblica di rovine non scavate è una mappa per i saccheggiatori.</div
 <h2>Già guardato da altri</h2>
 <p>Questo rilievo è già stato analizzato. Ogni candidato si presume già visto finché non si dimostra il contrario.</p><ul>{prior}</ul>
 <p class="k">Elenchi di siti noti consultati: {d['n_sites']} siti. «Non nel registro» non vuol dire «sconosciuto».</p>
-<h2>Mappa</h2>{_svg_map(catalog.transects(), cands[:MAX_CARDS], {s['transect'] for s in scans})}
-<p class="k">Rettangoli marcati: transetti scansionati. Tenui: ancora da fare. Tocca un punto per la scheda (solo i primi candidati hanno una scheda).</p>
+<h2>Dove sono</h2>
+{_svg_map(catalog.transects(), cands, scanned, linked=shown)}
+<p class="k">Tutta la penisola. Rettangoli marcati: transetti scansionati; tenui: ancora da fare. Punti verdi: reggono alla revisione; ambra: incerti; blu: ancora da rivedere.</p>
+<h2>Ingrandimento sull'area scansionata</h2>
+{_svg_map(catalog.transects(), cands, scanned, box=zoom, linked=shown, r=3.0)}
+<p class="k">Tocca un punto per la scheda (ce l'hanno i primi {len(shown)} candidati; tutti gli altri stanno in <code>candidati.csv</code> e <code>candidati.geojson</code>).</p>
+<h2>Per zona</h2>
+<table><tr><th>zona</th><th>km² scansionati</th><th>candidati</th><th>reggono</th><th>incerti</th></tr>{zone_rows}</table>
 <h2>Revisori</h2>
 {f"<table><tr><th>revisore</th><th>trova le strutture note</th><th>scarta i vuoti noti</th><th>controlli</th><th>il suo voto vale per</th></tr>{rev_rows}</table><p class='k'>Un revisore che non trova almeno il 70% delle strutture note non può scartare: il suo «naturale» non prova niente. Chi scarta almeno il 70% dei vuoti noti può confermare.</p>" if rev_rows else "<p>Nessuna revisione ancora. <code>python -m vaglio pacco</code> prepara le immagini.</p>"}
 <h2>Candidati</h2>
@@ -208,7 +282,17 @@ Una mappa pubblica di rovine non scavate è una mappa per i saccheggiatori.</div
     (work / "dossier.html").write_text(page, encoding="utf-8")
     geo = {"type": "FeatureCollection", "features": [
         {"type": "Feature", "geometry": {"type": "Point", "coordinates": [c["lon"], c["lat"]]},
-         "properties": {k: c[k] for k in ("id", "outcome", "score", "n_objects", "area_m2", "max_height_m", "transect")}} for c in cands]}
+         "properties": {k: c[k] for k in ("id", "outcome", "where", "zone", "score", "n_objects", "area_m2", "max_height_m", "transect")}} for c in cands]}
     (work / "candidati.geojson").write_text(json.dumps(geo), encoding="utf-8")
+    import csv
+
+    with (work / "candidati.csv").open("w", newline="", encoding="utf-8") as fh:
+        wr = csv.writer(fh)
+        wr.writerow(["id", "esito", "dove", "zona", "lat", "lon", "rilievi", "area_m2", "altezza_max_m",
+                     "ortogonalita", "punteggio", "transetto", "sito_noto_piu_vicino", "km"])
+        for c in cands:
+            nr = c["known"]["nearest"] or {}
+            wr.writerow([c["id"], c["outcome"], c["where"], c["zone"], c["lat"], c["lon"], c["n_objects"], c["area_m2"],
+                         c["max_height_m"], c.get("ortho"), c["score"], c["transect"], nr.get("name"), nr.get("km")])
     (work / "pack_cieco.json").write_text(json.dumps(blind_pack(cands, ts), ensure_ascii=False, indent=1), encoding="utf-8")
     return {"dossier": str(work / "dossier.html"), "candidates": len(cands), "km2": round(km2, 1), **counts}

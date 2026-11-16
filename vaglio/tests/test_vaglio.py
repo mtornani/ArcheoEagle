@@ -179,13 +179,18 @@ class KnownAndBlindTest(unittest.TestCase):
         for banned in ("scopert", "trovat", "nuovo", "confermat"):
             self.assertNotIn(banned, words)
 
+    def test_where_gives_distance_and_direction_in_words(self):
+        places = [["Mérida", 20.97, -89.62], ["Campeche", 19.85, -90.53]]
+        self.assertEqual(report.where(20.52, -89.62, places), "50 km a S di Mérida")
+        self.assertIn("E di Campeche", report.where(19.85, -90.0, places))
+
     def test_blind_pack_has_no_location(self):
         c = {"id": "V-1", "lon": -89.123456, "lat": 18.654321, "x": 831000.5, "y": 2055000.5, "transect": "South_GLAS_l3s459",
-             "score": 10.0, "n_objects": 3, "area_m2": 200.0, "max_height_m": 1.2, "outcome": "da_rivedere", "votes": [],
+             "where": "12 km a SE di Xpujil", "zone": "Campeche sud / Calakmul", "score": 10.0, "n_objects": 3, "area_m2": 200.0, "max_height_m": 1.2, "outcome": "da_rivedere", "votes": [],
              "known": {"label": "sito_noto_vicino", "nearest": {"name": "Nadzcaan", "km": 0.4, "source": "w"}, "prior_work": []}}
         pack = report.blind_pack([c], "2026-11-16T00:00:00+00:00")
         blob = json.dumps(pack)
-        for leak in ("89.123", "18.654", "831000", "South_GLAS", "Nadzcaan", "V-1"):
+        for leak in ("89.123", "18.654", "831000", "South_GLAS", "Nadzcaan", "V-1", "Xpujil", "Calakmul"):
             self.assertNotIn(leak, blob)
         self.assertEqual(pack["hash"], report.blind_pack([c], "2026-11-16T00:00:00+00:00")["hash"])
 

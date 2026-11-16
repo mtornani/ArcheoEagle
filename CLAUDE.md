@@ -368,6 +368,6 @@ Aggiunto il 16 nov 2026 su richiesta dell'operatore. È il rilevatore che a §13
 - Coordinate solo in `vaglio_lavoro/` (gitignored). Condivisibile: `pack_cieco.json`.
 - Il punteggio d'ordine decide cosa guardare prima. Non è una probabilità e non si mostra come tale.
 
-**Stato al 16 nov 2026.** Rilevatore: test pre-registrato **passato** (recall 0,76, precisione 0,83 su 942 strutture mai viste). Revisori agenti: confermano ma non scartano (riconoscono il 30–40% degli edifici noti, 0 falsi su 20 vuoti). Scansionati 44 transetti su 456; dei 40 candidati rivisti reggono 12 dei 20 più alti e 3 dei 20 casuali. Numeri in `vaglio/README.md`. Prossimo: finire la scansione, aggiungere revisori di altro tipo (Grok, ChatGPT, persone) per poter anche scartare, chiedere a Britton il confronto col suo catalogo.
+**Stato al 16 nov 2026.** Rilevatore: test pre-registrato **passato** (recall 0,76, precisione 0,83 su 942 strutture mai viste). Scansione completa: 456/456 transetti, 1.272,7 km² e 11.916 complessi candidati. Dei 40 candidati rivisti, 15 reggono (12 dei 20 più alti e 3 dei 20 casuali) e 25 restano incerti; i revisori agenti confermano ma non scartano. Altri 11.876 candidati sono da rivedere. Numeri e pack cieco in `vaglio/README.md` e `vaglio/pack_cieco.json`. Prossimo: aggiungere revisori di altro tipo (Grok, ChatGPT, persone) per poter anche scartare, chiedere a Britton il confronto col suo catalogo.
 
 **Fuori scope.** Dichiarare un sito. Contattare enti a nome dell'operatore. Pubblicare coordinate. Scansionare rilievi con licenza che non lo consente.

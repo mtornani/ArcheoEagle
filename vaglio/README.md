@@ -26,8 +26,12 @@ NASA sullo Yucatán e ha annunciato un sito maya «non mappato». Era già pubbl
 | Revisori (3 agenti, secondo giro) sui controlli piantati | riconoscono il 30–40% degli edifici noti, scartano 10 vuoti su 10, accordo fra loro 90–97% |
 | Conseguenza | un revisore così può **confermare** ma non **scartare**: il suo «naturale» non prova niente |
 | Yucatán, primi 44 transetti (137 km² su 1.273) | 1.149 complessi candidati; rivisti 40 |
+| Yucatán, scansione completa (456 transetti; 1.272,7 km²) | 11.916 complessi candidati; 15 reggono, 25 incerti, 11.876 da rivedere, 0 scartati |
 | Dei 20 col punteggio più alto | 12 reggono alla revisione |
 | Dei 20 presi a caso dal resto | 3 reggono alla revisione |
+
+La scansione completa è stata chiusa il 16 nov 2026. Il pack cieco verificabile e senza
+coordinate è versionato in `pack_cieco.json`; il dossier con coordinate resta locale.
 
 Il primo giro di revisione è stato annullato: i controlli positivi erano tagliati sul bordo del
 riquadro e i revisori, giustamente, vedevano terreno vuoto. Il difetto era nel controllo.
@@ -47,8 +51,9 @@ python -m vaglio impara                                     # (quando ci sono ab
 python -m vaglio dossier                                    # dossier.html + pack_cieco.json + candidati.geojson
 ```
 
-Tutto finisce in `./vaglio_lavoro/`. **Contiene coordinate: resta sul tuo dispositivo.**
-Da condividere c'è solo `pack_cieco.json` (niente coordinate, SHA-256).
+I file locali finiscono in `./vaglio_lavoro/`. **Contiene coordinate: resta sul tuo dispositivo.**
+Da condividere c'è solo `pack_cieco.json` (niente coordinate, SHA-256); il pack della scansione
+completa è pubblicato in `./pack_cieco.json`.
 
 ## Come funziona
 

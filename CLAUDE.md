@@ -234,6 +234,14 @@ Skill agent GeoLibre: `.claude/skills/geolibre/`
 - [ ] Nessuna azione essenziale richiede hover.
 - [ ] Dossier locale non lascia il device; pack cieco sì.
 
+### Flotta (§12)
+
+- [ ] Una segnalazione senza null, o con `p × n_tested > 0.05`, esce `SOTTO_IL_CASO` (`test_fleet.py`).
+- [ ] Controllo positivo assente o fallito → `NON_CALIBRATO`, mai in coda.
+- [ ] `VERIFICA_APPROFONDITA` solo con revisore ≠ autore **e** sorgente indipendente verificata.
+- [ ] Testo / letteratura → `COLONNA`. Trappole (Richat, Bimini, Yonaguni, Gunung Padang) → `RESPINTO`.
+- [ ] Sorgente fuori registro o `dead` → `RESPINTO`. `report --blind` non contiene `where`/`lon`/`lat`.
+
 ### GeoLibre (direzione)
 
 - [ ] Il geojson schematico apre come progetto GeoLibre senza backend.
@@ -270,4 +278,38 @@ GeoLibre: apri `data/sahara_paleodrainage.geolibre.json`
 
 File da leggere prima di toccare codice: **§0 di questo file**, poi il resto, `docs/GEOLIBRE.md`, `frontend/src/investigate.ts`. Ignora `archaeo-sentinel-prompt.md` come piano di build.
 
-Prossimo lavoro in ordine: (1) più tile Copernicus sulla sponda Mega-Chad 320 m — un tile 1° non è il lago, (2) L-band / ammissione onesta su Sahabi, (3) solo dopo: plugin GeoLibre che **ripete** ledger + pack cieco, non un GIS nuovo. Ogni PR cita l’item di §9 che chiude.
+Flotta: `/flotta` (§12). Prossimo lavoro in ordine: (1) più tile Copernicus sulla sponda Mega-Chad 320 m — un tile 1° non è il lago, (2) L-band / ammissione onesta su Sahabi, (3) solo dopo: plugin GeoLibre che **ripete** ledger + pack cieco, non un GIS nuovo. Ogni PR cita l’item di §9 che chiude.
+
+---
+
+## 12. Flotta — scout, cancello, scettico
+
+Aggiunta del 16 nov 2026 (richiesta operatore: "troppo specifico"). §0 vince su questa sezione.
+
+**Cosa fa.** Un supervisore (`/flotta`, `.claude/skills/flotta/`) lancia agenti scout, uno per dominio di banca dati pubblica, **sul mondo e non solo sul Sahara**. Gli scout scremano e propongono. All'operatore arriva solo ciò che merita una **seconda verifica** o una **verifica approfondita**. L'esito normale è zero.
+
+**Correzione all'obiettivo "portami le anomalie".** Un'anomalia senza null è un massimo interno, e un massimo interno esiste sempre (`docs/CALIBRAZIONE.md`). Più agenti × più banche dati = più falsi positivi, non più scoperte. Quindi gli agenti **non decidono** cosa è anomalo: lo decide un cancello deterministico (`backend/core/fleet/gate.py`), uguale per tutti, testato offline.
+
+| Agente | Dominio | Controllo positivo |
+|---|---|---|
+| `scout-sismo-tsunami` | terremoti, tsunami, eruzioni | Cascadia 1700 |
+| `scout-mare` | batimetria, livello marino | Doggerland / Atlit-Yam, null condizionato sulla profondità |
+| `scout-terreno` | DEM, radar L-band | Bama Ridge — **oggi fallisce** → tutto `NON_CALIBRATO` |
+| `scout-carote` | XRF, isotopi, pollini | evento datato noto nella stessa classe di serie |
+| `scout-datazioni` | ¹⁴C, dati di scavo | crollo ¹⁴C sahariano ~5.5 ka |
+| `scout-fonti` | testi, letteratura | — gira per ultimo, al buio, produce `COLONNA` |
+| `scettico` | seconda verifica | il suo lavoro riuscito è un `FAIL` |
+
+**Esiti del cancello.** `RESPINTO` (incompleta, trappola, sorgente fuori registro, candidato partito dal mito) · `NON_CALIBRATO` · `SOTTO_IL_CASO` · `COLONNA` · `SECONDA_VERIFICA` · `VERIFICA_APPROFONDITA` · `FAIL`. Nessuno significa "trovato". Tutti restano agli atti, FAIL compresi.
+
+**Invarianti.**
+
+- `n_tested` = quanti candidati lo scout ha guardato, non quanti ne consegna. Soglia: `p × n_tested ≤ 0.05`.
+- Scout cieco al mito (`myth_blind`). Area dai cataloghi fisici, criterio scritto prima (`triangolazione/METODO-v1.md`).
+- Chi segnala non si rivede. "Sopravvive" vale solo con una sorgente **diversa** e verificata dal vivo.
+- Solo sorgenti in `data/fleet/sources.json`, con `status` da sonda reale (`python -m core.fleet probe`). Non verificata ≠ ok.
+- Coda in `data/fleet/runs/` (gitignored, ha coordinate). Condivisibile: solo `report --blind`.
+- Gli scout usano il codice di misura che c'è. La flotta non è una scusa per il nono rilevatore.
+
+**Fuori scope.** Agenti che girano da soli a orario. Agenti che scrivono codice o spec. "Tutte le banche dati": entra una sorgente alla volta, sondata.
+

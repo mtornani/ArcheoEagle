@@ -242,6 +242,12 @@ Skill agent GeoLibre: `.claude/skills/geolibre/`
 - [ ] Testo / letteratura → `COLONNA`. Trappole (Richat, Bimini, Yonaguni, Gunung Padang) → `RESPINTO`.
 - [ ] Sorgente fuori registro o `dead` → `RESPINTO`. `report --blind` non contiene `where`/`lon`/`lat`.
 
+### Non naturale (§13)
+
+- [ ] Nessun rilevatore "non naturale" segnala finche' il suo banco su siti noti non passa con criteri committati prima (`core/anthro/mound.py`: oggi FAIL).
+- [ ] Sorgente con ruolo spiegatore (geologia, faglie, magnetico, moderno) non regge una segnalazione → `RESPINTO` (`test_fleet.py`).
+- [ ] Nessuna stringa "artificiale" / "non naturale" su un punto di mappa: solo "spiegazioni naturali e moderne testate: …".
+
 ### GeoLibre (direzione)
 
 - [ ] Il geojson schematico apre come progetto GeoLibre senza backend.
@@ -313,3 +319,25 @@ Aggiunta del 16 nov 2026 (richiesta operatore: "troppo specifico"). §0 vince su
 
 **Fuori scope.** Agenti che girano da soli a orario. Agenti che scrivono codice o spec. "Tutte le banche dati": entra una sorgente alla volta, sondata.
 
+---
+
+## 13. "Non naturale" — direzione aperta il 16 nov 2026
+
+Richiesta operatore: una mappa, da casa, delle anomalie **non riconducibili all'azione naturale**, con le prove. §0 vince. Il §1 non è riscritto: questa è una seconda domanda che usa la stessa flotta e lo stesso cancello, e a differenza di "Atlantide" passa le cinque colonne di `docs/BERSAGLIO.md` (firma, scala, contesto, null, **migliaia** di controlli positivi).
+
+**Tre classi, non due.** Naturale · moderno · antico. Da casa non si dimostra "antico": si esclude naturale e moderno, una spiegazione alla volta, e si scrive quali.
+
+**Ruoli delle sorgenti** (`data/fleet/sources.json`, campo `role`).
+
+| Ruolo | Esempi | Uso |
+|---|---|---|
+| `detector` | DEM, Sentinel-2, radar | può reggere una segnalazione |
+| `known_sites` | Menze & Ur (14.324 siti, CC0), Wikidata, toponimi GeoNames | controlli positivi |
+| `natural_explainer` | geologia Macrostrat, faglie GEM, magnetico EMAG2 | lo scettico ci **uccide** |
+| `modern_explainer` | WorldCover, CORONA, OSM | idem |
+
+**Anomalie magnetiche, termiche, sismiche: cosa sono davvero da casa.** Magnetico globale = griglia a ~3,7 km: vede la crosta, non un muro (la magnetometria archeologica si fa a piedi). Termico gratuito = ~100 m: strutture grandi e umidità, non edifici. Sismico = cataloghi di eventi e faglie: non trova niente, **spiega** i lineamenti. Per questo entrano come spiegatori, non come rilevatori. Venderli come rilevatori sarebbe il DEM sintetico con un altro nome.
+
+**Stato del primo banco (tumuli sul DEM a 30 m, alto Khabur).** Pre-registrato, eseguito, **FAIL due volte**. Scansione al buio: su 100 allarmi, 86–98 non sono tumuli a catalogo. Numeri e diagnosi nel docstring di `backend/core/anthro/mound.py`.
+
+**Prossimo colpo, in ordine.** (1) Secondo dato sugli allarmi del DEM: spettro Sentinel-2 multi-temporale (è la firma con cui Menze & Ur i siti li hanno trovati), poi geologia e toponimi come filtro. Pre-registrato, su tile non bruciati (restano N36E039, N37E039, N37E042). (2) Solo se la combinazione passa: scansione fuori dal Khabur e mappa GeoLibre con scheda-prova. (3) Non una v3 sul solo rilievo.

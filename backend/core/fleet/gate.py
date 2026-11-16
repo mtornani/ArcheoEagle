@@ -88,6 +88,9 @@ def triage(flag: Dict[str, Any], sources: Dict[str, Dict[str, Any]]) -> Tuple[st
         why.append(f"sorgente non in registro: {flag.get('source_id')!r}")
     elif src.get("status") == "dead":
         why.append(f"sorgente morta: {src['id']}")
+    elif src.get("role", "detector") != "detector":
+        # geologia, faglie, magnetico, moderno, cataloghi: servono a uccidere, non a segnalare
+        why.append(f"sorgente {src['id']} ha ruolo {src['role']}: non e' un rilevatore")
 
     # Metodo v1 #1 e #3: l'area viene dai dati, il mito si guarda dopo.
     if flag.get("tipo") not in TIPI_TESTO and flag.get("myth_blind") is not True:

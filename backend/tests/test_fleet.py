@@ -12,6 +12,7 @@ SRC = {
     "pangaea": {"id": "pangaea", "status": "ok"},
     "xronos": {"id": "xronos", "status": "unverified"},
     "imlgs": {"id": "imlgs", "status": "dead"},
+    "emag2": {"id": "emag2", "status": "ok", "role": "natural_explainer"},
 }
 
 
@@ -62,6 +63,12 @@ class TriageTest(unittest.TestCase):
     def test_dead_or_unknown_source_rejected(self):
         self.assertEqual(gate.triage(good(source_id="imlgs"), SRC)[0], gate.RESPINTO)
         self.assertEqual(gate.triage(good(source_id="blog"), SRC)[0], gate.RESPINTO)
+
+    def test_explainer_sources_cannot_carry_a_flag(self):
+        # la griglia magnetica a 3,7 km spiega un dicco, non trova un muro
+        g, why = gate.triage(good(source_id="emag2"), SRC)
+        self.assertEqual(g, gate.RESPINTO)
+        self.assertIn("non e' un rilevatore", why[0])
 
     def test_unverified_source_is_uncalibrated(self):
         self.assertEqual(gate.triage(good(source_id="xronos"), SRC)[0], gate.NON_CALIBRATO)

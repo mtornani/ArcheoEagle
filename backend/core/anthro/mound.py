@@ -49,6 +49,19 @@ PASSA v2 se su ciascuno: recall ALTO >= 0.40 e recall PIATTO <= 0.05.
 (0.40 e' fissato sapendo che l'esplorazione dava 0.375 e 0.554: l'asticella
 e' vicina all'osservato, non sotto.)
 
+ESITO v2 (16 nov 2026, commit 6c2ac8f): FAIL su tutti e tre i tile nuovi.
+  N37E040: recall ALTO 0.240, PIATTO 0.002, precisione 0.142, AUC 0.844
+  N37E041: recall ALTO 0.181, PIATTO 0.003, precisione 0.125, AUC 0.749
+  N36E042: recall ALTO 0.059, PIATTO 0.013, precisione 0.019, AUC 0.718
+L'esplorazione sui due tile bruciati (0.375 / 0.554) non ha generalizzato:
+era in parte adattamento. Cio' che regge: i siti piatti restano invisibili
+(lo strumento misura rilievo, non il catalogo) e la precisione sale da <1% a
+2-14%. Cio' che non regge: scansionando al buio, su 100 allarmi 86-98 NON sono
+tumuli a catalogo. Il DEM a 30 m DA SOLO non separa tell da collina.
+NON scrivere una v3 sullo stesso dato. Il passo successivo e' un SECONDO dato
+indipendente sugli allarmi (spettro Sentinel-2, geologia, toponimi, CORONA),
+non una terza statistica sul rilievo.
+
 Cosa NON dice nessun esito: "tumulo = artificiale". Un cono vulcanico, un
 inselberg, una duna fissa hanno la stessa firma. Quelli stanno fra i VUOTI
 sopra soglia e li separa solo un secondo dato (geologia, spettro, CORONA).

@@ -9,13 +9,16 @@
   <style>
     :root {
       color-scheme: light;
-      --ink: #1d2925;
-      --muted: #4a5a53;
-      --paper: #f5f4ee;
-      --card: #fffefa;
-      --line: #d7ddd4;
-      --accent: #21634f;
-      --soft: #e8f0e9;
+      --ink: #18332f;
+      --muted: #465e59;
+      --paper: #f2f3ed;
+      --card: #ffffff;
+      --line: #d7e0d9;
+      --accent: #146b5c;
+      --soft: #e7f2eb;
+      --gold: #f0bd4f;
+      --coral: #c85f45;
+      --blue: #477d9a;
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       font-synthesis: none;
       text-rendering: optimizeLegibility;
@@ -31,13 +34,13 @@
       line-height: 1.6;
     }
 
-    a { color: #15583f; text-underline-offset: 0.18em; }
+    a { color: #125b50; text-underline-offset: 0.18em; }
     a:focus-visible, button:focus-visible, summary:focus-visible {
-      outline: 3px solid #bd5b20;
+      outline: 3px solid var(--coral);
       outline-offset: 3px;
     }
 
-    .wrap { width: min(100% - 2rem, 54rem); margin-inline: auto; }
+    .wrap { width: min(100% - 2rem, 68rem); margin-inline: auto; }
     .skip-link {
       position: absolute;
       left: -9999px;
@@ -49,8 +52,8 @@
     .skip-link:focus { left: 0.5rem; }
 
     header {
-      border-bottom: 1px solid var(--line);
-      background: var(--card);
+      background: #123d3b;
+      color: white;
     }
     .header-inner {
       display: flex;
@@ -60,7 +63,7 @@
       padding-block: 0.8rem;
     }
     .brand {
-      color: var(--ink);
+      color: white;
       font-size: 1rem;
       font-weight: 800;
       letter-spacing: 0.12em;
@@ -69,29 +72,30 @@
     .language-switcher { display: flex; gap: 0.4rem; }
     .language-switcher button {
       min-height: 44px;
-      border: 1px solid #829188;
+      border: 1px solid #a6c1b9;
       border-radius: 0.6rem;
       padding: 0.45rem 0.7rem;
-      background: var(--card);
-      color: var(--ink);
+      background: transparent;
+      color: white;
       font: inherit;
       font-size: 0.9rem;
       cursor: pointer;
     }
     .language-switcher button[aria-pressed="true"] {
-      border-color: var(--accent);
-      background: var(--accent);
-      color: white;
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #18332f;
+      font-weight: 750;
     }
 
-    main { padding-block: clamp(1.5rem, 5vw, 3rem); }
+    main { padding-block: clamp(1.25rem, 4vw, 3rem); }
     .language-panel {
       margin-bottom: 2rem;
-      padding: clamp(1rem, 4vw, 2rem);
-      border: 1px solid var(--line);
-      border-radius: 1rem;
+      padding: clamp(1.1rem, 4vw, 3rem);
+      border: 1px solid #dfe5df;
+      border-radius: 1.25rem;
       background: var(--card);
-      box-shadow: 0 0.4rem 1.5rem rgb(29 41 37 / 5%);
+      box-shadow: 0 0.7rem 2rem rgb(24 51 47 / 8%);
     }
     html.js .language-panel:not(.active) { display: none; }
     .eyebrow {
@@ -103,51 +107,124 @@
       text-transform: uppercase;
     }
     h1 {
-      max-width: 20ch;
+      max-width: 26ch;
       margin: 0;
       font-size: clamp(1.8rem, 7vw, 3rem);
       line-height: 1.12;
       letter-spacing: -0.035em;
     }
-    h2 { margin: 0 0 0.45rem; font-size: 1.12rem; line-height: 1.3; }
+    h2 { margin: 0 0 0.55rem; font-size: 1.12rem; line-height: 1.3; }
     p { margin: 0.7rem 0; }
-    .lede { margin-block: 1rem 1.3rem; font-size: 1.08rem; }
-    .metrics { display: grid; gap: 0.8rem; }
-    .metric {
-      padding: 1rem;
-      border-left: 4px solid var(--accent);
-      border-radius: 0.4rem;
-      background: var(--soft);
+    .lede {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-block: 1.25rem 1.6rem;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      background: #123d3b;
+      color: white;
+      font-size: 0.96rem;
     }
+    .hero-metric {
+      min-width: 0;
+      padding: 0.75rem;
+      border-radius: 0.7rem;
+      background: #ffffff;
+      color: var(--ink);
+    }
+    .hero-metric strong {
+      display: block;
+      color: var(--accent);
+      font-size: clamp(1.35rem, 4vw, 2rem);
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums;
+    }
+    .scope-note {
+      grid-column: 1 / -1;
+      padding: 0.15rem 0.35rem 0.05rem;
+      font-weight: 650;
+    }
+    .metrics { display: grid; gap: 1rem; }
+    .metric {
+      padding: 1.1rem;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--accent);
+      border-radius: 0.85rem;
+      background: #fbfcfa;
+    }
+    .metric:nth-child(2) { border-top-color: var(--blue); }
+    .metric:nth-child(3) { border-top-color: var(--coral); }
     .metric p { margin: 0; }
-    figure { margin: 1.4rem 0; }
+    .metric-number {
+      font-size: 1.16em;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .metric-number.built { color: #a64b34; }
+    .metric-number.cultivated { color: #805900; }
+    .metric-number.neutral { color: #315d78; }
+    .metric-number.holds { color: #176745; }
+    .metric-number.uncertain { color: #95521a; }
+    .metric-number.unreviewed { color: #395c78; }
+    .measure-row {
+      display: block;
+      margin-block: 0.7rem;
+    }
+    .measure-copy { display: block; }
+    .measure-track {
+      display: block;
+      height: 0.55rem;
+      margin-top: 0.3rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e3e9e5;
+    }
+    .measure-track > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--accent);
+    }
+    .measure-row.secondary .measure-track > span { background: #bf8420; }
+    figure {
+      margin: 1.8rem 0;
+      padding: clamp(0.65rem, 2vw, 1.1rem);
+      border-radius: 1rem;
+      background: #e8f1ec;
+    }
     figure img {
       display: block;
       width: 100%;
-      max-width: 38rem;
+      max-width: 56rem;
       height: auto;
       margin-inline: auto;
-      border: 1px solid var(--line);
-      border-radius: 0.65rem;
+      border: 3px solid white;
+      border-radius: 0.7rem;
       background: white;
+      box-shadow: 0 0.35rem 1rem rgb(24 51 47 / 12%);
     }
     figcaption {
-      max-width: 38rem;
+      max-width: 56rem;
       margin: 0.6rem auto 0;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
     }
     .request {
       margin-top: 1.2rem;
       padding: 0.9rem 1rem;
-      border: 1px solid var(--line);
-      border-radius: 0.6rem;
+      border-left: 5px solid var(--gold);
+      border-radius: 0.3rem 0.7rem 0.7rem 0.3rem;
+      background: #fff4d8;
     }
     .required-copy {
       margin-top: 1.3rem;
-      padding-top: 0.8rem;
-      border-top: 1px solid var(--line);
-      color: #33423b;
+      padding: 0.7rem 1rem;
+      border-left: 4px solid var(--blue);
+      border-radius: 0.3rem 0.7rem 0.7rem 0.3rem;
+      background: #eef4f7;
+      color: #263f4c;
       font-size: 0.94rem;
     }
     .required-copy p { margin-block: 0.75rem; }
@@ -181,19 +258,21 @@
     }
 
     @media (min-width: 44rem) {
-      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .metric:last-child { grid-column: 1 / -1; }
+      .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     @media (max-width: 25rem) {
-      .wrap { width: min(100% - 1rem, 54rem); }
+      .wrap { width: min(100% - 1rem, 68rem); }
       .header-inner { align-items: flex-start; flex-direction: column; }
       .language-switcher { width: 100%; }
       .language-switcher button { flex: 1; padding-inline: 0.35rem; }
+      .lede { grid-template-columns: 1fr; }
+      .scope-note { grid-column: auto; }
     }
     @media print {
       header, .skip-link { display: none; }
       html.js .language-panel:not(.active) { display: block; }
-      .language-panel { box-shadow: none; break-inside: avoid; }
+      .language-panel { box-shadow: none; break-inside: auto; }
+      .metric, figure, .required-copy { break-inside: avoid; }
     }
   </style>
 </head>
@@ -214,20 +293,23 @@
     <section id="panel-it" class="language-panel active" lang="it" aria-labelledby="title-it">
       <p class="eyebrow">Sintesi</p>
       <h1 id="title-it">Vaglio: una ri-analisi con errori misurati del LiDAR pubblico G-LiHT sullo Yucatán</h1>
-      <p class="lede">456 transetti; 1.272,7 km²; 11.916 complessi candidati. Strisce campionarie, non copertura della penisola.</p>
+      <p class="lede"><span class="hero-metric"><strong>456</strong> transetti</span><span class="hero-metric"><strong>1.272,7 km²</strong></span><span class="hero-metric"><strong>11.916</strong> complessi candidati</span><span class="scope-note">Strisce campionarie, non copertura della penisola.</span></p>
 
       <div class="metrics">
         <article class="metric">
           <h2>Rilevatore</h2>
-          <p>Chactún: 76,4% di 942 strutture annotate ritrovate; l'83,0% di 677 segnalazioni cade su una struttura. Rovine dense; altrove non misurato.</p>
+          <p>Chactún:
+            <span class="measure-row"><span class="measure-copy"><strong class="metric-number">76,4%</strong> di 942 strutture annotate ritrovate</span><span class="measure-track" aria-hidden="true"><span style="width:76.4%"></span></span></span>
+            <span class="measure-row secondary"><span class="measure-copy">l'<strong class="metric-number">83,0%</strong> di 677 segnalazioni cade su una struttura</span><span class="measure-track" aria-hidden="true"><span style="width:83%"></span></span></span>
+            Rovine dense; altrove non misurato.</p>
         </article>
         <article class="metric">
           <h2>Uso del suolo oggi</h2>
-          <p>WorldCover 2021: 150 costruito, 34 coltivato, 11.732 senza uso evidente. Conteggi non verificati a vista; «costruito oggi» non esclude resti antichi.</p>
+          <p>WorldCover 2021: <strong class="metric-number built">150</strong> costruito, <strong class="metric-number cultivated">34</strong> coltivato, <strong class="metric-number neutral">11.732</strong> senza uso evidente. Conteggi non verificati a vista; «costruito oggi» non esclude resti antichi.</p>
         </article>
         <article class="metric">
           <h2>Revisione al buio</h2>
-          <p>40 rivisti: 15 reggono, 25 incerti; 11.876 da rivedere. Un blocco; 3 dei primi 100 per punteggio rivisti.</p>
+          <p><strong class="metric-number">40</strong> rivisti: <strong class="metric-number holds">15</strong> reggono, <strong class="metric-number uncertain">25</strong> incerti; <strong class="metric-number unreviewed">11.876</strong> da rivedere. Un blocco; 3 dei primi 100 per punteggio rivisti.</p>
         </article>
       </div>
 
@@ -254,20 +336,23 @@
     <section id="panel-en" class="language-panel" lang="en" aria-labelledby="title-en">
       <p class="eyebrow">Summary</p>
       <h1 id="title-en">Vaglio: an error-measured re-analysis of public G-LiHT lidar over the Yucatán</h1>
-      <p class="lede">456 transects; 1,272.7 km²; 11,916 candidate complexes. Sample strips, not full-peninsula coverage.</p>
+      <p class="lede"><span class="hero-metric"><strong>456</strong> transects</span><span class="hero-metric"><strong>1,272.7 km²</strong></span><span class="hero-metric"><strong>11,916</strong> candidate complexes</span><span class="scope-note">Sample strips, not full-peninsula coverage.</span></p>
 
       <div class="metrics">
         <article class="metric">
           <h2>Detector</h2>
-          <p>Chactún test: 76.4% of 942 annotated structures found; 83.0% of 677 flags matched one. Dense ruins; elsewhere unmeasured.</p>
+          <p>Chactún test:
+            <span class="measure-row"><span class="measure-copy"><strong class="metric-number">76.4%</strong> of 942 annotated structures found</span><span class="measure-track" aria-hidden="true"><span style="width:76.4%"></span></span></span>
+            <span class="measure-row secondary"><span class="measure-copy"><strong class="metric-number">83.0%</strong> of 677 flags matched one</span><span class="measure-track" aria-hidden="true"><span style="width:83%"></span></span></span>
+            Dense ruins; elsewhere unmeasured.</p>
         </article>
         <article class="metric">
           <h2>Current land use</h2>
-          <p>WorldCover 2021: 150 built, 34 cultivated, 11,732 with no obvious use. Not visually checked; built today does not rule out ancient remains.</p>
+          <p>WorldCover 2021: <strong class="metric-number built">150</strong> built, <strong class="metric-number cultivated">34</strong> cultivated, <strong class="metric-number neutral">11,732</strong> with no obvious use. Not visually checked; built today does not rule out ancient remains.</p>
         </article>
         <article class="metric">
           <h2>Blind review</h2>
-          <p>40 reviewed: 15 hold up, 25 uncertain; 11,876 not yet reviewed. One block; 3 of the top 100 reviewed.</p>
+          <p><strong class="metric-number">40</strong> reviewed: <strong class="metric-number holds">15</strong> hold up, <strong class="metric-number uncertain">25</strong> uncertain; <strong class="metric-number unreviewed">11,876</strong> not yet reviewed. One block; 3 of the top 100 reviewed.</p>
         </article>
       </div>
 
@@ -294,20 +379,23 @@
     <section id="panel-es" class="language-panel" lang="es" aria-labelledby="title-es">
       <p class="eyebrow">Resumen</p>
       <h1 id="title-es">Vaglio: un reanálisis con errores medidos del lidar público G-LiHT sobre Yucatán</h1>
-      <p class="lede">456 transectos; 1.272,7 km²; 11.916 complejos candidatos. Franjas parciales.</p>
+      <p class="lede"><span class="hero-metric"><strong>456</strong> transectos</span><span class="hero-metric"><strong>1.272,7 km²</strong></span><span class="hero-metric"><strong>11.916</strong> complejos candidatos</span><span class="scope-note">Franjas parciales.</span></p>
 
       <div class="metrics">
         <article class="metric">
           <h2>Detector</h2>
-          <p>Chactún: 942 estructuras anotadas; 76,4 % recuperadas. 83,0 % de 677 señales coincide. Ruinas densas; otros terrenos no medidos.</p>
+          <p>Chactún:
+            <span class="measure-row"><span class="measure-copy">942 estructuras anotadas; <strong class="metric-number">76,4 %</strong> recuperadas</span><span class="measure-track" aria-hidden="true"><span style="width:76.4%"></span></span></span>
+            <span class="measure-row secondary"><span class="measure-copy"><strong class="metric-number">83,0 %</strong> de 677 señales coincide</span><span class="measure-track" aria-hidden="true"><span style="width:83%"></span></span></span>
+            Ruinas densas; otros terrenos no medidos.</p>
         </article>
         <article class="metric">
           <h2>Uso actual del suelo</h2>
-          <p>WorldCover 2021: 150 construidos, 34 cultivados, 11.732 sin uso evidente. Sin revisión visual; construido hoy no descarta antigüedad.</p>
+          <p>WorldCover 2021: <strong class="metric-number built">150</strong> construidos, <strong class="metric-number cultivated">34</strong> cultivados, <strong class="metric-number neutral">11.732</strong> sin uso evidente. Sin revisión visual; construido hoy no descarta antigüedad.</p>
         </article>
         <article class="metric">
           <h2>Revisión a ciegas</h2>
-          <p>40 revisados: 15 se sostienen, 25 inciertos; 11.876 sin revisar. Un bloque; 3 de los primeros 100 revisados.</p>
+          <p><strong class="metric-number">40</strong> revisados: <strong class="metric-number holds">15</strong> se sostienen, <strong class="metric-number uncertain">25</strong> inciertos; <strong class="metric-number unreviewed">11.876</strong> sin revisar. Un bloque; 3 de los primeros 100 revisados.</p>
         </article>
       </div>
 

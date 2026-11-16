@@ -54,6 +54,15 @@ class MoundBenchTest(unittest.TestCase):
         dem, bbox, sites = scene(True)
         self.assertIsNone(run(dem, bbox, sites[:6])["passed"])
 
+    def test_v2_same_bump_scores_lower_on_rough_ground(self):
+        dem, bbox, sites = scene(True)
+        rough = dem + np.random.default_rng(1).normal(0, 6.0, dem.shape)
+        z_flat = mound.cell_scores_v2(mound.residual_relief(dem))
+        z_rough = mound.cell_scores_v2(mound.residual_relief(rough))
+        lab = mound.label_cells(z_flat.shape, bbox, sites)
+        self.assertGreater(np.median(z_flat[lab["tall"]]), 2 * np.median(z_rough[lab["tall"]]))
+        self.assertTrue(mound.evaluate(z_flat, lab, "flat", mound.PASS_RECALL_TALL_V2)["passed"])
+
     def test_regional_slope_is_not_a_mound(self):
         dem, _, _ = scene(False)
         self.assertLess(np.abs(mound.residual_relief(dem)).max(), 5.0)

@@ -101,10 +101,15 @@ def _svg_map(transects: List[Dict[str, Any]], cands: List[Dict[str, Any]], scann
 
 
 def collect(work: Path) -> Dict[str, Any]:
+    from . import learn
     from .__main__ import load_scans
 
     scans = load_scans(work)
-    cands = sorted((dict(c, survey=s["survey"]) for s in scans for c in s["candidates"]), key=lambda c: -c["score"])
+    rank = learn.load(work)
+    cands = [dict(c, survey=s["survey"]) for s in scans for c in s["candidates"]]
+    for c in cands:
+        c["priority"] = learn.priority(c, rank) if rank else None
+    cands.sort(key=lambda c: -(c["priority"] if rank else c["score"]))
     results = [json.loads(p.read_text(encoding="utf-8")) for p in sorted((work / "review" / "results").glob("*.json"))] \
         if (work / "review" / "results").exists() else []
     votes = {k: v for r in results for k, v in r["candidates"].items()}
@@ -115,7 +120,7 @@ def collect(work: Path) -> Dict[str, Any]:
         c["outcome"] = v["outcome"] if v else "da_rivedere"
         c["votes"] = v["all_votes"] if v else []
         c["known"] = known.status(c, sites, c["survey"])
-    return {"scans": scans, "cands": cands, "reviewers": reviewers, "n_sites": len(sites)}
+    return {"scans": scans, "cands": cands, "reviewers": reviewers, "n_sites": len(sites), "rank": rank}
 
 
 def blind_pack(cands: List[Dict[str, Any]], ts: str) -> Dict[str, Any]:
@@ -191,6 +196,7 @@ Una mappa pubblica di rovine non scavate è una mappa per i saccheggiatori.</div
 <h2>Revisori</h2>
 {f"<table><tr><th>revisore</th><th>trova le strutture note</th><th>scarta i vuoti noti</th><th>controlli</th><th></th></tr>{rev_rows}</table>" if rev_rows else "<p>Nessuna revisione ancora. <code>python -m vaglio pacco</code> prepara le immagini.</p>"}
 <h2>Candidati</h2>
+<p class="k">{f"Ordine appreso da {d['rank']['n']} candidati già rivisti (capacità di separare tenuti e scartati, misurata lasciandone fuori uno alla volta: {d['rank']['auc_loo']} su 1; 0,5 = a caso)." if d['rank'] else "Ordine: punteggio di priorità (area, altezza, lati dritti). Non è una probabilità."}</p>
 <div class="filters"><button data-f="all" aria-pressed="true">Tutti {len(cands)}</button>{"".join(f'<button data-f="{o}" aria-pressed="false">{OUTCOME[o][0]} {n}</button>' for o, n in counts.items())}</div>
 <div class="cards">{"".join(cards)}</div>
 <footer>Rilevatore tarato su Chactún (Kokalj et al. 2023, CC BY 4.0). LiDAR: NASA G-LiHT 2013, riprocessato da B. J. Britton (2026), OpenTopography, pubblico dominio.

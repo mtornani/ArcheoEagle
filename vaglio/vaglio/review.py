@@ -5,6 +5,12 @@ sbagliano. Qui ogni pacco mescola ai candidati dei riquadri di CONTROLLO di cui
 la risposta e' nota (Chactun, annotati da archeologi, mai usati per addestrare).
 Chi rivede non sa quali sono. Un revisore che sbaglia i controlli non vota.
 
+I controlli positivi sono CENTRATI su un edificio annotato di almeno 100 m2,
+come i candidati sono centrati sul loro rilievo. Il primo giro (16 nov 2026)
+usava quadranti fissi: meta' delle strutture finiva tagliata sul bordo e tre
+revisori su tre, correttamente, vedevano "piano vuoto". Controllo sbagliato,
+non revisore sbagliato: giro annullato e rifatto.
+
 Il revisore puo' essere un agente Claude Code, Grok, ChatGPT o una persona:
 riceve una cartella di immagini e una rubrica, restituisce un JSON.
 """

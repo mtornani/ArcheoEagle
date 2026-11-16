@@ -132,6 +132,26 @@ class ReviewTest(unittest.TestCase):
             self.assertTrue((d / "review" / "keys" / "p1.json").exists())
 
 
+class LearnTest(unittest.TestCase):
+    def cand(self, i, ortho, area=300.0):
+        return {"id": f"V-{i}", "area_m2": area, "n_objects": 2, "max_height_m": 1.0, "mean_prob": 0.8, "ortho": ortho, "max_rect": 0.6}
+
+    def test_refuses_to_learn_from_too_few_reviews(self):
+        from vaglio import learn
+        cs = [self.cand(i, 0.5) for i in range(6)]
+        self.assertFalse(learn.fit(cs, {c["id"]: "scartato" for c in cs})["fitted"])
+
+    def test_learns_what_reviewers_kept_and_reports_held_out_skill(self):
+        from vaglio import learn
+        rng = np.random.default_rng(0)
+        kept = [self.cand(i, 0.5 + 0.2 * rng.random()) for i in range(15)]
+        drop = [self.cand(100 + i, 0.2 * rng.random()) for i in range(15)]
+        m = learn.fit(kept + drop, {**{c["id"]: "regge_alla_revisione" for c in kept}, **{c["id"]: "scartato" for c in drop}})
+        self.assertTrue(m["fitted"])
+        self.assertGreater(m["auc_loo"], 0.9)
+        self.assertGreater(learn.priority(self.cand(999, 0.6), m), learn.priority(self.cand(998, 0.05), m))
+
+
 class KnownAndBlindTest(unittest.TestCase):
     def test_surveyed_data_is_presumed_already_seen(self):
         s = known.status({"lat": 18.0, "lon": -89.0}, [("X", 19.5, -89.0, "t")], "G-LiHT Yucatan 2013")

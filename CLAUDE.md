@@ -248,6 +248,14 @@ Skill agent GeoLibre: `.claude/skills/geolibre/`
 - [ ] Sorgente con ruolo spiegatore (geologia, faglie, magnetico, moderno) non regge una segnalazione → `RESPINTO` (`test_fleet.py`).
 - [ ] Nessuna stringa "artificiale" / "non naturale" su un punto di mappa: solo "spiegazioni naturali e moderne testate: …".
 
+### Vaglio (§14)
+
+- [ ] Il rilevatore dichiara recall e precisione misurate su riquadri annotati da archeologi e mai usati in addestramento, con criterio scritto prima (`vaglio/vaglio/model.py`).
+- [ ] Ogni pacco di revisione contiene controlli a risposta nota, non riconoscibili dal nome; un revisore sotto soglia sui controlli non vota (`vaglio/tests`).
+- [ ] Nessun esito si chiama "trovato", "scoperto", "nuovo", "confermato". Su un rilievo già analizzato da altri l'etichetta è "presumi già visto".
+- [ ] `pack_cieco.json` non contiene coordinate, transetto, id, né il nome del sito noto più vicino.
+- [ ] `dossier.html` si usa a 360 px senza scorrimento orizzontale, bersagli ≥ 44 px.
+
 ### GeoLibre (direzione)
 
 - [ ] Il geojson schematico apre come progetto GeoLibre senza backend.
@@ -341,3 +349,23 @@ Richiesta operatore: una mappa, da casa, delle anomalie **non riconducibili all'
 **Stato del primo banco (tumuli sul DEM a 30 m, alto Khabur).** Pre-registrato, eseguito, **FAIL due volte**. Scansione al buio: su 100 allarmi, 86–98 non sono tumuli a catalogo. Numeri e diagnosi nel docstring di `backend/core/anthro/mound.py`.
 
 **Prossimo colpo, in ordine.** (1) Secondo dato sugli allarmi del DEM: spettro Sentinel-2 multi-temporale (è la firma con cui Menze & Ur i siti li hanno trovati), poi geologia e toponimi come filtro. Pre-registrato, su tile non bruciati (restano N36E039, N37E039, N37E042). (2) Solo se la combinazione passa: scansione fuori dal Khabur e mappa GeoLibre con scheda-prova. (3) Non una v3 sul solo rilievo.
+
+---
+
+## 14. Vaglio — prodotto a sé (`vaglio/`)
+
+Aggiunto il 16 nov 2026 su richiesta dell'operatore. È il rilevatore che a §13 mancava: lavora dove esiste LiDAR pubblico ad alta risoluzione invece che sul DEM a 30 m. §0 vince.
+
+**Cosa fa.** `python -m vaglio`: scarica un rilievo LiDAR pubblico, calcola le visualizzazioni, segnala i rilievi a forma di costruzione, li raggruppa in complessi, li fa rivedere al buio, li confronta col già noto, scrive un fascicolo HTML offline. Istruzioni in `vaglio/README.md`.
+
+**Perché non è il compitino.** Nasce dal caso Miotti (nov 2026: 48 agenti, un sito maya "non mappato" che era già pubblicato). Copia il metodo e aggiunge le tre misure che lì mancavano: errore del rilevatore, errore dei revisori, controllo del già noto.
+
+**Invarianti.**
+
+- Il rilevatore si tara solo su annotazioni di archeologi (oggi: Chactún, Kokalj et al. 2023) con divisione addestramento/test degli autori del dataset. Ogni modifica si committa prima di rieseguire il test.
+- I revisori (agenti o persone) vedono immagini senza nome né posizione, con controlli piantati. Chi sbaglia i controlli non vota. Servono due revisori calibrati.
+- Un candidato su un rilievo già studiato si presume già visto. Sullo Yucatán esiste il catalogo Britton 2026 (57.181 strutture, non pubblico): lì Vaglio **riproduce**, non scopre.
+- Coordinate solo in `vaglio_lavoro/` (gitignored). Condivisibile: `pack_cieco.json`.
+- Il punteggio d'ordine decide cosa guardare prima. Non è una probabilità e non si mostra come tale.
+
+**Fuori scope.** Dichiarare un sito. Contattare enti a nome dell'operatore. Pubblicare coordinate. Scansionare rilievi con licenza che non lo consente.

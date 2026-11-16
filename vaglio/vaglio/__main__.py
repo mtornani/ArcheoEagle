@@ -4,6 +4,7 @@
     python -m vaglio scansiona --transetti South_GLAS_l3s459      # oppure --tutti, oppure --dtm mio.tif
     python -m vaglio pacco --top 60                               # immagini anonime + controlli piantati
     python -m vaglio esiti pacco-1 claude=r1.json grok=r2.json    # pesa i revisori, conta i voti
+    python -m vaglio impara                                       # le revisioni riordinano la coda
     python -m vaglio dossier                                      # HTML offline + pack cieco
 
 Tutto finisce in ./vaglio_lavoro (coordinate comprese: resta sul tuo dispositivo).
@@ -96,6 +97,7 @@ def main() -> None:
     e = sub.add_parser("esiti")
     e.add_argument("nome")
     e.add_argument("risposte", nargs="+", help="revisore=file.json")
+    sub.add_parser("impara")
     sub.add_parser("dossier")
     a = ap.parse_args()
     work = Path(a.lavoro)
@@ -141,7 +143,11 @@ def main() -> None:
         return
 
     if a.cmd == "pacco":
-        cands = sorted((c for s in load_scans(work) for c in s["candidates"]), key=lambda c: -c["score"])
+        from . import learn
+
+        rank = learn.load(work)
+        cands = sorted((c for s in load_scans(work) for c in s["candidates"]),
+                       key=lambda c: -(learn.priority(c, rank) if rank else c["score"]))
         seen = {v["ref"] for kf in (work / "review" / "keys").glob("*.json") for v in json.loads(kf.read_text()).values()} \
             if (work / "review" / "keys").exists() else set()
         cands = [c for c in cands if c["id"] not in seen]
@@ -169,6 +175,16 @@ def main() -> None:
             print(who, g)
         outc = [c["outcome"] for c in res["candidates"].values()]
         print({o: outc.count(o) for o in sorted(set(outc))})
+        return
+
+    if a.cmd == "impara":
+        from . import learn
+
+        outcomes = {k: v["outcome"] for f in sorted((work / "review" / "results").glob("*.json"))
+                    for k, v in json.loads(f.read_text(encoding="utf-8"))["candidates"].items()}
+        m = learn.fit([c for s_ in load_scans(work) for c in s_["candidates"]], outcomes)
+        (work / "review" / "ordine.json").write_text(json.dumps(m), encoding="utf-8")
+        print(json.dumps({k: m[k] for k in m if k not in ("mu", "sd")}, ensure_ascii=False))
         return
 
     if a.cmd == "dossier":

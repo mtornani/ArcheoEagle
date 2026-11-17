@@ -235,7 +235,7 @@ def main() -> None:
 
         m = deposit.write(work)
         print(json.dumps(m, ensure_ascii=False, indent=1))
-        print("Pubblica l'impronta sha256 (commit in vaglio/test_cieco/DEPOSITO.md) PRIMA di mandare il CSV.")
+        print("Pubblica l'impronta sha256 (commit in vaglio/test_cieco/DEPOSIT.md) PRIMA di mandare il CSV.")
         return
 
     if a.cmd == "kit":

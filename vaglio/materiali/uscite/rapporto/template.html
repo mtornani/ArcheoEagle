@@ -241,8 +241,8 @@ footer { color: var(--ink-2); font-size: var(--step--1); border-top: 1px solid v
         <li><a href="#it-6">La scansione completa</a></li>
         <li><a href="#it-7">I candidati che reggono</a></li>
         <li><a href="#it-8">Cosa non ha funzionato</a></li>
-        <li><a href="#it-9">Cosa non sappiamo</a></li>
-        <li><a href="#it-10">Cosa chiediamo</a></li>
+        <li><a href="#it-9">Cosa non so</a></li>
+        <li><a href="#it-10">Cosa chiedo</a></li>
         <li><a href="#it-11">Riproducibilità</a></li>
         <li><a href="#it-12">Posizioni, crediti, dichiarazione</a></li>
       </ol>
@@ -252,7 +252,7 @@ footer { color: var(--ink-2); font-size: var(--step--1); border-top: 1px solid v
     <section class="opening" id="it-1">
       <span class="eyebrow">Penisola dello Yucatán · LiDAR aereo NASA G-LiHT, 2013</span>
       <h1>Una ri-analisi con errori misurati del LiDAR pubblico G-LiHT sullo Yucatán</h1>
-      <p class="lede">Abbiamo cercato rilievi a forma di costruzione nei 456 transetti LiDAR della NASA sullo Yucatán, gli stessi già studiati da altri gruppi. Lo scopo è misurare quanto sbaglia ogni passaggio: il rilevatore, chi rivede le immagini, il confronto con ciò che è già noto.</p>
+      <p class="lede">Con l'aiuto di assistenti AI ho cercato rilievi a forma di costruzione nei 456 transetti LiDAR della NASA sullo Yucatán, gli stessi già studiati da altri gruppi. Lo scopo è misurare quanto sbaglia ogni passaggio: il rilevatore, chi rivede le immagini, il confronto con ciò che è già noto.</p>
       <dl class="measures">
         <div>
           <dt>Rilevatore</dt>
@@ -313,7 +313,7 @@ footer { color: var(--ink-2); font-size: var(--step--1); border-top: 1px solid v
       <h2><span class="secnum">04</span>Metodo</h2>
       <div class="prose">
         <ol>
-          <li><strong>Terreno.</strong> Dal modello del terreno a 0,5 m calcoliamo sky-view factor, apertura positiva e pendenza, con i parametri pubblicati da Kokalj et al. (2023).</li>
+          <li><strong>Terreno.</strong> Dal modello del terreno a 0,5 m si calcolano sky-view factor, apertura positiva e pendenza, con i parametri pubblicati da Kokalj et al. (2023).</li>
           <li><strong>Rilevatore.</strong> Un classificatore a gradient boosting stima per ogni pixel la probabilità che appartenga a un edificio o a una piattaforma. È addestrato sulle annotazioni di Chactún fatte da archeologi.</li>
           <li><strong>Complessi.</strong> I rilievi sopra soglia distanti meno di 60 m formano un complesso candidato. È l'unità che si rivede e si conta.</li>
           <li><strong>Revisione al buio.</strong> I candidati sono mostrati come riquadri di 120 m, senza nome né posizione, mescolati a riquadri di controllo di cui la risposta è nota. Chi rivede non sa quali sono i controlli.</li>
@@ -451,7 +451,7 @@ footer { color: var(--ink-2); font-size: var(--step--1); border-top: 1px solid v
     </section>
 
     <section id="it-9">
-      <h2><span class="secnum">09</span>Cosa non sappiamo</h2>
+      <h2><span class="secnum">09</span>Cosa non so</h2>
       <div class="prose">
         <ol>
           <li>Quanti degli 11.916 candidati sono costruzioni. Il campione rivisto viene da un solo blocco: non va esteso agli altri.</li>
@@ -465,7 +465,7 @@ footer { color: var(--ink-2); font-size: var(--step--1); border-top: 1px solid v
     </section>
 
     <section id="it-10">
-      <h2><span class="secnum">10</span>Cosa chiediamo</h2>
+      <h2><span class="secnum">10</span>Cosa chiedo</h2>
       <ol class="asks">
         <li><strong>Un confronto con il catalogo di Britton 2026.</strong><span>Su un piccolo campione di candidati, per sapere quanti sono già noti. Il modo di farlo si concorda.</span></li>
         <li><strong>Un revisore umano esperto.</strong><span>Un pacco al buio di 60 riquadri, circa venti minuti, misurato sugli stessi controlli. È l'unico modo per avere qualcuno che possa anche scartare.</span></li>
@@ -504,7 +504,7 @@ python -m vaglio verifica pack_cieco.json</code></pre>
         </ul>
       </div>
       <footer>
-        <p class="req">Analisi e testi prodotti da assistenti AI (Claude, GPT) con la supervisione di Mirko Tornani, <mark>[qualifica: la scrive l'operatore]</mark>.</p>
+        <p class="req">Analisi e testi prodotti da assistenti AI (Claude, GPT) con la supervisione di Mirko Tornani, ricercatore indipendente, non archeologo.</p>
       </footer>
     </section>
   </main>
@@ -524,8 +524,8 @@ python -m vaglio verifica pack_cieco.json</code></pre>
         <li><a href="#en-6">The full scan</a></li>
         <li><a href="#en-7">Candidates that hold up</a></li>
         <li><a href="#en-8">What did not work</a></li>
-        <li><a href="#en-9">What we do not know</a></li>
-        <li><a href="#en-10">What we are asking</a></li>
+        <li><a href="#en-9">What I do not know</a></li>
+        <li><a href="#en-10">What I am asking</a></li>
         <li><a href="#en-11">Reproducibility</a></li>
         <li><a href="#en-12">Locations, credits, disclosure</a></li>
       </ol>
@@ -535,7 +535,7 @@ python -m vaglio verifica pack_cieco.json</code></pre>
     <section class="opening" id="en-1">
       <span class="eyebrow">Yucatán Peninsula · NASA G-LiHT airborne lidar, 2013</span>
       <h1>An error-measured re-analysis of public G-LiHT lidar over the Yucatán</h1>
-      <p class="lede">We searched NASA's 456 lidar transects over the Yucatán for structure-shaped relief. Other teams have already studied these transects. Our aim is to measure how much each step gets wrong: the detector, the people or agents who review the images, and the check against what is already known.</p>
+      <p class="lede">With the help of AI assistants I searched NASA's 456 lidar transects over the Yucatán for structure-shaped relief. Other teams have already studied these transects. My aim is to measure how much each step gets wrong: the detector, the people or agents who review the images, and the check against what is already known.</p>
       <dl class="measures">
         <div>
           <dt>Detector</dt>
@@ -596,7 +596,7 @@ python -m vaglio verifica pack_cieco.json</code></pre>
       <h2><span class="secnum">04</span>Method</h2>
       <div class="prose">
         <ol>
-          <li><strong>Terrain.</strong> From the 0.5 m terrain model we compute sky-view factor, positive openness and slope, with the parameters published by Kokalj et al. (2023).</li>
+          <li><strong>Terrain.</strong> Sky-view factor, positive openness and slope are computed from the 0.5 m terrain model, with the parameters published by Kokalj et al. (2023).</li>
           <li><strong>Detector.</strong> A gradient-boosting classifier estimates, for each pixel, the probability that it belongs to a building or a platform. It is trained on the Chactún annotations made by archaeologists.</li>
           <li><strong>Complexes.</strong> Above-threshold reliefs less than 60 m apart form one candidate complex. This is the unit that is reviewed and counted.</li>
           <li><strong>Blind review.</strong> Candidates are shown as 120 m tiles, with no name or location, mixed with control tiles whose answer is known. Reviewers do not know which tiles are controls.</li>
@@ -734,7 +734,7 @@ python -m vaglio verifica pack_cieco.json</code></pre>
     </section>
 
     <section id="en-9">
-      <h2><span class="secnum">09</span>What we do not know</h2>
+      <h2><span class="secnum">09</span>What I do not know</h2>
       <div class="prose">
         <ol>
           <li>How many of the 11,916 candidates are built structures. The reviewed sample comes from one block and should not be extended to the others.</li>
@@ -748,7 +748,7 @@ python -m vaglio verifica pack_cieco.json</code></pre>
     </section>
 
     <section id="en-10">
-      <h2><span class="secnum">10</span>What we are asking</h2>
+      <h2><span class="secnum">10</span>What I am asking</h2>
       <ol class="asks">
         <li><strong>A comparison with Britton's 2026 catalogue.</strong><span>On a small sample of candidates, to learn how many are already known. How to do it is open to agreement.</span></li>
         <li><strong>An expert human reviewer.</strong><span>One blind pack of 60 tiles, about twenty minutes, scored on the same controls. It is the only way to get a reviewer who can also rule candidates out.</span></li>
@@ -787,7 +787,7 @@ python -m vaglio verifica pack_cieco.json</code></pre>
         </ul>
       </div>
       <footer>
-        <p class="req">Analysis and text were produced by AI assistants (Claude, GPT) under the supervision of Mirko Tornani, <mark>[role: to be filled in by the operator]</mark>.</p>
+        <p class="req">Analysis and text were produced by AI assistants (Claude, GPT) under the supervision of Mirko Tornani, independent researcher, not an archaeologist.</p>
       </footer>
     </section>
   </main>

@@ -108,6 +108,8 @@ Come leggere il campione dei 40, senza gonfiarlo:
   posizione su 11.916. **Dei primi 100 candidati della scansione completa ne sono stati rivisti 3.**
   I 20 presi a caso stanno fra la 1.844ª e la 11.858ª.
 - Tre revisori dello stesso modello che concordano non sono tre conferme indipendenti.
+- I 15 che reggono sono in maggioranza gruppi di rilievi (mediana 7 rilievi per complesso); i 25 incerti
+  sono in mediana un rilievo isolato (misurato su `pack_cieco.json`).
 - Gli agenti riconoscono gli edifici a lati netti e non i tumuli consumati. Quindi «15 reggono» è
   una stima per difetto di quanti, fra quei 40, sono costruiti; e «25 incerti» **non** vuol dire
   25 falsi.

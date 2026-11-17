@@ -71,6 +71,8 @@ Pagina per il pubblico, da condividere anche su WhatsApp: `materiali/uscite/pubb
 PDF scaricabili delle due pagine in `materiali/uscite/pdf/`; si rigenerano con `node esporta_pdf.js`
 da `materiali/uscite/` (serve Playwright).
 
+**Fronte Kiuic (chiuso il 17 novembre 2026).** Il test interno su Kiuic è chiuso: sostituito da Vaglio–Chactún, che termina con la verifica di un archeologo.
+
 ## Come funziona
 
 1. **Rilievo.** Dal DTM calcola sky-view factor, apertura positiva e pendenza con gli stessi

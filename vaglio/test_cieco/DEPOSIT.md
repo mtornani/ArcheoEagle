@@ -28,3 +28,13 @@ outcomes (15 `regge_alla_revisione`, 25 `incerto`, 11,876 `da_rivedere`). 47 com
 decimals (for example area 1,791.2 vs 1,790.5 m²), most likely from different versions of the geometry libraries in the two environments;
 the number of reliefs per complex is identical for all 11,916, and one maximum height differs by 0.01 m
 (0.95 vs 0.96 m). The deposit, not the pack, is what is scored.
+
+## Independent timestamp
+
+`DEPOSIT.md.ots` is an OpenTimestamps proof of this file (and of the SHA-256 of `deposito.csv` recorded in the table above). It was submitted to the public calendar servers on 17 November 2026. Verify, with this file next to the proof:
+
+```
+ots verify DEPOSIT.md.ots
+```
+
+(`opentimestamps-client`; no account needed.) A pending attestation means the calendars have accepted the hash but it is not yet in a Bitcoin block. When it is, run `ots upgrade DEPOSIT.md.ots` and verify again. The original seal of the deposit remains git commit `525c212` (17 November 2026, 14:08 UTC).

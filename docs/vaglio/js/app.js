@@ -37,14 +37,18 @@
 
   const T = {
     it: {
-      docTitle: "Vaglio: una ri-analisi con errori misurati del LiDAR pubblico G-LiHT sullo Yucatán",
-      brand: "Vaglio · ArcheoEagle",
-      title: "Vaglio: una ri-analisi con errori misurati del LiDAR pubblico G-LiHT sullo Yucatán",
-      lead: "Vaglio legge rilievi LiDAR pubblici, segnala i punti in cui il terreno nudo ha la forma di una costruzione, li fa rivedere al buio e misura quanto sbaglia nel farlo. Non dichiara siti. Questo è il rapporto divulgativo sui fatti già pubblici nel repository; il rapporto scientifico per la revisione tra pari arriverà dopo.",
+      docTitle: "Sotto la foresta — Vaglio, ri-analisi del LiDAR G-LiHT sullo Yucatán",
+      brand: "Sotto la foresta · Vaglio",
+      title: "Sotto la foresta",
+      lead: "Un laser su un aereo misura il terreno anche sotto gli alberi. Con l'aiuto di assistenti AI ho scritto Vaglio, un programma che legge i rilievi LiDAR pubblici, segnala i punti in cui il terreno nudo ha la forma di una costruzione, li fa rivedere al buio e misura quanto sbaglia. Non dichiara siti. Questo è il rapporto divulgativo sui fatti già pubblici nel repository; il rapporto scientifico per la revisione tra pari arriverà dopo.",
+      tocForest: "La foresta",
       tocMap: "Mappa",
+      tocQuiz: "La prova",
+      tocFifteen: "I 15",
+      tocCards: "Candidati rivisti",
+      tocTest: "Test cieco",
       tocHow: "Come funziona",
       tocMeasure: "Misure",
-      tocCards: "Candidati rivisti",
       tocLimits: "Cosa non sappiamo",
       nTransects: "transetti scansionati",
       nArea: "chilometri quadrati",
@@ -57,7 +61,44 @@
       s2: "Nessun candidato è stato verificato sul campo. Non si afferma nulla sull'età, sulla cultura o sulla funzione di alcun candidato.",
       s3: "La revisione è stata fatta da agenti AI dello stesso modello. Sui riquadri di controllo hanno riconosciuto 3–4 edifici noti su 10 e non hanno indicato come struttura nessuno dei 10 riquadri vuoti. Per questo il loro giudizio vale per confermare, non per scartare.",
       s4: "Le posizioni dei candidati non sono in questo documento, per non esporre i luoghi al saccheggio.",
-      s5: "Analisi e testi prodotti da assistenti AI (Claude, GPT) con la supervisione di Mirko Tornani, [qualifica: la scrive l'operatore].",
+      s5: "Analisi e testi prodotti da assistenti AI (Claude, GPT) con la supervisione di Mirko Tornani, ricercatore indipendente, non archeologo.",
+      forestH: "Togli la foresta",
+      forestLead: "Trascina la linea. Lo stesso quadrato di 240 metri, misurato dal laser due volte: la cima degli alberi e il terreno sotto.",
+      forestWith: "con gli alberi",
+      forestWithout: "senza alberi",
+      forestAria: "Quanta foresta mostrare",
+      forestCap: "Gli edifici attorno al cortile sono maya e sono già stati segnati dagli archeologi, nei dintorni di Chactún (Campeche). È così che si cerca oggi sotto la giungla. Non è un candidato della scansione sullo Yucatán.",
+      quizH: "Tu cosa vedi?",
+      quizLead: "Otto immagini come quelle che giudicano gli assistenti, ognuna di 120 metri di lato. In alcune c'è un edificio maya segnato dagli archeologi, nelle altre solo terreno. Per ognuna, scegli.",
+      quizYes: "C'è un edificio",
+      quizNo: "Solo terreno",
+      quizNext: "Avanti",
+      quizSee: "Vedi il risultato",
+      quizBuilt: "edifici che hai riconosciuto",
+      quizEmpty: "terreni vuoti che hai lasciato vuoti",
+      quizVs: "Gli assistenti AI, sugli stessi tipi di immagini, hanno riconosciuto 3 o 4 edifici su 10 e non hanno mai indicato un edificio dove non c'era. Per questo il loro sì vale, il loro no meno.",
+      quizAgain: "Rifai la prova",
+      quizSrc: "Immagini di prova estratte a sorte dal dataset di Chactún (Kokalj e altri, 2023), dove ogni edificio è stato segnato da archeologi. Non sono candidati della scansione sullo Yucatán.",
+      quizOf: "{n} di {tot}",
+      quizRight: "Giusto.",
+      quizWrong: "No.",
+      quizIsBldg: "Qui c'è un edificio segnato dagli archeologi.",
+      quizIsEmpty: "Qui gli archeologi non hanno segnato edifici.",
+      quizAlt: "Immagine di prova {n} di {tot}, terreno visto dal laser.",
+      fifteenH: "40 punti guardati, 15 convincono",
+      fifteenLead: "Degli 11.916 complessi candidati, finora ne ho fatti giudicare 40. In 15 almeno due assistenti su tre hanno visto una costruzione. Eccoli, senza posizioni. Ogni candidato si presume già noto.",
+      fifteenPal: "Rosso: il terreno sporge. Blu: il terreno affonda. Ogni riquadro ha 120 metri di lato. Non è una fotografia, e non è una mappa.",
+      fifteenTavola: "I 15 che reggono alla revisione, in una sola tavola. Figure del kit, senza ritagli né ricolorazioni.",
+      fifteenTavolaAlt: "Tavola dei 15 complessi che reggono alla revisione, senza posizioni.",
+      fifteenItem: "Punto {n} di 15: rilievo a forma di costruzione, quadrato di 120 metri, senza posizione.",
+      testH: "Il test cieco già pre-registrato",
+      testLead: "Il passo successivo è un confronto al buio con il catalogo indipendente di questi transetti, che Vaglio non ha mai visto. I criteri sono fissati in anticipo. L'esito, qualunque sia, sarà pubblicato. Il file con le coordinate va solo al custode della chiave, in privato.",
+      testP1: "P1 — precisione almeno 0,60.",
+      testP2: "P2 — la precisione supera di almeno 0,20 la media di un nulla a jitter (150–300 m) e il limite inferiore dell'intervallo al 95% sta sopra il 97,5° percentile di quel nulla.",
+      testP3: "P3 — copertura almeno 0,30.",
+      testSeal: "Il deposito è sigillato dal commit 525c212 (17 novembre 2026, 15:08 Europe/Rome) e da una prova OpenTimestamps su DEPOSIT.md. L'impronta SHA-256 di deposito.csv è questa:",
+      testProto: "Protocollo e criteri pre-registrati (P1, P2, P3)",
+      testDep: "Deposito sigillato e prova OpenTimestamps",
       whyH: "Da dove nasce",
       why: "A novembre 2026 Pietro Miotti ha pubblicato un progetto personale: 48 agenti AI hanno guardato circa 1.200 km² di LiDAR NASA sullo Yucatán e hanno segnalato un sito maya che l'istituto messicano INAH non aveva nel registro. Sarah Parcak ha fatto notare che il sito era già pubblicato (Estrada-Belli et al. 2025). L'11 novembre Miotti ha riconosciuto che gli agenti l'avevano riscoperto. Ha fatto per primo una cosa che funziona, e ha corretto in pubblico. Vaglio riprende il suo metodo e aggiunge le misure che lì non c'erano.",
       mapH: "Dove è passato il LiDAR",
@@ -113,22 +154,26 @@
       askH: "Cosa chiediamo",
       ask: "Tre cose, a chi quei dati li conosce per mestiere: il confronto col catalogo già esistente; un revisore umano su un pacco al buio, misurato sugli stessi controlli (è l'unico modo per avere qualcuno che possa anche scartare); un parere sul metodo. Il modo di fare il confronto si concorda. Le posizioni, se servono, le decide l'operatore verso un ricercatore con nome e istituto.",
       reproH: "Riproducibilità",
-      repro: "Codice e pack cieco (11.916 candidati, senza posizioni) sono nel repository pubblico mtornani/ArcheoEagle, cartella vaglio/. Il pack è firmato SHA-256 il 16 novembre 2026, ore 17:27 UTC. Si controlla con: python -m vaglio verifica pack_cieco.json. I transetti si scaricano da OpenTopography (circa 31 GB). Una scansione completa impiega circa quattro ore su quattro core. I criteri di test del rilevatore sono stati scritti prima di eseguire il test.",
+      repro: "Codice e pack cieco (11.916 candidati, senza posizioni) sono nel repository pubblico mtornani/ArcheoEagle, cartella vaglio/. Il pack è firmato SHA-256 il 16 novembre 2026, ore 18:17 UTC. Si controlla con: python -m vaglio verifica pack_cieco.json. I transetti si scaricano da OpenTopography (circa 31 GB). Una scansione completa impiega circa quattro ore su quattro core. I criteri di test del rilevatore sono stati scritti prima di eseguire il test.",
       creditsH: "Crediti e licenze",
       credits: "LiDAR: NASA G-LiHT (AMIGA-Carb, 2013); riprocessamento B. J. Britton (2026), distribuito da OpenTopography, doi:10.5069/G9Z899N1 e doi:10.5069/G9TH8JX9, PDDL. Addestramento e controlli: Kokalj, Ž., Džeroski, S., Šprajc, I. et al. (2023). Machine learning-ready remote sensing data for Maya archaeology. Scientific Data 10, 558. Dati: doi:10.6084/m9.figshare.22202395, CC BY 4.0. Uso del suolo: ESA WorldCover 10 m 2021 v200, CC BY 4.0. Mappa: Natural Earth, pubblico dominio. Siti noti: Wikidata, CC0. Questo rapporto usa solo dati già pubblici nel repository.",
       sourcesH: "Da dove viene ogni numero",
-      footer: "Rapporto divulgativo, 16 novembre 2026. Non sostituisce un articolo scientifico.",
+      footer: "Rapporto divulgativo, 17 novembre 2026. Non sostituisce un articolo scientifico.",
       repo: "Codice e pack cieco su GitHub",
     },
     en: {
-      docTitle: "Vaglio: an error-measured re-analysis of public G-LiHT lidar over the Yucatán",
-      brand: "Vaglio · ArcheoEagle",
-      title: "Vaglio: an error-measured re-analysis of public G-LiHT lidar over the Yucatán",
-      lead: "Vaglio reads public lidar surveys, flags places where bare earth has the shape of a built structure, has them reviewed blind, and measures how often it is wrong. It does not declare sites. This is the public-facing report of facts already in the repository; the scientific report for peer review will come later.",
+      docTitle: "Under the forest — Vaglio, a re-analysis of G-LiHT lidar over the Yucatán",
+      brand: "Under the forest · Vaglio",
+      title: "Under the forest",
+      lead: "A laser on an aircraft can measure the ground even under the trees. With AI assistants I wrote Vaglio, a small program that reads public lidar surveys, flags places where bare earth has the shape of a built structure, has them reviewed blind, and measures how often it is wrong. It does not declare sites. This is the public-facing report of facts already in the repository; the scientific report for peer review will come later.",
+      tocForest: "The forest",
       tocMap: "Map",
+      tocQuiz: "The test",
+      tocFifteen: "The 15",
+      tocCards: "Reviewed candidates",
+      tocTest: "Blind test",
       tocHow: "How it works",
       tocMeasure: "Measurements",
-      tocCards: "Reviewed candidates",
       tocLimits: "What we do not know",
       nTransects: "transects scanned",
       nArea: "square kilometres",
@@ -141,7 +186,44 @@
       s2: "No candidate has been verified in the field. No claim is made about the age, culture or function of any candidate.",
       s3: "The review was carried out by AI agents of the same model. On control tiles they recognised 3–4 of 10 known buildings and flagged none of the 10 empty tiles as a structure. Their judgement is therefore used to confirm, not to rule out.",
       s4: "Candidate locations are not included in this document, to avoid exposing the places to looting.",
-      s5: "Analysis and text were produced by AI assistants (Claude, GPT) under the supervision of Mirko Tornani, [role: to be filled in by the operator].",
+      s5: "Analysis and text were produced by AI assistants (Claude, GPT) under the supervision of Mirko Tornani, independent researcher, not an archaeologist.",
+      forestH: "Peel back the forest",
+      forestLead: "Drag the line. The same 240-metre square, measured twice by the laser: the treetops, and the ground beneath.",
+      forestWith: "with the trees",
+      forestWithout: "without the trees",
+      forestAria: "How much forest to show",
+      forestCap: "The buildings around the courtyard are Maya and have already been marked by archaeologists, near Chactún (Campeche). This is how people now look under the jungle. It is not a candidate from the Yucatán scan.",
+      quizH: "What do you see?",
+      quizLead: "Eight images like the ones the assistants judge, each 120 metres across. Some contain a Maya building marked by archaeologists; others are ground only. For each one, choose.",
+      quizYes: "There is a building",
+      quizNo: "Ground only",
+      quizNext: "Next",
+      quizSee: "See the result",
+      quizBuilt: "buildings you recognised",
+      quizEmpty: "empty plots you left empty",
+      quizVs: "On the same kind of images, the AI assistants recognised 3 or 4 buildings out of 10 and never called a building where there was none. That is why their yes counts, and their no counts for less.",
+      quizAgain: "Try again",
+      quizSrc: "Test images drawn at random from the Chactún dataset (Kokalj and others, 2023), where every building was marked by archaeologists. They are not candidates from the Yucatán scan.",
+      quizOf: "{n} of {tot}",
+      quizRight: "Correct.",
+      quizWrong: "No.",
+      quizIsBldg: "Here there is a building marked by archaeologists.",
+      quizIsEmpty: "Here archaeologists marked no buildings.",
+      quizAlt: "Test image {n} of {tot}, ground seen by the laser.",
+      fifteenH: "40 points reviewed, 15 hold up",
+      fifteenLead: "Of the 11,916 candidate complexes, I have so far had 40 reviewed. In 15 of them at least two assistants out of three saw a built form. Here they are, with no locations. Every candidate is presumed already known.",
+      fifteenPal: "Red: the ground stands up. Blue: the ground sinks. Each tile is 120 metres across. This is not a photograph, and it is not a map.",
+      fifteenTavola: "The 15 that hold up under review, on a single plate. Kit figures, neither cropped nor recoloured.",
+      fifteenTavolaAlt: "Plate of the 15 complexes that hold up under review, with no locations.",
+      fifteenItem: "Point {n} of 15: structure-shaped relief, 120-metre square, no location.",
+      testH: "The pre-registered blind test",
+      testLead: "The next step is a blind comparison with the independent catalogue of these transects, which Vaglio has never seen. The criteria were fixed in advance. The result, either way, will be published. The file with coordinates goes only to the key holder, privately.",
+      testP1: "P1 — precision of at least 0.60.",
+      testP2: "P2 — precision exceeds the mean of a 150–300 m jitter null by at least 0.20, and the lower bound of the 95% interval sits above that null’s 97.5th percentile.",
+      testP3: "P3 — coverage of at least 0.30.",
+      testSeal: "The deposit is sealed by git commit 525c212 (17 November 2026, 15:08 Europe/Rome) and by an OpenTimestamps proof of DEPOSIT.md. The SHA-256 fingerprint of deposito.csv is:",
+      testProto: "Pre-registered protocol and criteria (P1, P2, P3)",
+      testDep: "Sealed deposit and OpenTimestamps proof",
       whyH: "How this started",
       why: "In November 2026 Pietro Miotti published a personal project: 48 AI agents looked at about 1,200 km² of NASA lidar over the Yucatán and flagged a Maya site that was not in the Mexican INAH register. Sarah Parcak noted that the site had already been published (Estrada-Belli et al. 2025). On 11 November Miotti recognised that the agents had rediscovered it. He was first to do something that works, and he corrected the record in public. Vaglio takes up his method and adds the measurements that were missing there.",
       mapH: "Where the lidar flew",
@@ -197,11 +279,11 @@
       askH: "What we are asking",
       ask: "Three things, of people who know these data as their work: a comparison with the existing catalogue; a human reviewer on a blind pack, measured on the same controls (the only way to have someone who can also discard); and a view on the method. How the comparison is done is to be agreed. Locations, if they are needed, are decided by the operator, towards a named researcher at an institution.",
       reproH: "Reproducibility",
-      repro: "Code and the blind pack (11,916 candidates, no locations) are in the public repository mtornani/ArcheoEagle, folder vaglio/. The pack was SHA-256 signed on 16 November 2026 at 17:27 UTC. Check it with: python -m vaglio verifica pack_cieco.json. Transects are downloaded from OpenTopography (about 31 GB). A full scan takes about four hours on four cores. The detector’s test criteria were written before the test was run.",
+      repro: "Code and the blind pack (11,916 candidates, no locations) are in the public repository mtornani/ArcheoEagle, folder vaglio/. The pack was SHA-256 signed on 16 November 2026 at 18:17 UTC. Check it with: python -m vaglio verifica pack_cieco.json. Transects are downloaded from OpenTopography (about 31 GB). A full scan takes about four hours on four cores. The detector’s test criteria were written before the test was run.",
       creditsH: "Credits and licences",
       credits: "Lidar: NASA G-LiHT (AMIGA-Carb, 2013); reprocessed by B. J. Britton (2026), distributed by OpenTopography, doi:10.5069/G9Z899N1 and doi:10.5069/G9TH8JX9, PDDL. Training and controls: Kokalj, Ž., Džeroski, S., Šprajc, I. et al. (2023). Machine learning-ready remote sensing data for Maya archaeology. Scientific Data 10, 558. Data: doi:10.6084/m9.figshare.22202395, CC BY 4.0. Land cover: ESA WorldCover 10 m 2021 v200, CC BY 4.0. Map: Natural Earth, public domain. Known sites: Wikidata, CC0. This report uses only data already public in the repository.",
       sourcesH: "Where every figure comes from",
-      footer: "Public-facing report, 16 November 2026. It is not a substitute for a scientific article.",
+      footer: "Public-facing report, 17 November 2026. It is not a substitute for a scientific article.",
       repo: "Code and blind pack on GitHub",
     },
   };
@@ -240,6 +322,16 @@
     renderGallery();
     const pop = document.getElementById("chactun-pop");
     if (pop) pop.textContent = t("chactunPop");
+    const rr = document.getElementById("reveal-range");
+    if (rr) rr.setAttribute("aria-label", t("forestAria"));
+    const terr = document.querySelector("#reveal img:not(.top-img)");
+    if (terr) terr.alt = t("forestWithout");
+    const canopy = document.querySelector("#reveal .top-img");
+    if (canopy) canopy.alt = t("forestWith");
+    const tav = document.querySelector(".tavola img");
+    if (tav) tav.alt = t("fifteenTavolaAlt");
+    renderHold();
+    if (window.__vaglioQuizPaint) window.__vaglioQuizPaint();
   }
 
   function plain(c) {
@@ -388,7 +480,129 @@
     }
   }
 
+
+  const QUIZ_ANS = [false, true, false, false, true, false, true, true];
+  const QUIZ_ICON = {
+    ok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    no: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  };
+  let quizI = 0, quizPicks = [], quizDone = false;
+
+  function renderHold() {
+    const box = document.getElementById("hold-grid");
+    if (!box) return;
+    const cells = [];
+    for (let n = 1; n <= 15; n++) {
+      const id = String(n).padStart(2, "0");
+      const alt = t("fifteenItem").replace("{n}", String(n));
+      cells.push(`<figure><img src="img/hold/c${id}_colore.jpg" width="480" height="480" loading="lazy" alt="${alt}"><figcaption>${id}</figcaption></figure>`);
+    }
+    box.innerHTML = cells.join("");
+  }
+
+  function initReveal() {
+    const rv = document.getElementById("reveal"), rr = document.getElementById("reveal-range");
+    if (!rv || !rr) return;
+    const setPos = (v) => rv.style.setProperty("--pos", v + "%");
+    setPos(rr.value);
+    rr.addEventListener("input", () => { setPos(rr.value); rv.classList.remove("hint"); });
+    let drag = false;
+    const fromEvent = (e) => {
+      const r = rv.getBoundingClientRect();
+      const v = Math.round(Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)));
+      rr.value = v;
+      setPos(v);
+    };
+    rv.addEventListener("pointerdown", (e) => { drag = true; rv.classList.remove("hint"); fromEvent(e); });
+    addEventListener("pointermove", (e) => { if (drag) fromEvent(e); });
+    addEventListener("pointerup", () => { drag = false; });
+  }
+
+  function quizPaint() {
+    const dots = document.getElementById("dots");
+    const counter = document.getElementById("counter");
+    const img = document.getElementById("g-img");
+    const next = document.getElementById("g-next");
+    const verdict = document.getElementById("g-verdict");
+    if (!dots) return;
+    dots.innerHTML = QUIZ_ANS.map((a, k) => `<i class="${k < quizPicks.length ? (quizPicks[k] === a ? "ok" : "no") : ""} ${k === quizI && quizPicks.length === k ? "cur" : ""}"></i>`).join("");
+    if (quizDone) {
+      if (counter) counter.textContent = t("quizSee");
+      return;
+    }
+    if (counter) counter.textContent = t("quizOf").replace("{n}", String(quizI + 1)).replace("{tot}", String(QUIZ_ANS.length));
+    if (img) img.alt = t("quizAlt").replace("{n}", String(quizI + 1)).replace("{tot}", String(QUIZ_ANS.length));
+    if (next && !next.hidden) next.textContent = quizI + 1 < QUIZ_ANS.length ? t("quizNext") : t("quizSee");
+    if (verdict && !verdict.hidden && quizPicks[quizI] != null) {
+      const right = quizPicks[quizI] === QUIZ_ANS[quizI];
+      verdict.className = "verdict " + (right ? "ok" : "no");
+      verdict.innerHTML = QUIZ_ICON[right ? "ok" : "no"] + "<span>" + (right ? t("quizRight") : t("quizWrong")) + " " + (QUIZ_ANS[quizI] ? t("quizIsBldg") : t("quizIsEmpty")) + "</span>";
+    }
+  }
+  window.__vaglioQuizPaint = quizPaint;
+
+  function quizLoad(k) {
+    quizI = k;
+    quizDone = false;
+    const img = document.getElementById("g-img");
+    const verdict = document.getElementById("g-verdict");
+    const choices = document.getElementById("g-choices");
+    const next = document.getElementById("g-next");
+    const result = document.getElementById("g-result");
+    if (img) {
+      img.src = "img/quiz/prova_" + (k + 1) + ".jpg";
+      img.parentElement.hidden = false;
+    }
+    if (verdict) verdict.hidden = true;
+    if (next) next.hidden = true;
+    if (choices) {
+      choices.hidden = false;
+      choices.querySelectorAll("button").forEach((b) => { b.disabled = false; });
+    }
+    if (result) result.hidden = true;
+    quizPaint();
+  }
+
+  function initQuiz() {
+    const choices = document.getElementById("g-choices");
+    const next = document.getElementById("g-next");
+    const again = document.getElementById("g-again");
+    if (!choices) return;
+    choices.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+      const pick = b.dataset.a === "1";
+      quizPicks.push(pick);
+      choices.querySelectorAll("button").forEach((x) => { x.disabled = true; });
+      const verdict = document.getElementById("g-verdict");
+      if (verdict) verdict.hidden = false;
+      choices.hidden = true;
+      if (next) next.hidden = false;
+      quizPaint();
+      if (next) next.focus({ preventScroll: true });
+    }));
+    if (next) next.addEventListener("click", () => {
+      if (quizI + 1 < QUIZ_ANS.length) { quizLoad(quizI + 1); return; }
+      const built = QUIZ_ANS.filter((a, k) => a && quizPicks[k]).length;
+      const empty = QUIZ_ANS.filter((a, k) => !a && !quizPicks[k]).length;
+      const nb = QUIZ_ANS.filter(Boolean).length;
+      const sb = document.getElementById("s-built");
+      const se = document.getElementById("s-empty");
+      const img = document.getElementById("g-img");
+      const result = document.getElementById("g-result");
+      if (sb) sb.textContent = built + " / " + nb;
+      if (se) se.textContent = empty + " / " + (QUIZ_ANS.length - nb);
+      if (img) img.parentElement.hidden = true;
+      next.hidden = true;
+      if (result) result.hidden = false;
+      quizDone = true;
+      quizPaint();
+    });
+    if (again) again.addEventListener("click", () => { quizPicks = []; quizLoad(0); });
+    quizLoad(0);
+  }
+
   function init() {
+    initReveal();
+    initQuiz();
     document.querySelectorAll(".lang button").forEach((b) => {
       b.addEventListener("click", () => {
         lang = b.dataset.lang;

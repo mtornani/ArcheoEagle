@@ -1,3 +1,5 @@
+Il test interno su Kiuic è chiuso (17 novembre 2026): sostituito da Vaglio–Chactún, che termina con la verifica di un archeologo.
+
 # Test cieco con Britton: cosa fare, in ordine
 
 Per Mirko. I documenti per Britton sono in inglese (`PREREGISTRATION.md`, `KEY_HOLDER_GUIDE.md`);

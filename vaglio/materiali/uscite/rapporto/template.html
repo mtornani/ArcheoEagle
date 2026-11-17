@@ -212,6 +212,42 @@ pre { margin: 0; overflow-x: auto; background: var(--panel); border-radius: 4px;
 .asks strong { font-weight: 600; }
 footer { color: var(--ink-2); font-size: var(--step--1); border-top: 1px solid var(--rule); padding-top: 1.25rem; display: grid; gap: 0.5rem; max-width: 66ch; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+/* ---------- stampa / PDF ---------- */
+.print-only { display: none; }
+.print-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10pt 12pt; }
+.print-gallery figure { gap: 3pt; }
+.print-gallery figcaption { font-size: 7.5pt; line-height: 1.35; }
+@page { size: A4; margin: 15mm 15mm 17mm; }
+@media print {
+  :root { --step-0: 10pt; --step--1: 8.5pt; --step-1: 12.5pt; --step-2: 16pt; --step-3: 24pt; }
+  body { padding: 0; background: #fff; line-height: 1.5; }
+  body::before { display: none; }
+  .top { position: static; margin: 0 0 14pt; padding: 0 0 6pt; }
+  .top-in { min-height: 0; }
+  .langs, .toc, .copy, details.tableview, .gallery, dialog, .tip { display: none !important; }
+  .shell { padding-block: 0; max-width: none; }
+  /* in stampa niente griglie: Chrome sbaglia le altezze quando spezza una griglia fra due pagine */
+  .doc, main, section, .opening, figure { display: block; }
+  main > section + section { margin-top: 20pt; }
+  section > * + *, figure > * + * { margin-top: 7pt; }
+  .opening figure img { width: 62%; }
+  .pair-row { display: block !important; font-size: 0; }
+  .pair-row > figure { display: inline-block; vertical-align: top; width: calc(25% - 6pt); margin: 0 8pt 0 0; font-size: 8pt; }
+  .pair-row:not(.four) > figure { width: calc(50% - 4pt); }
+  .pair-row > figure:last-child { margin-right: 0; }
+  .pair-row > figure figcaption { font-size: 7.5pt; }
+  .measures .big { font-size: 20pt; }
+  .print-only { display: block !important; }
+  .print-gallery.print-only { display: block !important; font-size: 0; }
+  .print-gallery figure { display: inline-block !important; vertical-align: top; width: calc(50% - 6pt); margin: 0 12pt 10pt 0; }
+  .print-gallery figure:nth-child(2n) { margin-right: 0; }
+  figure, table, .measures > div, .note, .asks li, .print-gallery figure, pre, .hash { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+  a { color: inherit; text-decoration: none; }
+  pre { white-space: pre-wrap; }
+  .chart-host { min-height: 0; }
+}
+
 </style>
 
 <header class="top">
@@ -429,6 +465,7 @@ footer { color: var(--ink-2); font-size: var(--step--1); border-top: 1px solid v
       <h2><span class="secnum">07</span>I candidati che reggono</h2>
       <div class="prose"><p>I 15 candidati che almeno due revisori su tre hanno giudicato costruiti. Tocca un riquadro per vederlo accanto alla versione a colori, in cui il rosso sporge e il blu affonda.</p></div>
       <!--GALLERY_IT-->
+      <!--PRINTGALLERY_IT-->
       <figure>
         <div class="pair-row">
           <figure><img src="figure/incerto_01.jpg" width="960" height="480" alt="Due viste di un candidato rimasto incerto: rilievi dai bordi irregolari."><figcaption>Incerto · 3 revisori su 3: naturale</figcaption></figure>
@@ -712,6 +749,7 @@ python -m vaglio verifica pack_cieco.json</code></pre>
       <h2><span class="secnum">07</span>Candidates that hold up</h2>
       <div class="prose"><p>The 15 candidates that at least two of three reviewers judged to be built. Tap a tile to see it beside the colour version, where red stands up and blue sinks.</p></div>
       <!--GALLERY_EN-->
+      <!--PRINTGALLERY_EN-->
       <figure>
         <div class="pair-row">
           <figure><img src="figure/incerto_01.jpg" width="960" height="480" alt="Two views of a candidate that stayed uncertain: reliefs with irregular edges."><figcaption>Uncertain · 3 of 3 reviewers: natural</figcaption></figure>
@@ -920,7 +958,7 @@ python -m vaglio verifica pack_cieco.json</code></pre>
     const axisY = y0 + rowGap * 2 - (narrow ? 14 : 22);
     ticks.forEach((t) => {
       s += `<line class="grid" x1="${x(t)}" x2="${x(t)}" y1="${top}" y2="${axisY}"/>`;
-      s += `<text x="${x(t)}" y="${axisY + 16}" text-anchor="${t === 1 ? "start" : "middle"}">${fmt(lang, t)}</text>`;
+      if (x(N) - x(t) > 48) s += `<text x="${x(t)}" y="${axisY + 16}" text-anchor="${t === 1 ? "start" : "middle"}">${fmt(lang, t)}</text>`;   // vicino alla fine vince l'etichetta del totale
     });
     s += `<line class="axis" x1="${L}" x2="${W - R}" y1="${axisY}" y2="${axisY}"/>`;
     s += `<text x="${W - R}" y="${axisY + 16}" text-anchor="end">${fmt(lang, N)}</text>`;

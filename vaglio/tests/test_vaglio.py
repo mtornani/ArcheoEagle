@@ -234,6 +234,10 @@ class MaterialGateTest(unittest.TestCase):
         facts = (Path(__file__).resolve().parents[1] / "materiali" / "FATTI.md").read_text(encoding="utf-8")
         self.assertEqual(kit.check(facts), [])
 
+    def test_python_test_command_is_not_an_announcement(self):
+        self.ok("pip install -r requirements.txt python -m unittest discover -s tests python -m vaglio catalogo")
+        self.bad("python -m unittest. We discovered a site.", "scoperta")
+
     def test_the_gate_reads_html_too(self):
         self.bad("<p>We <b>discovered</b> a lost city.</p>", "scoperta")
 

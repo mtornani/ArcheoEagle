@@ -63,6 +63,7 @@ def check(text: str) -> List[str]:
                 problems.append(f"riga {k}: {what}: «{m.group(0)}»")
     # le parole si giudicano per frase: la negazione sta nella stessa frase o non vale
     plain = re.sub(r"<[^>]+>", " ", text)
+    plain = re.sub(r"\bunittest\s+discover\b", "unittest", plain)   # il comando di Python, non un annuncio
     for sent in re.split(r"(?<=[.!?:;])\s+|\n{2,}|\n(?=\s*[-*|#>])", plain):
         low = sent.lower()
         hits = [m.group(0) for w in CLAIM_WORDS for m in [re.search(w, low)] if m]

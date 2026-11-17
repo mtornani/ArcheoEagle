@@ -96,6 +96,22 @@ def main() -> None:
                          f'loading="lazy" alt="{html.escape(alt)}"><span>{i + 1:02d} · {rel}</span></button></li>')
         return f'<ul class="gallery">{"".join(items)}</ul>'
 
+    def print_gallery(lang: str) -> str:
+        """Per la stampa: le 15 coppie intere con le loro misure, al posto della galleria da toccare."""
+        figs = []
+        for i, d in enumerate(info["regge"]):
+            if lang == "it":
+                rel = f"{d['n']} rilievi" if d["n"] > 1 else "1 rilievo"
+                cap = f"{i + 1:02d} · {rel} · {fmt(d['area'], 'it')} m² · sporge {fmt(d['h'], 'it', 1)} m · struttura per {d['yes']} revisori su {d['votes']}"
+            else:
+                rel = f"{d['n']} reliefs" if d["n"] > 1 else "1 relief"
+                cap = f"{i + 1:02d} · {rel} · {fmt(d['area'], 'en')} m² · stands {fmt(d['h'], 'en', 1)} m · structure for {d['yes']} of {d['votes']} reviewers"
+            figs.append(f'<figure><img src="figure/regge_{i + 1:02d}.jpg" width="960" height="480" alt="{html.escape(cap)}">'
+                        f'<figcaption>{html.escape(cap)}</figcaption></figure>')
+        note = ("A sinistra il riquadro come lo vede il revisore, a destra lo stesso riquadro con il rilievo in colore (rosso sporge, blu affonda). Lato 120 m. Posizioni omesse."
+                if lang == "it" else "Left: the tile as the reviewer sees it. Right: the same tile with relief in colour (red stands up, blue sinks). 120 m across. Locations omitted.")
+        return f'<div class="print-gallery print-only">{"".join(figs)}</div><p class="print-only" style="font-size:8pt;color:var(--ink-2)">{note}</p>'
+
     # --- mappa di copertura: tutti i transetti, nessun candidato
     ids = {t["id"] for t in catalog.transects()}
     svg = report._svg_map(catalog.transects(), [], ids)
@@ -109,6 +125,7 @@ def main() -> None:
             "<!--RANKTABLE_IT-->": rank_table("it"), "<!--RANKTABLE_EN-->": rank_table("en"),
             "<!--SIZETABLE_IT-->": size_table("it"), "<!--SIZETABLE_EN-->": size_table("en"),
             "<!--GALLERY_IT-->": gallery("it"), "<!--GALLERY_EN-->": gallery("en"),
+            "<!--PRINTGALLERY_IT-->": print_gallery("it"), "<!--PRINTGALLERY_EN-->": print_gallery("en"),
             "/*INFO*/null": json.dumps(info, ensure_ascii=False),
             "/*DATA*/null": json.dumps({"n": n, "rank": rank_data, "size": size}, ensure_ascii=False)}
     for k, v in subs.items():

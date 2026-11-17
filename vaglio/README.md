@@ -68,6 +68,8 @@ Rapporto web completo in italiano e inglese: `materiali/uscite/rapporto/index.ht
 `python materiali/uscite/rapporto/build.py` (si ferma se i numeri del testo non tornano col pack cieco).
 Pagina per il pubblico, da condividere anche su WhatsApp: `materiali/uscite/pubblico/index.html`
 («Sotto la foresta»), rigenerabile con `python materiali/uscite/pubblico/build.py`.
+PDF scaricabili delle due pagine in `materiali/uscite/pdf/`; si rigenerano con `node esporta_pdf.js`
+da `materiali/uscite/` (serve Playwright).
 
 ## Come funziona
 

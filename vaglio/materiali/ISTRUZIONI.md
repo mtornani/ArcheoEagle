@@ -111,11 +111,11 @@ Se `numeri.json` elenca revisori diversi da D, E, F, la S3 va aggiornata dall'op
 
 **S5 — chi ha fatto il lavoro**
 
-- IT: «Analisi e testi prodotti da assistenti AI (Claude, GPT) con la supervisione di Mirko Tornani, [qualifica: la scrive l'operatore].»
-- EN: "Analysis and text were produced by AI assistants (Claude, GPT) under the supervision of Mirko Tornani, [role: to be filled in by the operator]."
-- ES: «El análisis y los textos fueron producidos por asistentes de IA (Claude, GPT) bajo la supervisión de Mirko Tornani, [función: la completa el operador].»
+- IT: «Analisi e testi prodotti da assistenti AI (Claude, GPT) con la supervisione di Mirko Tornani, ricercatore indipendente, non archeologo.»
+- EN: "Analysis and text were produced by AI assistants (Claude, GPT) under the supervision of Mirko Tornani, independent researcher, not an archaeologist."
+- ES: «El análisis y los textos fueron producidos por asistentes de IA (Claude, GPT) bajo la supervisión de Mirko Tornani, investigador independiente, no arqueólogo.»
 
-Lasci la parentesi quadra com'è: la riempie l'operatore.
+La qualifica l'ha scelta l'operatore il 17 nov 2026. Non la si abbellisce: «non archeologo» resta.
 
 ### 2.4 Cosa non entra mai
 
@@ -145,6 +145,11 @@ Solo quelle di `kit/figure/`. Non le ritagli, non ci disegni frecce o cerchi, no
 | `copertura.svg` | dove è passato il LiDAR | «Transetti scansionati. I candidati non sono riportati sulla mappa, per scelta.» |
 
 ### 2.6 Tono
+
+Si scrive in **prima persona singolare**: chi parla è Mirko Tornani («ho cercato», «chiedo», «non so»).
+I passaggi fatti dal software restano impersonali («si calcolano», «il rilevatore segnala»), per non
+attribuire a una persona calcoli che ha fatto uno strumento. La prima volta che compare «ho», compare
+anche «con l'aiuto di assistenti AI».
 
 Frasi brevi, una cosa per frase. Prima il fatto, poi il suo limite. Si concede ciò che è vero prima
 di rispondere a un'obiezione. Nessuna urgenza, nessuna lusinga, nessun «come sapete». Chi legge è
@@ -233,7 +238,7 @@ che è vero**.
 | «Perché non pubblicate le posizioni?» | Per il saccheggio. E va detto che dati e codice sono pubblici: è una scelta di condotta, non un segreto. |
 | «Il LiDAR del 2013 sotto la chioma è rado.» | Sì. Le case basse possono mancare: i candidati pendono verso i rilievi più grandi. |
 | «E strade, argini, cave?» | C'è un controllo sull'uso del suolo di oggi (FATTI §8). Vede le strade asfaltate, non le piste nel bosco. |
-| «Chi siete?» | S5, senza abbellimenti. |
+| «Chi è lei?» | S5, senza abbellimenti: ricercatore indipendente, non archeologo, con assistenti AI. |
 | «Cosa volete da me?» | La richiesta di §4 per quel destinatario, e nient'altro. |
 
 ### M5 — Presentazione per non addetti

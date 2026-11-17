@@ -108,6 +108,8 @@ Come leggere il campione dei 40, senza gonfiarlo:
   posizione su 11.916. **Dei primi 100 candidati della scansione completa ne sono stati rivisti 3.**
   I 20 presi a caso stanno fra la 1.844ª e la 11.858ª.
 - Tre revisori dello stesso modello che concordano non sono tre conferme indipendenti.
+- I 15 che reggono sono in maggioranza gruppi di rilievi (mediana 7 rilievi per complesso); i 25 incerti
+  sono in mediana un rilievo isolato (misurato su `pack_cieco.json`).
 - Gli agenti riconoscono gli edifici a lati netti e non i tumuli consumati. Quindi «15 reggono» è
   una stima per difetto di quanti, fra quei 40, sono costruiti; e «25 incerti» **non** vuol dire
   25 falsi.
@@ -135,10 +137,13 @@ ritrovamento.
 |---|---|
 | Per ogni candidato si può leggere l'uso del suolo di oggi (ESA WorldCover 2021, 10 m, CC BY 4.0) nel riquadro di 120 m | misurato (`python -m vaglio moderno`) |
 | Sui 1.548 candidati dei primi 51 transetti, 11 hanno almeno il 5% di «costruito». Guardati uno per uno (non al buio): sono tutti e 11 strade asfaltate con le loro scarpate | misurato, controllo a vista di Claude |
-| Lo stesso conto sulla scansione completa | **non noto** finché non gira `moderno` sul computer dell'operatore: poi sta in `numeri.json` |
+| Sull'intera scansione: 150 complessi «costruito oggi», 34 «coltivato oggi», 11.732 «nessun uso moderno evidente» | misurato (`vaglio_lavoro/kit/numeri.json`, `uso_del_suolo_oggi`) |
 
-Limiti: il LiDAR è del 2013, la carta del 2021. Una pista sterrata nel bosco non risulta «costruito».
-Un abitato moderno sta spesso sopra un sito antico: «costruito oggi» non vuol dire «non antico».
+Le soglie, fissate prima di guardare i candidati, sono almeno il 5% «costruito» e il 30% «coltivato»
+nel riquadro di 120 m. I conteggi completi non sono stati controllati a vista: sono etichette
+esplicative, non verifiche archeologiche. Il LiDAR è del 2013, la carta del 2021. Una pista
+sterrata nel bosco può non risultare «costruito»; un abitato moderno può stare sopra un sito antico.
+«Costruito oggi» non vuol dire «non antico».
 
 ## 9. Cose provate che non hanno funzionato
 
@@ -176,9 +181,8 @@ sono in nessun materiale. Motivo: una mappa pubblica di rovine non scavate serve
 Onestà sul limite: dati e codice sono pubblici, quindi chiunque rifaccia la scansione riottiene lo
 stesso elenco. La riservatezza è una scelta di condotta, non un segreto tecnico.
 
-L'elenco senza posizioni è pubblico: `vaglio/pack_cieco.json`, 11.916 candidati, firmato il
-2026-11-16T17:27:11+00:00, SHA-256
-`3b94f3d294788a987b0497188484cbdac15c81159ac9c35f3dc6522c8a7a4ba0`.
+L'elenco senza posizioni è pubblico: `vaglio/pack_cieco.json`, 11.916 candidati, SHA-256
+`84fd816a59a7ba02b8f11b6cea7dcb6d85442b49f1e10896027d563c15158520`.
 Chiunque lo controlla con `python -m vaglio verifica pack_cieco.json`.
 
 ## 12. Crediti da riportare

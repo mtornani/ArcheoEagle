@@ -1,0 +1,1042 @@
+<title>Rapporto Vaglio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Vaglio: ri-analisi con errori misurati del LiDAR pubblico NASA G-LiHT sullo Yucatán.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: one reading column (~66ch) like a field report; on wide screens a sticky section index on the left; figures may widen to the full shell. */
+:root {
+  --paper: #f5f7f6;      /* survey sheet: cool grey with a faint green bias */
+  --panel: #e8eeeb;
+  --rule: #d3dbd7;
+  --ink: #17201c;
+  --ink-2: #4b5751;
+  --accent: #2f5d50;     /* interface: links, focus, pressed controls */
+  --holds: #2a5db0;      /* data: regge alla revisione (validated vs. --paper, CVD-safe with --unsure) */
+  --unsure: #b35f09;     /* data: incerto */
+  --mark: #fff1b8;
+  --font-display: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", Roboto, system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(1.9rem, 1.4rem + 2.2vw, 2.75rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #131816; --panel: #1b2220; --rule: #2c3531; --ink: #e3e9e6; --ink-2: #a2aea8;
+    --accent: #8fc6b4; --holds: #5b8fd6; --unsure: #c47a2c; --mark: #4a3f12; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #131816; --panel: #1b2220; --rule: #2c3531; --ink: #e3e9e6; --ink-2: #a2aea8;
+  --accent: #8fc6b4; --holds: #5b8fd6; --unsure: #c47a2c; --mark: #4a3f12; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-padding-top: calc(4.5rem + env(safe-area-inset-top, 0px)); }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 400 var(--step-0)/1.6 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-text-size-adjust: 100%;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: var(--step-3); letter-spacing: -0.01em; }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); font-weight: 500; }
+p, ul, ol, dl, table, figure { margin: 0; }
+code, .data { font-family: var(--font-data); font-size: 0.88em; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- header ---------- */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--paper); border-bottom: 1px solid var(--rule);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.top-in { max-width: 76rem; margin: 0 auto; display: flex; align-items: center; gap: 1rem; min-height: 3.5rem; }
+.wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; letter-spacing: 0.02em; }
+.meta { color: var(--ink-2); font-family: var(--font-data); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1; }
+.langs { display: flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; flex: none; }
+.langs button {
+  min-width: 48px; min-height: 44px; border: 0; background: transparent; color: var(--ink-2);
+  font: 600 0.8rem/1 var(--font-data); letter-spacing: 0.08em; cursor: pointer;
+}
+.langs button + button { border-left: 1px solid var(--rule); }
+.langs button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+/* ---------- shell ---------- */
+.shell { max-width: 76rem; margin: 0 auto; padding-block: 2rem 4rem; }
+.doc { display: grid; gap: 2.5rem; }
+@media (min-width: 64rem) {
+  .doc { grid-template-columns: 13.5rem minmax(0, 1fr); gap: 3.5rem; align-items: start; }
+}
+.toc { font-size: var(--step--1); }
+@media (min-width: 64rem) {
+  .toc { position: sticky; top: calc(4.5rem + env(safe-area-inset-top, 0px)); max-height: calc(100vh - 6rem); overflow: auto; }
+  .toc details > summary { display: none; }
+}
+.toc summary {
+  min-height: 44px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;
+  border: 1px solid var(--rule); border-radius: 6px; padding-inline: 0.9rem; font-weight: 600; list-style: none;
+}
+.toc summary::-webkit-details-marker { display: none; }
+.toc summary::after { content: "+"; font-family: var(--font-data); color: var(--ink-2); }
+.toc details[open] summary::after { content: "−"; }
+.toc ol { list-style: none; padding: 0.5rem 0 0; display: grid; gap: 0; counter-reset: s; }
+.toc li { counter-increment: s; }
+.toc a {
+  display: grid; grid-template-columns: 1.8rem 1fr; align-items: baseline; min-height: 40px; padding-block: 0.45rem;
+  color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--rule); line-height: 1.3;
+}
+.toc a::before { content: counter(s, decimal-leading-zero); font-family: var(--font-data); font-size: 0.75rem; color: var(--ink-2); }
+.toc a:hover, .toc a[aria-current="true"] { color: var(--ink); }
+.toc a[aria-current="true"]::before { color: var(--accent); }
+
+main { min-width: 0; display: grid; gap: 3.5rem; }
+section { display: grid; gap: 1.1rem; min-width: 0; }
+.prose { max-width: 66ch; display: grid; gap: 0.9rem; }
+.prose ul, .prose ol { padding-left: 1.2rem; display: grid; gap: 0.45rem; }
+.secnum { display: block; font-family: var(--font-data); font-size: 0.75rem; letter-spacing: 0.08em; color: var(--ink-2); margin-bottom: 0.35rem; font-weight: 400; }
+.eyebrow { font-family: var(--font-data); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+
+/* ---------- opening ---------- */
+.opening { display: grid; gap: 1.25rem; padding-bottom: 0.5rem; }
+.lede { font-size: var(--step-1); line-height: 1.5; max-width: 60ch; }
+.measures { display: grid; border-top: 2px solid var(--ink); }
+.measures > div { display: grid; gap: 0.35rem; align-content: start; padding-block: 1rem; border-bottom: 1px solid var(--rule); min-width: 0; }
+@media (min-width: 46rem) {
+  .measures { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .measures > div { padding-inline: 0 1.25rem; border-bottom: 0; }
+  .measures > div + div { border-left: 1px solid var(--rule); padding-left: 1.25rem; }
+}
+.measures dt { font-family: var(--font-data); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.measures .big { font-family: var(--font-display); font-weight: 600; font-size: 2rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.measures dd { margin: 0; }
+.measures .sub { color: var(--ink-2); font-size: var(--step--1); line-height: 1.45; }
+
+.note { border: 1px solid var(--rule); border-left: 3px solid var(--ink); background: var(--panel); padding: 0.9rem 1rem; max-width: 66ch; border-radius: 0 4px 4px 0; }
+.note .eyebrow { display: block; margin-bottom: 0.3rem; }
+.req { font-style: italic; }
+mark { background: var(--mark); color: inherit; padding: 0 0.2em; border-radius: 2px; font-style: normal; }
+
+/* ---------- tables ---------- */
+.tablewrap { overflow-x: auto; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: var(--step--1); }
+caption { text-align: left; font-family: var(--font-data); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); padding-bottom: 0.5rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.75rem 0.55rem 0; border-bottom: 1px solid var(--rule); }
+thead th { font-weight: 600; border-bottom: 1px solid var(--ink); white-space: nowrap; }
+tbody th { font-weight: 500; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; padding-right: 0; padding-left: 0.75rem; }
+.kv th { width: 34%; color: var(--ink-2); font-weight: 500; }
+
+/* ---------- figures ---------- */
+figure { display: grid; gap: 0.6rem; min-width: 0; }
+figure img { display: block; width: 100%; height: auto; border-radius: 3px; background: var(--panel); }
+figcaption { color: var(--ink-2); font-size: var(--step--1); line-height: 1.45; max-width: 66ch; }
+.chart-host { width: 100%; min-height: 9rem; }
+.chart { display: block; overflow: visible; }
+.chart text { fill: var(--ink-2); font-family: var(--font-data); font-size: 11px; }
+.chart .lbl { fill: var(--ink); font-family: var(--font-body); font-size: 12px; }
+.chart .grid { stroke: var(--rule); stroke-width: 1; }
+.chart .axis { stroke: var(--ink-2); stroke-width: 1; }
+.chart .band { fill: var(--panel); }
+.chart .bar { fill: var(--ink-2); }
+.chart .holds { fill: var(--holds); stroke: var(--paper); stroke-width: 2; }
+.chart .unsure { fill: var(--paper); stroke: var(--unsure); stroke-width: 2.5; }
+.chart .hit { fill: transparent; cursor: pointer; }
+.chart .hit:focus-visible { outline: none; stroke: var(--accent); stroke-width: 2; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; font-size: var(--step--1); color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.sw { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.sw.holds { background: var(--holds); }
+.sw.unsure { border: 2.5px solid var(--unsure); background: var(--paper); }
+details.tableview > summary { min-height: 44px; display: inline-flex; align-items: center; cursor: pointer; color: var(--accent); font-size: var(--step--1); }
+.tip {
+  position: fixed; z-index: 20; pointer-events: none; background: var(--ink); color: var(--paper);
+  font: 500 0.8rem/1.35 var(--font-body); padding: 0.45rem 0.6rem; border-radius: 4px; max-width: 16rem;
+}
+.map { width: 100%; height: auto; display: block; background: var(--panel); border-radius: 3px; }
+
+.pair-row { display: grid; gap: 0.75rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 40rem) { .pair-row.four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.pair-row figure figcaption { font-size: 0.8rem; }
+
+/* gallery: 15 tiles, 3 columns on phones (5 rows), 5 on wide screens (3 rows) */
+.gallery { display: grid; gap: 0.5rem; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; }
+@media (min-width: 46rem) { .gallery { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.6rem; } }
+.gallery button {
+  display: grid; gap: 0.3rem; width: 100%; padding: 0; border: 0; background: none; color: var(--ink-2);
+  text-align: left; cursor: zoom-in; font: 500 0.75rem/1.2 var(--font-data);
+}
+.gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: left center; border-radius: 3px; display: block; background: var(--panel); }
+.gallery button:hover img { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+
+dialog {
+  border: 0; padding: 0; max-width: min(64rem, calc(100vw - 2 * max(16px, env(safe-area-inset-left, 0px))));
+  width: 100%; background: var(--paper); color: var(--ink); border-radius: 6px;
+}
+dialog::backdrop { background: rgb(10 14 12 / 0.72); }
+.lb { display: grid; gap: 0.75rem; padding: 0.75rem; }
+.lb img { width: 100%; height: auto; display: block; border-radius: 3px; }
+.lb-bar { display: flex; align-items: center; gap: 0.5rem; }
+.lb-bar p { flex: 1; min-width: 0; font-size: var(--step--1); color: var(--ink-2); }
+.lb-bar button {
+  min-width: 44px; min-height: 44px; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper);
+  color: var(--ink); font: 600 1rem/1 var(--font-data); cursor: pointer;
+}
+.lb-views { display: flex; justify-content: space-between; color: var(--ink-2); font: 400 0.75rem/1.2 var(--font-data); letter-spacing: 0.04em; }
+
+/* ---------- code & copy ---------- */
+pre { margin: 0; overflow-x: auto; background: var(--panel); border-radius: 4px; padding: 0.9rem 1rem; font: 400 0.82rem/1.6 var(--font-data); }
+.hash { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.hash code { word-break: break-all; background: var(--panel); padding: 0.35rem 0.5rem; border-radius: 4px; flex: 1 1 18rem; min-width: 0; }
+.copy {
+  min-height: 44px; min-width: 44px; padding-inline: 0.9rem; border: 1px solid var(--rule); border-radius: 6px;
+  background: var(--paper); color: var(--ink); font: 500 0.8rem/1 var(--font-body); cursor: pointer;
+}
+.asks { list-style: none; padding: 0; counter-reset: a; display: grid; gap: 0; max-width: 66ch; border-top: 2px solid var(--ink); }
+.asks li { counter-increment: a; display: grid; grid-template-columns: 2.2rem 1fr; gap: 0.25rem 0.5rem; padding-block: 1rem; border-bottom: 1px solid var(--rule); }
+.asks li::before { content: counter(a); font-family: var(--font-display); font-weight: 600; font-size: 1.4rem; line-height: 1.1; color: var(--accent); grid-row: span 2; }
+.asks strong { font-weight: 600; }
+footer { color: var(--ink-2); font-size: var(--step--1); border-top: 1px solid var(--rule); padding-top: 1.25rem; display: grid; gap: 0.5rem; max-width: 66ch; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+/* ---------- stampa / PDF ---------- */
+.print-only { display: none; }
+.print-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10pt 12pt; }
+.print-gallery figure { gap: 3pt; }
+.print-gallery figcaption { font-size: 7.5pt; line-height: 1.35; }
+@page { size: A4; margin: 15mm 15mm 17mm; }
+@media print {
+  :root { --step-0: 10pt; --step--1: 8.5pt; --step-1: 12.5pt; --step-2: 16pt; --step-3: 24pt; }
+  body { padding: 0; background: #fff; line-height: 1.5; }
+  body::before { display: none; }
+  .top { position: static; margin: 0 0 14pt; padding: 0 0 6pt; }
+  .top-in { min-height: 0; }
+  .langs, .toc, .copy, details.tableview, .gallery, dialog, .tip { display: none !important; }
+  .shell { padding-block: 0; max-width: none; }
+  /* in stampa niente griglie: Chrome sbaglia le altezze quando spezza una griglia fra due pagine */
+  .doc, main, section, .opening, figure { display: block; }
+  main > section + section { margin-top: 20pt; }
+  section > * + *, figure > * + * { margin-top: 7pt; }
+  .opening figure img { width: 62%; }
+  .pair-row { display: block !important; font-size: 0; }
+  .pair-row > figure { display: inline-block; vertical-align: top; width: calc(25% - 6pt); margin: 0 8pt 0 0; font-size: 8pt; }
+  .pair-row:not(.four) > figure { width: calc(50% - 4pt); }
+  .pair-row > figure:last-child { margin-right: 0; }
+  .pair-row > figure figcaption { font-size: 7.5pt; }
+  .measures .big { font-size: 20pt; }
+  .print-only { display: block !important; }
+  .print-gallery.print-only { display: block !important; font-size: 0; }
+  .print-gallery figure { display: inline-block !important; vertical-align: top; width: calc(50% - 6pt); margin: 0 12pt 10pt 0; }
+  .print-gallery figure:nth-child(2n) { margin-right: 0; }
+  figure, table, .measures > div, .note, .asks li, .print-gallery figure, pre, .hash { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+  a { color: inherit; text-decoration: none; }
+  pre { white-space: pre-wrap; }
+  .chart-host { min-height: 0; }
+}
+
+</style>
+
+<header class="top">
+  <div class="top-in">
+    <span class="wordmark">Vaglio</span>
+    <span class="meta" data-it="Rapporto · 17 nov 2026 · bozza per la discussione" data-en="Report · 17 Nov 2026 · draft for discussion">Rapporto · 17 nov 2026 · bozza per la discussione</span>
+    <div class="langs" role="group" aria-label="Lingua / Language">
+      <button type="button" id="lang-it" data-lang="it" aria-pressed="true">IT</button>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+
+<!-- =============================== ITALIANO =============================== -->
+<div class="doc" data-panel="it" lang="it">
+  <nav class="toc" aria-label="Indice">
+    <details>
+      <summary>Indice</summary>
+      <ol>
+        <li><a href="#it-1">In breve</a></li>
+        <li><a href="#it-2">Perché questo lavoro</a></li>
+        <li><a href="#it-3">Dati</a></li>
+        <li><a href="#it-4">Metodo</a></li>
+        <li><a href="#it-5">Misure</a></li>
+        <li><a href="#it-6">La scansione completa</a></li>
+        <li><a href="#it-7">I candidati che reggono</a></li>
+        <li><a href="#it-8">Cosa non ha funzionato</a></li>
+        <li><a href="#it-9">Cosa non so</a></li>
+        <li><a href="#it-10">Cosa chiedo</a></li>
+        <li><a href="#it-11">Riproducibilità</a></li>
+        <li><a href="#it-12">Posizioni, crediti, dichiarazione</a></li>
+      </ol>
+    </details>
+  </nav>
+  <main>
+    <section class="opening" id="it-1">
+      <span class="eyebrow">Penisola dello Yucatán · LiDAR aereo NASA G-LiHT, 2013</span>
+      <h1>Una ri-analisi con errori misurati del LiDAR pubblico G-LiHT sullo Yucatán</h1>
+      <p class="lede">Con l'aiuto di assistenti AI ho cercato rilievi a forma di costruzione nei 456 transetti LiDAR della NASA sullo Yucatán, gli stessi già studiati da altri gruppi. Lo scopo è misurare quanto sbaglia ogni passaggio: il rilevatore, chi rivede le immagini, il confronto con ciò che è già noto.</p>
+      <dl class="measures">
+        <div>
+          <dt>Rilevatore</dt>
+          <dd class="big">76,4%</dd>
+          <dd>delle 942 strutture annotate da archeologi ritrovate; l'83,0% delle 677 segnalazioni cade su una struttura annotata.</dd>
+          <dd class="sub">Test su 329 riquadri di Chactún mai usati in addestramento, terreno denso di rovine.</dd>
+        </div>
+        <div>
+          <dt>Revisori</dt>
+          <dd class="big">3–4 su 10</dd>
+          <dd>edifici noti riconosciuti dai revisori AI; nessuno dei 10 riquadri vuoti indicato come struttura.</dd>
+          <dd class="sub">Quindi il loro giudizio serve a confermare, non a scartare.</dd>
+        </div>
+        <div>
+          <dt>Scansione</dt>
+          <dd class="big">11.916</dd>
+          <dd>complessi candidati su 1.272,7 km². Ne sono stati rivisti 40: 15 reggono alla revisione.</dd>
+          <dd class="sub">Gli altri 11.876 sono da rivedere.</dd>
+        </div>
+      </dl>
+      <div class="note">
+        <span class="eyebrow">Già analizzato da altri</span>
+        <p class="req">Questo rilievo è già stato analizzato da altri gruppi (Estrada-Belli et al. 2025; Britton 2026, con un catalogo di 57.181 strutture non ancora pubblico). Ogni candidato si presume già noto finché un confronto non mostra il contrario.</p>
+      </div>
+      <figure>
+        <img src="figure/tavola_reggono.jpg" width="1280" height="960" alt="Dodici riquadri in scala di grigi del terreno nudo, ciascuno con rilievi rettangolari a lati dritti, isolati o disposti attorno a spazi piani.">
+        <figcaption>Candidati che reggono alla revisione. Ogni riquadro ha 120 m di lato e mostra il terreno nudo ricavato dal LiDAR (NASA G-LiHT 2013, riprocessato da B. J. Britton 2026). Posizioni omesse.</figcaption>
+      </figure>
+    </section>
+
+    <section id="it-2">
+      <h2><span class="secnum">02</span>Perché questo lavoro</h2>
+      <div class="prose">
+        <p>A novembre 2026 Pietro Miotti ha fatto esaminare a 48 agenti AI circa 1.200 km² di questo stesso LiDAR e ha segnalato un insediamento che l'INAH non aveva nel registro. L'archeologa Sarah Parcak ha fatto notare che era già pubblicato in un lavoro del 2025 guidato da Francisco Estrada-Belli. L'11 novembre Miotti ha riconosciuto che gli agenti l'avevano riscoperto.</p>
+        <p>Il metodo funzionava. Mancavano tre misure: quanto sbaglia il rilevatore, quanto sbagliano gli agenti che guardano le immagini, e chi aveva già visto quel punto. Vaglio riprende il metodo e aggiunge quelle tre misure.</p>
+      </div>
+    </section>
+
+    <section id="it-3">
+      <h2><span class="secnum">03</span>Dati</h2>
+      <div class="tablewrap">
+        <table class="kv">
+          <tbody>
+            <tr><th scope="row">Rilievo</th><td>NASA G-LiHT, campagna AMIGA-Carb, aprile–maggio 2013. Laser Riegl VQ-480 a circa 335 m dal suolo.</td></tr>
+            <tr><th scope="row">Riprocessamento</th><td>B. J. Britton, University of Cincinnati, 2026. Punti a terra riclassificati da capo, modelli del terreno a 33 cm.</td></tr>
+            <tr><th scope="row">Copertura</th><td class="num">456 transetti, 1.272,7 km². Strisce larghe circa 400 m e lunghe in mediana 7,6 km.</td></tr>
+            <tr><th scope="row">Accesso</th><td>Pubblico, senza chiave, tramite OpenTopography: <span class="data">doi:10.5069/G9Z899N1</span> e <span class="data">doi:10.5069/G9TH8JX9</span>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure>
+        <!--COVER-->
+        <figcaption>I 456 transetti scansionati, a scala della penisola. Insieme coprono meno dell'1% della sua superficie: campionano, non coprono. I candidati non sono riportati sulla mappa, per scelta.</figcaption>
+      </figure>
+    </section>
+
+    <section id="it-4">
+      <h2><span class="secnum">04</span>Metodo</h2>
+      <div class="prose">
+        <ol>
+          <li><strong>Terreno.</strong> Dal modello del terreno a 0,5 m si calcolano sky-view factor, apertura positiva e pendenza, con i parametri pubblicati da Kokalj et al. (2023).</li>
+          <li><strong>Rilevatore.</strong> Un classificatore a gradient boosting stima per ogni pixel la probabilità che appartenga a un edificio o a una piattaforma. È addestrato sulle annotazioni di Chactún fatte da archeologi.</li>
+          <li><strong>Complessi.</strong> I rilievi sopra soglia distanti meno di 60 m formano un complesso candidato. È l'unità che si rivede e si conta.</li>
+          <li><strong>Revisione al buio.</strong> I candidati sono mostrati come riquadri di 120 m, senza nome né posizione, mescolati a riquadri di controllo di cui la risposta è nota. Chi rivede non sa quali sono i controlli.</li>
+          <li><strong>Confronto.</strong> Ogni candidato viene confrontato con gli elenchi di siti noti, con l'elenco dei lavori già fatti su questo rilievo e con l'uso del suolo di oggi (ESA WorldCover 2021).</li>
+        </ol>
+        <p>Il criterio di successo del rilevatore è stato scritto e registrato nel repository prima di eseguire il test, e il test è stato eseguito una volta.</p>
+      </div>
+    </section>
+
+    <section id="it-5">
+      <h2><span class="secnum">05</span>Misure</h2>
+      <h3>Il rilevatore, sul test di Chactún</h3>
+      <div class="tablewrap">
+        <table>
+          <tbody>
+            <tr><th scope="row">Riquadri di test, mai usati in addestramento</th><td class="n">329</td></tr>
+            <tr><th scope="row">Strutture annotate da archeologi</th><td class="n">942</td></tr>
+            <tr><th scope="row">Strutture annotate ritrovate</th><td class="n">76,4%</td></tr>
+            <tr><th scope="row">Segnalazioni del rilevatore</th><td class="n">677</td></tr>
+            <tr><th scope="row">Segnalazioni che cadono su una struttura annotata</th><td class="n">83,0%</td></tr>
+            <tr><th scope="row">Sovrapposizione dei contorni (IoU)</th><td class="n">0,566</td></tr>
+            <tr><th scope="row">Criterio scritto prima: almeno 70% e 70%</th><td class="n">superato</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <ul>
+          <li>Ogni riquadro di Chactún contiene almeno una struttura. La precisione vale in terreno denso di rovine; in terreno vuoto, carsico o coltivato non è misurata da questo test.</li>
+          <li>Chactún è stato rilevato con un altro strumento, a densità di punti più alta. Quanto il rilevatore perda sui dati NASA del 2013 non è noto.</li>
+          <li>I contorni sono grossolani. Il rilevatore dice dove guardare, non disegna piante.</li>
+        </ul>
+      </div>
+
+      <h3>I revisori, sui controlli nascosti</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Revisore</th><th class="n">Edifici noti riconosciuti</th><th class="n">Vuoti indicati come struttura</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Agente D</th><td class="n">4 su 10</td><td class="n">0 su 10</td></tr>
+            <tr><th scope="row">Agente E</th><td class="n">3 su 10</td><td class="n">0 su 10</td></tr>
+            <tr><th scope="row">Agente F</th><td class="n">4 su 10</td><td class="n">0 su 10</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <p class="req">La revisione è stata fatta da agenti AI dello stesso modello. Sui riquadri di controllo hanno riconosciuto 3–4 edifici noti su 10 e non hanno indicato come struttura nessuno dei 10 riquadri vuoti. Per questo il loro giudizio vale per confermare, non per scartare.</p>
+        <p>I tre revisori concordano fra loro sul 90–97% dei candidati. Il primo giro di revisione è stato annullato: i controlli con struttura erano tagliati sul bordo del riquadro e i revisori vedevano, correttamente, terreno vuoto.</p>
+      </div>
+      <figure>
+        <div class="pair-row four">
+          <figure><img src="figure/controllo_struttura_01.jpg" width="480" height="480" alt="Riquadro di controllo con un edificio annotato al centro."><figcaption>Controllo: edificio annotato</figcaption></figure>
+          <figure><img src="figure/controllo_struttura_02.jpg" width="480" height="480" alt="Riquadro di controllo con un edificio annotato al centro."><figcaption>Controllo: edificio annotato</figcaption></figure>
+          <figure><img src="figure/controllo_vuoto_01.jpg" width="480" height="480" alt="Riquadro di controllo senza strutture annotate."><figcaption>Controllo: vuoto</figcaption></figure>
+          <figure><img src="figure/controllo_vuoto_02.jpg" width="480" height="480" alt="Riquadro di controllo senza strutture annotate."><figcaption>Controllo: vuoto</figcaption></figure>
+        </div>
+        <figcaption>Riquadri di controllo (Chactún; Kokalj et al. 2023, CC BY 4.0), mescolati ai candidati senza che il revisore lo sappia.</figcaption>
+      </figure>
+
+      <h3>I 40 candidati rivisti</h3>
+      <div class="prose">
+        <p>Sono stati estratti quando erano scansionati circa 40 transetti, tutti nel blocco di volo centrale: 20 col punteggio più alto in quel momento e 20 a caso fra gli altri. Dei primi 20 ne reggono 12; dei 20 a caso ne reggono 3. Nessuno è stato scartato, perché questi revisori non possono scartare.</p>
+      </div>
+      <figure>
+        <div class="legend" aria-hidden="true"><span><i class="sw holds"></i>regge alla revisione</span><span><i class="sw unsure"></i>incerto</span></div>
+        <!--RANK_IT-->
+        <figcaption>Dove cadono i 40 candidati rivisti nella classifica per punteggio della scansione completa, su scala logaritmica. La fascia chiara sono i primi 100 su 11.916: ne sono stati rivisti 3.</figcaption>
+        <details class="tableview"><summary>Mostra come tabella</summary><div class="tablewrap"><!--RANKTABLE_IT--></div></details>
+      </figure>
+      <div class="prose">
+        <p><strong>Come leggere questo campione</strong></p>
+        <ul>
+          <li>Nella scansione completa quei «20 più alti» stanno fra la 13ª e la 433ª posizione su 11.916. I 20 presi a caso stanno fra la 1.844ª e la 11.858ª.</li>
+          <li>Il campione viene da un solo blocco di volo e non si estende agli altri sei.</li>
+          <li>Tre agenti dello stesso modello che concordano non sono tre conferme indipendenti.</li>
+          <li>Gli agenti riconoscono gli edifici a lati netti e non i tumuli consumati. Quindi 15 è una stima per difetto di quanti, fra questi 40, sono costruiti, e 25 incerti non vuol dire 25 falsi.</li>
+          <li>I 15 che reggono sono in maggioranza gruppi di rilievi (mediana 7); gli incerti sono in mediana un rilievo isolato.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="it-6">
+      <h2><span class="secnum">06</span>La scansione completa</h2>
+      <div class="prose">
+        <p>Tutti i 456 transetti sono stati scansionati: 1.272,7 km², 11.916 complessi candidati, 24.265 rilievi singoli dentro quei complessi. Un complesso candidato non è un sito: è un punto in cui il rilevatore ha visto una forma.</p>
+      </div>
+      <figure>
+        <!--SIZE_IT-->
+        <figcaption>Complessi candidati per numero di rilievi che li compongono. Il 61% è un rilievo isolato.</figcaption>
+        <details class="tableview"><summary>Mostra come tabella</summary><div class="tablewrap"><!--SIZETABLE_IT--></div></details>
+      </figure>
+      <div class="tablewrap">
+        <table>
+          <caption>Esiti e colonne di contesto, su 11.916 complessi</caption>
+          <tbody>
+            <tr><th scope="row">Reggono alla revisione</th><td class="n">15</td></tr>
+            <tr><th scope="row">Incerti</th><td class="n">25</td></tr>
+            <tr><th scope="row">Da rivedere</th><td class="n">11.876</td></tr>
+            <tr><th scope="row">Scartati</th><td class="n">0</td></tr>
+            <tr><th scope="row">Entro 2 km da uno dei 229 siti elencati su Wikidata</th><td class="n">249</td></tr>
+            <tr><th scope="row">Sotto un'area costruita oggi (almeno 5% del riquadro)</th><td class="n">150</td></tr>
+            <tr><th scope="row">Sotto un coltivo di oggi (almeno 30% del riquadro)</th><td class="n">34</td></tr>
+            <tr><th scope="row">Nessun uso moderno evidente</th><td class="n">11.732</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <p>L'uso del suolo viene da ESA WorldCover 2021 (10 m), con soglie fissate prima di guardare i candidati. È una colonna esplicativa, non una verifica: il LiDAR è del 2013, una pista nel bosco può non risultare costruita, e un abitato moderno può stare sopra un sito antico. Sui primi 1.548 candidati, gli 11 sotto un'area costruita sono stati guardati uno per uno: sono tutti strade asfaltate con le loro scarpate.</p>
+        <p>Nessun candidato è stato confrontato con il catalogo di Britton né con il registro dell'INAH. I 24.265 rilievi di Vaglio e le 57.181 strutture di Britton non sono confrontabili: definizioni, soglie e metodi sono diversi.</p>
+      </div>
+    </section>
+
+    <section id="it-7">
+      <h2><span class="secnum">07</span>I candidati che reggono</h2>
+      <div class="prose"><p>I 15 candidati che almeno due revisori su tre hanno giudicato costruiti. Tocca un riquadro per vederlo accanto alla versione a colori, in cui il rosso sporge e il blu affonda.</p></div>
+      <!--GALLERY_IT-->
+      <!--PRINTGALLERY_IT-->
+      <figure>
+        <div class="pair-row">
+          <figure><img src="figure/incerto_01.jpg" width="960" height="480" alt="Due viste di un candidato rimasto incerto: rilievi dai bordi irregolari."><figcaption>Incerto · 3 revisori su 3: naturale</figcaption></figure>
+          <figure><img src="figure/incerto_02.jpg" width="960" height="480" alt="Due viste di un candidato rimasto incerto: rilievi dai bordi irregolari."><figcaption>Incerto · 3 revisori su 3: naturale</figcaption></figure>
+        </div>
+        <figcaption>Candidati rimasti incerti: almeno due revisori li hanno giudicati naturali, moderni o un difetto del dato. Restano incerti perché questi revisori non possono scartare.</figcaption>
+      </figure>
+    </section>
+
+    <section id="it-8">
+      <h2><span class="secnum">08</span>Cosa non ha funzionato</h2>
+      <div class="prose">
+        <ul>
+          <li>Prima di Vaglio, un rilevatore di tumuli sul modello del terreno gratuito a 30 m (alto Khabur, Siria, con i 14.324 siti di Menze e Ur 2012 come controllo) ha fallito due volte un test pre-registrato: ritrovava dal 6 al 24% dei tumuli alti, e scansionando al buio da 86 a 98 allarmi su 100 non erano tumuli a catalogo. Per questo Vaglio lavora solo dove c'è LiDAR ad alta risoluzione.</li>
+          <li>Il primo giro di revisione è stato annullato per un difetto dei controlli.</li>
+          <li>La misura di ortogonalità dei bordi, aggiunta per abbassare in classifica il carsismo naturale, non aiuta a prevedere cosa i revisori tengono, una volta contate altezza e probabilità. È un indizio su 33 casi, non una conclusione.</li>
+          <li>Un ordine appreso dalle 40 revisioni sembra separare bene, ma sulla scansione completa porta in cima i rilievi più alti, colline comprese. Non è adottato finché non supera una prova scritta prima.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="it-9">
+      <h2><span class="secnum">09</span>Cosa non so</h2>
+      <div class="prose">
+        <ol>
+          <li>Quanti degli 11.916 candidati sono costruzioni. Il campione rivisto viene da un solo blocco: non va esteso agli altri.</li>
+          <li>Quanti sono già nel catalogo di Britton o nel registro dell'INAH.</li>
+          <li>Età, cultura e funzione di qualunque candidato.</li>
+          <li>Quanto il rilevatore perde su questi dati rispetto a Chactún.</li>
+          <li>Quanto valgono i candidati fuori dal blocco centrale, dal Chiapas montuoso al nord coltivato e abitato.</li>
+        </ol>
+        <p class="req">Nessun candidato è stato verificato sul campo. Non si afferma nulla sull'età, sulla cultura o sulla funzione di alcun candidato.</p>
+      </div>
+    </section>
+
+    <section id="it-10">
+      <h2><span class="secnum">10</span>Cosa chiedo</h2>
+      <ol class="asks">
+        <li><strong>Un confronto con il catalogo di Britton 2026.</strong><span>Su un piccolo campione di candidati, per sapere quanti sono già noti. Il modo di farlo si concorda.</span></li>
+        <li><strong>Un revisore umano esperto.</strong><span>Un pacco al buio di 60 riquadri, circa venti minuti, misurato sugli stessi controlli. È l'unico modo per avere qualcuno che possa anche scartare.</span></li>
+        <li><strong>Un parere sul metodo.</strong><span>Se la divisione di test di Chactún è una prova corretta, e se gli edifici che gli agenti non riconoscono sono del tipo che solo il campo può decidere.</span></li>
+      </ol>
+    </section>
+
+    <section id="it-11">
+      <h2><span class="secnum">11</span>Riproducibilità</h2>
+      <div class="prose">
+        <p>Codice pubblico nel repository <span class="data">mtornani/ArcheoEagle</span>, cartella <span class="data">vaglio/</span>. Gira su un portatile, senza chiavi e senza scheda grafica. La scansione completa scarica 31 GB e richiede circa quattro ore su quattro core.</p>
+      </div>
+      <pre><code>pip install -r requirements.txt
+python -m unittest discover -s tests
+python -m vaglio catalogo
+python -m vaglio scansiona --tutti
+python -m vaglio verifica pack_cieco.json</code></pre>
+      <div class="prose">
+        <p>L'elenco completo dei candidati, senza posizioni, è pubblico in <span class="data">vaglio/pack_cieco.json</span> (11.916 candidati) ed è firmato con questa impronta SHA-256:</p>
+      </div>
+      <div class="hash"><code id="hash-it">84fd816a59a7ba02b8f11b6cea7dcb6d85442b49f1e10896027d563c15158520</code><button type="button" class="copy" data-copy="hash-it" data-done="Copiato">Copia</button></div>
+      <div class="prose">
+        <p>Il criterio del test è nei commit <span class="data">1028de8</span> e <span class="data">b592a1e</span>, entrambi precedenti all'esecuzione del test.</p>
+      </div>
+    </section>
+
+    <section id="it-12">
+      <h2><span class="secnum">12</span>Posizioni, crediti, dichiarazione</h2>
+      <div class="prose">
+        <p class="req">Le posizioni dei candidati non sono in questo documento, per non esporre i luoghi al saccheggio.</p>
+        <p>Dati e codice sono pubblici: chiunque rifaccia la scansione riottiene lo stesso elenco. La riservatezza è una scelta di condotta, non un segreto tecnico.</p>
+        <ul>
+          <li>LiDAR: NASA G-LiHT (AMIGA-Carb, 2013); riprocessamento B. J. Britton (2026), distribuito da OpenTopography.</li>
+          <li>Addestramento e controlli: Kokalj, Ž., Džeroski, S., Šprajc, I. et al. (2023). Machine learning-ready remote sensing data for Maya archaeology. <i>Scientific Data</i> 10, 558. CC BY 4.0.</li>
+          <li>Uso del suolo: ESA WorldCover 10 m 2021 v200, CC BY 4.0. Mappa: Natural Earth. Siti noti: Wikidata.</li>
+        </ul>
+      </div>
+      <footer>
+        <p class="req">Analisi e testi prodotti da assistenti AI (Claude, GPT) con la supervisione di Mirko Tornani, ricercatore indipendente, non archeologo.</p>
+      </footer>
+    </section>
+  </main>
+</div>
+
+<!-- =============================== ENGLISH =============================== -->
+<div class="doc" data-panel="en" lang="en" hidden>
+  <nav class="toc" aria-label="Contents">
+    <details>
+      <summary>Contents</summary>
+      <ol>
+        <li><a href="#en-1">Summary</a></li>
+        <li><a href="#en-2">Why this work</a></li>
+        <li><a href="#en-3">Data</a></li>
+        <li><a href="#en-4">Method</a></li>
+        <li><a href="#en-5">Measurements</a></li>
+        <li><a href="#en-6">The full scan</a></li>
+        <li><a href="#en-7">Candidates that hold up</a></li>
+        <li><a href="#en-8">What did not work</a></li>
+        <li><a href="#en-9">What I do not know</a></li>
+        <li><a href="#en-10">What I am asking</a></li>
+        <li><a href="#en-11">Reproducibility</a></li>
+        <li><a href="#en-12">Locations, credits, disclosure</a></li>
+      </ol>
+    </details>
+  </nav>
+  <main>
+    <section class="opening" id="en-1">
+      <span class="eyebrow">Yucatán Peninsula · NASA G-LiHT airborne lidar, 2013</span>
+      <h1>An error-measured re-analysis of public G-LiHT lidar over the Yucatán</h1>
+      <p class="lede">With the help of AI assistants I searched NASA's 456 lidar transects over the Yucatán for structure-shaped relief. Other teams have already studied these transects. My aim is to measure how much each step gets wrong: the detector, the people or agents who review the images, and the check against what is already known.</p>
+      <dl class="measures">
+        <div>
+          <dt>Detector</dt>
+          <dd class="big">76.4%</dd>
+          <dd>of 942 archaeologist-annotated structures recovered; 83.0% of 677 detections fall on an annotated structure.</dd>
+          <dd class="sub">Tested on 329 Chactún tiles never used in training, in terrain dense with ruins.</dd>
+        </div>
+        <div>
+          <dt>Reviewers</dt>
+          <dd class="big">3–4 of 10</dd>
+          <dd>known buildings recognised by the AI reviewers; none of 10 empty tiles flagged as a structure.</dd>
+          <dd class="sub">Their judgement is therefore used to confirm, not to rule out.</dd>
+        </div>
+        <div>
+          <dt>Scan</dt>
+          <dd class="big">11,916</dd>
+          <dd>candidate complexes over 1,272.7 km². 40 have been reviewed: 15 hold up under blind review.</dd>
+          <dd class="sub">The other 11,876 are not yet reviewed.</dd>
+        </div>
+      </dl>
+      <div class="note">
+        <span class="eyebrow">Already analysed by others</span>
+        <p class="req">This lidar survey has already been analysed by other teams (Estrada-Belli et al. 2025; Britton 2026, with a catalogue of 57,181 structures that is not yet public). Every candidate is presumed already known unless a comparison shows otherwise.</p>
+      </div>
+      <figure>
+        <img src="figure/tavola_reggono.jpg" width="1280" height="960" alt="Twelve greyscale bare-earth tiles, each with straight-sided rectangular relief, isolated or arranged around flat open spaces.">
+        <figcaption>Candidates that hold up under blind review. Each tile is 120 m across and shows bare earth derived from lidar (NASA G-LiHT 2013, reprocessed by B. J. Britton 2026). Locations omitted.</figcaption>
+      </figure>
+    </section>
+
+    <section id="en-2">
+      <h2><span class="secnum">02</span>Why this work</h2>
+      <div class="prose">
+        <p>In November 2026 Pietro Miotti had 48 AI agents examine about 1,200 km² of this same lidar and reported a settlement that was not in the INAH register. Archaeologist Sarah Parcak pointed out that it had already been published in a 2025 study led by Francisco Estrada-Belli. On 11 November Miotti acknowledged that his agents had rediscovered it.</p>
+        <p>The method worked. Three measurements were missing: how often the detector is wrong, how often the agents looking at the images are wrong, and who had already seen that spot. Vaglio takes the same approach and adds those three measurements.</p>
+      </div>
+    </section>
+
+    <section id="en-3">
+      <h2><span class="secnum">03</span>Data</h2>
+      <div class="tablewrap">
+        <table class="kv">
+          <tbody>
+            <tr><th scope="row">Survey</th><td>NASA G-LiHT, AMIGA-Carb campaign, April–May 2013. Riegl VQ-480 laser flown about 335 m above ground.</td></tr>
+            <tr><th scope="row">Reprocessing</th><td>B. J. Britton, University of Cincinnati, 2026. Ground returns reclassified from scratch, terrain models at 33 cm.</td></tr>
+            <tr><th scope="row">Coverage</th><td class="num">456 transects, 1,272.7 km². Strips about 400 m wide, median length 7.6 km.</td></tr>
+            <tr><th scope="row">Access</th><td>Public, no key, via OpenTopography: <span class="data">doi:10.5069/G9Z899N1</span> and <span class="data">doi:10.5069/G9TH8JX9</span>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure>
+        <!--COVER-->
+        <figcaption>The 456 scanned transects at the scale of the peninsula. Together they cover less than 1% of its area: they sample it, they do not cover it. Candidates are deliberately left off the map.</figcaption>
+      </figure>
+    </section>
+
+    <section id="en-4">
+      <h2><span class="secnum">04</span>Method</h2>
+      <div class="prose">
+        <ol>
+          <li><strong>Terrain.</strong> Sky-view factor, positive openness and slope are computed from the 0.5 m terrain model, with the parameters published by Kokalj et al. (2023).</li>
+          <li><strong>Detector.</strong> A gradient-boosting classifier estimates, for each pixel, the probability that it belongs to a building or a platform. It is trained on the Chactún annotations made by archaeologists.</li>
+          <li><strong>Complexes.</strong> Above-threshold reliefs less than 60 m apart form one candidate complex. This is the unit that is reviewed and counted.</li>
+          <li><strong>Blind review.</strong> Candidates are shown as 120 m tiles, with no name or location, mixed with control tiles whose answer is known. Reviewers do not know which tiles are controls.</li>
+          <li><strong>Comparison.</strong> Each candidate is checked against lists of known sites, against the list of earlier work on this survey, and against present-day land cover (ESA WorldCover 2021).</li>
+        </ol>
+        <p>The detector's success criterion was written down and committed to the repository before the test was run, and the test was run once.</p>
+      </div>
+    </section>
+
+    <section id="en-5">
+      <h2><span class="secnum">05</span>Measurements</h2>
+      <h3>The detector, on the Chactún test set</h3>
+      <div class="tablewrap">
+        <table>
+          <tbody>
+            <tr><th scope="row">Test tiles, never used in training</th><td class="n">329</td></tr>
+            <tr><th scope="row">Structures annotated by archaeologists</th><td class="n">942</td></tr>
+            <tr><th scope="row">Annotated structures recovered</th><td class="n">76.4%</td></tr>
+            <tr><th scope="row">Detector outputs</th><td class="n">677</td></tr>
+            <tr><th scope="row">Outputs that fall on an annotated structure</th><td class="n">83.0%</td></tr>
+            <tr><th scope="row">Outline overlap (IoU)</th><td class="n">0.566</td></tr>
+            <tr><th scope="row">Criterion written in advance: at least 70% and 70%</th><td class="n">met</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <ul>
+          <li>Every Chactún tile contains at least one structure. The precision holds for terrain dense with ruins; this test does not measure it on empty, karstic or farmed ground.</li>
+          <li>Chactún was surveyed with a different instrument at a higher point density. How much the detector loses on the 2013 NASA data is not known.</li>
+          <li>Outlines are coarse. The detector says where to look; it does not draw plans.</li>
+        </ul>
+      </div>
+
+      <h3>The reviewers, on hidden controls</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Reviewer</th><th class="n">Known buildings recognised</th><th class="n">Empty tiles flagged as structure</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Agent D</th><td class="n">4 of 10</td><td class="n">0 of 10</td></tr>
+            <tr><th scope="row">Agent E</th><td class="n">3 of 10</td><td class="n">0 of 10</td></tr>
+            <tr><th scope="row">Agent F</th><td class="n">4 of 10</td><td class="n">0 of 10</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <p class="req">The review was carried out by AI agents of the same model. On control tiles they recognised 3–4 of 10 known buildings and flagged none of the 10 empty tiles as a structure. Their judgement is therefore used to confirm, not to rule out.</p>
+        <p>The three reviewers agree with each other on 90–97% of candidates. The first review round was voided: the structure controls were cut off at the tile edge, and the reviewers correctly saw empty ground.</p>
+      </div>
+      <figure>
+        <div class="pair-row four">
+          <figure><img src="figure/controllo_struttura_01.jpg" width="480" height="480" alt="Control tile with an annotated building at its centre."><figcaption>Control: annotated building</figcaption></figure>
+          <figure><img src="figure/controllo_struttura_02.jpg" width="480" height="480" alt="Control tile with an annotated building at its centre."><figcaption>Control: annotated building</figcaption></figure>
+          <figure><img src="figure/controllo_vuoto_01.jpg" width="480" height="480" alt="Control tile with no annotated structure."><figcaption>Control: empty</figcaption></figure>
+          <figure><img src="figure/controllo_vuoto_02.jpg" width="480" height="480" alt="Control tile with no annotated structure."><figcaption>Control: empty</figcaption></figure>
+        </div>
+        <figcaption>Control tiles (Chactún; Kokalj et al. 2023, CC BY 4.0), mixed in with the candidates without the reviewer knowing.</figcaption>
+      </figure>
+
+      <h3>The 40 reviewed candidates</h3>
+      <div class="prose">
+        <p>They were drawn when about 40 transects had been scanned, all in the central flight block: the 20 highest-scoring at that point and 20 at random from the rest. Of the top 20, 12 hold up; of the random 20, 3 hold up. None was ruled out, because these reviewers cannot rule out.</p>
+      </div>
+      <figure>
+        <div class="legend" aria-hidden="true"><span><i class="sw holds"></i>holds up under blind review</span><span><i class="sw unsure"></i>uncertain</span></div>
+        <!--RANK_EN-->
+        <figcaption>Where the 40 reviewed candidates fall in the score ranking of the full scan, on a log scale. The light band is the top 100 of 11,916: 3 of them have been reviewed.</figcaption>
+        <details class="tableview"><summary>Show as table</summary><div class="tablewrap"><!--RANKTABLE_EN--></div></details>
+      </figure>
+      <div class="prose">
+        <p><strong>How to read this sample</strong></p>
+        <ul>
+          <li>In the full scan those "top 20" rank between 13th and 433rd of 11,916. The random 20 rank between 1,844th and 11,858th.</li>
+          <li>The sample comes from one flight block and does not extend to the other six.</li>
+          <li>Three agents of the same model agreeing are not three independent opinions.</li>
+          <li>The agents recognise sharp-edged buildings and miss eroded mounds. So 15 is a lower bound on how many of these 40 are built, and 25 uncertain does not mean 25 false.</li>
+          <li>Most of the 15 that hold up are groups of reliefs (median 7); the uncertain ones are, at the median, a single isolated relief.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="en-6">
+      <h2><span class="secnum">06</span>The full scan</h2>
+      <div class="prose">
+        <p>All 456 transects have been scanned: 1,272.7 km², 11,916 candidate complexes, 24,265 individual reliefs inside them. A candidate complex is not a site. It is a place where the detector saw a shape.</p>
+      </div>
+      <figure>
+        <!--SIZE_EN-->
+        <figcaption>Candidate complexes by the number of reliefs they contain. 61% are a single relief.</figcaption>
+        <details class="tableview"><summary>Show as table</summary><div class="tablewrap"><!--SIZETABLE_EN--></div></details>
+      </figure>
+      <div class="tablewrap">
+        <table>
+          <caption>Outcomes and context columns, over 11,916 complexes</caption>
+          <tbody>
+            <tr><th scope="row">Hold up under blind review</th><td class="n">15</td></tr>
+            <tr><th scope="row">Uncertain</th><td class="n">25</td></tr>
+            <tr><th scope="row">Not yet reviewed</th><td class="n">11,876</td></tr>
+            <tr><th scope="row">Ruled out</th><td class="n">0</td></tr>
+            <tr><th scope="row">Within 2 km of one of 229 sites listed on Wikidata</th><td class="n">249</td></tr>
+            <tr><th scope="row">Under present-day built-up land (at least 5% of the tile)</th><td class="n">150</td></tr>
+            <tr><th scope="row">Under present-day cropland (at least 30% of the tile)</th><td class="n">34</td></tr>
+            <tr><th scope="row">No visible modern land use</th><td class="n">11,732</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <p>Land cover comes from ESA WorldCover 2021 (10 m), with thresholds fixed before looking at the candidates. It is an explanatory column, not a check: the lidar dates from 2013, a forest track may not register as built-up, and a modern village can sit on top of an ancient one. Among the first 1,548 candidates, the 11 under built-up land were inspected one by one: all 11 are paved roads with their embankments.</p>
+        <p>No candidate has been compared with Britton's catalogue or with the INAH register. Vaglio's 24,265 reliefs and Britton's 57,181 structures are not comparable: definitions, thresholds and methods differ.</p>
+      </div>
+    </section>
+
+    <section id="en-7">
+      <h2><span class="secnum">07</span>Candidates that hold up</h2>
+      <div class="prose"><p>The 15 candidates that at least two of three reviewers judged to be built. Tap a tile to see it beside the colour version, where red stands up and blue sinks.</p></div>
+      <!--GALLERY_EN-->
+      <!--PRINTGALLERY_EN-->
+      <figure>
+        <div class="pair-row">
+          <figure><img src="figure/incerto_01.jpg" width="960" height="480" alt="Two views of a candidate that stayed uncertain: reliefs with irregular edges."><figcaption>Uncertain · 3 of 3 reviewers: natural</figcaption></figure>
+          <figure><img src="figure/incerto_02.jpg" width="960" height="480" alt="Two views of a candidate that stayed uncertain: reliefs with irregular edges."><figcaption>Uncertain · 3 of 3 reviewers: natural</figcaption></figure>
+        </div>
+        <figcaption>Candidates that stayed uncertain: at least two reviewers judged them natural, modern or a data artefact. They stay uncertain because these reviewers cannot rule out.</figcaption>
+      </figure>
+    </section>
+
+    <section id="en-8">
+      <h2><span class="secnum">08</span>What did not work</h2>
+      <div class="prose">
+        <ul>
+          <li>Before Vaglio, a mound detector on the free 30 m terrain model (upper Khabur, Syria, with the 14,324 sites of Menze and Ur 2012 as control) failed a pre-registered test twice: it recovered 6 to 24% of tall mounds, and in a blind scan 86 to 98 alarms in 100 were not catalogued mounds. This is why Vaglio only works where high-resolution lidar exists.</li>
+          <li>The first review round was voided because of a flaw in the controls.</li>
+          <li>The edge-orthogonality measure, added to push natural karst down the ranking, does not help predict what reviewers keep once height and probability are accounted for. This is a hint from 33 cases, not a conclusion.</li>
+          <li>A ranking learned from the 40 reviews appears to separate well, but on the full scan it pushes the tallest reliefs to the top, hills included. It is not adopted until it passes a test written in advance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="en-9">
+      <h2><span class="secnum">09</span>What I do not know</h2>
+      <div class="prose">
+        <ol>
+          <li>How many of the 11,916 candidates are built structures. The reviewed sample comes from one block and should not be extended to the others.</li>
+          <li>How many are already in Britton's catalogue or in the INAH register.</li>
+          <li>The age, culture and function of any candidate.</li>
+          <li>How much the detector loses on these data compared with Chactún.</li>
+          <li>How well candidates outside the central block hold up, from upland Chiapas to the farmed and settled north.</li>
+        </ol>
+        <p class="req">No candidate has been verified in the field. No claim is made about the age, culture or function of any candidate.</p>
+      </div>
+    </section>
+
+    <section id="en-10">
+      <h2><span class="secnum">10</span>What I am asking</h2>
+      <ol class="asks">
+        <li><strong>A comparison with Britton's 2026 catalogue.</strong><span>On a small sample of candidates, to learn how many are already known. How to do it is open to agreement.</span></li>
+        <li><strong>An expert human reviewer.</strong><span>One blind pack of 60 tiles, about twenty minutes, scored on the same controls. It is the only way to get a reviewer who can also rule candidates out.</span></li>
+        <li><strong>An opinion on the method.</strong><span>Whether the Chactún test split is a fair test, and whether the buildings the agents miss are the kind only fieldwork can settle.</span></li>
+      </ol>
+    </section>
+
+    <section id="en-11">
+      <h2><span class="secnum">11</span>Reproducibility</h2>
+      <div class="prose">
+        <p>Public code in the repository <span class="data">mtornani/ArcheoEagle</span>, folder <span class="data">vaglio/</span>. It runs on a laptop, with no keys and no GPU. The full scan downloads 31 GB and takes about four hours on four cores.</p>
+      </div>
+      <pre><code>pip install -r requirements.txt
+python -m unittest discover -s tests
+python -m vaglio catalogo
+python -m vaglio scansiona --tutti
+python -m vaglio verifica pack_cieco.json</code></pre>
+      <div class="prose">
+        <p>The full candidate list, without locations, is public in <span class="data">vaglio/pack_cieco.json</span> (11,916 candidates) and is signed with this SHA-256 fingerprint:</p>
+      </div>
+      <div class="hash"><code id="hash-en">84fd816a59a7ba02b8f11b6cea7dcb6d85442b49f1e10896027d563c15158520</code><button type="button" class="copy" data-copy="hash-en" data-done="Copied">Copy</button></div>
+      <div class="prose">
+        <p>The test criterion is in commits <span class="data">1028de8</span> and <span class="data">b592a1e</span>, both made before the test was run.</p>
+      </div>
+    </section>
+
+    <section id="en-12">
+      <h2><span class="secnum">12</span>Locations, credits, disclosure</h2>
+      <div class="prose">
+        <p class="req">Candidate locations are not included in this document, to avoid exposing the places to looting.</p>
+        <p>Data and code are public, so anyone who reruns the scan gets the same list. Keeping locations out is a matter of conduct, not a technical secret.</p>
+        <ul>
+          <li>Lidar: NASA G-LiHT (AMIGA-Carb, 2013); reprocessing by B. J. Britton (2026), distributed by OpenTopography.</li>
+          <li>Training and controls: Kokalj, Ž., Džeroski, S., Šprajc, I. et al. (2023). Machine learning-ready remote sensing data for Maya archaeology. <i>Scientific Data</i> 10, 558. CC BY 4.0.</li>
+          <li>Land cover: ESA WorldCover 10 m 2021 v200, CC BY 4.0. Base map: Natural Earth. Known sites: Wikidata.</li>
+        </ul>
+      </div>
+      <footer>
+        <p class="req">Analysis and text were produced by AI assistants (Claude, GPT) under the supervision of Mirko Tornani, independent researcher, not an archaeologist.</p>
+      </footer>
+    </section>
+  </main>
+</div>
+</div>
+
+<dialog id="lb" aria-label="Candidato">
+  <div class="lb">
+    <div class="lb-bar">
+      <button type="button" id="lb-prev" aria-label="Precedente">‹</button>
+      <p id="lb-cap"></p>
+      <button type="button" id="lb-next" aria-label="Successivo">›</button>
+      <button type="button" id="lb-close" aria-label="Chiudi">×</button>
+    </div>
+    <img id="lb-img" src="figure/regge_01.jpg" width="960" height="480" alt="">
+    <div class="lb-views"><span id="lb-l"></span><span id="lb-r"></span></div>
+  </div>
+</dialog>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+(() => {
+  const INFO = /*INFO*/null;
+  const DATA = /*DATA*/null;
+  const T = {
+    it: { of: "di", reviewers: "revisori su", struct: "struttura", reliefs: (n) => n === 1 ? "1 rilievo" : n + " rilievi",
+          rise: "sporge", left: "come la vede il revisore", right: "rilievo a colori: rosso sporge, blu affonda",
+          prev: "Precedente", next: "Successivo", close: "Chiudi", cand: "Candidato" },
+    en: { of: "of", reviewers: "reviewers of", struct: "structure", reliefs: (n) => n === 1 ? "1 relief" : n + " reliefs",
+          rise: "stands", left: "as the reviewer sees it", right: "colour relief: red stands up, blue sinks",
+          prev: "Previous", next: "Next", close: "Close", cand: "Candidate" },
+  };
+  const fmt = (lang, n) => n.toLocaleString(lang === "it" ? "it-IT" : "en-GB");
+  let lang = "it";
+
+  function pickLang() {
+    const h = (location.hash || "").slice(1);
+    if (h === "en" || h.startsWith("en-")) return "en";
+    if (h === "it" || h.startsWith("it-")) return "it";
+    try { const s = localStorage.getItem("vaglio-lang"); if (s === "it" || s === "en") return s; } catch (e) {}
+    return (navigator.language || "it").toLowerCase().startsWith("it") ? "it" : "en";
+  }
+  function setLang(l, remember) {
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-panel]").forEach((p) => { p.hidden = p.dataset.panel !== l; });
+    document.querySelectorAll(".langs button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
+    document.querySelectorAll("[data-it]").forEach((el) => { el.textContent = el.dataset[l]; });
+    document.title = l === "it" ? "Rapporto Vaglio" : "Vaglio report";
+    if (remember) { try { localStorage.setItem("vaglio-lang", l); } catch (e) {} }
+    observe();
+    drawCharts();
+  }
+  document.querySelectorAll(".langs button").forEach((b) => b.addEventListener("click", () => {
+    setLang(b.dataset.lang, true);
+    if (location.hash) history.replaceState(null, "", "#" + b.dataset.lang);
+    window.scrollTo({ top: 0 });
+  }));
+  window.addEventListener("hashchange", () => { const l = pickLang(); if (l !== lang) setLang(l, false); });
+
+  // section index: highlight the section in view
+  let io;
+  function observe() {
+    if (io) io.disconnect();
+    if (!("IntersectionObserver" in window)) return;
+    const links = [...document.querySelectorAll(`[data-panel="${lang}"] .toc a`)];
+    const map = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+    io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.removeAttribute("aria-current"));
+        const a = map.get(e.target.id); if (a) a.setAttribute("aria-current", "true");
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    map.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+  }
+  // wide screens: the index is always open beside the text; phones: a closed disclosure that closes again after a jump
+  const wide = matchMedia("(min-width: 64rem)");
+  const syncToc = () => document.querySelectorAll(".toc details").forEach((d) => { d.open = wide.matches; });
+  if (wide.addEventListener) wide.addEventListener("change", syncToc); else wide.addListener(syncToc);
+  syncToc();
+  document.querySelectorAll(".toc a").forEach((a) => a.addEventListener("click", () => {
+    const d = a.closest("details"); if (d && !wide.matches) d.open = false;
+  }));
+
+  // copy buttons
+  document.querySelectorAll(".copy").forEach((b) => b.addEventListener("click", () => {
+    const el = document.getElementById(b.dataset.copy);
+    const label = b.textContent;
+    const done = () => { b.textContent = b.dataset.done; setTimeout(() => { b.textContent = label; }, 1600); };
+    const select = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(el.textContent.trim()).then(done, select); } catch (e) { select(); }
+  }));
+
+  // chart tooltips
+  const tip = document.getElementById("tip");
+  function showTip(el, x, y) {
+    tip.textContent = el.dataset[lang] || el.dataset.it;
+    tip.hidden = false;
+    const r = tip.getBoundingClientRect();
+    tip.style.left = Math.max(8, Math.min(x + 12, innerWidth - r.width - 8)) + "px";
+    tip.style.top = Math.max(8, y - r.height - 12) + "px";
+  }
+  function bindTips(root) {
+    root.querySelectorAll("[data-it]").forEach((el) => {
+      el.addEventListener("pointerenter", (e) => showTip(el, e.clientX, e.clientY));
+      el.addEventListener("pointermove", (e) => showTip(el, e.clientX, e.clientY));
+      el.addEventListener("pointerleave", () => { tip.hidden = true; });
+      el.addEventListener("focus", () => { const r = el.getBoundingClientRect(); showTip(el, r.left + r.width / 2, r.top); });
+      el.addEventListener("blur", () => { tip.hidden = true; });
+    });
+  }
+  addEventListener("scroll", () => { tip.hidden = true; }, { passive: true });
+
+  // charts, drawn at the container's real width so text stays at real pixel size
+  const NS = "http://www.w3.org/2000/svg";
+  const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  const OUT = { holds: { it: "regge alla revisione", en: "holds up under blind review" }, unsure: { it: "incerto", en: "uncertain" } };
+
+  function drawRank(host) {
+    const W = Math.max(280, host.clientWidth), N = DATA.n, narrow = W < 560;
+    const L = narrow ? 8 : 150, R = 18, top = narrow ? 34 : 30, rowGap = narrow ? 62 : 52;
+    const rows = [{ g: "top", it: "20 più alti allora", en: "Top 20 at the time" }, { g: "rnd", it: "20 a caso", en: "Random 20" }];
+    const y0 = top + (narrow ? 22 : 16), H = y0 + rowGap * 2 + 26;
+    const x = (r) => L + (Math.log10(r) / Math.log10(N)) * (W - L - R);
+    let s = `<svg class="chart" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(host.dataset[lang + "Label"])}">`;
+    s += `<rect class="band" x="${x(1)}" y="${top - 4}" width="${x(100) - x(1)}" height="${rowGap * 2 + (narrow ? 16 : 6)}" rx="2"/>`;
+    s += `<text x="${x(1) + 6}" y="${top - 10}">${lang === "it" ? "primi 100" : "top 100"}</text>`;
+    const ticks = [1, 10, 100, 1000, 10000];
+    const axisY = y0 + rowGap * 2 - (narrow ? 14 : 22);
+    ticks.forEach((t) => {
+      s += `<line class="grid" x1="${x(t)}" x2="${x(t)}" y1="${top}" y2="${axisY}"/>`;
+      if (x(N) - x(t) > 48) s += `<text x="${x(t)}" y="${axisY + 16}" text-anchor="${t === 1 ? "start" : "middle"}">${fmt(lang, t)}</text>`;   // vicino alla fine vince l'etichetta del totale
+    });
+    s += `<line class="axis" x1="${L}" x2="${W - R}" y1="${axisY}" y2="${axisY}"/>`;
+    s += `<text x="${W - R}" y="${axisY + 16}" text-anchor="end">${fmt(lang, N)}</text>`;
+    rows.forEach((row, k) => {
+      const yy = y0 + k * rowGap - (narrow ? 0 : 6);
+      s += narrow ? `<text class="lbl" x="${L}" y="${yy - 14}">${row[lang]}</text>` : `<text class="lbl" x="0" y="${yy + 4}">${row[lang]}</text>`;
+      const pts = DATA.rank.filter((p) => p[2] === row.g).map((p) => ({ r: p[0], o: p[1], x: x(p[0]) })).sort((a, b) => a.x - b.x);
+      const placed = [];
+      pts.forEach((p) => {
+        const offs = [0, -11, 11, -22, 22];
+        const off = offs.find((o) => !placed.some((q) => q.o === o && Math.abs(q.x - p.x) < 12)) ?? 0;
+        placed.push({ x: p.x, o: off });
+        const cy = yy + off, cls = p.o === "regge" ? "holds" : "unsure", label = OUT[cls];
+        const tit = `${lang === "it" ? "Posizione" : "Rank"} ${fmt(lang, p.r)} ${lang === "it" ? "su" : "of"} ${fmt(lang, N)} · ${label[lang]}`;
+        s += `<circle class="${cls}" cx="${p.x}" cy="${cy}" r="${cls === "holds" ? 5.5 : 4.5}"/>`;
+        s += `<circle class="hit" cx="${p.x}" cy="${cy}" r="11" tabindex="0" data-it="Posizione ${fmt("it", p.r)} su ${fmt("it", N)} · ${label.it}" data-en="Rank ${fmt("en", p.r)} of ${fmt("en", N)} · ${label.en}"><title>${tit}</title></circle>`;
+      });
+    });
+    s += `<text x="${(L + W - R) / 2}" y="${H - 2}" text-anchor="middle">${lang === "it" ? "posizione per punteggio, scala logaritmica" : "score rank, log scale"}</text>`;
+    host.innerHTML = s + "</svg>";
+    bindTips(host);
+  }
+
+  function drawSize(host) {
+    const W = Math.max(280, host.clientWidth), narrow = W < 480;
+    const L = narrow ? 64 : 96, R = narrow ? 74 : 110, bh = 20, gap = 14, top = 6;
+    const H = top + DATA.size.length * (bh + gap);
+    const max = Math.max(...DATA.size.map((d) => d[2])), total = DATA.size.reduce((a, d) => a + d[2], 0);
+    const x = (v) => (v / max) * (W - L - R);
+    let s = `<svg class="chart" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(host.dataset[lang + "Label"])}">`;
+    DATA.size.forEach((d, i) => {
+      const y = top + i * (bh + gap), w = Math.max(2, x(d[2])), pct = Math.round((100 * d[2]) / total);
+      const lab = lang === "it" ? d[0] : d[1];
+      s += `<text class="lbl" x="${L - 10}" y="${y + bh / 2 + 4}" text-anchor="end">${lab}</text>`;
+      s += `<path class="bar" d="M${L},${y} h${w - 4} a4,4 0 0 1 4,4 v${bh - 8} a4,4 0 0 1 -4,4 h${-(w - 4)} z"/>`;
+      s += `<text x="${L + w + 8}" y="${y + bh / 2 + 4}">${fmt(lang, d[2])} · ${pct}%</text>`;
+      s += `<rect class="hit" x="${L}" y="${y - 4}" width="${W - L - R + 60}" height="${bh + 8}" tabindex="0" data-it="${d[0]}: ${fmt("it", d[2])} complessi (${pct}%)" data-en="${d[1]}: ${fmt("en", d[2])} complexes (${pct}%)"><title>${lab}: ${fmt(lang, d[2])}</title></rect>`;
+    });
+    host.innerHTML = s + "</svg>";
+    bindTips(host);
+  }
+
+  function drawCharts() {
+    document.querySelectorAll(`[data-panel="${lang}"] .chart-host`).forEach((h) => (h.dataset.chart === "rank" ? drawRank : drawSize)(h));
+  }
+  let rt;
+  addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawCharts, 120); });
+
+  // gallery lightbox
+  const dlg = document.getElementById("lb"), img = document.getElementById("lb-img"), cap = document.getElementById("lb-cap");
+  let cur = 0;
+  function caption(i) {
+    const t = T[lang], d = INFO.regge[i];
+    return `${t.cand} ${i + 1} ${t.of} ${INFO.regge.length} · ${t.reliefs(d.n)} · ${fmt(lang, d.area)} m² · ${t.rise} ${fmt(lang, d.h)} m · ${t.struct}: ${d.yes} ${t.reviewers} ${d.votes}`;
+  }
+  function show(i) {
+    cur = (i + INFO.regge.length) % INFO.regge.length;
+    const n = String(cur + 1).padStart(2, "0");
+    img.src = `figure/regge_${n}.jpg`;
+    img.alt = caption(cur);
+    cap.textContent = caption(cur);
+    const t = T[lang];
+    document.getElementById("lb-l").textContent = t.left;
+    document.getElementById("lb-r").textContent = t.right;
+    document.getElementById("lb-prev").setAttribute("aria-label", t.prev);
+    document.getElementById("lb-next").setAttribute("aria-label", t.next);
+    document.getElementById("lb-close").setAttribute("aria-label", t.close);
+  }
+  document.querySelectorAll(".gallery button").forEach((b) => b.addEventListener("click", () => {
+    show(Number(b.dataset.i));
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+  }));
+  document.getElementById("lb-prev").addEventListener("click", () => show(cur - 1));
+  document.getElementById("lb-next").addEventListener("click", () => show(cur + 1));
+  document.getElementById("lb-close").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("keydown", (e) => { if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
+
+  setLang(pickLang(), false);
+})();
+</script>

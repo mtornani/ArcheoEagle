@@ -7,6 +7,7 @@
     python -m vaglio impara                                       # le revisioni riordinano la coda
     python -m vaglio moderno                                      # cosa c'e' oggi sopra ogni candidato (uso del suolo)
     python -m vaglio verifica pack_cieco.json                     # controlla un pack ricevuto: hash e nessuna coordinata
+    python -m vaglio deposito                                     # test cieco: elenco sigillato + impronta da pubblicare
     python -m vaglio kit                                          # numeri e figure senza posizioni, per chi scrive i materiali
     python -m vaglio controlla rapporto.md                        # un testo pronto a uscire: niente coordinate, niente "scoperta"
     python -m vaglio dossier                                      # HTML offline + pack cieco
@@ -108,6 +109,7 @@ def main() -> None:
     sub.add_parser("moderno")
     sub.add_parser("dossier")
     sub.add_parser("kit")
+    sub.add_parser("deposito")
     k = sub.add_parser("controlla")
     k.add_argument("file", nargs="+", help="testi pronti a uscire (md, html, txt)")
     v = sub.add_parser("verifica")
@@ -227,6 +229,14 @@ def main() -> None:
         print(f"{path}: {len(pack.get('candidates') or [])} candidati, firmato {pack.get('timestamp')}")
         print("\n".join(problems) if problems else "a posto: l'hash corrisponde e nessun campo localizza")
         raise SystemExit(1 if problems else 0)
+
+    if a.cmd == "deposito":
+        from . import deposit
+
+        m = deposit.write(work)
+        print(json.dumps(m, ensure_ascii=False, indent=1))
+        print("Pubblica l'impronta sha256 (commit in vaglio/test_cieco/DEPOSIT.md) PRIMA di mandare il CSV.")
+        return
 
     if a.cmd == "kit":
         from . import kit

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sotto la foresta — Vaglio, ri-analisi del LiDAR G-LiHT sullo Yucatán</title>
+  <meta name="description" content="Vaglio ri-analizza il LiDAR pubblico G-LiHT sullo Yucatán e misura gli errori. 11.916 complessi candidati su 1.272,7 km²; 15 reggono alla revisione al buio, 25 restano incerti. Ogni candidato si presume già noto. Posizioni omesse.">
+  <meta name="theme-color" content="#4a3d8a">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://mtornani.github.io/ArcheoEagle/vaglio/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:site_name" content="ArcheoEagle">
+  <meta property="og:title" content="Sotto la foresta — Vaglio, ri-analisi del LiDAR G-LiHT sullo Yucatán">
+  <meta property="og:description" content="11.916 complessi candidati su 1.272,7 km² di LiDAR pubblico. 15 reggono alla revisione al buio, 25 restano incerti. Ogni candidato si presume già noto. Posizioni omesse.">
+  <meta property="og:url" content="https://mtornani.github.io/ArcheoEagle/vaglio/">
+  <meta property="og:image" content="https://mtornani.github.io/ArcheoEagle/vaglio/img/og.jpg">
+  <meta property="og:image:alt" content="Rilievo a forma di costruzione a Chactún, colorato con la rampa viridis, e i numeri della ri-analisi Vaglio.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sotto la foresta — Vaglio, ri-analisi del LiDAR G-LiHT sullo Yucatán">
+  <meta name="twitter:description" content="11.916 complessi candidati su 1.272,7 km² di LiDAR pubblico. 15 reggono alla revisione al buio, 25 restano incerti. Ogni candidato si presume già noto.">
+  <meta name="twitter:image" content="https://mtornani.github.io/ArcheoEagle/vaglio/img/og.jpg">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand" data-i="brand">Sotto la foresta · Vaglio</div>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="it" aria-pressed="true">IT</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+      <h1 data-i="title">Sotto la foresta</h1>
+      <p class="lead" data-i="lead"></p>
+      <p class="warn" data-i="s1"></p>
+      <p class="warn" data-i="s2"></p>
+      <div class="nums" aria-label="Cifre principali">
+        <div class="num"><b>456</b><span data-i="nTransects"></span></div>
+        <div class="num"><b id="n-area">1.272,7</b><span data-i="nArea"></span></div>
+        <div class="num"><b id="n-cand">11.916</b><span data-i="nCand"></span></div>
+        <div class="num"><b>15</b><span data-i="nHold"></span></div>
+        <div class="num"><b>25</b><span data-i="nUnc"></span></div>
+        <div class="num"><b id="n-todo">11.876</b><span data-i="nTodo"></span></div>
+        <div class="num"><b>0</b><span data-i="nOut"></span></div>
+      </div>
+      <nav class="toc" aria-label="Sezioni">
+        <a href="#foresta" data-i="tocForest"></a>
+        <a href="#mappa" data-i="tocMap"></a>
+        <a href="#prova" data-i="tocQuiz"></a>
+        <a href="#quindici" data-i="tocFifteen"></a>
+        <a href="#candidati" data-i="tocCards"></a>
+        <a href="#test" data-i="tocTest"></a>
+        <a href="#limiti" data-i="tocLimits"></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="perche">
+      <h2 data-i="whyH"></h2>
+      <p data-i="why"></p>
+    </section>
+
+
+    <section id="foresta">
+      <h2 data-i="forestH"></h2>
+      <p data-i="forestLead"></p>
+      <div class="reveal hint" id="reveal" style="--pos: 62%;">
+        <img src="img/terreno.jpg" width="960" height="960" alt="">
+        <img class="top-img" src="img/chioma.jpg" width="960" height="960" alt="">
+        <span class="line"></span>
+        <input type="range" id="reveal-range" min="0" max="100" value="62" data-i-aria="forestAria">
+        <span class="knob" aria-hidden="true">‹ ›</span>
+        <span class="tag l" data-i="forestWith"></span>
+        <span class="tag r" data-i="forestWithout"></span>
+      </div>
+      <p class="map-caption" data-i="forestCap"></p>
+    </section>
+
+    <section id="mappa">
+      <h2 data-i="mapH"></h2>
+      <div id="map" role="region" aria-label="Mappa dei transetti scansionati e di Chactún"></div>
+      <div class="zone-legend" id="zone-legend"></div>
+      <p class="map-caption" data-i="mapCap"></p>
+      <p class="note" data-i="s4"></p>
+    </section>
+
+    <section id="metodo">
+      <h2 data-i="howH"></h2>
+      <ol class="steps">
+        <li><strong data-i="step1t"></strong> <span data-i="step1"></span></li>
+        <li><strong data-i="step2t"></strong> <span data-i="step2"></span></li>
+        <li><strong data-i="step3t"></strong> <span data-i="step3"></span></li>
+        <li><strong data-i="step4t"></strong> <span data-i="step4"></span></li>
+        <li><strong data-i="step5t"></strong> <span data-i="step5"></span></li>
+      </ol>
+    </section>
+
+
+    <section id="prova">
+      <h2 data-i="quizH"></h2>
+      <p data-i="quizLead"></p>
+      <div class="game" id="game">
+        <div class="game-head"><div class="dots" id="dots" aria-hidden="true"></div><span class="counter" id="counter"></span></div>
+        <div class="tile-quiz"><img id="g-img" src="img/quiz/prova_1.jpg" width="720" height="720" alt=""><div class="verdict" id="g-verdict" role="status" hidden></div></div>
+        <div class="choices" id="g-choices">
+          <button type="button" data-a="1" data-i="quizYes"></button>
+          <button type="button" data-a="0" data-i="quizNo"></button>
+        </div>
+        <button type="button" class="next" id="g-next" hidden></button>
+        <div class="result" id="g-result" hidden>
+          <div class="score">
+            <div><b id="s-built"></b><span data-i="quizBuilt"></span></div>
+            <div><b id="s-empty"></b><span data-i="quizEmpty"></span></div>
+          </div>
+          <p data-i="quizVs"></p>
+          <button type="button" id="g-again" data-i="quizAgain"></button>
+        </div>
+      </div>
+      <p class="note" data-i="quizSrc"></p>
+    </section>
+
+    <section id="misure">
+      <h2 data-i="measH"></h2>
+      <p data-i="meas"></p>
+      <p data-i="measLim"></p>
+
+      <h3 data-i="figH"></h3>
+      <p data-i="figLead"></p>
+      <div class="legend">
+        <img src="img/legend-viridis.png" alt="Scala di colori viridis" width="640" height="72">
+        <div class="ends"><span data-i="open"></span><span data-i="relief"></span></div>
+      </div>
+      <div class="gallery" id="gallery"></div>
+
+      <h3 data-i="revH"></h3>
+      <p data-i="rev"></p>
+      <p class="note" data-i="s3"></p>
+    </section>
+
+
+    <section id="quindici">
+      <h2 data-i="fifteenH"></h2>
+      <p data-i="fifteenLead"></p>
+      <p class="note" data-i="fifteenPal"></p>
+      <figure class="tavola">
+        <img src="img/hold/tavola_reggono.jpg" width="1600" height="900" alt="" data-i-alt="fifteenTavolaAlt">
+        <figcaption data-i="fifteenTavola"></figcaption>
+      </figure>
+      <div class="hold-grid" id="hold-grid"></div>
+    </section>
+
+    <section id="candidati">
+      <h2 data-i="cardsH"></h2>
+      <p data-i="cardsLead"></p>
+      <div class="filters" role="toolbar" aria-label="Filtra per esito">
+        <button type="button" id="f-all" data-f="all" aria-pressed="true"></button>
+        <button type="button" id="f-ok" data-f="regge_alla_revisione" aria-pressed="false"></button>
+        <button type="button" id="f-mid" data-f="incerto" aria-pressed="false"></button>
+        <button type="button" id="f-no" data-f="scartato" aria-pressed="false"></button>
+      </div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section id="scansione">
+      <h2 data-i="scanH"></h2>
+      <p data-i="scan"></p>
+      <p data-i="land"></p>
+    </section>
+
+    <section id="fallimenti">
+      <h2 data-i="failH"></h2>
+      <p data-i="fail"></p>
+    </section>
+
+    <section id="limiti">
+      <h2 data-i="unkH"></h2>
+      <ol>
+        <li data-i="unk1"></li>
+        <li data-i="unk2"></li>
+        <li data-i="unk3"></li>
+        <li data-i="unk4"></li>
+        <li data-i="unk5"></li>
+      </ol>
+      <p data-i="s2"></p>
+    </section>
+
+    <section id="richieste">
+      <h2 data-i="askH"></h2>
+      <p data-i="ask"></p>
+    </section>
+
+
+    <section id="test">
+      <h2 data-i="testH"></h2>
+      <p data-i="testLead"></p>
+      <ul class="steps">
+        <li data-i="testP1"></li>
+        <li data-i="testP2"></li>
+        <li data-i="testP3"></li>
+      </ul>
+      <p data-i="testSeal"></p>
+      <p class="hash">SHA-256 <code>deposito.csv</code>: 53c140758f263560d998ce4ea256038ddd0dabc6cc4da566b8c8a013722fc8de</p>
+      <p><a class="ext" href="https://github.com/mtornani/ArcheoEagle/blob/main/vaglio/test_cieco/PREREGISTRATION.md" data-i="testProto"></a></p>
+      <p><a class="ext" href="https://github.com/mtornani/ArcheoEagle/blob/main/vaglio/test_cieco/DEPOSIT.md" data-i="testDep"></a></p>
+    </section>
+
+    <section id="riproducibilita">
+      <h2 data-i="reproH"></h2>
+      <p data-i="repro"></p>
+      <p class="hash">SHA-256: 84fd816a59a7ba02b8f11b6cea7dcb6d85442b49f1e10896027d563c15158520</p>
+      <p><a class="ext" href="https://github.com/mtornani/ArcheoEagle/blob/main/vaglio/pack_cieco.json" data-i="repo"></a></p>
+    </section>
+
+    <section id="crediti">
+      <h2 data-i="creditsH"></h2>
+      <p data-i="credits"></p>
+      <p data-i="s5"></p>
+    </section>
+
+    <details>
+      <summary data-i="sourcesH"></summary>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Numero / affermazione</th><th>Fonte</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>456 transetti, 1.272,7 km²</td><td>FATTI.md §3 e §5; transects.json</td></tr>
+            <tr><td>11.916 complessi, 24.265 rilievi, 7.328 / 845 / 214, area 1.018 m², 1,4 m</td><td>FATTI.md §5; pack_cieco.json</td></tr>
+            <tr><td>76,4% ritrovate, 83,0% delle 677 segnalazioni, 942 strutture, 329 riquadri, IoU 0,566</td><td>FATTI.md §4; model.py</td></tr>
+            <tr><td>Criterio ≥70% scritto prima, test superato</td><td>FATTI.md §4; commit 1028de8 e b592a1e</td></tr>
+            <tr><td>15 reggono, 25 incerti, 0 scartati, 11.876 da rivedere</td><td>FATTI.md §6; pack_cieco.json</td></tr>
+            <tr><td>Controlli 4, 3 e 4 su 10; 0 su 10 vuoti; accordo 90–97%</td><td>FATTI.md §6</td></tr>
+            <tr><td>12 su 20 più alti, 3 su 20 a caso; ranghi 13–433 e 1.844–11.858; 3 su 100</td><td>FATTI.md §6</td></tr>
+            <tr><td>249 entro 2 km da 229 siti Wikidata; 11.667 già analizzati</td><td>FATTI.md §7; pack_cieco.json</td></tr>
+            <tr><td>11 su 1.548 con «costruito», tutte strade</td><td>FATTI.md §8</td></tr>
+            <tr><td>Firma SHA-256 del pack cieco e data 2026-11-16T18:17:21+00:00</td><td>FATTI.md §11; pack_cieco.json</td></tr>
+            <tr><td>Deposito cieco SHA-256 53c14075…fc8de, commit 525c212, OpenTimestamps</td><td>vaglio/test_cieco/DEPOSIT.md e DEPOSIT.md.ots</td></tr>
+            <tr><td>Figure dei 15 che reggono (kit, senza posizioni)</td><td>vaglio/materiali/uscite/pubblico/img/ e rapporto/figure/</td></tr>
+            <tr><td>Fallimenti sul DEM a 30 m, giro annullato, ortogonalità, ordine appreso</td><td>FATTI.md §9</td></tr>
+            <tr><td>Cinque punti su ciò che non è noto</td><td>FATTI.md §10</td></tr>
+            <tr><td>Aree dei sette blocchi di volo</td><td>transects.json (catalogo pubblico), somma delle aree</td></tr>
+            <tr><td>Riquadri colorati di Chactún</td><td>vaglio/vaglio/data/controls/, Kokalj et al. 2023, CC BY 4.0</td></tr>
+            <tr><td>Posizione di Chactún sulla mappa</td><td>known_sites.csv, Wikidata Q13518345</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </main>
+
+  <footer class="wrap">
+    <p data-i="footer"></p>
+    <p class="meta">https://mtornani.github.io/ArcheoEagle/vaglio/</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

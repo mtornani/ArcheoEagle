@@ -1,0 +1,258 @@
+{
+"regge": [
+{
+"n": 7,
+"area": 8680,
+"h": 3.6,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 7,
+"area": 3757,
+"h": 2.8,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 3,
+"area": 1916,
+"h": 2.6,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 10,
+"area": 10807,
+"h": 2.0,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 4,
+"area": 6624,
+"h": 3.0,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 8,
+"area": 2647,
+"h": 2.8,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 1,
+"area": 1768,
+"h": 2.1,
+"yes": 2,
+"votes": 3,
+"verdicts": [
+"incerto",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 12,
+"area": 4816,
+"h": 2.7,
+"yes": 2,
+"votes": 3,
+"verdicts": [
+"incerto",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 1,
+"area": 2323,
+"h": 1.8,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 7,
+"area": 5312,
+"h": 2.2,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 2,
+"area": 2424,
+"h": 2.2,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 4,
+"area": 6985,
+"h": 2.4,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 13,
+"area": 7600,
+"h": 2.4,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 12,
+"area": 6935,
+"h": 2.1,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+},
+{
+"n": 8,
+"area": 4016,
+"h": 2.4,
+"yes": 3,
+"votes": 3,
+"verdicts": [
+"struttura",
+"struttura",
+"struttura"
+]
+}
+],
+"incerto": [
+{
+"n": 7,
+"area": 5291,
+"h": 2.2,
+"yes": 0,
+"votes": 3,
+"verdicts": [
+"naturale",
+"naturale",
+"naturale"
+]
+},
+{
+"n": 9,
+"area": 7028,
+"h": 1.8,
+"yes": 0,
+"votes": 3,
+"verdicts": [
+"naturale",
+"naturale",
+"naturale"
+]
+},
+{
+"n": 29,
+"area": 27588,
+"h": 2.3,
+"yes": 0,
+"votes": 3,
+"verdicts": [
+"naturale",
+"naturale",
+"naturale"
+]
+},
+{
+"n": 2,
+"area": 286,
+"h": 1.8,
+"yes": 0,
+"votes": 3,
+"verdicts": [
+"naturale",
+"naturale",
+"naturale"
+]
+},
+{
+"n": 7,
+"area": 2320,
+"h": 1.8,
+"yes": 0,
+"votes": 3,
+"verdicts": [
+"naturale",
+"naturale",
+"naturale"
+]
+},
+{
+"n": 5,
+"area": 8511,
+"h": 1.6,
+"yes": 0,
+"votes": 3,
+"verdicts": [
+"naturale",
+"naturale",
+"naturale"
+]
+}
+]
+}

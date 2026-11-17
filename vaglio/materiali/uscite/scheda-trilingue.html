@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sintesi trilingue del progetto Vaglio, del metodo e dei suoi limiti.">
+  <title>Vaglio — analisi LiDAR con errori misurati</title>
+  <script>document.documentElement.classList.add("js");</script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18332f;
+      --muted: #465e59;
+      --paper: #f2f3ed;
+      --card: #ffffff;
+      --line: #d7e0d9;
+      --accent: #146b5c;
+      --soft: #e7f2eb;
+      --gold: #f0bd4f;
+      --coral: #c85f45;
+      --blue: #477d9a;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    a { color: #125b50; text-underline-offset: 0.18em; }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 3px;
+    }
+
+    .wrap { width: min(100% - 2rem, 68rem); margin-inline: auto; }
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0.5rem;
+      z-index: 5;
+      background: white;
+      padding: 0.75rem;
+    }
+    .skip-link:focus { left: 0.5rem; }
+
+    header {
+      background: #123d3b;
+      color: white;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: 0.8rem;
+    }
+    .brand {
+      color: white;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+    }
+    .language-switcher { display: flex; gap: 0.4rem; }
+    .language-switcher button {
+      min-height: 44px;
+      border: 1px solid #a6c1b9;
+      border-radius: 0.6rem;
+      padding: 0.45rem 0.7rem;
+      background: transparent;
+      color: white;
+      font: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .language-switcher button[aria-pressed="true"] {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #18332f;
+      font-weight: 750;
+    }
+
+    main { padding-block: clamp(1.25rem, 4vw, 3rem); }
+    .language-panel {
+      margin-bottom: 2rem;
+      padding: clamp(1.1rem, 4vw, 3rem);
+      border: 1px solid #dfe5df;
+      border-radius: 1.25rem;
+      background: var(--card);
+      box-shadow: 0 0.7rem 2rem rgb(24 51 47 / 8%);
+    }
+    html.js .language-panel:not(.active) { display: none; }
+    .eyebrow {
+      margin: 0 0 0.5rem;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 26ch;
+      margin: 0;
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+    h2 { margin: 0 0 0.55rem; font-size: 1.12rem; line-height: 1.3; }
+    p { margin: 0.7rem 0; }
+    .lede {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-block: 1.25rem 1.6rem;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      background: #123d3b;
+      color: white;
+      font-size: 0.96rem;
+    }
+    .hero-metric {
+      min-width: 0;
+      padding: 0.75rem;
+      border-radius: 0.7rem;
+      background: #ffffff;
+      color: var(--ink);
+    }
+    .hero-metric strong {
+      display: block;
+      color: var(--accent);
+      font-size: clamp(1.35rem, 4vw, 2rem);
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums;
+    }
+    .scope-note {
+      grid-column: 1 / -1;
+      padding: 0.15rem 0.35rem 0.05rem;
+      font-weight: 650;
+    }
+    .metrics { display: grid; gap: 1rem; }
+    .metric {
+      padding: 1.1rem;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--accent);
+      border-radius: 0.85rem;
+      background: #fbfcfa;
+    }
+    .metric:nth-child(2) { border-top-color: var(--blue); }
+    .metric:nth-child(3) { border-top-color: var(--coral); }
+    .metric p { margin: 0; }
+    .metric-number {
+      font-size: 1.16em;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .metric-number.built { color: #a64b34; }
+    .metric-number.cultivated { color: #805900; }
+    .metric-number.neutral { color: #315d78; }
+    .metric-number.holds { color: #176745; }
+    .metric-number.uncertain { color: #95521a; }
+    .metric-number.unreviewed { color: #395c78; }
+    .measure-row {
+      display: block;
+      margin-block: 0.7rem;
+    }
+    .measure-copy { display: block; }
+    .measure-track {
+      display: block;
+      height: 0.55rem;
+      margin-top: 0.3rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e3e9e5;
+    }
+    .measure-track > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--accent);
+    }
+    .measure-row.secondary .measure-track > span { background: #bf8420; }
+    figure {
+      margin: 1.8rem 0;
+      padding: clamp(0.65rem, 2vw, 1.1rem);
+      border-radius: 1rem;
+      background: #e8f1ec;
+    }
+    figure img {
+      display: block;
+      width: 100%;
+      max-width: 56rem;
+      height: auto;
+      margin-inline: auto;
+      border: 3px solid white;
+      border-radius: 0.7rem;
+      background: white;
+      box-shadow: 0 0.35rem 1rem rgb(24 51 47 / 12%);
+    }
+    figcaption {
+      max-width: 56rem;
+      margin: 0.6rem auto 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .request {
+      margin-top: 1.2rem;
+      padding: 0.9rem 1rem;
+      border-left: 5px solid var(--gold);
+      border-radius: 0.3rem 0.7rem 0.7rem 0.3rem;
+      background: #fff4d8;
+    }
+    .required-copy {
+      margin-top: 1.3rem;
+      padding: 0.7rem 1rem;
+      border-left: 4px solid var(--blue);
+      border-radius: 0.3rem 0.7rem 0.7rem 0.3rem;
+      background: #eef4f7;
+      color: #263f4c;
+      font-size: 0.94rem;
+    }
+    .required-copy p { margin-block: 0.75rem; }
+    .contact { color: var(--muted); font-size: 0.92rem; }
+    details {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.9rem;
+    }
+    summary { min-height: 44px; cursor: pointer; font-weight: 700; }
+    .table-scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { padding: 0.55rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    footer {
+      padding-block: 1.5rem 2.5rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    footer p { margin-block: 0.4rem; }
+    .pack-hash { overflow-wrap: anywhere; font-family: ui-monospace, monospace; font-size: 0.82rem; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (min-width: 44rem) {
+      .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 25rem) {
+      .wrap { width: min(100% - 1rem, 68rem); }
+      .header-inner { align-items: flex-start; flex-direction: column; }
+      .language-switcher { width: 100%; }
+      .language-switcher button { flex: 1; padding-inline: 0.35rem; }
+      .lede { grid-template-columns: 1fr; }
+      .scope-note { grid-column: auto; }
+    }
+    @media print {
+      header, .skip-link { display: none; }
+      html.js .language-panel:not(.active) { display: block; }
+      .language-panel { box-shadow: none; break-inside: auto; }
+      .metric, figure, .required-copy { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Salta al contenuto / Skip to content / Saltar al contenido</a>
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="https://github.com/mtornani/ArcheoEagle">VAGLIO</a>
+      <nav class="language-switcher" aria-label="Lingua / Language / Idioma">
+        <button type="button" data-language="it" aria-controls="panel-it" aria-pressed="true">Italiano</button>
+        <button type="button" data-language="en" aria-controls="panel-en" aria-pressed="false">English</button>
+        <button type="button" data-language="es" aria-controls="panel-es" aria-pressed="false">Español</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section id="panel-it" class="language-panel active" lang="it" aria-labelledby="title-it">
+      <p class="eyebrow">Sintesi</p>
+      <h1 id="title-it">Vaglio: una ri-analisi con errori misurati del LiDAR pubblico G-LiHT sullo Yucatán</h1>
+      <p class="lede"><span class="hero-metric"><strong>456</strong> transetti</span><span class="hero-metric"><strong>1.272,7 km²</strong></span><span class="hero-metric"><strong>11.916</strong> complessi candidati</span><span class="scope-note">Strisce campionarie, non copertura della penisola.</span></p>
+
+      <div class="metrics">
+        <article class="metric">
+          <h2>Rilevatore</h2>
+          <p>Chactún:
+            <span class="measure-row"><span class="measure-copy"><strong class="metric-number">76,4%</strong> di 942 strutture annotate ritrovate</span><span class="measure-track" aria-hidden="true"><span style="width:76.4%"></span></span></span>
+            <span class="measure-row secondary"><span class="measure-copy">l'<strong class="metric-number">83,0%</strong> di 677 segnalazioni cade su una struttura</span><span class="measure-track" aria-hidden="true"><span style="width:83%"></span></span></span>
+            Rovine dense; altrove non misurato.</p>
+        </article>
+        <article class="metric">
+          <h2>Uso del suolo oggi</h2>
+          <p>WorldCover 2021: <strong class="metric-number built">150</strong> costruito, <strong class="metric-number cultivated">34</strong> coltivato, <strong class="metric-number neutral">11.732</strong> senza uso evidente. Conteggi non verificati a vista; «costruito oggi» non esclude resti antichi.</p>
+        </article>
+        <article class="metric">
+          <h2>Revisione al buio</h2>
+          <p><strong class="metric-number">40</strong> rivisti: <strong class="metric-number holds">15</strong> reggono, <strong class="metric-number uncertain">25</strong> incerti; <strong class="metric-number unreviewed">11.876</strong> da rivedere. Un blocco; 3 dei primi 100 per punteggio rivisti.</p>
+        </article>
+      </div>
+
+      <figure>
+        <img src="tavola_reggono.jpg" width="1280" height="960" loading="lazy" decoding="async" alt="Tavola di complessi candidati che reggono alla revisione, senza indicazioni di posizione.">
+        <figcaption>Candidati che reggono alla revisione. Ogni riquadro ha 120 m di lato e mostra il terreno nudo ricavato dal LiDAR (NASA G-LiHT 2013, riprocessato da B. J. Britton 2026). Posizioni omesse.</figcaption>
+      </figure>
+
+      <h2>Cosa non sappiamo</h2>
+      <p>La presenza in altri cataloghi non è stata verificata.</p>
+      <p class="request"><strong>Richiesta:</strong> valutazione indipendente del metodo.</p>
+
+      <div class="required-copy">
+        <p>Questo rilievo è già stato analizzato da altri gruppi (Estrada-Belli et al. 2025; Britton 2026, con un catalogo di 57.181 strutture non ancora pubblico). Ogni candidato si presume già noto finché un confronto non mostra il contrario.</p>
+        <p>Nessun candidato è stato verificato sul campo. Non si afferma nulla sull'età, sulla cultura o sulla funzione di alcun candidato.</p>
+        <p>La revisione è stata fatta da agenti AI dello stesso modello. Sui riquadri di controllo hanno riconosciuto 3–4 edifici noti su 10 e non hanno indicato come struttura nessuno dei 10 riquadri vuoti. Per questo il loro giudizio vale per confermare, non per scartare.</p>
+        <p>Le posizioni dei candidati non sono in questo documento, per non esporre i luoghi al saccheggio.</p>
+        <p>Analisi e testi prodotti da assistenti AI (Claude, GPT) con la supervisione di Mirko Tornani, ricercatore indipendente, non archeologo.</p>
+      </div>
+      <p class="contact">Contatti: [da inserire dall'operatore].</p>
+
+    </section>
+
+    <section id="panel-en" class="language-panel" lang="en" aria-labelledby="title-en">
+      <p class="eyebrow">Summary</p>
+      <h1 id="title-en">Vaglio: an error-measured re-analysis of public G-LiHT lidar over the Yucatán</h1>
+      <p class="lede"><span class="hero-metric"><strong>456</strong> transects</span><span class="hero-metric"><strong>1,272.7 km²</strong></span><span class="hero-metric"><strong>11,916</strong> candidate complexes</span><span class="scope-note">Sample strips, not full-peninsula coverage.</span></p>
+
+      <div class="metrics">
+        <article class="metric">
+          <h2>Detector</h2>
+          <p>Chactún test:
+            <span class="measure-row"><span class="measure-copy"><strong class="metric-number">76.4%</strong> of 942 annotated structures found</span><span class="measure-track" aria-hidden="true"><span style="width:76.4%"></span></span></span>
+            <span class="measure-row secondary"><span class="measure-copy"><strong class="metric-number">83.0%</strong> of 677 flags matched one</span><span class="measure-track" aria-hidden="true"><span style="width:83%"></span></span></span>
+            Dense ruins; elsewhere unmeasured.</p>
+        </article>
+        <article class="metric">
+          <h2>Current land use</h2>
+          <p>WorldCover 2021: <strong class="metric-number built">150</strong> built, <strong class="metric-number cultivated">34</strong> cultivated, <strong class="metric-number neutral">11,732</strong> with no obvious use. Not visually checked; built today does not rule out ancient remains.</p>
+        </article>
+        <article class="metric">
+          <h2>Blind review</h2>
+          <p><strong class="metric-number">40</strong> reviewed: <strong class="metric-number holds">15</strong> hold up, <strong class="metric-number uncertain">25</strong> uncertain; <strong class="metric-number unreviewed">11,876</strong> not yet reviewed. One block; 3 of the top 100 reviewed.</p>
+        </article>
+      </div>
+
+      <figure>
+        <img src="tavola_reggono.jpg" width="1280" height="960" loading="lazy" decoding="async" alt="Panel of candidate complexes that hold up under blind review, with no location information.">
+        <figcaption>Candidate complexes that hold up under blind review. Each tile is 120 m across and shows bare earth derived from LiDAR (NASA G-LiHT 2013, reprocessed by B. J. Britton 2026). Locations omitted.</figcaption>
+      </figure>
+
+      <h2>What is not known</h2>
+      <p>Catalogue overlap has not been checked.</p>
+      <p class="request"><strong>Request:</strong> independent method assessment.</p>
+
+      <div class="required-copy">
+        <p>This lidar survey has already been analysed by other teams (Estrada-Belli et al. 2025; Britton 2026, with a catalogue of 57,181 structures that is not yet public). Every candidate is presumed already known unless a comparison shows otherwise.</p>
+        <p>No candidate has been verified in the field. No claim is made about the age, culture or function of any candidate.</p>
+        <p>The review was carried out by AI agents of the same model. On control tiles they recognised 3–4 of 10 known buildings and flagged none of the 10 empty tiles as a structure. Their judgement is therefore used to confirm, not to rule out.</p>
+        <p>Candidate locations are not included in this document, to avoid exposing the places to looting.</p>
+        <p>Analysis and text were produced by AI assistants (Claude, GPT) under the supervision of Mirko Tornani, independent researcher, not an archaeologist.</p>
+      </div>
+      <p class="contact">Contact: [to be completed by the operator].</p>
+
+    </section>
+
+    <section id="panel-es" class="language-panel" lang="es" aria-labelledby="title-es">
+      <p class="eyebrow">Resumen</p>
+      <h1 id="title-es">Vaglio: un reanálisis con errores medidos del lidar público G-LiHT sobre Yucatán</h1>
+      <p class="lede"><span class="hero-metric"><strong>456</strong> transectos</span><span class="hero-metric"><strong>1.272,7 km²</strong></span><span class="hero-metric"><strong>11.916</strong> complejos candidatos</span><span class="scope-note">Franjas parciales.</span></p>
+
+      <div class="metrics">
+        <article class="metric">
+          <h2>Detector</h2>
+          <p>Chactún:
+            <span class="measure-row"><span class="measure-copy">942 estructuras anotadas; <strong class="metric-number">76,4 %</strong> recuperadas</span><span class="measure-track" aria-hidden="true"><span style="width:76.4%"></span></span></span>
+            <span class="measure-row secondary"><span class="measure-copy"><strong class="metric-number">83,0 %</strong> de 677 señales coincide</span><span class="measure-track" aria-hidden="true"><span style="width:83%"></span></span></span>
+            Ruinas densas; otros terrenos no medidos.</p>
+        </article>
+        <article class="metric">
+          <h2>Uso actual del suelo</h2>
+          <p>WorldCover 2021: <strong class="metric-number built">150</strong> construidos, <strong class="metric-number cultivated">34</strong> cultivados, <strong class="metric-number neutral">11.732</strong> sin uso evidente. Sin revisión visual; construido hoy no descarta antigüedad.</p>
+        </article>
+        <article class="metric">
+          <h2>Revisión a ciegas</h2>
+          <p><strong class="metric-number">40</strong> revisados: <strong class="metric-number holds">15</strong> se sostienen, <strong class="metric-number uncertain">25</strong> inciertos; <strong class="metric-number unreviewed">11.876</strong> sin revisar. Un bloque; 3 de los primeros 100 revisados.</p>
+        </article>
+      </div>
+
+      <figure>
+        <img src="tavola_reggono.jpg" width="1280" height="960" loading="lazy" decoding="async" alt="Lámina de complejos candidatos que se sostienen en la revisión a ciegas, sin información de ubicación.">
+        <figcaption>Complejos candidatos que se sostienen en la revisión a ciegas. Cada recuadro mide 120 m por lado y muestra el terreno desnudo derivado del lidar (NASA G-LiHT 2013, reprocesado por B. J. Britton 2026). Se omiten las ubicaciones.</figcaption>
+      </figure>
+
+      <p>No se comprobó su presencia en otros catálogos.</p>
+      <p class="request"><strong>Solicitud:</strong> evaluación independiente del método.</p>
+
+      <div class="required-copy">
+        <p>Este levantamiento lidar ya ha sido analizado por otros equipos (Estrada-Belli et al. 2025; Britton 2026, con un catálogo de 57.181 estructuras aún no público). Todo candidato se presume ya conocido mientras una comparación no muestre lo contrario.</p>
+        <p>Ningún candidato ha sido verificado en campo. No se afirma nada sobre la edad, la cultura o la función de ningún candidato.</p>
+        <p>La revisión fue realizada por agentes de IA del mismo modelo. En los recuadros de control reconocieron 3–4 de 10 edificios conocidos y no señalaron como estructura ninguno de los 10 recuadros vacíos. Por eso su juicio sirve para sostener un candidato, no para excluirlo.</p>
+        <p>Las ubicaciones de los candidatos no figuran en este documento, para no exponer los lugares al saqueo.</p>
+        <p>El análisis y los textos fueron producidos por asistentes de IA (Claude, GPT) bajo la supervisión de Mirko Tornani, [función: la completa el operador].</p>
+      </div>
+      <p class="contact">Contacto: [lo completa el operador].</p>
+
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>Fonti / Sources / Fuentes:
+      <a href="../FATTI.md">fatti / facts / hechos</a> ·
+      <a href="scheda-trilingue-riscontro.md">riscontro / number check / comprobación</a> ·
+      <a href="https://github.com/mtornani/ArcheoEagle">codice / code / código</a> ·
+      <a href="https://doi.org/10.5069/G9Z899N1">LiDAR G-LiHT (PDDL), tile 1</a> ·
+      <a href="https://doi.org/10.5069/G9TH8JX9">LiDAR G-LiHT (PDDL), tile 2</a> ·
+      <a href="https://doi.org/10.6084/m9.figshare.22202395">Chactún (CC BY 4.0)</a> ·
+      ESA WorldCover 2021 (CC BY 4.0).
+    </p>
+    <p><a href="../../pack_cieco.json">Scarica / Download / Descargar pack cieco (JSON)</a></p>
+    <p class="pack-hash">SHA-256 del pack / Pack SHA-256 / SHA-256 del paquete: 84fd816a59a7ba02b8f11b6cea7dcb6d85442b49f1e10896027d563c15158520</p>
+    <p><span lang="it">Il dossier locale e i file con coordinate non sono pubblicati.</span> <span lang="en">The local dossier and files with coordinates are not published.</span> <span lang="es">El expediente local y los archivos con coordenadas no se publican.</span></p>
+  </footer>
+
+  <script>
+    const languageButtons = document.querySelectorAll("[data-language]");
+    const languagePanels = document.querySelectorAll(".language-panel");
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const language = button.dataset.language;
+        languageButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        languagePanels.forEach((panel) => panel.classList.toggle("active", panel.lang === language));
+        document.documentElement.lang = language;
+      });
+    });
+  </script>
+</body>
+</html>
